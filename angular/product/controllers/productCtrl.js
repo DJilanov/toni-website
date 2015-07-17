@@ -13,14 +13,17 @@ angular.module('Product')
         		var location = $location.$$path.split('/')[2];
 
 	        	switch(location){
-	        		case 'cameras':
-	        			return 'cameras';
+	        		case 'csGo':
+	        			return 'csGo';
 	        			break;
-	        		case 'dvrs':
-	        			return 'dvrs';
+	        		case 'gridAutoSport':
+	        			return 'gridAutoSport';
 	        			break;
-	        		case 'phones':
-	        			return 'phones';
+	        		case 'finalFantasy14':
+	        			return 'finalFantasy14';
+	        			break;
+	        		case 'worldOfTanks':
+	        			return 'worldOfTanks';
 	        			break;
 	        		default:
 	        			return 'home';

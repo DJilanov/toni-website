@@ -13,7 +13,6 @@ angular.module('Home').factory('sharingSvc', ['$http',
 
         // we fetch the products and show them. we save them into the array for future direct use
         function getProducts(callback, type) {
-        	debugger;
 	        if(response === null) {
 	        	$http.get('./home.json').success(function(data, status, headers, config) {
 				    response = data;
@@ -21,7 +20,6 @@ angular.module('Home').factory('sharingSvc', ['$http',
 				  error(function(data, status, headers, config) {
 				    alert('Error on fetching from the server');
 				}).then(function(){
-        	debugger;
 					if(type != null){
 						callback(response.products[type]);
 					} else {

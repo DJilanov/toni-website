@@ -6,7 +6,18 @@ angular.module('Header')
             // TODO integrate search functionallity into the database. When you type here it calls to
             // the database and show result as bootstrap search suggestions
             $scope.searchInput = null;
-            $scope.carousel = $('.carousel').carousel();
+            $timeout(function () {
+                var handle_nav = function(e) {
+			        e.preventDefault();
+			        var nav = $(this);
+			        nav.parents('.carousel').carousel(nav.data('slide'));
+			    };
+	            $('.carousel').carousel({
+	                interval: 3000,
+	                pause: "hover",
+	                wrap: true
+	            }).on('click', '.carousel-control', handle_nav);
+            }, 500);
             // we set the active page to be shown in the header as black background
             $scope.getClass = function(path) {
 	        	var location = $location.$$path.indexOf(path);
@@ -36,17 +47,5 @@ angular.module('Header')
 			};
 			// TODO: Integrate when you click on shop by department it must be pull down menu and you have
 			// the choise between the product creators ( samsung , nokia and etc )
-
-			// carousel function
-			// TODO: Integrate function that starts the carousel on load and fix the issues with the 2 buttons
-			$scope.previousElement = function() {
-				debugger;
-				$('.carousel').carousel().prev();
-			};
-
-			$scope.nextElement = function() {
-				debugger;
-				$('.carousel').carousel().next();
-			};
 
 		}]);
