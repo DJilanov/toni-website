@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta charset="utf-8">
+    <meta content="Freelancing Web and Mobile Interaction Designer based in Sofia, Bulgaria." name="description">
+    <title>Web &amp; Mobile UX/UI Designer — Dimitar Jilanov</title>
+    <link href="./css/normalize.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="./css/site.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="./css/mediaQuery.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="./font-awesome-4.0.3/css/font-awesome.min.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="./bootstrap-3.3.4-dist/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="./img/logo2.png" />
+    <!-- scripts -->
+    <script src="./js/config.js" ></script>
+    <script src="./js/jquery.min.js" ></script>
+    <script src="./js/site.js" ></script>
+    <script src="./js/script.js"></script>
+    <script src="./bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
+    <script src="./js/angular.min.js" ></script>
+    <script src="./js/angular-route/angular-route.min.js" ></script>
+    <script src="./js/angular-resource/angular-resource.min.js" ></script>
+    <!-- angular -->
+    <script src="./angular/app.js" ></script>
+    <!-- header -->
+    <script src="./angular/header/header.js" ></script>
+    <script src="./angular/header/controllers/headerCtrl.js" ></script>
+    <!-- admin -->
+    <script src="./angular/admin/admin.js" ></script>
+    <script src="./angular/admin/controllers/adminCtrl.js" ></script>
+    <!-- api -->
+    <script src="./angular/api/api.js" ></script>
+    <!-- home -->
+    <script src="./angular/home/home.js" ></script>
+    <script src="./angular/home/controllers/homeCtrl.js" ></script>
+    <!-- login -->
+    <script src="./angular/login/login.js" ></script>
+    <script src="./angular/login/controllers/loginCtrl.js" ></script>
+    <!-- modals -->
+    <script src="./angular/modals/modals.js" ></script>
+    <!-- product -->
+    <script src="./angular/product/product.js" ></script>
+    <script src="./angular/product/controllers/productCtrl.js" ></script>
+    <!-- services -->
+    <script src="./angular/services/services.js" ></script>
+    <!-- view -->
+    <script src="./angular/view/view.js" ></script>
+    <script src="./angular/view/controllers/viewCtrl.js" ></script>
+    <!-- video -->
+    <script src="./angular/video/video.js" ></script>
+    <script src="./angular/video/controllers/videoCtrl.js" ></script>
+    <!-- sharing -->
+    <script src="./angular/directives/sharingSvc.js" ></script>
+  </head>
+  <body ng-app="app">
+    <!-- we import the navigation -->
+    <header>
+        <div ng-include="'./angular/header/views/header.html'" ng-controller="HeaderCtrl"> </div>
+    </header>
+    <div ng-class="{ mainContainer:!loginPage,staticHeight:infScroll }" ng-view></div>
+    <!-- <div class="container" ng-view></div> -->
+    <!-- used for dark background -->
+    <div class="overlay hide"></div>
+  </body>
+</html>
+<!-- TODO: Integrate currency into product list. Integrate better alignment there -->
