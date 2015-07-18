@@ -13,19 +13,22 @@ angular.module('Home').factory('sharingSvc', ['$http',
 		    	"password": id.password
 		    };
 	       	$http({
-			    method: 'POST',
+			    method: 'GET',
 			    url: config.api,
-			    data: JSON.stringify(data),
+			    params: data,
        			headers: {'Content-Type': 'application/json'}
 			})
 			.success(function(data, status, headers, config) {
-					    response = data;
-					})
+			    response = data;
+			})
 			.error(function(data, status, headers, config) {
 			    alert('Error on fetching from the server');
 			})
 			.then(function(){
-				debugger;
+				if(response != null) {
+					callback(response);
+				}
+
 			});
        	}
         return {

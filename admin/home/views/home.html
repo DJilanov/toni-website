@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" ng-show="form">
   <form class="form-signin">
     <h2 class="form-signin-heading">Please sign in</h2>
     <label for="inputEmail" class="sr-only">Email address</label>
@@ -13,3 +13,35 @@
     <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="update(login)">Sign in</button>
   </form>
 </div>
+<footer>
+  <div class='info' ng-repeat="model in response.products" ng-show="list">
+  	<div class="container {{main.test}}">
+	  <h1>{{model.title}}</h1>
+	  <p>{{model.description}}</p>
+	</div>
+  	<div class="container dealsContainer">
+	  	<div class="col-lg-4" ng-repeat="insideModel in model.products">
+	  	<!-- create title, image, description -->
+	   		<div class="col-lg-4">
+	     		<!-- image -->
+	     		<img src="{{insideModel.image}}" alt="product" width="100%">
+	   		</div>
+		    <div class="col-lg-8">
+		     <!-- title -->
+		     <h3>{{insideModel.title}}</h3>
+		     <!-- attention -->
+		     <div class='blue'>
+		       <span>{{insideModel.description}}</span>
+		     </div>
+		     <!-- description -->
+		     <div class='infoProduct'>
+		       <span>{{insideModel.moreInfo}}.</span>
+		     </div>
+		     <div class='productPrice'>
+		       <span class='oldPrice'>{{insideModel.oldPrice}}</span> <span class='newPrice'>{{insideModel.newPrice}}</span> <span class='priceOff'>({{insideModel.offPrice}}% off)</span>
+		     </div>
+		   </div>
+		</div>
+	</div>
+  </div>
+</footer>
