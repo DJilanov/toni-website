@@ -26,17 +26,10 @@ var _mainModules = [
   //  ,'ngMock'
   //  ,'ngLocale'
    // ,'pasvaz.bindonce'
-    ,'Services'
-    ,'Api'
     ,'Home'
-    ,'Header'
-    ,'Login'
-    ,'Modals'
-    ,'Product'
-    ,'View'
-    ,'Video'
+    ,'Add'
+    ,'Edit'
    // ,'infinite-scroll'
-    , 'Modals'
    // ,'ui.bootstrap'
 ];
 
@@ -52,56 +45,24 @@ angular.module('app', _mainModules )
         routes.push({
             name: '/home',
             params: {
-                templateUrl:  './angular/home/views/home.html',
+                templateUrl:  './home/views/home.html',
                 controller: 'HomeCtrl'
             }
         });
 
         routes.push({
-            name: '/admin',
+            name: '/add',
             params: {
-                templateUrl: './angular/admin/views/admin.html',
-                controller: 'AdminCtrl'
+                templateUrl: './add/views/add.html',
+                controller: 'AddCtrl'
             }
         });
 
         routes.push({
-            name: '/login',
+            name: '/edit',
             params: {
-                templateUrl: './angular/login/views/login.html',
-                controller: 'LoginCtrl'
-            }
-        });
-
-        routes.push({
-            name: '/product/:id',
-            params: {
-                templateUrl: './angular/product/views/product.html',
-                controller: 'ProductCtrl'
-            }
-        });
-
-        routes.push({
-            name: '/product/:id/:id',
-            params: {
-                templateUrl: './angular/view/views/view.html',
-                controller: 'viewCtrl'
-            }
-        });
-
-        routes.push({
-            name: '/contact',
-            params: {
-                templateUrl: './angular/contacts/views/contacts.html',
-                controller: 'ContactsCtrl'
-            }
-        });
-
-        routes.push({
-            name: '/videonabludenie',
-            params: {
-                templateUrl: './angular/video/views/video.html',
-                controller: 'VideoCtrl'
+                templateUrl: './edit/views/edit.html',
+                controller: 'EditCtrl'
             }
         });
 

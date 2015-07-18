@@ -30,6 +30,10 @@ router.get('/', function(req, res) {
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
 app.use('/api', router);
+app.use( bodyParser.json() );       // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+  extended: true
+}));
 
 // START THE SERVER
 // =============================================================================
@@ -37,7 +41,6 @@ app.listen(port);
 
 // get database
 var mongoose   = require('mongoose');
-mongoose.connect('mongodb://user:123456@ds047792.mongolab.com:47792/toni-website'); // connect to our database
 
 // generate product model
 var Schema = mongoose.Schema;
@@ -47,10 +50,23 @@ var ProductModel = mongoose.model('home', Home);
 
 
 app.get('/api/home', function (req, res){
-  mongoose.connection.db.collection('home', function (err, collection) {
-    collection.find().toArray(
-    	function(err, docs) {
-            res.json(docs);
-   		 });
-    });
+	mongoose.connection.on('open', function (ref) {
+	  	mongoose.connection.db.collection('home', function (err, collection) {
+	    	collection.find().toArray(function(err, docs) {
+	            res.json(docs);
+	   		});
+	    });
+	});
+	mongoose.connect('mongodb://user:123456@ds047792.mongolab.com:47792/toni-website')
+});
+
+app.post('/api/home', function (req, res){
+	mongoose.connection.on('open', function (ref) {
+	  	mongoose.connection.db.collection('home', function (err, collection) {
+	    	collection.find().toArray(function(err, docs) {
+	            res.json(docs);
+	   		});
+	    });
+	});
+  	mongoose.connect('mongodb://' + req.body.username + ':' + req.body.password + '@ds047792.mongolab.com:47792/toni-website');
 });

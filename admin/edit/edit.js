@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('Admin', [])
+angular.module('Edit', [])
     .config(function () {})
     .constant('homePath', '/home');
-    
+
