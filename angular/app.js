@@ -58,6 +58,14 @@ angular.module('app', _mainModules )
         });
 
         routes.push({
+            name: '/product/:id',
+            params: {
+                templateUrl: './angular/product/views/product.html',
+                controller: 'ProductCtrl'
+            }
+        });
+
+        routes.push({
             name: '/view',
             params: {
                 templateUrl: './angular/view/views/view.html',
