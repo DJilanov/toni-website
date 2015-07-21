@@ -3,7 +3,7 @@
   <p>{{response.description}}</p>
 </div>
 <div class="container dealsContainer">
-  	<div class="col-lg-4" ng-repeat="model in response.products">
+  	<div class="col-lg-4" ng-repeat="model in response.products" ng-click="onProductClick(model)">
   	<!-- create title, image, description -->
    		<div class="col-lg-4">
      		<!-- image -->

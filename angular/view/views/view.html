@@ -1,17 +1,23 @@
-<!-- navigation -->
-<section ng-include="main.templates.navigation">  
- {{main.navigation}}
-</section> 
-<!-- carousel -->
-<section class='carousel_section' ng-include="main.templates.carousel">
-  {{main.carousel}}
-</section>
-<!-- refered -->
-<section class='first' ng-include="main.templates.productTemplate">
-  {{main.productTemplate}}
-</section>
-<footer>
-  <div class='info'>
-    <span>End info</span>
-  </div>
-</footer>
+<div class="col-lg-12">
+	<!-- create title, image, description -->
+	<div class="col-lg-4">
+		<!-- image -->
+		<!-- <img src="{{product.image}}" alt="product" width="100%"> -->
+		<img src="./img/flag-bg.png" alt="product" width="100%">
+	</div>
+    <div class="col-lg-8">
+     <!-- title -->
+     <h3>{{product.title}}</h3>
+     <!-- attention -->
+     <div class='blue'>
+       <span>{{product.description}}</span>
+     </div>
+     <!-- description -->
+     <div class='infoProduct'>
+       <span>{{product.moreInfo}}.</span>
+     </div>
+     <div class='productPrice'>
+       <span class='oldPrice'>{{product.oldPrice}}</span> <span class='newPrice'>{{product.newPrice}}</span> <span class='priceOff'>({{product.offPrice}}% off)</span>
+     </div>
+    </div>
+</div>

@@ -20,7 +20,7 @@
 	  <p>{{model.description}}</p>
 	</div>
   	<div class="container dealsContainer">
-	  	<div class="col-lg-4" ng-repeat="insideModel in model.products">
+	  	<div class="col-lg-4" ng-repeat="insideModel in model.products" ng-click="onProductClick(insideModel)">
 	  	<!-- create title, image, description -->
 	   		<div class="col-lg-4">
 	     		<!-- image -->

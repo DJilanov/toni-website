@@ -6,10 +6,7 @@ angular.module('Home').factory('sharingSvc', ['$http',
 
     	var productList = {};
     	var response = null;
-    	// we send last shown product and we get 5 more from the list.
-        function getNextProducts(reportId) {
-
-        }
+    	var productToView = null;
 
         // we fetch the products and show them. we save them into the array for future direct use
         function getProducts(callback, type) {
@@ -37,15 +34,18 @@ angular.module('Home').factory('sharingSvc', ['$http',
 			}
         }
 
-        // will be used for view mode. We will get more info about the product
-        function getProductById(id) {
+        function viewProduct(product) {
+        	productToView = product;
+        }
 
+        function getProductToView() {
+        	return productToView;
         }
 
         return {
-            getNextProducts: getNextProducts,
             getProducts: getProducts,
-            getProductById: getProductById
+            viewProduct: viewProduct,
+            getProductToView: getProductToView
         };
     }
 ]);

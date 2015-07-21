@@ -58,34 +58,10 @@ angular.module('app', _mainModules )
         });
 
         routes.push({
-            name: '/admin',
-            params: {
-                templateUrl: './angular/admin/views/admin.html',
-                controller: 'AdminCtrl'
-            }
-        });
-
-        routes.push({
-            name: '/login',
-            params: {
-                templateUrl: './angular/login/views/login.html',
-                controller: 'LoginCtrl'
-            }
-        });
-
-        routes.push({
-            name: '/product/:id',
-            params: {
-                templateUrl: './angular/product/views/product.html',
-                controller: 'ProductCtrl'
-            }
-        });
-
-        routes.push({
-            name: '/product/:id/:id',
+            name: '/view',
             params: {
                 templateUrl: './angular/view/views/view.html',
-                controller: 'viewCtrl'
+                controller: 'ViewCtrl'
             }
         });
 

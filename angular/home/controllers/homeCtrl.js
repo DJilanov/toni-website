@@ -4,6 +4,10 @@ angular.module('Home')
     .controller('HomeCtrl', ['$scope', '$location', '$http', 'sharingSvc',
         function ($scope, $location, $http, sharingSvc) {
         	$scope.response = null;
+        	$scope.onProductClick = function(product) {
+        		sharingSvc.viewProduct(product);
+        		$location.path( "/view" );
+        	};
         	// we set the products in variable to be shown on screen
         	$scope.setProducts = function(products){
 	        	// for toni website we need to show only the today deals on the home

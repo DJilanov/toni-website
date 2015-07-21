@@ -1,32 +1,54 @@
-<footer>
-  <div class='info'  ng-repeat="model in response.products">
-  	<div class="container {{main.test}}">
-	  <h1>{{model.title}}</h1>
-	  <p>{{model.description}}</p>
+<div class="col-lg-12">
+	<!-- create title, image, description -->
+	<div class="col-lg-4">
+		<!-- image -->
+		<!-- <img src="{{product.image}}" alt="product" width="100%"> -->
+		<img src="../img/flag-bg.png" alt="product" width="100%">
+    	<label name="image">New image</label>
+    	<input type="text" name="image">
 	</div>
-  	<div class="container dealsContainer">
-	  	<div class="col-lg-4" ng-repeat="insideModel in model.products">
-	  	<!-- create title, image, description -->
-	   		<div class="col-lg-4">
-	     		<!-- image -->
-	     		<img src="{{insideModel.image}}" alt="product" width="100%">
-	   		</div>
-		    <div class="col-lg-8">
-		     <!-- title -->
-		     <h3>{{insideModel.title}}</h3>
-		     <!-- attention -->
-		     <div class='blue'>
-		       <span>{{insideModel.description}}</span>
-		     </div>
-		     <!-- description -->
-		     <div class='infoProduct'>
-		       <span>{{insideModel.moreInfo}}.</span>
-		     </div>
-		     <div class='productPrice'>
-		       <span class='oldPrice'>{{insideModel.oldPrice}}</span> <span class='newPrice'>{{insideModel.newPrice}}</span> <span class='priceOff'>({{insideModel.offPrice}}% off)</span>
-		     </div>
-		   </div>
-		</div>
-	</div>
-  </div>
-</footer>
+    <div class="col-lg-8">
+        <!-- title text input -->
+        <h3>
+        	<label name="oldTitle">Old Title</label>
+        	<span name="oldTitle">{{product.title}}</span>
+        	<label name="title">new Title</label>
+        	<input type="textarea" name="title" ng-model="input.title">
+        </h3>
+        <!-- description text input -->
+        <div class='blue'>
+        	<label name="oldDescription">Old Description</label>
+        	<span name="oldDescription">{{product.description}}</span>
+        	<label name="Description">new Description</label>
+        	<input type="textarea" name="Description" ng-model="input.description">
+        </div>
+        <!-- more description text input -->
+        <div class='infoProduct'>
+        	<label name="oldMore">Old Description</label>
+        	<span name="oldMore">{{product.moreInfo}}</span>
+        	<label name="moreInfo">new Description</label>
+        	<input type="textarea" name="moreInfo" ng-model="input.moreInfo">
+        </div>
+        <div class='productPrice'>
+        	<div>
+	        	<label name="oldNewPrice">Old New price</label>
+	        	<span name="oldNewPrice">{{product.newPrice}}</span>
+	        	<label name="newPrice">New pric</label>
+	        	<input type="textarea" name="newPrice" ng-model="input.newPrice">
+        	</div>
+        	<div>
+	        	<label name="oldOldPrice">Old New price</label>
+	        	<span name="oldOldPrice">{{product.oldPrice}}</span>
+	        	<label name="oldPrice">New pric</label>
+	        	<input type="textarea" name="oldPrice" ng-model="input.oldPrice">
+        	</div>
+        	<div>
+	        	<label name="oldOffPrice">Old New price</label>
+	        	<span name="oldOffPrice">{{product.offPrice}}</span>
+	        	<label name="offPrice">New pric</label>
+	        	<input type="textarea" name="offPrice" ng-model="input.offPrice">
+        	</div>
+        </div>
+    </div>
+    <input type="submit" value="Save" ng-click="onSave()">
+</div>

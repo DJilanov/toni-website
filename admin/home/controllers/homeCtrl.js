@@ -18,7 +18,12 @@ angular.module('Home')
         	$scope.setProducts = function(response) {
         		$scope.form = false;
         		$scope.list = true;
-        		$scope.response = response[0]
+        		$scope.response = response[0];
+        	};
+        	// we view the product
+        	$scope.onProductClick = function(product) {
+        		sharingSvc.viewProduct(product);
+        		$location.path( "/edit" );
         	};
 
         	// for dad site we must use = 0

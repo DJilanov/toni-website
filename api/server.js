@@ -1,5 +1,4 @@
 // server.js
-
 // BASE SETUP
 // =============================================================================
 
@@ -7,6 +6,14 @@
 var express    = require('express');        // call express
 var app        = express();                 // define our app using express
 var bodyParser = require('body-parser');
+var mongoose   = require('mongoose');
+var fs         = require('fs');
+// here we declare all functions we use for the standart user interface
+var home       = require('./home');
+// here we declare all functions we use for the admin user interface
+var admin      = require('./admin');
+// here we declare all constants we gonna use
+var config     = require('./config');
 
 // configure app to use bodyParser()
 // this will let us get nv.PORT || 8080;        // set our port
@@ -34,40 +41,33 @@ app.use( bodyParser.json() );       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
 }));
-
+// SET NEEDED VARIABLES
+// =============================================================================
+// we set the config so we can go into the db
+home.setConfig(config.getConfig());
+// we connect to the db using the credentials
+home.connectDb();
+// we set the config into the admin controller
+admin.setConfig(config.getConfig());
 // START THE SERVER
 // =============================================================================
 app.listen(port);
 
-// get database
-var mongoose   = require('mongoose');
-
-// generate product model
-var Schema = mongoose.Schema;
-
-var Home = new Schema();
-var ProductModel = mongoose.model('home', Home);
-
-var database = null;
-
-mongoose.connection.on('open', function (ref) {
-  	mongoose.connection.db.collection('home', function (err, collection) {
-    	collection.find().toArray(function(err, docs) {
-            database = docs;
-            mongoose.connection.close();
-   		});
-    });
-});
-mongoose.connect('mongodb://user:123456@ds047792.mongolab.com:47792/toni-website')
-
-
-
+// when we call from the home we return the database
 app.get('/api/home', function (req, res){
+	var database = home.getDatabase();
 	res.json(database);
 });
 
+// when we call from the admin and its with the hardcoded values we return the database
 app.get('/api/admin', function (req, res){
-	if((req.param('username') === config.username)&&(req.param('password') === config.password)){
-		res.json(database);
-	}
+	var database = admin.auth(req.param('username'), req.param('password'));
+	res.json(database);
 });
+
+// when we call from the admin and its with the hardcoded values we return the database
+app.post('/api/admin', function (req, res){
+	var answer = admin.update(req.param('username'), req.param('password'));
+	res.json(answer);
+});
+
