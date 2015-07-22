@@ -67,7 +67,8 @@ app.get('/api/admin', function (req, res){
 
 // when we call from the admin and its with the hardcoded values we return the database
 app.post('/api/admin', function (req, res){
-	var answer = admin.update(req.param('username'), req.param('password'));
+	// req is undefined
+	var answer = admin.update(req.param('username'), req.param('password'), req.param('id'));
 	res.json(answer);
 });
 

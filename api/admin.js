@@ -15,7 +15,8 @@
 
 	function auth(logedUsername, logedPassword) {
 		if((logedUsername === config.username)&&(logedPassword === config.password)){
-			return home.getDatabase();
+			database = home.getDatabase();
+			return database;
 		}
 	}
 
@@ -32,11 +33,12 @@
 					return false;
 				}
 			};
+			// TODO: FIX ISSUES WITH THE DATABASE. CHANGE ITS LOGIC AND IMPLEMENT UPDATE BY ID
 			// we connect to home database ith the acc and pass
-			mongooseAdmin.connection.db.collection('home', function (err, collection) {
-				// query string, new object, callback
-		    	collection.update({}, req.param('db'), callback);
-		    });
+			// mongoose.connection.db.collection('home', function (err, collection) {
+			// 	// query string, new object, callback
+		 //    	collection.update({}, req.param('db'), callback);
+		 //    });
 		}
 	}
 
