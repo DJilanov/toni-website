@@ -1,38 +1,44 @@
 {
-	"1" :	{
+	"home" :	{
 				"title": "Today's Deals",
 				"description": "The best deals and offers across the web. To find out about our deals first every day, subscribe to the Deals Newsletter.",
 				"products": "0",
-				"name": "Home"
+				"name": "Home",
+				"z-index": 0
 			},
 	"csGo": {
 				"title": "csGo's Deals",
 				"description": "The best deals and offers across the web. To find out about our deals first every day, subscribe to the Deals Newsletter.",
 				"products": "1",
-				"name": "CS:GO"
+				"name": "CS:GO",
+				"z-index": 1
 			},
 	"gridAutoSport": {
 				"title": "gridAutoSport's Deals",
 				"description": "The best deals and offers across the web. To find out about our deals first every day, subscribe to the Deals Newsletter.",
 				"products": "2",
-				"name": "Grid Auto Sport"
+				"name": "Grid Auto Sport",
+				"z-index": 2
 			},
 	"finalFantasy14": {
 				"title": "finalFantasy14's Deals",
 				"description": "The best deals and offers across the web. To find out about our deals first every day, subscribe to the Deals Newsletter.",
 				"products": "3",
-				"name": "Final Fantasy XIV"
+				"name": "Final Fantasy XIV",
+				"z-index": 3
 			},
 	"worldOfTanks": {
 				"title": "worldOfTanks's Deals",
 				"description": "The best deals and offers across the web. To find out about our deals first every day, subscribe to the Deals Newsletter.",
 				"products": "4",
-				"name": "World Of Tanks"
+				"name": "World Of Tanks",
+				"z-index": 4
 			},
 	"others": {
 				"title": "other games Deals",
 				"description": "The best deals and offers across the web. To find out about our deals first every day, subscribe to the Deals Newsletter.",
 				"products": "5",
-				"name": "Other games"
+				"name": "Other games",
+				"z-index": 5
 			}
 }
