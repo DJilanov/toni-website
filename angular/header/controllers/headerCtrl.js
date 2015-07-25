@@ -1,11 +1,14 @@
 'use strict';
 
 angular.module('Header')
-    .controller('HeaderCtrl', ['$scope', '$location', '$timeout',
-        function ($scope, $location, $timeout) {
+    .controller('HeaderCtrl', ['$scope', '$location', '$timeout', 'sharingSvc',
+        function ($scope, $location, $timeout, sharingSvc) {
             // TODO integrate search functionallity into the database. When you type here it calls to
             // the database and show result as bootstrap search suggestions
             $scope.searchInput = null;
+            // here we integrate the navigation items
+            $scope.navigationItems = [];
+            // here we set the timeot so we can start the carousel
             $timeout(function () {
                 var handle_nav = function(e) {
 			        e.preventDefault();
@@ -25,6 +28,25 @@ angular.module('Header')
 	        		return 'active';
 	        	}
 			};
+			//------------------------------------------------------
+			// here we import the nav items
+        	$scope.setNavigationitems = function(products, categories){
+	        	for (var key in categories) {
+				    if (categories.hasOwnProperty(key)) {
+				        var navItem = categories[key];
+				        // important check that this is objects own property
+				        // not from prototype prop inherited
+				        if(typeof navItem !== "string"){
+				           $scope.navigationItems[navItem['z-index']] = navItem;
+				           $scope.navigationItems[navItem['z-index']].link = key;
+				        }
+				    }
+				}
+        	};
+        	// we call the ajax
+			sharingSvc.getProducts($scope.setNavigationitems);
+
+			//------------------------------------------------------
 
 			$scope.changeLanguage = function() {
 			    debugger;

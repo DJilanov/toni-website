@@ -15,7 +15,10 @@
 
 	function auth(logedUsername, logedPassword) {
 		if((logedUsername === config.username)&&(logedPassword === config.password)){
-			database = home.getDatabase();
+			database = {
+				"categories": home.getCategoryDatabase(),
+				"products": home.getProductDatabase()
+			};
 			return database;
 		}
 	}

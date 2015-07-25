@@ -5,11 +5,17 @@
 	// here we use the mongoose to call the api and get the database for the
 	// user viewed website
 	var mongoose   = require('mongoose');
-	// here we save the db
-	var database = {};
+	// here we save the db with the categories for the nav
+	var categoryDatabase = {};
+	// here we save the db with the products
+	var productsDatabase = {};
 
-	function getDatabase() {
-		return database;
+	function getCategoryDatabase() {
+		return categoryDatabase;
+	}
+
+	function getProductDatabase() {
+		return productsDatabase;
 	}
 
 	function setConfig(loadedConfig) {
@@ -20,9 +26,14 @@
 		// we cache the product list by the viewing user
 		mongoose.connection.on('connected', function () {
 		    console.log('Mongoose default connection open');
-		    mongoose.connection.db.collection('home', function (err, collection) {
+		    mongoose.connection.db.collection('elements', function (err, collection) {
 		    	collection.find().toArray(function(err, docs) {
-		            database = docs;
+		            productsDatabase = docs;
+		   		});
+		    });
+		    mongoose.connection.db.collection('products', function (err, collection) {
+		    	collection.find().toArray(function(err, docs) {
+		            categoryDatabase = docs;
 		   		});
 		    });
 		});
@@ -49,8 +60,9 @@
 	}
 
 	module.exports = {
-	    connectDb: connectDb,
-	    setConfig: setConfig,
-	    getDatabase: getDatabase
+	    connectDb			: connectDb,
+	    setConfig			: setConfig,
+	    getCategoryDatabase	: getCategoryDatabase,
+	    getProductDatabase	: getProductDatabase
 	};
 }());

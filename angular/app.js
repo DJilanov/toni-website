@@ -81,14 +81,6 @@ angular.module('app', _mainModules )
             }
         });
 
-        routes.push({
-            name: '/videonabludenie',
-            params: {
-                templateUrl: './angular/video/views/video.html',
-                controller: 'VideoCtrl'
-            }
-        });
-
 
 // yo:ngRoutes
 

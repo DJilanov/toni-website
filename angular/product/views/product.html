@@ -1,9 +1,9 @@
 <div class="container {{main.test}}">
-  <h1>{{response.title}}</h1>
-  <p>{{response.description}}</p>
+  <h1>{{category.title}}</h1>
+  <p>{{category.description}}</p>
 </div>
 <div class="container dealsContainer">
-  	<div class="col-lg-4" ng-repeat="model in response.products" ng-click="onProductClick(model)">
+  	<div class="col-lg-4" ng-repeat="model in products" ng-click="onProductClick(model)">
   	<!-- create title, image, description -->
    		<div class="col-lg-4">
      		<!-- image -->

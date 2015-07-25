@@ -45,7 +45,7 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 // =============================================================================
 // we set the config so we can go into the db
 home.setConfig(config.getConfig());
-// we connect to the db using the credentials
+// we connect to the db using the credentials and fetch the home and products
 home.connectDb();
 // we set the config into the admin controller
 admin.setConfig(config.getConfig());
@@ -55,8 +55,10 @@ app.listen(port);
 
 // when we call from the home we return the database
 app.get('/api/home', function (req, res){
-	var database = home.getDatabase();
-	res.json(database);
+	res.json({
+		"categories": home.getCategoryDatabase(),
+		"products": home.getProductDatabase()
+	});
 });
 
 // when we call from the admin and its with the hardcoded values we return the database
@@ -64,7 +66,7 @@ app.get('/api/admin', function (req, res){
 	var database = admin.auth(req.param('username'), req.param('password'));
 	res.json(database);
 });
-
+// TODO WHEN WE PUSH EDITED ELEMENT, UPDATE IT INTO THE DB
 // when we call from the admin and its with the hardcoded values we return the database
 app.post('/api/admin', function (req, res){
 	// req is undefined
