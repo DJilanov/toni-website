@@ -5,7 +5,7 @@
 				"products": "0",
 				"name": "Home",
 				"z-index": 0,
-				"shownOnNav": true
+				"shownOnNav": false
 			},
 	"csGo": {
 				"title": "csGo's Deals",

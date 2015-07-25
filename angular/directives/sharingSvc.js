@@ -19,8 +19,8 @@ angular.module('Home').factory('sharingSvc', ['$http',
 				}).error(function(data, status, headers, config) {
 				    alert('Error on fetching from the server');
 				}).then(function(){
-					products = response.products;
-					categories = response.categories;
+					products = response.products[0];
+					categories = response.categories[0];
 					callback(products, categories);
 				});
 			} else {

@@ -24,10 +24,17 @@ angular.module('Product')
         		// we set the sorted products into the products tab
         		$scope.products = $scope.sortProductsByZIndex(currentProduct);
         	};
+        	// used to sort products by theirs z index
         	$scope.sortProductsByZIndex = function(products) {
+        		var sortedProducts = [];
+        		var zIndex = null;
+        		var product = {};
         		for(var productCounter = 0; productCounter < products.length; productCounter++) {
-
+        			product = products[productCounter];
+        			zIndex = product['z-index'];
+        			sortedProducts[zIndex] = product;
         		}
+        		return sortedProducts;
         	};
         	// we view the product
         	$scope.onProductClick = function(products) {

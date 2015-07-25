@@ -9,6 +9,9 @@
   </div>
   <div class="navbar-collapse collapse">
     <ul class="nav navbar-nav" ng-repeat="navItem in navigationItems">
+      <li ng-class="getClass('home')" ng-if="$index === 0">
+        <a ng-href="#/home">Home</a>
+      </li>
       <li ng-class="getClass('{{navItem.name}}')" ng-show="navItem.shownOnNav">
         <a ng-href="#/product/{{navItem.link}}">{{navItem.name}}</a>
       </li>
