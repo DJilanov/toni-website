@@ -1,31 +1,33 @@
-<div ng-include="'./angular/header/views/carousel.html'" ng-controller="HeaderCtrl"> </div>
-<footer>
-  <div class="container">
-	  <h1>{{category.title}}</h1>
-	  <p>{{category.description}}</p>
-	</div>
-	<div class="container dealsContainer">
-	  	<div class="col-lg-4" ng-repeat="model in products" ng-click="onProductClick(model)">
-	  	<!-- create title, image, description -->
-	   		<div class="col-lg-4">
-	     		<!-- image -->
-	     		<img src="{{model.image}}" alt="product" width="100%">
-	   		</div>
-		    <div class="col-lg-8">
-		     <!-- title -->
-		     <h3>{{model.title}}</h3>
-		     <!-- attention -->
-		     <div class='blue'>
-		       <span>{{model.description}}</span>
-		     </div>
-		     <!-- description -->
-		     <div class='infoProduct'>
-		       <span>{{model.moreInfo}}.</span>
-		     </div>
-		     <div class='productPrice'>
-		       <span class='oldPrice'>{{model.oldPrice}}</span> <span class='newPrice'>{{model.newPrice}}</span> <span class='priceOff'>({{model.offPrice}}% off)</span>
-		     </div>
-		   </div>
+<div class="home">
+	<div ng-include="'./angular/carousel/views/carousel.html'" ng-controller="HeaderCtrl" class="homePage"> </div>
+	<footer>
+	  <div class="container">
+		  <h1>{{category.title}}</h1>
+		  <p>{{category.description}}</p>
 		</div>
-	</div>
-</footer>
+		<div class="container dealsContainer">
+		  	<div class="col-lg-4" ng-repeat="model in products" ng-click="onProductClick(model)">
+		  	<!-- create title, image, description -->
+		   		<div class="col-lg-4">
+		     		<!-- image -->
+		     		<img src="{{model.image}}" alt="product" width="100%">
+		   		</div>
+			    <div class="col-lg-8">
+			     <!-- title -->
+			     <h3>{{model.title}}</h3>
+			     <!-- attention -->
+			     <div class='blue'>
+			       <span>{{model.description}}</span>
+			     </div>
+			     <!-- description -->
+			     <div class='infoProduct'>
+			       <span>{{model.moreInfo}}.</span>
+			     </div>
+			     <div class='productPrice'>
+			       <span class='oldPrice'>{{model.oldPrice}}</span> <span class='newPrice'>{{model.newPrice}}</span> <span class='priceOff'>({{model.offPrice}}% off)</span>
+			     </div>
+			   </div>
+			</div>
+		</div>
+	</footer>
+</div>

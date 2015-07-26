@@ -10,6 +10,7 @@ angular.module('Home').factory('sharingSvc', ['$http',
     	var response = null;
     	var products = null;
     	var categories = null;
+    	var carousel = null;
 
         // we fetch the products and show them. we save them into the array for future direct use
         function getProducts(callback) {
@@ -21,10 +22,11 @@ angular.module('Home').factory('sharingSvc', ['$http',
 				}).then(function(){
 					products = response.products[0];
 					categories = response.categories[0];
-					callback(products, categories);
+					carousel = response.carousel[0].carousel;
+					callback(products, categories, carousel);
 				});
 			} else {
-				callback(products, categories);
+				callback(products, categories, carousel);
 			}
         }
 

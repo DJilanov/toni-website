@@ -94,15 +94,31 @@
     margin-top: 10px;
 }
 /* first section */
-header {
-    margin-top: 8%;
+#slides_control > div{
+  height: 200px;
 }
-.item img{
-    margin-left: 31%;
+img{
+  margin:auto;
+  width: 400px;
+}
+#slides_control {
+  position:absolute;
+  width: 100%;
+  top:100px;
+}
+.flag {
+	height: 34px;
+  	width: 70px;
 }
 /* first section */
-section.first {
-
+.home{
+	margin-top:30%;
+}
+.mainPage{
+	margin-top:10%;
+}
+.carousel {
+	height: 300px;
 }
 .productPrice{
     color: orange;

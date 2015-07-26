@@ -35,6 +35,7 @@ var _mainModules = [
     ,'Product'
     ,'View'
     ,'Video'
+    ,'Carousel'
    // ,'infinite-scroll'
     , 'Modals'
    // ,'ui.bootstrap'

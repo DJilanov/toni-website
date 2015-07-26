@@ -9,6 +9,8 @@
 	var categoryDatabase = {};
 	// here we save the db with the products
 	var productsDatabase = {};
+	// here we save the db with the carousel iamges and titles
+	var carouselDatabase = {};
 
 	function getCategoryDatabase() {
 		return categoryDatabase;
@@ -16,6 +18,9 @@
 
 	function getProductDatabase() {
 		return productsDatabase;
+	}
+	function getCarouselDatabase() {
+		return carouselDatabase;
 	}
 
 	function setConfig(loadedConfig) {
@@ -34,6 +39,11 @@
 		    mongoose.connection.db.collection('products', function (err, collection) {
 		    	collection.find().toArray(function(err, docs) {
 		            categoryDatabase = docs;
+		   		});
+		    });
+		    mongoose.connection.db.collection('carousel', function (err, collection) {
+		    	collection.find().toArray(function(err, docs) {
+		            carouselDatabase = docs;
 		   		});
 		    });
 		});
@@ -63,6 +73,7 @@
 	    connectDb			: connectDb,
 	    setConfig			: setConfig,
 	    getCategoryDatabase	: getCategoryDatabase,
-	    getProductDatabase	: getProductDatabase
+	    getProductDatabase	: getProductDatabase,
+	    getCarouselDatabase : getCarouselDatabase
 	};
 }());

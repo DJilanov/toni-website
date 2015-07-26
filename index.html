@@ -21,11 +21,18 @@
     <script src="./js/angular.min.js" ></script>
     <script src="./js/angular-route/angular-route.min.js" ></script>
     <script src="./js/angular-resource/angular-resource.min.js" ></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>
     <!-- angular -->
     <script src="./angular/app.js" ></script>
     <!-- header -->
     <script src="./angular/header/header.js" ></script>
     <script src="./angular/header/controllers/headerCtrl.js" ></script>
+    <!-- carousel -->
+    <script src="./angular/carousel/carousel.js" ></script>
+    <script src="./angular/carousel/controllers/carouselCtrl.js" ></script>
+    <!-- modal -->
+    <script src="./angular/modal/modal.js" ></script>
+    <script src="./angular/modal/controllers/modalCtrl.js" ></script>
     <!-- api -->
     <script src="./angular/api/api.js" ></script>
     <!-- home -->
@@ -55,10 +62,11 @@
     <header>
         <div ng-include="'./angular/header/views/header.html'" ng-controller="HeaderCtrl"> </div>
     </header>
-    <div ng-class="{ mainContainer:!loginPage,staticHeight:infScroll }" ng-view></div>
+    <div class="mainPage" ng-view></div>
     <!-- <div class="container" ng-view></div> -->
     <!-- used for dark background -->
     <div class="overlay hide"></div>
+    <div ng-include="'./angular/modal/views/modal.html'" ng-controller="HeaderCtrl"> </div>
   </body>
 </html>
 <!-- TODO: Integrate currency into product list. Integrate better alignment there -->

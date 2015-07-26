@@ -8,19 +8,11 @@ angular.module('Header')
             $scope.searchInput = null;
             // here we integrate the navigation items
             $scope.navigationItems = [];
-            // here we set the timeot so we can start the carousel
-            $timeout(function () {
-                var handle_nav = function(e) {
-			        e.preventDefault();
-			        var nav = $(this);
-			        nav.parents('.carousel').carousel(nav.data('slide'));
-			    };
-	            $('.carousel').carousel({
-	                interval: 3000,
-	                pause: "hover",
-	                wrap: true
-	            }).on('click', '.carousel-control', handle_nav);
-            }, 500);
+            // modal flag
+            $scope.showModal = false;
+		    $scope.toggleModal = function(){
+		        $scope.showModal = !$scope.showModal;
+		    };
             // we set the active page to be shown in the header as black background
             $scope.getClass = function(path) {
 	        	var location = $location.$$path.indexOf(path);

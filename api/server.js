@@ -57,7 +57,8 @@ app.listen(port);
 app.get('/api/home', function (req, res){
 	res.json({
 		"categories": home.getCategoryDatabase(),
-		"products": home.getProductDatabase()
+		"products": home.getProductDatabase(),
+		"carousel": home.getCarouselDatabase()
 	});
 });
 
