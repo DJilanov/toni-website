@@ -9,17 +9,16 @@ angular.module('Home')
         	};
         	$scope.form = true;
         	$scope.list = false;
-        	$scope.response = null;
         	$scope.update = function(login) {
         		if((login.username !== '') && (login.password !== '')) {
         			sharingSvc.login($scope.setProducts, login);
         		}
         	};
-        	$scope.setProducts = function(response) {
+        	$scope.setProducts = function(products, categories, carousel) {
         		$scope.form = false;
         		$scope.list = true;
-        		$scope.response = response[0];
         	};
+        	// TODO: MOVE IT TO THE LIST PLACES!!!
         	// we view the product
         	$scope.onProductClick = function(product) {
         		sharingSvc.viewProduct(product);

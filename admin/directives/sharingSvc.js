@@ -5,7 +5,12 @@ angular.module('Home').factory('sharingSvc', ['$http',
     function($http) {
 
     	var productList = {};
+    	// used for the fetch
     	var response = null;
+    	var products = null;
+    	var categories = null;
+    	var carousel = null;
+
     	var userIds = {};
     	var productToView = null;
         // we fetch the products and show them. we save them into the array for future direct use
@@ -28,9 +33,13 @@ angular.module('Home').factory('sharingSvc', ['$http',
 			    alert('Error on fetching from the server');
 			})
 			.then(function(){
-				if(response != null) {
-					callback(response);
-					window.test = response;
+				if(response !== "") {
+					products = response.products[0];
+					categories = response.categories[0];
+					carousel = response.carousel[0].carousel;
+					callback(products, categories, carousel);
+				} else {
+					alert("Wrong password noob!")
 				}
 
 			});
@@ -41,7 +50,7 @@ angular.module('Home').factory('sharingSvc', ['$http',
         	// we must update database and push it here
         	data.db = db;
 	       	$http({
-			    method: 'GET',
+			    method: 'POST',
 			    url: config.api,
 			    params: data,
        			headers: {'Content-Type': 'application/json'}
