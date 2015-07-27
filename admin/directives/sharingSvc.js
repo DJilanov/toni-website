@@ -69,7 +69,9 @@ angular.module('Home').factory('sharingSvc', ['$http',
 			});
        	}
 
-
+       	function getProducts(callback) {
+			callback(products, categories, carousel);
+       	}
 
         function viewProduct(product) {
         	productToView = product;
@@ -80,10 +82,11 @@ angular.module('Home').factory('sharingSvc', ['$http',
         }
 
         return {
-            login: login,
-            save: save,
-            viewProduct: viewProduct,
-            getProductToView: getProductToView
+            login			: login,
+            saved			: save,
+            viewProduct		: viewProduct,
+            getProductToView: getProductToView,
+            getProducts		: getProducts
         };
     }
 ]);

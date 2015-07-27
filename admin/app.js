@@ -27,8 +27,7 @@ var _mainModules = [
   //  ,'ngLocale'
    // ,'pasvaz.bindonce'
     ,'Home'
-    ,'Add'
-    ,'Edit'
+    ,'EditNavigation'
    // ,'infinite-scroll'
    // ,'ui.bootstrap'
 ];
@@ -51,6 +50,14 @@ angular.module('app', _mainModules )
         });
 
         routes.push({
+            name: '/editNavigation',
+            params: {
+                templateUrl:  './editNavigation/views/editNavigation.html',
+                controller: 'EditNavigationCtrl'
+            }
+        });
+
+        routes.push({
             name: '/add',
             params: {
                 templateUrl: './add/views/add.html',
@@ -59,10 +66,10 @@ angular.module('app', _mainModules )
         });
 
         routes.push({
-            name: '/edit',
+            name: '/editProduct',
             params: {
-                templateUrl: './edit/views/edit.html',
-                controller: 'EditCtrl'
+                templateUrl: './editProduct/views/editProduct.html',
+                controller: 'EditProductCtrl'
             }
         });
 

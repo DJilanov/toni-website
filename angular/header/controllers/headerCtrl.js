@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('Header')
-    .controller('HeaderCtrl', ['$scope', '$location', '$timeout', 'sharingSvc',
-        function ($scope, $location, $timeout, sharingSvc) {
+    .controller('HeaderCtrl', ['$scope', '$location', 'sharingSvc',
+        function ($scope, $location, sharingSvc) {
             // TODO integrate search functionallity into the database. When you type here it calls to
             // the database and show result as bootstrap search suggestions
             $scope.searchInput = null;
