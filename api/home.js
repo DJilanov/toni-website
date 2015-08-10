@@ -11,6 +11,8 @@
 	var productsDatabase = {};
 	// here we save the db with the carousel iamges and titles
 	var carouselDatabase = {};
+	// here we save the db with the contact iamges and titles
+	var contactDatabase = {};
 
 	function getCategoryDatabase() {
 		return categoryDatabase;
@@ -19,8 +21,13 @@
 	function getProductDatabase() {
 		return productsDatabase;
 	}
+
 	function getCarouselDatabase() {
 		return carouselDatabase;
+	}
+
+	function getContactDatabase() {
+		return contactDatabase;
 	}
 
 	function setConfig(loadedConfig) {
@@ -30,13 +37,13 @@
 	function connectDb(){
 		// we cache the product list by the viewing user
 		mongoose.connection.on('connected', function () {
-		    console.log('Mongoose default connection open');
-		    mongoose.connection.db.collection('elements', function (err, collection) {
+		    console.log('[Home.js]Mongoose default connection open');
+		    mongoose.connection.db.collection('products', function (err, collection) {
 		    	collection.find().toArray(function(err, docs) {
 		            productsDatabase = docs;
 		   		});
 		    });
-		    mongoose.connection.db.collection('products', function (err, collection) {
+		    mongoose.connection.db.collection('categories', function (err, collection) {
 		    	collection.find().toArray(function(err, docs) {
 		            categoryDatabase = docs;
 		   		});
@@ -46,22 +53,27 @@
 		            carouselDatabase = docs;
 		   		});
 		    });
+		    mongoose.connection.db.collection('contact', function (err, collection) {
+		    	collection.find().toArray(function(err, docs) {
+		            contactDatabase = docs;
+		   		});
+		    });
 		});
 
 		// If the connection throws an error
 		mongoose.connection.on('error',function (err) {
-		  console.log('Mongoose default connection error: ' + err);
+		  console.log('[Home.js]Mongoose default connection error: ' + err);
 		});
 
 		// When the connection is disconnected
 		mongoose.connection.on('disconnected', function () {
-		  console.log('Mongoose default connection disconnected');
+		  console.log('[Home.js]Mongoose default connection disconnected');
 		});
 
 		// If the Node process ends, close the Mongoose connection
 		process.on('SIGINT', function() {
 		  mongoose.connection.close(function () {
-		    console.log('Mongoose default connection disconnected through app termination');
+		    console.log('[Home.js]Mongoose default connection disconnected through app termination');
 		    process.exit(0);
 		  });
 		});
@@ -74,6 +86,7 @@
 	    setConfig			: setConfig,
 	    getCategoryDatabase	: getCategoryDatabase,
 	    getProductDatabase	: getProductDatabase,
-	    getCarouselDatabase : getCarouselDatabase
+	    getCarouselDatabase : getCarouselDatabase,
+	    getContactDatabase  : getContactDatabase
 	};
 }());

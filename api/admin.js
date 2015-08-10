@@ -18,16 +18,17 @@
 			database = {
 				"categories": home.getCategoryDatabase(),
 				"products": home.getProductDatabase(),
-				"carousel": home.getCarouselDatabase()
+				"carousel": home.getCarouselDatabase(),
+				"contact"   : home.getContactDatabase()
 			};
 			return database;
 		}
 	}
-
-	function update(logedUsername, logedPassword) {
+	// here we update products into the database
+	function updateProducts(logedUsername, logedPassword, element) {
 		if((logedUsername === config.username)&&(logedPassword === config.password)){
 			var callback = function(err, count, status) {
-				console.log('[Admin][Post] callback');
+				console.log('[Admin] update products callback');
 				console.log(err);
 				console.log(count);
 				console.log(status);
@@ -39,16 +40,48 @@
 			};
 			// TODO: FIX ISSUES WITH THE DATABASE. CHANGE ITS LOGIC AND IMPLEMENT UPDATE BY ID
 			// we connect to home database ith the acc and pass
-			// mongoose.connection.db.collection('home', function (err, collection) {
-			// 	// query string, new object, callback
-		 //    	collection.update({}, req.param('db'), callback);
-		 //    });
+			mongoose.connection.db.collection('products', function (err, collection) {
+		    	collection.find().toArray(function(err, docs) {
+		            productsDatabase = docs;
+		   		});
+		    });
+		} else {
+			return 'Wrong acc or password';
 		}
 	}
 
+	// connect to db so we can update
+	function connectDb() {
+		// we cache the product list by the viewing user
+		mongoose.connection.on('connected', function () {
+		    console.log('[Admin.js]Mongoose default connection open');
+		});
+
+		// If the connection throws an error
+		mongoose.connection.on('error',function (err) {
+		  console.log('[Admin.js]Mongoose default connection error: ' + err);
+		});
+
+		// When the connection is disconnected
+		mongoose.connection.on('disconnected', function () {
+		  console.log('[Admin.js]Mongoose default connection disconnected');
+		});
+
+		// If the Node process ends, close the Mongoose connection
+		process.on('SIGINT', function() {
+		  mongoose.connection.close(function () {
+		    console.log('[Admin.js]Mongoose default connection disconnected through app termination');
+		    process.exit(0);
+		  });
+		});
+		// get database
+		mongoose.connect('mongodb://'+ config.dbUsername +':'+ config.dbPassword + config.api);
+	}
+
 	module.exports = {
-	    update: update,
-	    setConfig: setConfig,
-	    auth: auth
+	    updateProducts: updateProducts,
+	    setConfig     : setConfig,
+	    connectDb     : connectDb,
+	    auth          : auth
 	};
 }());

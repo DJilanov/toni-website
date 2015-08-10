@@ -21,7 +21,7 @@ angular.module('Home').factory('sharingSvc', ['$http',
 				    alert('Error on fetching from the server');
 				}).then(function(){
 					products = response.products[0];
-					categories = response.categories[0];
+					categories = response.categories[0].categories;
 					carousel = response.carousel[0].carousel;
 					callback(products, categories, carousel);
 				});

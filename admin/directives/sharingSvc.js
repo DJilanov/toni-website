@@ -6,10 +6,11 @@ angular.module('Home').factory('sharingSvc', ['$http',
 
     	var productList = {};
     	// used for the fetch
-    	var response = null;
-    	var products = null;
+    	var response   = null;
+    	var products   = null;
     	var categories = null;
-    	var carousel = null;
+    	var carousel   = null;
+    	var contact    = null;
 
     	var userIds = {};
     	var productToView = null;
@@ -33,25 +34,27 @@ angular.module('Home').factory('sharingSvc', ['$http',
 			    alert('Error on fetching from the server');
 			})
 			.then(function(){
-				if(response !== "") {
+				if(response !== "") {debugger;
 					products = response.products[0];
-					categories = response.categories[0];
+					categories = response.categories[0].categories;
 					carousel = response.carousel[0].carousel;
-					callback(products, categories, carousel);
+					contact = response.contact[0];
+
+					callback(products, categories, carousel, contact);
 				} else {
-					alert("Wrong password noob!")
+					// if tony is a noob
+					alert("WRONG PASSWORD NOOB, DELETE THE GAME PLEASE!");
 				}
 
 			});
 		}
         // we save the products and show alert that it is saved.
-        function save(callback, db) {
-        	var data = userIds;
-        	// we must update database and push it here
-        	data.db = db;
+        function save(callback, product, location) {
+        	var data = product;
+        	data.id = userIds;
 	       	$http({
 			    method: 'POST',
-			    url: config.api,
+			    url: config.api + location,
 			    params: data,
        			headers: {'Content-Type': 'application/json'}
 			})
@@ -73,19 +76,9 @@ angular.module('Home').factory('sharingSvc', ['$http',
 			callback(products, categories, carousel);
        	}
 
-        function viewProduct(product) {
-        	productToView = product;
-        }
-
-        function getProductToView() {
-        	return productToView;
-        }
-
         return {
             login			: login,
-            saved			: save,
-            viewProduct		: viewProduct,
-            getProductToView: getProductToView,
+            save			: save,
             getProducts		: getProducts
         };
     }

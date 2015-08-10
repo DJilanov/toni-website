@@ -14,9 +14,9 @@ angular.module('Home')
         		return location;
         	};
         	// we set the products in variable to be shown on screen
-        	$scope.setProducts = function(products, categories){
+        	$scope.setProducts = function(products, categories) {
         		// used for title and description
-        		$scope.category = categories[$scope.getLocation()];
+        		$scope.category = categories[$scope.checkCategory(categories)];
         		// re sort the products in the way we want
         		var productsId = $scope.category.products;
         		var currentProduct = products[productsId];
@@ -34,6 +34,16 @@ angular.module('Home')
         			sortedProducts[zIndex] = product;
         		}
         		return sortedProducts;
+        	};
+        	// used to get whitch category we are in
+        	$scope.checkCategory = function(categories) {
+        		for(var categoryCounter = 0; categoryCounter < categories.length; categoryCounter++) {
+        			if(categories[categoryCounter].name.toLowerCase() === $scope.getLocation()) {
+        				return categoryCounter;
+        			}
+        		}
+        		// if none of them match return the home
+        		return 0;
         	};
         	// for toni website we need to show only the today deals on the home
         	var productName = '1';

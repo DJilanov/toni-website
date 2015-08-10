@@ -1,12 +1,22 @@
-<div ng-repeat="navItem in navigationItems">
-    <label name="oldTitle">Old Title</label>
-	<span name="oldTitle">{{navItem.title}}</span>
-	<label name="title">new Title</label>
-	<input type="textarea" name="title" ng-model="input.title">
-	<button ng-click="save(navItem)">Save</button>
-</div>
+<input action="action" class="backBtn" type="button" value="Back" onclick="history.go(-1);" />
 <div class="welcome">
 	<div>Welcome to the navigation edit panel Toni!</div>
 	<div>Choose what you want to edit with clicking on it.</div>
+</div>
+<div ng-repeat="navItem in navigationItems">
+	<div class="col-lg-3">
+		<span>Navigation tab {{navItem.title}}</span>
+	</div>
+	<div class="col-lg-3">
+		<span>Shown on position</span>
+		<input type="text" name="position" ng-model="navItem['z-index']" value="{{navItem['z-index']}}">
+	</div>
+	<div class="col-lg-4">
+	    <label name="isShown">Is it shown on navigation</label>
+		<input name="isShown" type="checkbox" ng-model="navItem.shownOnNav" ng-checked="navItem.shownOnNav" aria-label="Slave input">
+	</div>
+	<div class="col-lg-1">
+		<button ng-click="save(navItem)">Save</button>
+	</div>
 </div>
 

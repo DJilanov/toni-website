@@ -1,0 +1,64 @@
+{
+	"categories" : [
+					{
+							"title": "Today's Deals",
+							"description": "The best deals and offers across the web. To find out about our deals first every day, subscribe to the Deals Newsletter.",
+							"products": "0",
+							"name": "Home",
+							"z-index": 0,
+							"shownOnNav": false,
+							"type": "category",
+							"id": "0"
+					},
+					{
+							"title": "csGo's Deals",
+							"description": "The best deals and offers across the web. To find out about our deals first every day, subscribe to the Deals Newsletter.",
+							"products": "1",
+							"name": "CS:GO",
+							"z-index": 1,
+							"shownOnNav": true,
+							"type": "category",
+							"id": "1"
+					},
+					{
+							"title": "gridAutoSport's Deals",
+							"description": "The best deals and offers across the web. To find out about our deals first every day, subscribe to the Deals Newsletter.",
+							"products": "2",
+							"name": "Grid Auto Sport",
+							"z-index": 2,
+							"shownOnNav": true,
+							"type": "category",
+							"id": "2"
+					},
+					{
+							"title": "finalFantasy14's Deals",
+							"description": "The best deals and offers across the web. To find out about our deals first every day, subscribe to the Deals Newsletter.",
+							"products": "3",
+							"name": "Final Fantasy XIV",
+							"z-index": 3,
+							"shownOnNav": true,
+							"type": "category",
+							"id": "3"
+					},
+					{
+							"title": "worldOfTanks's Deals",
+							"description": "The best deals and offers across the web. To find out about our deals first every day, subscribe to the Deals Newsletter.",
+							"products": "4",
+							"name": "World Of Tanks",
+							"z-index": 4,
+							"shownOnNav": true,
+							"type": "category",
+							"id": "4"
+					},
+					{
+							"title": "other games Deals",
+							"description": "The best deals and offers across the web. To find out about our deals first every day, subscribe to the Deals Newsletter.",
+							"products": "5",
+							"name": "Other games",
+							"z-index": 5,
+							"shownOnNav": true,
+							"type": "category",
+							"id": "5"
+					}
+	]
+}

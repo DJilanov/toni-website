@@ -49,6 +49,9 @@ home.setConfig(config.getConfig());
 home.connectDb();
 // we set the config into the admin controller
 admin.setConfig(config.getConfig());
+// we connect to the db using the credentials and ready it for updating
+admin.connectDb();
+
 // START THE SERVER
 // =============================================================================
 app.listen(port);
@@ -57,8 +60,9 @@ app.listen(port);
 app.get('/api/home', function (req, res){
 	res.json({
 		"categories": home.getCategoryDatabase(),
-		"products": home.getProductDatabase(),
-		"carousel": home.getCarouselDatabase()
+		"products"  : home.getProductDatabase(),
+		"carousel"  : home.getCarouselDatabase(),
+		"contact"   : home.getContactDatabase()
 	});
 });
 
@@ -69,9 +73,9 @@ app.get('/api/admin', function (req, res){
 });
 // TODO WHEN WE PUSH EDITED ELEMENT, UPDATE IT INTO THE DB
 // when we call from the admin and its with the hardcoded values we return the database
-app.post('/api/admin', function (req, res){
+app.post('/api/admin/products', function (req, res){
 	// req is undefined
-	var answer = admin.update(req.param('username'), req.param('password'), req.param('id'));
-	res.json(answer);
+	var answer = admin.updateProducts(req.query.id['username'], req.query.id['password'], req.query);
+	res.json(req.query);
 });
 

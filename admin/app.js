@@ -28,6 +28,9 @@ var _mainModules = [
    // ,'pasvaz.bindonce'
     ,'Home'
     ,'EditNavigation'
+    ,'EditCarousel'
+    ,'EditProduct'
+    ,'EditCategory'
    // ,'infinite-scroll'
    // ,'ui.bootstrap'
 ];
@@ -58,10 +61,10 @@ angular.module('app', _mainModules )
         });
 
         routes.push({
-            name: '/add',
+            name: '/editCarousel',
             params: {
-                templateUrl: './add/views/add.html',
-                controller: 'AddCtrl'
+                templateUrl:  './editCarousel/views/editCarousel.html',
+                controller: 'EditCarouselCtrl'
             }
         });
 
@@ -70,6 +73,38 @@ angular.module('app', _mainModules )
             params: {
                 templateUrl: './editProduct/views/editProduct.html',
                 controller: 'EditProductCtrl'
+            }
+        });
+
+        routes.push({
+            name: '/editCategory',
+            params: {
+                templateUrl: './editCategory/views/editCategory.html',
+                controller: 'EditCategoryCtrl'
+            }
+        });
+
+        routes.push({
+            name: '/addProduct',
+            params: {
+                templateUrl: './addProduct/views/addProduct.html',
+                controller: 'AddProductCtrl'
+            }
+        });
+
+        routes.push({
+            name: '/addCategory',
+            params: {
+                templateUrl: './addCategory/views/addCategory.html',
+                controller: 'AddCategoryCtrl'
+            }
+        });
+
+        routes.push({
+            name: '/editContact',
+            params: {
+                templateUrl: './editContact/views/editContact.html',
+                controller: 'EditContactCtrl'
             }
         });
 

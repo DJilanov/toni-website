@@ -9,7 +9,10 @@
 				"offPrice": "59%",
 				"image": "",
 				"z-index": 0,
-				"shown": true
+				"shown": true,
+				"type": "product",
+				"category": "0",
+				"id": "0"
 			},
 			{
 				"title": "Grid autosport",
@@ -20,7 +23,10 @@
 				"offPrice": "",
 				"image": "",
 				"z-index": 1,
-				"shown": true
+				"shown": true,
+				"type": "product",
+				"category": "0",
+				"id": "1"
 			},
 			{
 				"title": "Final Fantazy 14",
@@ -31,7 +37,10 @@
 				"offPrice": "80%",
 				"image": "",
 				"z-index": 2,
-				"shown": true
+				"shown": true,
+				"type": "product",
+				"category": "0",
+				"id": "2"
 			},
 			{
 				"title": "World of Tanks",
@@ -42,7 +51,10 @@
 				"offPrice": "",
 				"image": "",
 				"z-index": 3,
-				"shown": true
+				"shown": true,
+				"type": "product",
+				"category": "0",
+				"id": "3"
 			}
 		],
 	"1": [
@@ -55,7 +67,10 @@
 				"offPrice": "59%",
 				"image": "",
 				"z-index": 0,
-				"shown": true
+				"shown": true,
+				"type": "product",
+				"category": "1",
+				"id": "0"
 			},
 			{
 				"title": "Grid autosport",
@@ -66,7 +81,10 @@
 				"offPrice": "",
 				"image": "",
 				"z-index": 1,
-				"shown": true
+				"shown": true,
+				"type": "product",
+				"category": "1",
+				"id": "1"
 			},
 			{
 				"title": "Final Fantazy 14",
@@ -77,7 +95,10 @@
 				"offPrice": "80%",
 				"image": "",
 				"z-index": 2,
-				"shown": true
+				"shown": true,
+				"type": "product",
+				"category": "1",
+				"id": "2"
 			},
 			{
 				"title": "World of Tanks",
@@ -88,7 +109,10 @@
 				"offPrice": "",
 				"image": "",
 				"z-index": 3,
-				"shown": true
+				"shown": true,
+				"type": "product",
+				"category": "1",
+				"id": "3"
 			}
 		],
 
@@ -102,7 +126,10 @@
 				"offPrice": "59%",
 				"image": "",
 				"z-index": 0,
-				"shown": true
+				"shown": true,
+				"type": "product",
+				"category": "2",
+				"id": "0"
 			},
 			{
 				"title": "Grid autosport",
@@ -113,7 +140,10 @@
 				"offPrice": "",
 				"image": "",
 				"z-index": 1,
-				"shown": true
+				"shown": true,
+				"type": "product",
+				"category": "2",
+				"id": "1"
 			},
 			{
 				"title": "Final Fantazy 14",
@@ -124,7 +154,10 @@
 				"offPrice": "80%",
 				"image": "",
 				"z-index": 2,
-				"shown": true
+				"shown": true,
+				"type": "product",
+				"category": "2",
+				"id": "2"
 			},
 			{
 				"title": "World of Tanks",
@@ -135,7 +168,10 @@
 				"offPrice": "",
 				"image": "",
 				"z-index": 3,
-				"shown": true
+				"shown": true,
+				"type": "product",
+				"category": "2",
+				"id": "3"
 			}
 		],
 
@@ -149,7 +185,10 @@
 				"offPrice": "59%",
 				"image": "",
 				"z-index": 0,
-				"shown": true
+				"shown": true,
+				"type": "product",
+				"category": "3",
+				"id": "0"
 			},
 			{
 				"title": "Grid autosport",
@@ -160,7 +199,10 @@
 				"offPrice": "",
 				"image": "",
 				"z-index": 1,
-				"shown": true
+				"shown": true,
+				"type": "product",
+				"category": "3",
+				"id": "1"
 			},
 			{
 				"title": "Final Fantazy 14",
@@ -171,7 +213,10 @@
 				"offPrice": "80%",
 				"image": "",
 				"z-index": 2,
-				"shown": true
+				"shown": true,
+				"type": "product",
+				"category": "3",
+				"id": "2"
 			},
 			{
 				"title": "World of Tanks",
@@ -182,7 +227,10 @@
 				"offPrice": "",
 				"image": "",
 				"z-index": 3,
-				"shown": true
+				"shown": true,
+				"type": "product",
+				"category": "3",
+				"id": "3"
 			}
 		],
 
@@ -196,7 +244,10 @@
 				"offPrice": "59%",
 				"image": "",
 				"z-index": 0,
-				"shown": true
+				"shown": true,
+				"type": "product",
+				"category": "4",
+				"id": "0"
 			},
 			{
 				"title": "Grid autosport",
@@ -207,7 +258,10 @@
 				"offPrice": "",
 				"image": "",
 				"z-index": 1,
-				"shown": true
+				"shown": true,
+				"type": "product",
+				"category": "4",
+				"id": "1"
 			},
 			{
 				"title": "Final Fantazy 14",
@@ -218,7 +272,10 @@
 				"offPrice": "80%",
 				"image": "",
 				"z-index": 2,
-				"shown": true
+				"shown": true,
+				"type": "product",
+				"category": "4",
+				"id": "2"
 			},
 			{
 				"title": "World of Tanks",
@@ -229,7 +286,10 @@
 				"offPrice": "",
 				"image": "",
 				"z-index": 3,
-				"shown": true
+				"shown": true,
+				"type": "product",
+				"category": "4",
+				"id": "3"
 			}
 		],
 
@@ -243,7 +303,10 @@
 				"offPrice": "59%",
 				"image": "",
 				"z-index": 0,
-				"shown": true
+				"shown": true,
+				"type": "product",
+				"category": "5",
+				"id": "0"
 			},
 			{
 				"title": "Grid autosport",
@@ -254,7 +317,10 @@
 				"offPrice": "",
 				"image": "",
 				"z-index": 1,
-				"shown": true
+				"shown": true,
+				"type": "product",
+				"category": "5",
+				"id": "1"
 			},
 			{
 				"title": "Final Fantazy 14",
@@ -265,7 +331,10 @@
 				"offPrice": "80%",
 				"image": "",
 				"z-index": 2,
-				"shown": true
+				"shown": true,
+				"type": "product",
+				"category": "5",
+				"id": "2"
 			},
 			{
 				"title": "World of Tanks",
@@ -276,7 +345,10 @@
 				"offPrice": "",
 				"image": "",
 				"z-index": 3,
-				"shown": true
+				"shown": true,
+				"type": "product",
+				"category": "5",
+				"id": "3"
 			}
 		]
 }
