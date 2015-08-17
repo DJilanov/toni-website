@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('EditProduct')
-    .controller('EditProductCtrl', ['$scope', '$location', 'sharingSvc',
-        function ($scope, $location, sharingSvc) {
+    .controller('EditProductCtrl', ['$scope', 'sharingSvc',
+        function ($scope, sharingSvc) {
         	$scope.products = null;
         	$scope.categories = null;
         	var location = config.products;

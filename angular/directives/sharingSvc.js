@@ -20,7 +20,8 @@ angular.module('Home').factory('sharingSvc', ['$http',
 				}).error(function(data, status, headers, config) {
 				    alert('Error on fetching from the server');
 				}).then(function(){
-					products = response.products[0];
+					// we must rework the app to be build whitout the need of this parsing
+					products = sortProductsByCategory(response.products[0]);
 					categories = response.categories[0].categories;
 					carousel = response.carousel[0].carousel;
 					callback(products, categories, carousel);
@@ -37,6 +38,21 @@ angular.module('Home').factory('sharingSvc', ['$http',
         function getProductToView() {
         	return productToView;
         }
+       	// the idea from that function is that after we get
+       	function sortProductsByCategory(products) {
+       		var sortedProducts = [];
+       		var product = {};
+       		var category = null;
+       		for(var productCounter = 0; productCounter < products.products.length; productCounter++) {
+       			product = products.products[productCounter];
+       			category = parseInt(product.category);
+       			if(sortedProducts[category] === undefined) {
+       				sortedProducts[category] = [];
+       			}
+       			sortedProducts[category][sortedProducts[category].length] = product;
+       		}
+       		return sortedProducts;
+       	}
 
         return {
             getProducts: getProducts,

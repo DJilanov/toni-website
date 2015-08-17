@@ -8,25 +8,25 @@
 			{
 				"name": "url0",
 				"link": "url0",
-				"z-index": "0",
+				"zIndex": "0",
 				"id": "0"
 			},
 			{
 				"name": "url1",
 				"link": "url1",
-				"z-index": "1",
+				"zIndex": "1",
 				"id": "1"
 			},
 			{
 				"name": "url2",
 				"link": "url2",
-				"z-index": "2",
+				"zIndex": "2",
 				"id": "2"
 			},
 			{
 				"name": "url3",
 				"link": "url3",
-				"z-index": "3",
+				"zIndex": "3",
 				"id": "3"
 			}
 		]

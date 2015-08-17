@@ -3,7 +3,7 @@
 		{
 			"imageDescription": "image1",
 			"url": "./img/proj1.png",
-			"z-index": 0,
+			"zIndex": 0,
 			"shownOnCarousel": true,
 			"type": "carousel",
 			"id": "0"
@@ -11,7 +11,7 @@
 		{
 			"imageDescription": "image2",
 			"url": "./img/proj2.png",
-			"z-index": 1,
+			"zIndex": 1,
 			"shownOnCarousel": true,
 			"type": "carousel",
 			"id": "1"
@@ -19,7 +19,7 @@
 		{
 			"imageDescription": "image3",
 			"url": "./img/proj3.png",
-			"z-index": 2,
+			"zIndex": 2,
 			"shownOnCarousel": true,
 			"type": "carousel",
 			"id": "2"
@@ -27,7 +27,7 @@
 		{
 			"imageDescription": "image4",
 			"url": "./img/proj4.png",
-			"z-index": 3,
+			"zIndex": 3,
 			"shownOnCarousel": true,
 			"type": "carousel",
 			"id": "3"
@@ -35,7 +35,7 @@
 		{
 			"imageDescription": "image5",
 			"url": "./img/proj5.png",
-			"z-index": 4,
+			"zIndex": 4,
 			"shownOnCarousel": true,
 			"type": "carousel",
 			"id": "4"
@@ -43,7 +43,7 @@
 		{
 			"imageDescription": "image6",
 			"url": "./img/proj6.png",
-			"z-index": 5,
+			"zIndex": 5,
 			"shownOnCarousel": true,
 			"type": "carousel",
 			"id": "5"

@@ -34,8 +34,8 @@ angular.module('Home').factory('sharingSvc', ['$http',
 			    alert('Error on fetching from the server');
 			})
 			.then(function(){
-				if(response !== "") {debugger;
-					products = response.products[0];
+				if(response !== "") {
+					products = sortProductsByCategory(response.products[0]);
 					categories = response.categories[0].categories;
 					carousel = response.carousel[0].carousel;
 					contact = response.contact[0];
@@ -51,7 +51,9 @@ angular.module('Home').factory('sharingSvc', ['$http',
         // we save the products and show alert that it is saved.
         function save(callback, product, location) {
         	var data = product;
-        	data.id = userIds;
+        	data.imageDescription = 'imageTest';
+        	data.username = userIds.username;
+        	data.password = userIds.password;
 	       	$http({
 			    method: 'POST',
 			    url: config.api + location,
@@ -74,6 +76,21 @@ angular.module('Home').factory('sharingSvc', ['$http',
 
        	function getProducts(callback) {
 			callback(products, categories, carousel);
+       	}
+       	// the idea from that function is that after we get
+       	function sortProductsByCategory(products) {
+       		var sortedProducts = [];
+       		var product = {};
+       		var category = null;
+       		for(var productCounter = 0; productCounter < products.products.length; productCounter++) {
+       			product = products.products[productCounter];
+       			category = parseInt(product.category);
+       			if(sortedProducts[category] === undefined) {
+       				sortedProducts[category] = [];
+       			}
+       			sortedProducts[category][sortedProducts[category].length] = product;
+       		}
+       		return sortedProducts;
        	}
 
         return {

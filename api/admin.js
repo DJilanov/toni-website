@@ -5,12 +5,22 @@
 	var mongoose   = require('mongoose');
 	// here we declare all functions we use for the standart user interface
 	var home       = require('./home');
+	// here we declare all functions we use for the admin user interface
+	var carousel   = require('./updateCarousel');
+	var category   = require('./updateCategories');
+	var product   = require('./updateProducts');
+	var contact   = require('./updateContact');
 	// here we save the db
 	var database = {};
 	// used as container for the config
 	var config = null;
 	function setConfig(loadedConfig) {
 		config = loadedConfig;
+		// here we set the config there so we can use the carousel prototype
+		carousel.setConfig(loadedConfig);
+		category.setConfig(loadedConfig);
+		product.setConfig(loadedConfig);
+		contact.setConfig(loadedConfig);
 	}
 
 	function auth(logedUsername, logedPassword) {
@@ -25,25 +35,47 @@
 		}
 	}
 	// here we update products into the database
-	function updateProducts(logedUsername, logedPassword, element) {
-		if((logedUsername === config.username)&&(logedPassword === config.password)){
-			var callback = function(err, count, status) {
-				console.log('[Admin] update products callback');
-				console.log(err);
-				console.log(count);
-				console.log(status);
-				if(err === null){
-					return true;
-				} else {
-					return false;
-				}
-			};
-			// TODO: FIX ISSUES WITH THE DATABASE. CHANGE ITS LOGIC AND IMPLEMENT UPDATE BY ID
-			// we connect to home database ith the acc and pass
+	function updateCategory(element) {
+		if((element.username === config.username)&&(element.password === config.password)){
+			// we connect to carousel database ith the acc and pass
+			mongoose.connection.db.collection('categories', function (err, collection) {
+				category.updateCategory(collection, element, res);
+		    });
+		} else {
+			return 'Wrong acc or password';
+		}
+	}
+
+	// here we update products into the database
+	function updateCarousel(element, res) {
+		if((element.username === config.username)&&(element.password === config.password)){
+			// we connect to carousel database ith the acc and pass
+			mongoose.connection.db.collection('carousel', function (err, collection) {
+				carousel.updateCarousel(collection, element, res);
+		    });
+		} else {
+			return 'Wrong acc or password';
+		}
+	}
+
+	// here we update products into the database
+	function updateProduct(element, res) {
+		if((element.username === config.username)&&(element.password === config.password)){
+			// we connect to products database ith the acc and pass
 			mongoose.connection.db.collection('products', function (err, collection) {
-		    	collection.find().toArray(function(err, docs) {
-		            productsDatabase = docs;
-		   		});
+				product.updateProduct(collection, element, res);
+		    });
+		} else {
+			return 'Wrong acc or password';
+		}
+	}
+
+	// here we update products into the database
+	function updateContact(element, res) {
+		if((element.username === config.username)&&(element.password === config.password)){
+			// we connect to contact database ith the acc and pass
+			mongoose.connection.db.collection('contact', function (err, collection) {
+				contact.updateContact(collection, element, res);
 		    });
 		} else {
 			return 'Wrong acc or password';
@@ -79,7 +111,10 @@
 	}
 
 	module.exports = {
-	    updateProducts: updateProducts,
+	    updateCategory: updateCategory,
+	    updateCarousel: updateCarousel,
+	    updateProduct : updateProduct,
+	    updateContact : updateContact,
 	    setConfig     : setConfig,
 	    connectDb     : connectDb,
 	    auth          : auth
