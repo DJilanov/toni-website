@@ -51,7 +51,7 @@ body {
   padding-bottom: 40px;
   background-color: #eee;
 }
-
+/* login page */
 .form-signin {
   max-width: 330px;
   padding: 15px;
@@ -273,11 +273,9 @@ body {
  		margin-bottom: 20px;
  	}
  	/* edit product */
- 	.spacing {
- 		margin-top: 20px;
- 		margin-bottom: 20px;
+ 	.categoryList {
+ 		height: 50px;
  	}
- 	.spacing div {
- 		margin-top: 5px;
- 		margin-bottom: 5px;
+ 	.spacing-30 {
+ 		margin-bottom: 30px;
  	}

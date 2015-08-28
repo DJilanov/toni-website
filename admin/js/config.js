@@ -29,18 +29,18 @@ var config = {
 	},
 
 	productPrototype: {
-		"title": "CS:GO:0",
-		"description": "500 x 6MM CARBON STEEL BALL BEARINGS",
-		"moreInfo": "SMK.",
-		"oldPrice": "269.99",
-		"newPrice": "109.99",
-		"offPrice": "59%",
-		"image": "",
-		"zIndex": 0,
-		"shown": true,
+		"title": "Blank",
+		"description": "Blank",
+		"moreInfo": "Blank",
+		"oldPrice": "Blank",
+		"newPrice": "Blank",
+		"offPrice": "Blank",
+		"image": "Blank",
+		"zIndex": 255,
+		"shown": false,
 		"type": "product",
-		"category": "0",
-		"id": "0"
+		"category": "",
+		"id": ""
 	},
 
 	contactPrototype: {
@@ -49,8 +49,10 @@ var config = {
 		"contactBody": "here is the contact body of lunes contacts",
 		"contactFooter": "here is the contact footer",
 		"moreLinks": []
-	}
+	},
 
-	// real api
-	// api: '<website>:8080/api/admin'
+	// configurable variables
+
+	// if it is set to true the default of the edit products will be only one tab at a time
+	oneAtATime: true
 };

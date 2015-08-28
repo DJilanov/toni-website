@@ -30,7 +30,7 @@ angular.module('Home')
         		var product = {};
         		for(var productCounter = 0; productCounter < products.length; productCounter++) {
         			product = products[productCounter];
-        			zIndex = product['z-index'];
+        			zIndex = product['zIndex'];
         			sortedProducts[zIndex] = product;
         		}
         		return sortedProducts;

@@ -32,7 +32,7 @@ var _mainModules = [
     ,'EditProduct'
     ,'EditCategory'
    // ,'infinite-scroll'
-   // ,'ui.bootstrap'
+    ,'ui.bootstrap'
 ];
 
 angular.module('app', _mainModules )

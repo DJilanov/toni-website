@@ -4,82 +4,89 @@
 	<div>Welcome to the product edit panel Toni!</div>
 	<div>Choose what you want to edit with clicking on it.</div>
 </div>
-<div ng-repeat="categorie in categories" class="col-lg-12">
-	<div class="welcome">
-		<div>Category: {{categorie.title}}</div>
-	</div>
-	<div ng-repeat="product in products[$index]" class="col-lg-12 spacing">
-		<div class="col-lg-4">
-			<!-- image -->
-			<img src="{{product.image}}" alt="{{product.image}}" width="100%">
-	    	<label name="image">New image</label>
-	    	<input type="text" name="image">
-		</div>
-	    <div class="col-lg-8">
-	        <!-- title text input -->
-	    	<div class="col-lg-12">
-		        <div class="col-lg-6">
-		        	<label name="oldTitle">Old Title</label>
-		        	<span name="oldTitle">{{product.title}}</span>
-		        </div>
-		        <div class="col-lg-6">
-		        	<label name="title">new Title</label>
-		        	<input type="textarea" name="title" ng-model="input.title">
-		        </div>
-		    </div>
-	        <!-- description text input -->
-	    	<div class="col-lg-12">
-		        <div class="col-lg-6">
-		        	<label name="oldDescription">Old description</label>
-		        	<span name="oldDescription">{{product.description}}</span>
-		        </div>
-		        <div class="col-lg-6">
-		        	<label name="Description">New description</label>
-		        	<input type="textarea" name="Description" ng-model="input.description">
-		        </div>
-		    </div>
-	        <!-- more description text input -->
-	    	<div class="col-lg-12">
-		        <div class="col-lg-6">
-		        	<label name="oldMore">Old more info</label>
-		        	<span name="oldMore">{{product.moreInfo}}</span>
-		        </div>
-		        <div class="col-lg-6">
-		        	<label name="moreInfo">New more info</label>
-		        	<input type="textarea" name="moreInfo" ng-model="input.moreInfo">
-		        </div>
-		    </div>
-	    	<div class="col-lg-12">
-		        <div class="col-lg-6">
-		        	<label name="oldNewPrice">Old New price</label>
-		        	<span name="oldNewPrice">{{product.newPrice}}</span>
-		        </div>
-		        <div class="col-lg-6">
-		        	<label name="newPrice">New New price</label>
-		        	<input type="textarea" name="newPrice" ng-model="input.newPrice">
-		    	</div>
-		   	</div>
-	    	<div class="col-lg-12">
-		        <div class="col-lg-6">
-		        	<label name="oldOldPrice">Old Old price</label>
-		        	<span name="oldOldPrice">{{product.oldPrice}}</span>
-		        </div>
-		        <div class="col-lg-6">
-		        	<label name="oldPrice">New old price</label>
-		        	<input type="textarea" name="oldPrice" ng-model="input.oldPrice">
-		    	</div>
-		    </div>
-	    	<div class="col-lg-12">
-		        <div class="col-lg-6">
-		        	<label name="oldOffPrice">Old Off price</label>
-		        	<span name="oldOffPrice">{{product.offPrice}}</span>
-		        </div>
-		        <div class="col-lg-6">
-		        	<label name="offPrice">New off price</label>
-		        	<input type="textarea" name="offPrice" ng-model="input.offPrice">
-		    	</div>
-		    </div>
-	    </div>
-	    <input type="submit" value="Save" ng-click="save(product)">
-	</div>
+<div class="col-lg-12">
+    <div class="checkbox">
+    	<label>
+     		<input type="checkbox" ng-model="oneAtATime" checked="true">
+      		Open only one at a time
+    	</label>
+  	</div>
+	<accordion class="accordion" close-others="oneAtATime">
+        <accordion-group  ng-repeat="categorie in categories" is-open="status.isOpen[$index]" >
+            <accordion-heading>
+                <span>{{categorie.title}}</span>
+                <span class="badge">{{categorySize[$index]}}</span>
+                <i class="fa chevron-icon" ng-class="{'fa-chevron-down': status.isOpen[$index], 'fa-chevron-right': !status.isOpen[$index]}"></i>
+            </accordion-heading>
+            <div ng-repeat="product in products[$index] track by $index" class="col-lg-12">
+            	<form class="form-horizontal spacing-30">
+					<fieldset>
+						<!-- Form Name -->
+						<legend>{{product.title}}</legend>
+						<div class="pull-right" ng-show="product.new !== undefined">New</div>
+						<!-- Appended Input-->
+						<div class="form-group">
+						  <label class="col-md-4 control-label" for="appendedtext">Product image</label>
+						  <div class="col-md-4">
+						    <div class="input-group">
+						      <input id="appendedtext" name="appendedtext" class="form-control" value="{{product.image}}" type="text">
+	      					  <span class="input-group-addon">Upload</span>
+						    </div>
+						  </div>
+						</div>
+
+						<!-- Text input-->
+						<div class="form-group">
+						  <label class="col-md-4 control-label" for="textinput">Product title</label>
+						  <div class="col-md-4">
+						    <input id="textinput" name="textinput" type="text" class="form-control input-md" value="{{product.title}}">
+						  </div>
+						</div>
+
+						<!-- Textarea -->
+						<div class="form-group">
+						  <label class="col-md-4 control-label" for="textarea">Product description</label>
+						  <div class="col-md-4">
+						    <textarea class="form-control" id="textarea" name="textarea">{{product.description}}</textarea>
+						  </div>
+						</div>
+
+						<!-- Text input-->
+						<div class="form-group">
+						  <label class="col-md-4 control-label" for="textinput">Product more info</label>
+						  <div class="col-md-4">
+						    <input id="textinput" name="textinput" type="text" class="form-control input-md" value="{{product.moreInfo}}">
+						  </div>
+						</div>
+
+						<!-- Text input-->
+						<div class="form-group">
+						  <label class="col-md-4 control-label" for="textinput">Product new price</label>
+						  <div class="col-md-4">
+						    <input id="textinput" name="textinput" type="text" class="form-control input-md" value="{{product.newPrice}}">
+						  </div>
+						</div>
+
+						<!-- Text input-->
+						<div class="form-group">
+						  <label class="col-md-4 control-label" for="textinput">Product old price</label>
+						  <div class="col-md-4">
+						    <input id="textinput" name="textinput" type="text" class="form-control input-md" value="{{product.oldPrice}}">
+						  </div>
+						</div>
+
+						<!-- Text input-->
+						<div class="form-group">
+						  <label class="col-md-4 control-label" for="textinput">Product off price</label>
+						  <div class="col-md-4">
+						    <input id="textinput" name="textinput" type="text" class="form-control input-md" value="{{product.offPrice}}">
+						  </div>
+						</div>
+						<a class="btn btn-block btn-danger" ng-click="delete(product)">Delete</a>
+						<a class="btn btn-block btn-info" ng-click="add(product.category)" ng-show="$last">Add new product</a>
+					</fieldset>
+				</form>
+			</div>
+        </accordion-group>
+    </accordion>
 </div>
