@@ -1,8 +1,8 @@
 'use strict';
 
-angular.module('Home').factory('sharingSvc', ['$http',
+angular.module('Home').factory('sharingSvc', ['$http', '$location',
 
-    function($http) {
+    function($http, $location) {
 
     	var productList = {};
     	// used for the fetch
@@ -51,7 +51,6 @@ angular.module('Home').factory('sharingSvc', ['$http',
         // we save the products and show alert that it is saved.
         function save(callback, product, location) {
         	var data = product;
-        	data.imageDescription = 'imageTest';
         	data.username = userIds.username;
         	data.password = userIds.password;
 	       	$http({
@@ -75,7 +74,20 @@ angular.module('Home').factory('sharingSvc', ['$http',
        	}
 
        	function getProducts(callback) {
-			callback(products, categories, carousel);
+       		// check did we already loged in.
+       		var login = {};
+       		login.username = localStorage.getItem('username');
+       		login.password = localStorage.getItem('password');
+
+       		if(products === null){
+       			if(login.username.length > 1) {
+       				this.login(callback, login);
+       			} else {
+       				$location.path( "/home" );
+       			}
+       		} else {
+       			callback(products, categories, carousel);
+       		}
        	}
        	// the idea from that function is that after we get
        	function sortProductsByCategory(products) {

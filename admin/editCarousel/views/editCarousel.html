@@ -1,11 +1,11 @@
 <input action="action" class="backBtn" type="button" value="Back" onclick="history.go(-1);" />
 <div class="welcome">
-	<div>Welcome to the carousel edit panel Toni!</div>
+	<div>Welcome to the carousel edit panel {{name}}!</div>
 	<div>Choose what you want to edit with clicking on it.</div>
 </div>
 <div ng-repeat="carouselItem in carouselImages" class="carousel col-lg-12">
 	<div class="col-lg-3">
-		<span>Carousel tab</span>
+		<span>Carousel slide {{$index + 1}}</span>
 	</div>
 	<div class="col-lg-1">
 		<img src="{{carouselItem.url}}" alt="{{carouselItem.imageDescription}}" class="smallImage" ng-click="changeImage(carouselItem)">

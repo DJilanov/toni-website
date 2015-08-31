@@ -7,7 +7,7 @@
     <input type="password" id="inputPassword" class="form-control" ng-model="login.password" placeholder="Password" required="">
     <div class="checkbox">
       <label>
-        <input type="checkbox" value="remember-me"> Remember me
+        <input type="checkbox" ng-model="login.remember" > Remember me
       </label>
     </div>
     <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="update(login)">Sign in</button>
@@ -16,7 +16,7 @@
 <footer ng-show="list">
     <div class="container">
     	<div class="welcome">
-    		<div>Welcome to the admin panel Toni!</div>
+    		<div>Welcome to the admin panel {{name}}</div>
     		<div>Choose what you want to view or edit</div>
     	</div>
 	    <ul>

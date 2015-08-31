@@ -91,7 +91,14 @@
 				'products.$.id': element.id,
 			}
 		};
-    	collection.update(querry, secondaryQuerry, callback);
+		// we check what we gonna do with the element
+		if(element.delete === true){
+			console.log('Deleting element:' + element);
+			collection.remove(querry, secondaryQuerry, callback);
+		} else {
+			console.log('Updating element:' + element);
+			collection.update(querry, secondaryQuerry, callback);
+		}
 	}
 
 	module.exports = {

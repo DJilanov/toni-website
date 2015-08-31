@@ -4,19 +4,53 @@
 	<div>Choose what you want to edit with clicking on it.</div>
 </div>
 <div ng-repeat="navItem in navigationItems">
-	<div class="col-lg-3">
-		<span>Navigation tab {{navItem.title}}</span>
-	</div>
-	<div class="col-lg-3">
-		<span>Shown on position</span>
-		<input type="text" name="position" ng-model="navItem['z-index']" value="{{navItem['z-index']}}">
-	</div>
-	<div class="col-lg-4">
-	    <label name="isShown">Is it shown on navigation</label>
-		<input name="isShown" type="checkbox" ng-model="navItem.shownOnNav" ng-checked="navItem.shownOnNav" aria-label="Slave input">
-	</div>
-	<div class="col-lg-1">
-		<button ng-click="save(navItem)">Save</button>
-	</div>
-</div>
+	<accordion class="accordion" close-others="oneAtATime">
+	    <accordion-group is-open="status.isOpen[$index]" >
+	        <accordion-heading>
+	            <span>{{navItem.title}}</span>
+	            <i class="fa chevron-icon" ng-class="{'fa-chevron-down': status.isOpen[$index], 'fa-chevron-right': !status.isOpen[$index]}"></i>
+	        </accordion-heading>
+			<form class="form-horizontal spacing-30">
+				<fieldset>
+					<!-- Form Name -->
+					<legend>{{navItem.title}}</legend>
+					<!-- Appended Input-->
+					<div class="form-group">
+					  <label class="col-md-4 control-label" for="appendedtext">Navigation title</label>
+					  <div class="col-md-4">
+					    <div class="input-group">
+					    	<input id="textinput" name="textinput" type="text" class="form-control input-md" ng-model="navItem.title" value="{{navItem.title}}">
+					    </div>
+					  </div>
+					</div>
 
+					<!-- Text input-->
+					<div class="form-group">
+					  <label class="col-md-4 control-label" for="textinput">Show on position</label>
+					  <div class="col-md-4">
+					    <input id="textinput" name="textinput" type="text" class="form-control input-md" ng-model="navItem['zIndex']" value="{{navItem['zIndex']}}">
+					  </div>
+					</div>
+
+					<!-- Textarea -->
+					<div class="form-group">
+					  <label class="col-md-4 control-label" for="textarea">Is it shown on navigation</label>
+					  <div class="col-md-4">
+						<input name="isShown" type="checkbox" ng-model="navItem.shownOnNav" ng-checked="navItem.shownOnNav" aria-label="Slave input">
+					  </div>
+					</div>
+
+					<!-- Text input-->
+					<div class="form-group">
+					  <label class="col-md-4 control-label" for="textinput">Navigation name</label>
+					  <div class="col-md-4">
+					    <input id="textinput" name="textinput" type="text" class="form-control input-md" ng-model="navItem.name" value="{{navItem.name}}">
+					  </div>
+					</div>
+					<a class="btn btn-info  col-md-6" ng-click="save(navItem)">Save</a>
+					<a class="btn btn-danger col-md-6" ng-click="delete(navItem)">Delete</a>
+				</fieldset>
+			</form>
+        </accordion-group>
+    </accordion>
+</div>

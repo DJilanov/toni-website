@@ -1,7 +1,7 @@
 <!-- create title, image, description -->
 <input action="action" class="backBtn" type="button" value="Back" onclick="history.go(-1);" />
 <div class="welcome">
-	<div>Welcome to the product edit panel Toni!</div>
+	<div>Welcome to the product edit panel {{name}}!</div>
 	<div>Choose what you want to edit with clicking on it.</div>
 </div>
 <div class="col-lg-12">
@@ -82,7 +82,8 @@
 						    <input id="textinput" name="textinput" type="text" class="form-control input-md" value="{{product.offPrice}}">
 						  </div>
 						</div>
-						<a class="btn btn-block btn-danger" ng-click="delete(product)">Delete</a>
+						<a class="btn btn-info  col-md-6" ng-click="save(navItem)">Save</a>
+						<a class="btn btn-danger col-md-6" ng-click="delete(navItem)">Delete</a>
 						<a class="btn btn-block btn-info" ng-click="add(product.category)" ng-show="$last">Add new product</a>
 					</fieldset>
 				</form>

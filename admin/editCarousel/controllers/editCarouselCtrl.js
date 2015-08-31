@@ -6,6 +6,8 @@ angular.module('EditCarousel')
 
             // here we integrate the navigation items
             $scope.carouselImages = [];
+            // the name of the user
+            $scope.name = config.name;
         	var location = config.carousel;
 			//------------------------------------------------------
 			// here we import the nav items

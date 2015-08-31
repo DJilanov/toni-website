@@ -20,6 +20,10 @@ angular.module('EditProduct')
         	 */
         	$scope.oneAtATime = config.oneAtATime;
         	/*
+			 * @info: used to show the name of the administrator
+        	 */
+        	$scope.name = config.name;
+        	/*
         	 * @info: this is the callback of the function that get us the products from the storage
 			 * @products: This is the products collection
 			 * @categories: This is the categories collection
@@ -43,6 +47,14 @@ angular.module('EditProduct')
 			 * @product: This is the product that we want to save
 			 */
 			$scope.save = function(product) {
+				sharingSvc.save($scope.onSave, product, location);
+			};
+        	/*
+        	 * @info: used when we save a product. This calls the service and sends post request with the product
+			 * @product: This is the product that we want to save
+			 */
+			$scope.delete = function(product) {
+				product.delete = true;
 				sharingSvc.save($scope.onSave, product, location);
 			};
         	/*

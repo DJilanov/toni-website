@@ -85,22 +85,6 @@ angular.module('app', _mainModules )
         });
 
         routes.push({
-            name: '/addProduct',
-            params: {
-                templateUrl: './addProduct/views/addProduct.html',
-                controller: 'AddProductCtrl'
-            }
-        });
-
-        routes.push({
-            name: '/addCategory',
-            params: {
-                templateUrl: './addCategory/views/addCategory.html',
-                controller: 'AddCategoryCtrl'
-            }
-        });
-
-        routes.push({
             name: '/editContact',
             params: {
                 templateUrl: './editContact/views/editContact.html',

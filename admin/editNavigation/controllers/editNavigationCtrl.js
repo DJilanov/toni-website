@@ -15,8 +15,8 @@ angular.module('EditNavigation')
 				        // important check that this is objects own property
 				        // not from prototype prop inherited
 				        if(typeof navItem !== "string"){
-				           $scope.navigationItems[navItem['z-index']] = navItem;
-				           $scope.navigationItems[navItem['z-index']].link = key;
+				           $scope.navigationItems[navItem['zIndex']] = navItem;
+				           $scope.navigationItems[navItem['zIndex']].link = key;
 				        }
 				    }
 				}
