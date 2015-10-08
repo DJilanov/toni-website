@@ -1,0 +1,25 @@
+{
+  "name": "toni-website",
+  "version": "0.0.0",
+  "homepage": "www.jilanov.com",
+  "authors": [
+    "Dimitar Jilanov <dimitar.jilanov@mobilewavesolutions.com>"
+  ],
+  "description": "Toni sales website",
+  "main": "angular/app.js",
+  "moduleType": [],
+  "keywords": [
+    "angular-animate"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-animate": "~1.4.7"
+  }
+}

@@ -46,6 +46,11 @@
     }
 }
 
+/* hide the scroll bar */
+html::-webkit-scrollbar { width: 0 !important }
+html { -ms-overflow-style: none; }
+html { overflow: -moz-scrollbars-none; }
+
 #mainContainer {height:100%;}
 /* the navigation cyrcles in the right */
 #dotNav {
@@ -139,3 +144,4 @@ img{
     margin-bottom:50px;
     margin-top:50px;
 }
+/* carousel */

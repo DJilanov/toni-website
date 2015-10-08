@@ -1,10 +1,18 @@
 'use strict';
 
-angular.module('Carousel', ['ui.bootstrap'])
+angular.module('Carousel', ['ui.bootstrap', 'ngAnimate'])
     .controller('CarouselCtrl', ['$scope', 'sharingSvc',
         function ($scope, sharingSvc) {
             $scope.myInterval = 3000;
-			$scope.slides = [];
+            // we generate dummy object
+			$scope.slides = [{
+				id: "0",
+				imageDescription: "imageTest",
+				shownOnCarousel: "true",
+				type: "carousel",
+				url: "./img/proj1.png",
+				zIndex: "0"
+			}];
 			// here we set the items into the carousel
 			$scope.setCarouselItems = function(products, categories, carousel) {
 				$scope.slides = carousel;

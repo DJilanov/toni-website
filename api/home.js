@@ -78,7 +78,8 @@
 		  });
 		});
 		// get database
-		mongoose.connect('mongodb://'+ config.dbUsername +':'+ config.dbPassword + config.api);
+		// mongoose.connect('mongodb://'+ config.dbUsername +':'+ config.dbPassword + config.api);
+		mongoose.connect('mongodb://admin:toni1221@ds047792.mongolab.com:47792/toni-website');
 	}
 
 	module.exports = {

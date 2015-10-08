@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('Carousel', [])
+angular.module('Carousel', ['ngAnimate'])
     .config(function () {})
     .constant('homePath', '/home');
 

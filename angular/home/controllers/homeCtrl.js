@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('Home')
+angular.module('Home', ['ngAnimate'])
     .controller('HomeCtrl', ['$scope', '$location', '$http', 'sharingSvc',
         function ($scope, $location, $http, sharingSvc) {
         	$scope.response = null;

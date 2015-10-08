@@ -19,6 +19,7 @@ var _mainModules = [
   //  ,'Filters'
    'ngRoute'
    ,'ngResource'
+   ,'ngAnimate'
   //  ,'ngSanitize'
   //  ,'ngCookies'
    // ,'ngAnimate'
