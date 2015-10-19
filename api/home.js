@@ -34,6 +34,14 @@
 		config = loadedConfig;
 	}
 
+	function updateProducts(doc) {
+		mongoose.connection.db.collection('products', function (err, collection) {
+			collection.find().toArray(function(err, docs) {
+		        productsDatabase = docs;
+		    });
+		});
+	}
+
 	function connectDb(){
 		// we cache the product list by the viewing user
 		mongoose.connection.on('connected', function () {
@@ -88,6 +96,7 @@
 	    getCategoryDatabase	: getCategoryDatabase,
 	    getProductDatabase	: getProductDatabase,
 	    getCarouselDatabase : getCarouselDatabase,
-	    getContactDatabase  : getContactDatabase
+	    getContactDatabase  : getContactDatabase,
+	    updateProducts		: updateProducts
 	};
 }());

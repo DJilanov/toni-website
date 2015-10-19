@@ -35,10 +35,10 @@ angular.module('Home').factory('sharingSvc', ['$http', '$location',
 			})
 			.then(function(){
 				if(response !== "") {
-					products = sortProductsByCategory(response.products[0]);
-					categories = response.categories[0].categories;
-					carousel = response.carousel[0].carousel;
-					contact = response.contact[0];
+					products = sortProductsByCategory(response.products);
+					categories = response.categories;
+					carousel = response.carousel;
+					contact = response.contact;
 
 					callback(products, categories, carousel, contact);
 				} else {
@@ -49,13 +49,14 @@ angular.module('Home').factory('sharingSvc', ['$http', '$location',
 			});
 		}
         // we save the products and show alert that it is saved.
-        function save(callback, product, location) {
+        function save(callback, product) {
         	var data = product;
         	data.username = userIds.username;
         	data.password = userIds.password;
+        	console.log(data);
 	       	$http({
 			    method: 'POST',
-			    url: config.api + location,
+			    url: config.api + '/' + product.type,
 			    params: data,
        			headers: {'Content-Type': 'application/json'}
 			})
@@ -94,8 +95,8 @@ angular.module('Home').factory('sharingSvc', ['$http', '$location',
        		var sortedProducts = [];
        		var product = {};
        		var category = null;
-       		for(var productCounter = 0; productCounter < products.products.length; productCounter++) {
-       			product = products.products[productCounter];
+       		for(var productCounter = 0; productCounter < products.length; productCounter++) {
+       			product = products[productCounter];
        			category = parseInt(product.category);
        			if(sortedProducts[category] === undefined) {
        				sortedProducts[category] = [];

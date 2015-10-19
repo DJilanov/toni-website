@@ -13,7 +13,8 @@ var home       = require('./home');
 // here we declare all functions we use for the admin user interface
 var admin      = require('./admin');
 // here we declare all constants we gonna use
-var config     = require('./config');
+var config 	   = require('./config');
+	config     = config.getConfig();
 // configure app to use bodyParser()
 // this will let us get nv.PORT || 8080;        // set our port
 
@@ -43,15 +44,15 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 // SET NEEDED VARIABLES
 // =============================================================================
 // we set the config so we can go into the db
-home.setConfig(config.getConfig());
+home.setConfig();
 // we connect to the db using the credentials and fetch the home and products
 home.connectDb();
 // we set the config into the admin controller
-admin.setConfig(config.getConfig());
+admin.setConfig(config);
 // we connect to the db using the credentials and ready it for updating
 admin.connectDb();
 // we set the config into the admin controller
-admin.setConfig(config.getConfig());
+admin.setConfig(config);
 
 // START THE SERVER
 // =============================================================================
@@ -73,10 +74,10 @@ app.get('/api/admin', function (req, res){
 	res.json(database);
 });
 // TODO WHEN WE PUSH EDITED ELEMENT, UPDATE IT INTO THE DB
-app.post('/api/admin/products', function (req, res){
+app.post('/api/admin/product', function (req, res){
 	// req is undefined
 	console.log('[Server.js]Post request to products');
-	var answer = admin.updateProducts(req.query);
+	var answer = admin.updateProduct(req.query, res);
 	res.json(req.query);
 });
 app.post('/api/admin/carousel', function (req, res){
@@ -84,4 +85,3 @@ app.post('/api/admin/carousel', function (req, res){
 	console.log('[Server.js]Post request to carousel');
 	admin.updateCarousel(req.query, res);
 });
-

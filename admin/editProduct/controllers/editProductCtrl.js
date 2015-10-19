@@ -47,6 +47,7 @@ angular.module('EditProduct')
 			 * @product: This is the product that we want to save
 			 */
 			$scope.save = function(product) {
+				debugger;
 				sharingSvc.save($scope.onSave, product, location);
 			};
         	/*

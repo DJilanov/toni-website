@@ -14,7 +14,10 @@
 	var database = {};
 	// used as container for the config
 	var config = null;
+	// res holder
+	var resCopy = null;
 	function setConfig(loadedConfig) {
+		console.log('[Admin]SetConfig fired');
 		config = loadedConfig;
 		// here we set the config there so we can use the carousel prototype
 		carousel.setConfig(loadedConfig);
@@ -63,11 +66,34 @@
 		if((element.username === config.username)&&(element.password === config.password)){
 			// we connect to products database ith the acc and pass
 			mongoose.connection.db.collection('products', function (err, collection) {
-				product.updateProduct(collection, element, res);
+				product.updateProduct(collection, element, updateProducts);
+				console.log('Element to be updated' + JSON.stringify(element))
+				resCopy = res;
 		    });
 		} else {
 			return 'Wrong acc or password';
 		}
+	}
+
+	function updateProducts (err, doc) {
+		home.updateProducts(doc);
+		resSend(err, doc);
+	}
+
+	function resSend(err, doc) {
+		if(err) {
+			console.log('Error:' + err);
+			resCopy.send({
+				'updated': false,
+				'error': err
+			});
+		} else {
+			resCopy.send({
+				'updated': true,
+				'newProduct': doc
+			});
+		}
+
 	}
 
 	// here we update products into the database

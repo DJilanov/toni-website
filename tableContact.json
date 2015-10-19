@@ -1,34 +1,8 @@
 {
-	"contact": {
-		"logoImg": "",
-		"contactHeader": "Contact Lunes",
-		"contactBody": "here is the contact body of lunes contacts",
-		"contactFooter": "here is the contact footer",
-		"moreLinks": [
-			{
-				"name": "url0",
-				"link": "url0",
-				"zIndex": "0",
-				"id": "0"
-			},
-			{
-				"name": "url1",
-				"link": "url1",
-				"zIndex": "1",
-				"id": "1"
-			},
-			{
-				"name": "url2",
-				"link": "url2",
-				"zIndex": "2",
-				"id": "2"
-			},
-			{
-				"name": "url3",
-				"link": "url3",
-				"zIndex": "3",
-				"id": "3"
-			}
-		]
-	}
+    "logoImg": "",
+    "contactHeader": "Contact Lunes",
+    "contactBody": "here is the contact body of lunes contacts",
+    "contactFooter": "here is the contact footer",
+    "moreLinks": [
+    ]
 }

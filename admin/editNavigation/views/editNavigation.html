@@ -1,7 +1,7 @@
-<input action="action" class="backBtn" type="button" value="Back" onclick="history.go(-1);" />
 <div class="welcome">
 	<div>Welcome to the navigation edit panel Toni!</div>
-	<div>Choose what you want to edit with clicking on it.</div>
+	<div class="spacing-30">Choose what you want to edit with clicking on it.</div>
+	<div>Here you see all of your categories. Each one has the ability to be navigation tab holder. If you doesnt want to have tab holder for this category just set the checkbox to be empty.</div>
 </div>
 <div ng-repeat="navItem in navigationItems">
 	<accordion class="accordion" close-others="oneAtATime">
@@ -47,10 +47,12 @@
 					    <input id="textinput" name="textinput" type="text" class="form-control input-md" ng-model="navItem.name" value="{{navItem.name}}">
 					  </div>
 					</div>
-					<a class="btn btn-info  col-md-6" ng-click="save(navItem)">Save</a>
-					<a class="btn btn-danger col-md-6" ng-click="delete(navItem)">Delete</a>
+					<a class="btn btn-info  col-md-12" ng-click="save(navItem)">Save</a>
 				</fieldset>
 			</form>
         </accordion-group>
     </accordion>
 </div>
+<footer>
+	<!-- <a class="btn btn-info  col-md-12" ng-click="add()">Add more</a> -->
+</footer>

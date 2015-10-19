@@ -9,16 +9,13 @@
 	}
 
 	// here we update products into the database
-	function updateProduct(collection, element, res) {
+	function updateProduct(collection, element, callback) {
 		checkForMissingElements(element);
-		sendAndReturn(collection, element, res);
+		sendAndReturn(collection, element, callback);
 
 	}
 	// here we check for missing elements on element creation and we create a new for it
 	function checkForMissingElements(element) {
-		if(element.id.length == 0) {
-			element.id = new ObjectID();
-		}
 		if(element.title.length == 0) {
 			element.title = config.productPrototype.title;
 		}
@@ -52,51 +49,40 @@
 		if(element.type.length == 0) {
 			element.type = config.productPrototype.type;
 		}
+		if((element.username !== undefined) && (element.username.length !== 0)) {
+			delete element.username;
+		}
+		if((element.password !== undefined) && (element.password.length !== 0)) {
+			delete element.password;
+		}
 	}
 	// here we send the element to the database and we return info
-	function sendAndReturn(collection, element, res) {
-		var callback = function(err, doc) {
-			console.log(err);
-			if(err) {
-				res.send({
-					'updated': false,
-					'error': err
-				});
-			} else {
-				res.send({
-					'updated': true,
-					'newProduct': doc
-				});
-			}
-		};
+	function sendAndReturn(collection, element, callback) {
 		var querry = {
-			"products": {
-				"$elemMatch": {
-					"id": element.id
-				}
-			}
+			"id": element.id
 		};
 		var secondaryQuerry = {
 			$set: {
-				'products.$.title': element.title,
-				'products.$.description': element.description,
-				'products.$.moreInfo': element.moreInfo,
-				'products.$.oldPrice': element.oldPrice,
-				'products.$.newPrice': element.newPrice,
-				'products.$.offPrice': element.offPrice,
-				'products.$.image': element.image,
-				'products.$.zIndex': element.zIndex,
-				'products.$.shown': element.shown,
-				'products.$.type': element.type,
-				'products.$.id': element.id,
+				'title': element.title,
+				'description': element.description,
+				'moreInfo': element.moreInfo,
+				'oldPrice': element.oldPrice,
+				'newPrice': element.newPrice,
+				'offPrice': element.offPrice,
+				'image': element.image,
+				'zIndex': element.zIndex,
+				'shown': element.shown,
+				'type': element.type,
+				'category': element.category
 			}
 		};
 		// we check what we gonna do with the element
 		if(element.delete === true){
-			console.log('Deleting element:' + element);
+			console.log('Deleting element:' + JSON.stringify(element));
 			collection.remove(querry, secondaryQuerry, callback);
 		} else {
-			console.log('Updating element:' + element);
+			console.log('Updating element:' + JSON.stringify(element));
+			console.log('Updated element:' + JSON.stringify(secondaryQuerry));
 			collection.update(querry, secondaryQuerry, callback);
 		}
 	}
