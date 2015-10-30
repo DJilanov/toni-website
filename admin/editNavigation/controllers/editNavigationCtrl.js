@@ -3,39 +3,53 @@
 angular.module('EditNavigation')
     .controller('EditNavigationCtrl', ['$scope',  'sharingSvc',
         function ($scope,  sharingSvc) {
-
-            // here we integrate the navigation items
+        	/*
+			 * @info: used to contain the collection of navigation items
+        	 */
             $scope.navigationItems = [];
-            // WARNING: We doesnt need add function here.
-            // When you add new category you automaticly have a navigation bar
+        	/*
+			 * @info: used to controll how many tabs can be open
+        	 */
+        	$scope.oneAtATime = config.oneAtATime;
+        	/*
+			 * @info: add new navigation item to the form
+        	 */
             $scope.add = function() {
             	var clonedPrototype = JSON.parse(JSON.stringify(config.categoryPrototype));
             	clonedPrototype.new = true;
             	$scope.navigationItems[$scope.navigationItems.length] = clonedPrototype;
 
             };
-            // when you click save button of a navbar you save it here
-            $scope.save = function() {
-            	sharingSvc.save();
+        	/*
+			 * @info: when you click save button of a navbar you save it here
+        	 */
+            $scope.save = function(naviItem) {
+            	sharingSvc.save($scope.onSave, naviItem);
             };
-            // the callback after the product is saved
+        	/*
+			 * @info: the callback after the naviItem is saved
+			 * @naviItem: This is the item that we want to save
+        	 */
             $scope.onSave = function() {
+        		// TODO: Show succesfully updated message
             	alert('Saved');
             };
-			// here we import the nav items
+        	/*
+			 * @info: here we import the nav items
+        	 */
         	$scope.setNavigationitems = function(products, categories) {
-	        	for (var key in categories) {
-				    if (categories.hasOwnProperty(key)) {
-				        var navItem = categories[key];
-				        // important check that this is objects own property
-				        // not from prototype prop inherited
-				        if(typeof navItem !== "string"){
-				           $scope.navigationItems[navItem['zIndex']] = navItem;
-				           $scope.navigationItems[navItem['zIndex']].link = key;
-				        }
-				    }
+	        	for (var naviCounter = 0; naviCounter < categories.length; naviCounter++) {
+			        var navItem = categories[naviCounter];
+			        // important check that this is objects own property
+			        // not from prototype prop inherited
+			        if(typeof navItem !== "string"){
+			            $scope.navigationItems[navItem['zIndex']] = navItem;
+			            $scope.navigationItems[navItem['zIndex']].link = naviCounter;
+			        }
 				}
         	};
-        	// we call the ajax
+        	/*
+			 * @info: we call the ajax
+        	 */
 			sharingSvc.getProducts($scope.setNavigationitems);
 		}]);

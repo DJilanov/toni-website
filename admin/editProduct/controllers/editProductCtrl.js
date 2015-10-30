@@ -40,15 +40,15 @@ angular.module('EditProduct')
 			 * @index: This is the index of the element in the categories list
 			 */
         	$scope.onSave = function(result) {
-
+        		// TODO: Show succesfully updated message
+            	alert('Saved');
         	};
         	/*
         	 * @info: used when we save a product. This calls the service and sends post request with the product
 			 * @product: This is the product that we want to save
 			 */
 			$scope.save = function(product) {
-				debugger;
-				sharingSvc.save($scope.onSave, product, location);
+				sharingSvc.save($scope.onSave, product);
 			};
         	/*
         	 * @info: used when we save a product. This calls the service and sends post request with the product
@@ -56,7 +56,7 @@ angular.module('EditProduct')
 			 */
 			$scope.delete = function(product) {
 				product.delete = true;
-				sharingSvc.save($scope.onSave, product, location);
+				sharingSvc.save($scope.onSave, product);
 			};
         	/*
         	 * @info: used when we want to add product

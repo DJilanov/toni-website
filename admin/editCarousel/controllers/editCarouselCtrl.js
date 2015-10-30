@@ -19,23 +19,22 @@ angular.module('EditCarousel')
 				        // not from prototype prop inherited
 				        if(typeof navItem !== "string"){
 				           $scope.carouselImages[navItem['zIndex']] = navItem;
-				           var updatedUrl = navItem.url.replace('./', './../');
-				           $scope.carouselImages[navItem['zIndex']].url = updatedUrl;
 				        }
 				    }
 				}
         	};
         	// here we get the callback after call to the server is compleate
         	$scope.onSave = function() {
-
+        		// TODO: Show succesfully updated message
+            	alert('Saved');
         	};
         	// here we set the update new carousel image
         	$scope.changeImage = function(item) {
         		debugger;
         	};
         	// here we save the carousel item
-        	$scope.save = function(item) {
-				sharingSvc.save($scope.onSave, item, location);
+        	$scope.save = function(carouselItem) {
+				sharingSvc.save($scope.onSave, carouselItem);
         	};
         	// we call the ajax
 			sharingSvc.getProducts($scope.setCarouselImages);

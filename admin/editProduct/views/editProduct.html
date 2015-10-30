@@ -28,7 +28,7 @@
 						  <label class="col-md-4 control-label" for="appendedtext">Product image</label>
 						  <div class="col-md-4">
 						    <div class="input-group">
-						      <input id="appendedtext" name="appendedtext" class="form-control" value="{{product.image}}" type="text">
+						      <input id="appendedtext" name="appendedtext" class="form-control" ng-model="product.image" type="text">
 	      					  <span class="input-group-addon">Upload</span>
 						    </div>
 						  </div>
@@ -38,7 +38,7 @@
 						<div class="form-group">
 						  <label class="col-md-4 control-label" for="textinput">Product title</label>
 						  <div class="col-md-4">
-						    <input id="textinput" name="textinput" type="text" class="form-control input-md" value="{{product.title}}">
+						    <input id="textinput" name="textinput" type="text" class="form-control input-md" ng-model="product.title">
 						  </div>
 						</div>
 
@@ -46,7 +46,7 @@
 						<div class="form-group">
 						  <label class="col-md-4 control-label" for="textarea">Product description</label>
 						  <div class="col-md-4">
-						    <textarea class="form-control" id="textarea" name="textarea">{{product.description}}</textarea>
+						    <textarea class="form-control" id="textarea" name="textarea" ng-model="product.description"></textarea>
 						  </div>
 						</div>
 
@@ -54,7 +54,7 @@
 						<div class="form-group">
 						  <label class="col-md-4 control-label" for="textinput">Product more info</label>
 						  <div class="col-md-4">
-						    <input id="textinput" name="textinput" type="text" class="form-control input-md" value="{{product.moreInfo}}">
+						    <input id="textinput" name="textinput" type="text" class="form-control input-md" ng-model="product.moreInfo">
 						  </div>
 						</div>
 
@@ -62,7 +62,7 @@
 						<div class="form-group">
 						  <label class="col-md-4 control-label" for="textinput">Product new price</label>
 						  <div class="col-md-4">
-						    <input id="textinput" name="textinput" type="text" class="form-control input-md" value="{{product.newPrice}}">
+						    <input id="textinput" name="textinput" type="text" class="form-control input-md" ng-model="product.newPrice">
 						  </div>
 						</div>
 
@@ -70,7 +70,7 @@
 						<div class="form-group">
 						  <label class="col-md-4 control-label" for="textinput">Product old price</label>
 						  <div class="col-md-4">
-						    <input id="textinput" name="textinput" type="text" class="form-control input-md" value="{{product.oldPrice}}">
+						    <input id="textinput" name="textinput" type="text" class="form-control input-md" ng-model="product.oldPrice">
 						  </div>
 						</div>
 
@@ -78,12 +78,12 @@
 						<div class="form-group">
 						  <label class="col-md-4 control-label" for="textinput">Product off price</label>
 						  <div class="col-md-4">
-						    <input id="textinput" name="textinput" type="text" class="form-control input-md" ng-model="{{product.offPrice}}">
+						    <input id="textinput" name="textinput" type="text" class="form-control input-md" ng-model="product.offPrice">
 						  </div>
 						</div>
 						<a class="btn btn-info  col-md-6" ng-click="save(product)">Save</a>
 						<a class="btn btn-danger col-md-6" ng-click="delete(product)">Delete</a>
-						<a class="btn btn-block btn-info" ng-click="add(product.category)" ng-show="$last">Add new product</a>
+						<a class="btn btn-primary col-md-12" ng-click="add(product.category)" ng-show="$last">Add new product</a>
 					</fieldset>
 				</form>
 			</div>

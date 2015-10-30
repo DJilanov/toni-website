@@ -7,7 +7,6 @@
 	function setConfig(loadedConfig) {
 		config = loadedConfig;
 	}
-
 	// here we update products into the database
 	function updateProduct(collection, element, callback) {
 		checkForMissingElements(element);

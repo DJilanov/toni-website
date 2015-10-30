@@ -16,6 +16,8 @@
 	var config = null;
 	// res holder
 	var resCopy = null;
+	// current collection we update
+	var collectionCopy = null;
 	function setConfig(loadedConfig) {
 		console.log('[Admin]SetConfig fired');
 		config = loadedConfig;
@@ -38,11 +40,14 @@
 		}
 	}
 	// here we update products into the database
-	function updateCategory(element) {
+	function updateCategory(element, res) {
 		if((element.username === config.username)&&(element.password === config.password)){
 			// we connect to carousel database ith the acc and pass
 			mongoose.connection.db.collection('categories', function (err, collection) {
-				category.updateCategory(collection, element, res);
+				console.log('[Admin] updateCategory err: ' + err);
+				category.updateCategory(collection, element, updateCategories);
+				resCopy = res;
+				collectionCopy = collection;
 		    });
 		} else {
 			return 'Wrong acc or password';
@@ -54,7 +59,10 @@
 		if((element.username === config.username)&&(element.password === config.password)){
 			// we connect to carousel database ith the acc and pass
 			mongoose.connection.db.collection('carousel', function (err, collection) {
-				carousel.updateCarousel(collection, element, res);
+				console.log('[Admin] updateCarousel err: ' + err);
+				carousel.updateCarousel(collection, element, updateCarousels);
+				resCopy = res;
+				collectionCopy = collection;
 		    });
 		} else {
 			return 'Wrong acc or password';
@@ -66,34 +74,14 @@
 		if((element.username === config.username)&&(element.password === config.password)){
 			// we connect to products database ith the acc and pass
 			mongoose.connection.db.collection('products', function (err, collection) {
+				console.log('[Admin] updateProduct err: ' + err);
 				product.updateProduct(collection, element, updateProducts);
-				console.log('Element to be updated' + JSON.stringify(element))
 				resCopy = res;
+				collectionCopy = collection;
 		    });
 		} else {
 			return 'Wrong acc or password';
 		}
-	}
-
-	function updateProducts (err, doc) {
-		home.updateProducts(doc);
-		resSend(err, doc);
-	}
-
-	function resSend(err, doc) {
-		if(err) {
-			console.log('Error:' + err);
-			resCopy.send({
-				'updated': false,
-				'error': err
-			});
-		} else {
-			resCopy.send({
-				'updated': true,
-				'newProduct': doc
-			});
-		}
-
 	}
 
 	// here we update products into the database
@@ -106,6 +94,37 @@
 		} else {
 			return 'Wrong acc or password';
 		}
+	}
+
+	function updateProducts (err, doc) {
+		home.updateProducts(collectionCopy);
+		resSend(err);
+	}
+
+	function updateCarousels (err, doc) {
+		home.updateCarousels(collectionCopy);
+		resSend(err);
+	}
+
+	function updateCategories (err, doc) {
+		home.updateCategories(collectionCopy);
+		resSend(err);
+	}
+
+	function resSend(err) {
+		if(err) {
+			console.log('Error:' + err);
+			resCopy.send({
+				'updated': false,
+				'error': err
+			});
+		} else {
+			resCopy.send({
+				'updated': true,
+				'error': false
+			});
+		}
+
 	}
 
 	// connect to db so we can update

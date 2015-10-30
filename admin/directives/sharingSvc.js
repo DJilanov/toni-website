@@ -53,7 +53,6 @@ angular.module('Home').factory('sharingSvc', ['$http', '$location',
         	var data = product;
         	data.username = userIds.username;
         	data.password = userIds.password;
-        	console.log(data);
 	       	$http({
 			    method: 'POST',
 			    url: config.api + '/' + product.type,

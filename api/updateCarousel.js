@@ -9,23 +9,20 @@
 	}
 
 	// here we update products into the database
-	function updateCarousel(collection, element, res) {
+	function updateCarousel(collection, element, callback) {
 		checkForMissingElements(element);
-		sendAndReturn(collection, element, res);
+		sendAndReturn(collection, element, callback);
 
 	}
 	// here we check for missing elements on element creation and we create a new for it
 	function checkForMissingElements(element) {
-		if(element.id.length == 0) {
-			element.id = new ObjectID();
-		}
 		if(element.imageDescription.length == 0) {
 			element.imageDescription = config.carouselPrototype.imageDescription;
 		}
 		if(element.url.length == 0) {
 			element.url = config.carouselPrototype.url;
 		}
-		if(typeof element.zIndex !== "number") {
+		if(element.zIndex.length == 0) {
 			element.zIndex = config.carouselPrototype.zIndex;
 		}
 		if(typeof element.shownOnCarousel !== "boolean") {
@@ -34,41 +31,36 @@
 		if(element.type.length == 0) {
 			element.type = config.carouselPrototype.type;
 		}
+		if((element.username !== undefined) && (element.username.length !== 0)) {
+			delete element.username;
+		}
+		if((element.password !== undefined) && (element.password.length !== 0)) {
+			delete element.password;
+		}
 	}
 	// here we send the element to the database and we return info
-	function sendAndReturn(collection, element, res) {
-		var callback = function(err, doc) {
-			console.log(err);
-			if(err) {
-				res.send({
-					'updated': false,
-					'error': err
-				});
-			} else {
-				res.send({
-					'updated': true,
-					'newProduct': doc
-				});
-			}
-		};
+	function sendAndReturn(collection, element, callback) {
 		var querry = {
-			"carousel": {
-				"$elemMatch": {
-					"id": element.id
-				}
-			}
+			"id": element.id
 		};
 		var secondaryQuerry = {
 			$set: {
-				'carousel.$.imageDescription': element.imageDescription,
-				'carousel.$.url': element.url,
-				'carousel.$.zIndex': element.zIndex,
-				'carousel.$.shownOnCarousel': element.shownOnCarousel,
-				'carousel.$.type': element.type,
-				'carousel.$.id': element.id,
+				'imageDescription': element.imageDescription,
+				'url': element.url,
+				'zIndex': element.zIndex,
+				'shownOnCarousel': element.shownOnCarousel,
+				'type': element.type
 			}
 		};
-    	collection.update(querry, secondaryQuerry, callback);
+		// we check what we gonna do with the element
+		if(element.delete === true){
+			console.log('Deleting element:' + JSON.stringify(element));
+			collection.remove(querry, secondaryQuerry, callback);
+		} else {
+			console.log('Updating element:' + JSON.stringify(element));
+			console.log('Updated element:' + JSON.stringify(secondaryQuerry));
+			collection.update(querry, secondaryQuerry, callback);
+		}
 	}
 
 	module.exports = {

@@ -34,12 +34,22 @@
 		config = loadedConfig;
 	}
 
-	function updateProducts(doc) {
-		mongoose.connection.db.collection('products', function (err, collection) {
-			collection.find().toArray(function(err, docs) {
-		        productsDatabase = docs;
-		    });
-		});
+	function updateProducts(collection) {
+		collection.find().toArray(function(err, docs) {
+	        productsDatabase = docs;
+	    });
+	}
+
+	function updateCarousels(collection) {
+		collection.find().toArray(function(err, docs) {
+	        carouselDatabase = docs;
+	    });
+	}
+
+	function updateCategories(collection) {
+		collection.find().toArray(function(err, docs) {
+	        categoryDatabase = docs;
+	    });
 	}
 
 	function connectDb(){
@@ -97,6 +107,8 @@
 	    getProductDatabase	: getProductDatabase,
 	    getCarouselDatabase : getCarouselDatabase,
 	    getContactDatabase  : getContactDatabase,
-	    updateProducts		: updateProducts
+	    updateProducts		: updateProducts,
+	    updateCategories	: updateCategories,
+	    updateCarousels		: updateCarousels
 	};
 }());

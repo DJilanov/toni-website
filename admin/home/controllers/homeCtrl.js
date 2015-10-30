@@ -35,9 +35,8 @@ angular.module('Home')
         		$location.path( "/edit" );
         	};
 
-
         	// we check is there a saved properties
-        	if(localStorage.getItem('username').length !== 0) {
+        	if(localStorage.getItem('username') !== undefined) {
         		var username = localStorage.getItem('username');
         		var password = localStorage.getItem('password');
         		var timestamp = localStorage.getItem('timestamp');

@@ -73,15 +73,17 @@ app.get('/api/admin', function (req, res){
 	var database = admin.auth(req.param('username'), req.param('password'));
 	res.json(database);
 });
-// TODO WHEN WE PUSH EDITED ELEMENT, UPDATE IT INTO THE DB
 app.post('/api/admin/product', function (req, res){
-	// req is undefined
 	console.log('[Server.js]Post request to products');
 	var answer = admin.updateProduct(req.query, res);
 	res.json(req.query);
 });
+app.post('/api/admin/category', function (req, res){
+	console.log('[Server.js]Post request to category');
+	var answer = admin.updateCategory(req.query, res);
+	res.json(req.query);
+});
 app.post('/api/admin/carousel', function (req, res){
-	// req is undefined
 	console.log('[Server.js]Post request to carousel');
 	admin.updateCarousel(req.query, res);
 });

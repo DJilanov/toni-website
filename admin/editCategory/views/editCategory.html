@@ -1,62 +1,82 @@
+<!-- create title, image, description -->
 <div class="welcome">
 	<div>Welcome to the category edit panel Toni!</div>
 	<div>Choose what you want to edit with clicking on it.</div>
 </div>
-<div ng-repeat="category in categories" class="col-lg-12 spacing">
-    <div class="col-lg-8">
-        <!-- title text input -->
-    	<div class="col-lg-12">
-	        <div class="col-lg-6">
-	        	<label name="oldTitle">Old Title</label>
-	        	<span name="oldTitle">{{category.title}}</span>
-	        </div>
-	        <div class="col-lg-6">
-	        	<label name="title">new Title</label>
-	        	<input type="textarea" name="title" ng-model="input.title">
-	        </div>
-	    </div>
-        <!-- description text input -->
-    	<div class="col-lg-12">
-	        <div class="col-lg-6">
-	        	<label name="oldDescription">Old description</label>
-	        	<span name="oldDescription">{{category.description}}</span>
-	        </div>
-	        <div class="col-lg-6">
-	        	<label name="Description">New description</label>
-	        	<input type="textarea" name="Description" ng-model="input.description">
-	        </div>
-	    </div>
-        <!-- more description text input -->
-    	<div class="col-lg-12">
-	        <div class="col-lg-6">
-	        	<label name="oldName">Old name</label>
-	        	<span name="oldName">{{category.name}}</span>
-	        </div>
-	        <div class="col-lg-6">
-	        	<label name="name">New name</label>
-	        	<input type="textarea" name="name" ng-model="input.name">
-	        </div>
-	    </div>
-    	<div class="col-lg-12">
-	        <div class="col-lg-6">
-	        	<label name="oldZIndex">Old z-index</label>
-	        	<span name="oldZIndex">{{category['z-index']}}</span>
-	        </div>
-	        <div class="col-lg-6">
-	        	<label name="newPrice">New z-index</label>
-	        	<input type="textarea" name="newZIndex" ng-model="input.zIndex">
-	    	</div>
-	   	</div>
-    	<div class="col-lg-12">
-	        <div class="col-lg-6">
-	        	<label name="oldShowOnNav">Old show on nav</label>
-	        	<span name="oldShowOnNav">{{category.shownOnNav}}</span>
-	        </div>
-	        <div class="col-lg-6">
-	        	<label name="showOnNav">New show on nav</label>
-	        	<input type="textarea" name="showOnNav" ng-model="input.shownOnNav">
-	    	</div>
-	    </div>
-    </div>
-    <input type="submit" value="Save" ng-click="onSave()">
+<div class="col-lg-12">
+    <div class="checkbox">
+    	<label>
+     		<input type="checkbox" ng-model="oneAtATime" checked="true">
+      		Open only one at a time
+    	</label>
+  	</div>
+	<accordion class="accordion" close-others="oneAtATime">
+		<div ng-repeat="category in categories">
+		    <accordion-group is-open="status.isOpen[$index]" >
+		        <accordion-heading>
+		            <span>{{category.title}}</span>
+		            <i class="fa chevron-icon" ng-class="{'fa-chevron-down': status.isOpen[$index], 'fa-chevron-right': !status.isOpen[$index]}"></i>
+		        </accordion-heading>
+				<form class="form-horizontal spacing-30">
+					<fieldset>
+						<!-- Form Name -->
+						<legend>{{category.title}}</legend>
+						<!-- Appended Input-->
+						<div class="form-group">
+						  <label class="col-md-4 control-label" for="appendedtext">Navigation title</label>
+						  <div class="col-md-4">
+						    <div class="input-group">
+						    	<input id="textinput" name="textinput" type="text" class="form-control input-md" ng-model="category.title" ng-model="category.title">
+						    </div>
+						  </div>
+						</div>
+
+						<!-- Text input-->
+						<div class="form-group">
+						  <label class="col-md-4 control-label" for="textinput">Show on position</label>
+						  <div class="col-md-4">
+						    <input id="textinput" name="textinput" type="text" class="form-control input-md" ng-model="category['zIndex']" ng-model="category['zIndex']">
+						  </div>
+						</div>
+
+						<!-- Textarea -->
+						<div class="form-group">
+						  <label class="col-md-4 control-label" for="textarea">Is it shown on navigation</label>
+						  <div class="col-md-4">
+							<input name="isShown" type="checkbox" ng-model="category.shownOnNav" ng-checked="category.shownOnNav" aria-label="Slave input">
+						  </div>
+						</div>
+
+						<!-- Text input-->
+						<div class="form-group">
+						  <label class="col-md-4 control-label" for="textinput">Navigation name</label>
+						  <div class="col-md-4">
+						    <input id="textinput" name="textinput" type="text" class="form-control input-md" ng-model="category.name">
+						  </div>
+						</div>
+
+						<!-- Text input-->
+						<div class="form-group">
+						  <label class="col-md-4 control-label" for="textinput">Products</label>
+						  <div class="col-md-4">
+						    <input id="textinput" name="textinput" type="text" class="form-control input-md" ng-model="category.products">
+						  </div>
+						</div>
+
+						<!-- Text input-->
+						<div class="form-group">
+						   <label class="col-md-4 control-label" for="textinput">Description</label>
+						   <div class="col-md-4">
+						   	<textarea class="form-control" id="textarea" name="textarea" ng-model="category.description"></textarea>
+						   </div>
+						</div>
+						<a class="btn btn-info  col-md-12" ng-click="save(category)">Save</a>
+					</fieldset>
+				</form>
+	        </accordion-group>
+        </div>
+    </accordion>
 </div>
+<footer>
+	<!-- <a class="btn btn-info  col-md-12" ng-click="add()">Add more</a> -->
+</footer>

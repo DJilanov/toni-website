@@ -31,3 +31,16 @@
  function implementClickEvents(){
  	$('.flag').click(onFlagClick);
  }
+// sort the array and remove undefined elements
+function sortAndClear(array) {
+	// we sort the array
+	array.sort();
+	// we clear undefined elements from the array
+	for(var elementCounter = array.length - 1; elementCounter >= 0; elementCounter--) {
+		if(array[elementCounter] === undefined){
+			array.pop();
+		} else {
+			break;
+		}
+	}
+}

@@ -9,16 +9,13 @@
 	}
 
 	// here we update products into the database
-	function updateCategory(collection, element, res) {
+	function updateCategory(collection, element, callback) {
 		checkForMissingElements(element);
-		sendAndReturn(collection, element, res);
+		sendAndReturn(collection, element, callback);
 
 	}
 	// here we check for missing elements on element creation and we create a new for it
 	function checkForMissingElements(element) {
-		if(element.id.length == 0) {
-			element.id = new ObjectID();
-		}
 		if(element.title.length == 0) {
 			element.title = config.categoryPrototype.title;
 		}
@@ -40,42 +37,37 @@
 		if(element.type.length == 0) {
 			element.type = config.categoryPrototype.type;
 		}
+		if((element.username !== undefined) && (element.username.length !== 0)) {
+			delete element.username;
+		}
+		if((element.password !== undefined) && (element.password.length !== 0)) {
+			delete element.password;
+		}
 	}
 	// here we send the element to the database and we return info
-	function sendAndReturn(collection, element, res) {
-		var callback = function(err, doc) {
-			console.log(err);
-			if(err) {
-				res.send({
-					'updated': false,
-					'error': err
-				});
-			} else {
-				res.send({
-					'updated': true,
-					'newProduct': doc
-				});
-			}
-		};
+	function sendAndReturn(collection, element, callback) {
 		var querry = {
-			"categories": {
-				"$elemMatch": {
-					"id": element.id
-				}
-			}
+			"id": element.id
 		};
 		var secondaryQuerry = {
 			$set: {
-				'categories.$.title': element.title,
-				'categories.$.description': element.description,
-				'categories.$.zIndex': element.zIndex,
-				'categories.$.products': element.products,
-				'categories.$.type': element.type,
-				'categories.$.name': element.name,
-				'categories.$.id': element.id,
+				'title': element.title,
+				'description': element.description,
+				'products': element.products,
+				'name': element.name,
+				'zIndex': element.zIndex,
+				'shownOnNav': element.shownOnNav,
+				'type': element.type
 			}
 		};
-    	collection.update(querry, secondaryQuerry, callback);
+		// we check what we gonna do with the element
+		if(element.delete === true){
+			console.log('\nDeleting element:' + JSON.stringify(element));
+			collection.remove(querry, secondaryQuerry, callback);
+		} else {
+			console.log('\nUpdating element:' + JSON.stringify(element));
+			collection.update(querry, secondaryQuerry, callback);
+		}
 	}
 
 	module.exports = {

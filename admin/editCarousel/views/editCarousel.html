@@ -2,7 +2,7 @@
 	<div>Welcome to the carousel edit panel {{name}}!</div>
 	<div>Choose what you want to edit with clicking on it.</div>
 </div>
-<div ng-repeat="carouselItem in carouselImages" class="carousel col-lg-12">
+<div ng-repeat="carouselItem in carouselImages | filter: {'type': 'carousel'}" class="carousel col-lg-12">
 	<div class="col-lg-3">
 		<span>Carousel slide {{$index + 1}}</span>
 	</div>
@@ -18,7 +18,7 @@
 		<input name="isShown" type="text" ng-model="carouselItem.imageDescription" ng-checked="carouselItem.imageDescription" aria-label="Slave input">
 	</div>
 	<div class="col-lg-1">
-		<button ng-click="save(carouselItem)">Save</button>
+		<a class="btn btn-info  col-md-12" ng-click="save(carouselItem)">Save</a>
 	</div>
 </div>
 
