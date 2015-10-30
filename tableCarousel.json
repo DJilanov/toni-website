@@ -1,7 +1,7 @@
 {
     "imageDescription": "imageTest",
     "url": "./../img/proj1.png",
-    "zIndex": "0",
+    "zIndex": 0,
     "shownOnCarousel": "true",
     "type": "carousel",
     "id": "0"

@@ -21,9 +21,9 @@ angular.module('Home').factory('sharingSvc', ['$http',
 				    alert('Error on fetching from the server');
 				}).then(function(){
 					// we must rework the app to be build whitout the need of this parsing
-					products = sortProductsByCategory(response.products[0]);
-					categories = response.categories[0].categories;
-					carousel = response.carousel[0].carousel;
+					products = sortProductsByCategory(response.products);
+					categories = response.categories;
+					carousel = changeUrl(response.carousel);
 					callback(products, categories, carousel);
 				});
 			} else {
@@ -38,13 +38,20 @@ angular.module('Home').factory('sharingSvc', ['$http',
         function getProductToView() {
         	return productToView;
         }
+        function changeUrl(array) {
+        	for(var elementCounter = 0; elementCounter < array.length; elementCounter++) {
+        		var url = array[elementCounter].url;
+        		array[elementCounter].url = url.replace('../', '');
+        	}
+        	return array;
+        }
        	// the idea from that function is that after we get
        	function sortProductsByCategory(products) {
        		var sortedProducts = [];
        		var product = {};
        		var category = null;
-       		for(var productCounter = 0; productCounter < products.products.length; productCounter++) {
-       			product = products.products[productCounter];
+       		for(var productCounter = 0; productCounter < products.length; productCounter++) {
+       			product = products[productCounter];
        			category = parseInt(product.category);
        			if(sortedProducts[category] === undefined) {
        				sortedProducts[category] = [];

@@ -22,7 +22,7 @@
 		if(element.url.length == 0) {
 			element.url = config.carouselPrototype.url;
 		}
-		if(element.zIndex.length == 0) {
+		if(typeof element.zIndex !== "number") {
 			element.zIndex = config.carouselPrototype.zIndex;
 		}
 		if(typeof element.shownOnCarousel !== "boolean") {
@@ -54,11 +54,11 @@
 		};
 		// we check what we gonna do with the element
 		if(element.delete === true){
-			console.log('Deleting element:' + JSON.stringify(element));
+			console.log('\n[UpdateCarousel] Deleting element:' + JSON.stringify(element));
 			collection.remove(querry, secondaryQuerry, callback);
 		} else {
-			console.log('Updating element:' + JSON.stringify(element));
-			console.log('Updated element:' + JSON.stringify(secondaryQuerry));
+			console.log('\n[UpdateCarousel] Updating element:' + JSON.stringify(element));
+			console.log('\n[UpdateCarousel] Updated element:' + JSON.stringify(secondaryQuerry));
 			collection.update(querry, secondaryQuerry, callback);
 		}
 	}

@@ -28,11 +28,8 @@
 		if(element.name.length == 0) {
 			element.name = config.categoryPrototype.name;
 		}
-		if(typeof element.zIndex !== "number") {
+		if(typeof parseInt(element.zIndex) !== "number") {
 			element.zIndex = config.categoryPrototype.zIndex;
-		}
-		if(typeof element.shownOnNav !== "boolean") {
-			element.shownOnNav = config.categoryPrototype.shownOnNav;
 		}
 		if(element.type.length == 0) {
 			element.type = config.categoryPrototype.type;
@@ -55,17 +52,17 @@
 				'description': element.description,
 				'products': element.products,
 				'name': element.name,
-				'zIndex': element.zIndex,
+				'zIndex': parseInt(element.zIndex),
 				'shownOnNav': element.shownOnNav,
 				'type': element.type
 			}
-		};
+		};console.log('\n[UpdateCategories] element final:' + JSON.stringify(secondaryQuerry))
 		// we check what we gonna do with the element
 		if(element.delete === true){
-			console.log('\nDeleting element:' + JSON.stringify(element));
+			console.log('\n[UpdateCategories] Deleting element:' + JSON.stringify(element));
 			collection.remove(querry, secondaryQuerry, callback);
 		} else {
-			console.log('\nUpdating element:' + JSON.stringify(element));
+			console.log('\n[UpdateCategories] Updating element:' + JSON.stringify(element));
 			collection.update(querry, secondaryQuerry, callback);
 		}
 	}

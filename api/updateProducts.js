@@ -77,11 +77,11 @@
 		};
 		// we check what we gonna do with the element
 		if(element.delete === true){
-			console.log('Deleting element:' + JSON.stringify(element));
+			console.log('\n[UpdateProduct] Deleting element:' + JSON.stringify(element));
 			collection.remove(querry, secondaryQuerry, callback);
 		} else {
-			console.log('Updating element:' + JSON.stringify(element));
-			console.log('Updated element:' + JSON.stringify(secondaryQuerry));
+			console.log('\n[UpdateProduct] Updating element:' + JSON.stringify(element));
+			console.log('\n[UpdateProduct] Updated element:' + JSON.stringify(secondaryQuerry));
 			collection.update(querry, secondaryQuerry, callback);
 		}
 	}

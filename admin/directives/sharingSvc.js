@@ -51,6 +51,9 @@ angular.module('Home').factory('sharingSvc', ['$http', '$location',
         // we save the products and show alert that it is saved.
         function save(callback, product) {
         	var data = product;
+        	if(data.zIndex !== undefined){
+        		data.zIndex = parseInt(data.zIndex);
+        	}
         	data.username = userIds.username;
         	data.password = userIds.password;
 	       	$http({
