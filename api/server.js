@@ -7,7 +7,6 @@ var express    = require('express');        // call express
 var app        = express();                 // define our app using express
 var bodyParser = require('body-parser');
 var mongoose   = require('mongoose');
-var fs         = require('fs');
 // here we declare all functions we use for the standart user interface
 var home       = require('./home');
 // here we declare all functions we use for the admin user interface

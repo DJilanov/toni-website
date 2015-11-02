@@ -16,6 +16,9 @@
 	}
 	// here we check for missing elements on element creation and we create a new for it
 	function checkForMissingElements(element) {
+		if(element.id.length == 0) {
+			element.id = new ObjectID();
+		}
 		if(element.title.length == 0) {
 			element.title = config.categoryPrototype.title;
 		}

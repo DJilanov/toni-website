@@ -1,5 +1,7 @@
 // here we update the carousel. Used only for adding and editing
 (function() {
+	// here we declare the function we use for the image saving
+	var imgUpload  = require('./imageUpload');
 	// we use it for creation of new objects
     var ObjectID = require('mongodb').ObjectID;
 	// used as container for the config
@@ -15,6 +17,9 @@
 	}
 	// here we check for missing elements on element creation and we create a new for it
 	function checkForMissingElements(element) {
+		if(element.id.length == 0) {
+			element.id = new ObjectID();
+		}
 		if(element.title.length == 0) {
 			element.title = config.productPrototype.title;
 		}
@@ -33,7 +38,7 @@
 		if(element.offPrice.length == 0) {
 			element.offPrice = config.productPrototype.offPrice;
 		}
-		if(element.image.length == 0) {
+		if(typeof element.image !== "boolean") {
 			element.image = config.productPrototype.image;
 		}
 		if(element.type.length == 0) {
@@ -53,6 +58,12 @@
 		}
 		if((element.password !== undefined) && (element.password.length !== 0)) {
 			delete element.password;
+		}
+		if(element.changedImage !== undefined) {
+			imgUpload.readFile(element.attachedImage, element.id);
+			delete element.changedImage;
+			delete element.attachedImage;
+			element.image = true;
 		}
 	}
 	// here we send the element to the database and we return info

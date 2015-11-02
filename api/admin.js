@@ -1,21 +1,22 @@
 // admin. Used for editing
 (function() {
 	// here we use the mongoose to call the api and get the database for the
-	// user viewed website
 	var mongoose   = require('mongoose');
 	// here we declare all functions we use for the standart user interface
 	var home       = require('./home');
 	// here we declare all functions we use for the admin user interface
 	var carousel   = require('./updateCarousel');
 	var category   = require('./updateCategories');
-	var product   = require('./updateProducts');
-	var contact   = require('./updateContact');
+	var product    = require('./updateProducts');
+	var contact    = require('./updateContact');
+	// here we declare the function we use for the image saving
+	var imgUpload  = require('./imageUpload');
 	// here we save the db
-	var database = {};
+	var database   = {};
 	// used as container for the config
-	var config = null;
+	var config     = null;
 	// res holder
-	var resCopy = null;
+	var resCopy    = null;
 	// current collection we update
 	var collectionCopy = null;
 	function setConfig(loadedConfig) {
@@ -26,6 +27,7 @@
 		category.setConfig(loadedConfig);
 		product.setConfig(loadedConfig);
 		contact.setConfig(loadedConfig);
+		imgUpload.setConfig(loadedConfig);
 	}
 
 	function auth(logedUsername, logedPassword) {

@@ -1,17 +1,18 @@
 // used as container for the main constants
 (function() {
 	var config = {
-		'dbUsername': 'admin',
-		'dbPassword': 'toni1221',
-		'username': 'admin',
-		'password': 'toni1221',
-		'api'     : '@ds047792.mongolab.com:47792/toni-website',
+		'dbUsername'  : 'admin',
+		'dbPassword'  : 'toni1221',
+		'username'	  : 'admin',
+		'password'	  : 'toni1221',
+		'api'     	  : '@ds047792.mongolab.com:47792/toni-website',
+		'imageFolder' : '../img/',
 		// will update on each 6000 seconds
 		'updateOn': 6000,
 
 		carouselPrototype: {
 			"imageDescription": "image1",
-			"url": "./img/blank.png",
+			"image": false,
 			"zIndex": 255,
 			"shownOnCarousel": true,
 			"type": "carousel",
@@ -36,7 +37,7 @@
 			"oldPrice": "Blank",
 			"newPrice": "Blank",
 			"offPrice": "Blank",
-			"image": "Blank",
+			"image": false,
 			"zIndex": 255,
 			"shown": false,
 			"type": "product",

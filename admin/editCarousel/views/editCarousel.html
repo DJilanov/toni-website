@@ -7,7 +7,8 @@
 		<span>Carousel slide {{$index + 1}}</span>
 	</div>
 	<div class="col-lg-1">
-		<img src="{{carouselItem.url}}" alt="{{carouselItem.imageDescription}}" class="smallImage" ng-click="changeImage(carouselItem)">
+		<img ng-if="carouselItem.image" src="{{'./../img/' + carouselItem.id + '.png'}}" alt="{{carouselItem.imageDescription}}" class="smallImage" ng-click="changeImage(carouselItem)">
+		<img ng-if="carouselItem.image == false" src="./../img/blank.png" alt="{{carouselItem.imageDescription}}" class="smallImage" ng-click="changeImage(carouselItem)">
 	</div>
 	<div class="col-lg-2">
 		<span>Shown on position</span>

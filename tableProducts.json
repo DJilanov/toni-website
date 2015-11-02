@@ -5,12 +5,12 @@
     "oldPrice": "269.99",
     "newPrice": "109.99",
     "offPrice": "59%",
-    "image": "Blank",
+    "image": true,
     "zIndex": 255,
     "shown": false,
     "type": "product",
     "category": "0",
-    "__id": "0"
+    "id": "0"
 }
 {
     "title": "Gr_id autosport",
@@ -19,12 +19,12 @@
     "oldPrice": "",
     "newPrice": "129.99",
     "offPrice": "",
-    "image": "",
+    "image": false,
     "zIndex": 1,
     "shown": true,
     "type": "product",
     "category": "0",
-    "_id": "1"
+    "id": "1"
 }
 {
     "title": "Final Fantazy 14",
@@ -33,12 +33,12 @@
     "oldPrice": "1000",
     "newPrice": "129.99",
     "offPrice": "80%",
-    "image": "",
+    "image": false,
     "zIndex": 2,
     "shown": true,
     "type": "product",
     "category": "0",
-    "_id": "2"
+    "id": "2"
 }
 {
     "title": "World of Tanks",
@@ -47,12 +47,12 @@
     "oldPrice": "",
     "newPrice": "229.99",
     "offPrice": "",
-    "image": "",
+    "image": true,
     "zIndex": 3,
     "shown": true,
     "type": "product",
     "category": "0",
-    "_id": "3"
+    "id": "3"
 }
 {
     "title": "CS:GO:1",
@@ -61,12 +61,12 @@
     "oldPrice": "269.99",
     "newPrice": "109.99",
     "offPrice": "59%",
-    "image": "",
+    "image": true,
     "zIndex": 0,
     "shown": true,
     "type": "product",
     "category": "1",
-    "_id": "4"
+    "id": "4"
 }
 {
     "title": "Gr_id autosport",
@@ -75,12 +75,12 @@
     "oldPrice": "",
     "newPrice": "129.99",
     "offPrice": "",
-    "image": "",
+    "image": true,
     "zIndex": 1,
     "shown": true,
     "type": "product",
     "category": "1",
-    "_id": "5"
+    "id": "5"
 }
 {
     "title": "Final Fantazy 14",
@@ -89,12 +89,12 @@
     "oldPrice": "1000",
     "newPrice": "129.99",
     "offPrice": "80%",
-    "image": "",
+    "image": true,
     "zIndex": 2,
     "shown": true,
     "type": "product",
     "category": "1",
-    "_id": "6"
+    "id": "6"
 }
 {
     "title": "World of Tanks",
@@ -103,12 +103,12 @@
     "oldPrice": "",
     "newPrice": "229.99",
     "offPrice": "",
-    "image": "",
+    "image": true,
     "zIndex": 3,
     "shown": true,
     "type": "product",
     "category": "1",
-    "_id": "7"
+    "id": "7"
 }
 {
     "title": "CS:GO:2",
@@ -117,12 +117,12 @@
     "oldPrice": "269.99",
     "newPrice": "109.99",
     "offPrice": "59%",
-    "image": "",
+    "image": true,
     "zIndex": 0,
     "shown": true,
     "type": "product",
     "category": "2",
-    "_id": "8"
+    "id": "8"
 }
 {
     "title": "Gr_id autosport",
@@ -131,12 +131,12 @@
     "oldPrice": "",
     "newPrice": "129.99",
     "offPrice": "",
-    "image": "",
+    "image": true,
     "zIndex": 1,
     "shown": true,
     "type": "product",
     "category": "2",
-    "_id": "9"
+    "id": "9"
 }
 {
     "title": "Final Fantazy 14",
@@ -145,12 +145,12 @@
     "oldPrice": "1000",
     "newPrice": "129.99",
     "offPrice": "80%",
-    "image": "",
+    "image": true,
     "zIndex": 2,
     "shown": true,
     "type": "product",
     "category": "2",
-    "_id": "10"
+    "id": "10"
 }
 {
     "title": "World of Tanks",
@@ -159,12 +159,12 @@
     "oldPrice": "",
     "newPrice": "229.99",
     "offPrice": "",
-    "image": "",
+    "image": true,
     "zIndex": 3,
     "shown": true,
     "type": "product",
     "category": "2",
-    "_id": "11"
+    "id": "11"
 }
 {
     "title": "CS:GO:3",
@@ -173,12 +173,12 @@
     "oldPrice": "269.99",
     "newPrice": "109.99",
     "offPrice": "59%",
-    "image": "",
+    "image": false,
     "zIndex": 0,
     "shown": true,
     "type": "product",
     "category": "3",
-    "_id": "12"
+    "id": "12"
 }
 {
     "title": "Gr_id autosport",
@@ -187,12 +187,12 @@
     "oldPrice": "",
     "newPrice": "129.99",
     "offPrice": "",
-    "image": "",
+    "image": false,
     "zIndex": 1,
     "shown": true,
     "type": "product",
     "category": "3",
-    "_id": "13"
+    "id": "13"
 }
 {
     "title": "Final Fantazy 14",
@@ -201,12 +201,12 @@
     "oldPrice": "1000",
     "newPrice": "129.99",
     "offPrice": "80%",
-    "image": "",
+    "image": false,
     "zIndex": 2,
     "shown": true,
     "type": "product",
     "category": "3",
-    "_id": "14"
+    "id": "14"
 }
 {
     "title": "World of Tanks",
@@ -215,12 +215,12 @@
     "oldPrice": "",
     "newPrice": "229.99",
     "offPrice": "",
-    "image": "",
+    "image": false,
     "zIndex": 3,
     "shown": true,
     "type": "product",
     "category": "3",
-    "_id": "15"
+    "id": "15"
 }
 {
     "title": "CS:GO:4",
@@ -229,12 +229,12 @@
     "oldPrice": "269.99",
     "newPrice": "109.99",
     "offPrice": "59%",
-    "image": "",
+    "image": false,
     "zIndex": 0,
     "shown": true,
     "type": "product",
     "category": "4",
-    "_id": "16"
+    "id": "16"
 }
 {
     "title": "Gr_id autosport",
@@ -243,12 +243,12 @@
     "oldPrice": "",
     "newPrice": "129.99",
     "offPrice": "",
-    "image": "",
+    "image": false,
     "zIndex": 1,
     "shown": true,
     "type": "product",
     "category": "4",
-    "_id": "17"
+    "id": "17"
 }
 {
     "title": "Final Fantazy 14",
@@ -257,12 +257,12 @@
     "oldPrice": "1000",
     "newPrice": "129.99",
     "offPrice": "80%",
-    "image": "",
+    "image": false,
     "zIndex": 2,
     "shown": true,
     "type": "product",
     "category": "4",
-    "_id": "18"
+    "id": "18"
 }
 {
     "title": "World of Tanks",
@@ -271,12 +271,12 @@
     "oldPrice": "",
     "newPrice": "229.99",
     "offPrice": "",
-    "image": "",
+    "image": false,
     "zIndex": 3,
     "shown": true,
     "type": "product",
     "category": "4",
-    "_id": "19"
+    "id": "19"
 }
 {
     "title": "CS:GO:5",
@@ -285,12 +285,12 @@
     "oldPrice": "269.99",
     "newPrice": "109.99",
     "offPrice": "59%",
-    "image": "",
+    "image": false,
     "zIndex": 0,
     "shown": true,
     "type": "product",
     "category": "5",
-    "_id": "20"
+    "id": "20"
 }
 {
     "title": "Gr_id autosport",
@@ -299,12 +299,12 @@
     "oldPrice": "",
     "newPrice": "129.99",
     "offPrice": "",
-    "image": "",
+    "image": false,
     "zIndex": 1,
     "shown": true,
     "type": "product",
     "category": "5",
-    "_id": "21"
+    "id": "21"
 }
 {
     "title": "Final Fantazy 14",
@@ -313,12 +313,12 @@
     "oldPrice": "1000",
     "newPrice": "129.99",
     "offPrice": "80%",
-    "image": "",
+    "image": false,
     "zIndex": 2,
     "shown": true,
     "type": "product",
     "category": "5",
-    "_id": "22"
+    "id": "22"
 }
 {
     "title": "World of Tanks",
@@ -327,10 +327,10 @@
     "oldPrice": "",
     "newPrice": "229.99",
     "offPrice": "",
-    "image": "",
+    "image": false,
     "zIndex": 3,
     "shown": true,
     "type": "product",
     "category": "5",
-    "_id": "23"
+    "id": "23"
 }

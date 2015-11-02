@@ -6,7 +6,7 @@
     "zIndex": 0,
     "shownOnNav": false,
     "type": "category",
-    "_id": "0"
+    "id": "0"
 }
 {
     "title": "csGo's Deals",
@@ -16,7 +16,7 @@
     "zIndex": 1,
     "shownOnNav": true,
     "type": "category",
-    "_id": "1"
+    "id": "1"
 }
 {
     "title": "gridAutoSport's Deals",
@@ -26,7 +26,7 @@
     "zIndex": 2,
     "shownOnNav": true,
     "type": "category",
-    "_id": "2"
+    "id": "2"
 }
 {
     "title": "finalFantasy14's Deals",
@@ -36,7 +36,7 @@
     "zIndex": 3,
     "shownOnNav": true,
     "type": "category",
-    "_id": "3"
+    "id": "3"
 }
 {
     "title": "worldOfTanks's Deals",
@@ -46,7 +46,7 @@
     "zIndex": 4,
     "shownOnNav": true,
     "type": "category",
-    "_id": "4"
+    "id": "4"
 }
 {
     "title": "other games Deals",
@@ -56,5 +56,5 @@
     "zIndex": 5,
     "shownOnNav": true,
     "type": "category",
-    "_id": "5"
+    "id": "5"
 }

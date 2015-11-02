@@ -1,48 +1,48 @@
 {
     "imageDescription": "imageTest",
-    "url": "./../img/proj1.png",
+    "image": true,
     "zIndex": 0,
     "shownOnCarousel": "true",
     "type": "carousel",
-    "id": "0"
+    "id": "50"
 }
 {
     "imageDescription": "image2",
-    "url": "./../img/proj2.png",
+    "image": true,
     "zIndex": 1,
     "shownOnCarousel": true,
     "type": "carousel",
-    "id": "1"
+    "id": "51"
 }
 {
     "imageDescription": "image3",
-    "url": "./../img/proj3.png",
+    "image": true,
     "zIndex": 2,
     "shownOnCarousel": true,
     "type": "carousel",
-    "id": "2"
+    "id": "52"
 }
 {
     "imageDescription": "image4",
-    "url": "./../img/proj4.png",
+    "image": true,
     "zIndex": 3,
     "shownOnCarousel": true,
     "type": "carousel",
-    "id": "3"
+    "id": "53"
 }
 {
     "imageDescription": "image5",
-    "url": "./../img/proj5.png",
+    "image": true,
     "zIndex": 4,
     "shownOnCarousel": true,
     "type": "carousel",
-    "id": "4"
+    "id": "54"
 }
 {
     "imageDescription": "image6",
-    "url": "./../img/proj6.png",
+    "image": true,
     "zIndex": 5,
     "shownOnCarousel": true,
     "type": "carousel",
-    "id": "5"
+    "id": "55"
 }
