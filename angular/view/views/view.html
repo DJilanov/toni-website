@@ -2,8 +2,8 @@
 	<!-- create title, image, description -->
 	<div class="col-lg-4">
 		<!-- image -->
-		<!-- <img src="{{product.image}}" alt="product" width="100%"> -->
-		<img src="{{product.image}}" alt="product" width="100%">
+        <img ng-if="product.image" src="{{'./img/' + product.id + '.png'}}" alt="{{product.imageDescription}}">
+        <img ng-if="product.image == false" src="./img/blank.png" alt="{{product.imageDescription}}">
 	</div>
     <div class="col-lg-8">
      <!-- title -->

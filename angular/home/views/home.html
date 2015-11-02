@@ -6,11 +6,12 @@
 		  <p>{{category.description}}</p>
 		</div>
 		<div class="container dealsContainer">
-		  	<div class="col-lg-4" ng-repeat="model in products" ng-click="onProductClick(model)">
+		  	<div class="col-lg-4" ng-repeat="model in products| filter: {'type': 'product'}" ng-click="onProductClick(model)">
 		  	<!-- create title, image, description -->
 		   		<div class="col-lg-4">
 		     		<!-- image -->
-		     		<img src="{{model.image}}" alt="product" width="100%">
+		     		<img ng-if="model.image" src="{{'./img/' + model.id + '.png'}}" alt="{{model.imageDescription}}">
+					<img ng-if="model.image == false" src="./img/blank.png" alt="{{model.imageDescription}}">
 		   		</div>
 			    <div class="col-lg-8">
 			     <!-- title -->

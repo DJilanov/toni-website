@@ -23,7 +23,7 @@ angular.module('Home').factory('sharingSvc', ['$http',
 					// we must rework the app to be build whitout the need of this parsing
 					products = sortProductsByCategory(response.products);
 					categories = response.categories;
-					carousel = changeUrl(response.carousel);
+					carousel = response.carousel;
 					callback(products, categories, carousel);
 				});
 			} else {
@@ -37,13 +37,6 @@ angular.module('Home').factory('sharingSvc', ['$http',
 
         function getProductToView() {
         	return productToView;
-        }
-        function changeUrl(array) {
-        	for(var elementCounter = 0; elementCounter < array.length; elementCounter++) {
-        		var url = array[elementCounter].url;
-        		array[elementCounter].url = url.replace('../', '');
-        	}
-        	return array;
         }
        	// the idea from that function is that after we get
        	function sortProductsByCategory(products) {

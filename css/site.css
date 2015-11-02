@@ -145,3 +145,8 @@ img{
     margin-top:50px;
 }
 /* carousel */
+
+/* home screen */
+.dealsContainer img {
+    max-width: 100%;
+}
