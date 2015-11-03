@@ -3,18 +3,21 @@
 	<div>Choose what you want to edit with clicking on it.</div>
 </div>
 <div ng-repeat="carouselItem in carouselImages | filter: {'type': 'carousel'}" class="carousel col-lg-12">
-	<div class="col-lg-3">
+	<div class="col-lg-2">
 		<span>Carousel slide {{$index + 1}}</span>
 	</div>
 	<div class="col-lg-1">
 		<img ng-if="carouselItem.image" src="{{'./../img/' + carouselItem.id + '.png'}}" alt="{{carouselItem.imageDescription}}" class="smallImage" ng-click="changeImage(carouselItem)">
 		<img ng-if="carouselItem.image == false" src="./../img/blank.png" alt="{{carouselItem.imageDescription}}" class="smallImage" ng-click="changeImage(carouselItem)">
 	</div>
+	<div class="col-lg-3">
+		<input type="file" name="file" onchange="angular.element(this).scope().upload(this.files, this.getAttribute('data'))" class="btn btn-primary" data="{{carouselItem.id}}"/>
+	</div>
 	<div class="col-lg-2">
 		<span>Shown on position</span>
 		<input type="text" name="position" ng-model="carouselItem.zIndex" value="{{carouselItem['z-index']}}">
 	</div>
-	<div class="col-lg-4">
+	<div class="col-lg-3">
 	    <label name="isShown">Image description</label>
 		<input name="isShown" type="text" ng-model="carouselItem.imageDescription" ng-checked="carouselItem.imageDescription" aria-label="Slave input">
 	</div>

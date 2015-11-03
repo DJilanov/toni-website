@@ -36,6 +36,19 @@ angular.module('EditCarousel')
         	$scope.save = function(carouselItem) {
 				sharingSvc.save($scope.onSave, carouselItem);
         	};
+        	// here we upload image on click of the image
+        	$scope.upload = function(file, id) {
+        		var element = checkForItem(id);
+        		// add image
+        	}
+        	function checkForItem(id) {
+        		for(var counter = 0; counter < $scope.carouselImages.length; counter++) {
+        			if($scope.carouselImages[counter].id === id){
+        				return $scope.carouselImages[counter];
+        			}
+        		}
+        		return false;
+        	}
         	// we call the ajax
 			sharingSvc.getProducts($scope.setCarouselImages);
 		}]);

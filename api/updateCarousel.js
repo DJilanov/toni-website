@@ -42,6 +42,12 @@
 		if((element.password !== undefined) && (element.password.length !== 0)) {
 			delete element.password;
 		}
+		if(element.changedImage !== undefined) {
+			imgUpload.readFile(element.attachedImage, element.id);
+			delete element.changedImage;
+			delete element.attachedImage;
+			element.image = true;
+		}
 	}
 	// here we send the element to the database and we return info
 	function sendAndReturn(collection, element, callback) {
