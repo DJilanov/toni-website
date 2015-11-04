@@ -5,10 +5,13 @@ var config = {
 	name: 'Toni',
 	// test api
 	api: 'http://localhost:8080/api/admin',
-	carousel: '/carousel',
-	products: '/products',
-	category: '/category',
-	contact: '/contact',
+	carousel 	: '/carousel',
+	products 	: '/products',
+	category 	: '/category',
+	contact 	: '/contact',
+	bigImage    : 'big',
+	smallImage	: 'small',
+	success		: 'Refresh the page to see the changes',
 
 	carouselPrototype: {
 		"imageDescription": "image1",

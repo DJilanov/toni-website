@@ -31,8 +31,8 @@
 		if(element.name.length == 0) {
 			element.name = config.categoryPrototype.name;
 		}
-		if(typeof parseInt(element.zIndex) !== "number") {
-			element.zIndex = config.categoryPrototype.zIndex;
+		if(element.zIndex.length == 0) {
+			element.zIndex = config.carouselPrototype.zIndex;
 		}
 		if(element.type.length == 0) {
 			element.type = config.categoryPrototype.type;
@@ -55,7 +55,7 @@
 				'description': element.description,
 				'products': element.products,
 				'name': element.name,
-				'zIndex': parseInt(element.zIndex),
+				'zIndex': element.zIndex,
 				'shownOnNav': element.shownOnNav,
 				'type': element.type
 			}

@@ -29,7 +29,7 @@
 						  <div class="col-md-4">
 						    <div class="input-group">
 						      <input id="appendedtext" name="appendedtext" class="form-control" ng-model="product.image" type="text">
-	      					  <span class="input-group-addon">Upload</span>
+	      					  <input type="file" name="file" onchange="angular.element(this).scope().upload(this.files, this.getAttribute('data'))" data="{{product.id}}"/>
 						    </div>
 						  </div>
 						</div>

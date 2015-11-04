@@ -17,6 +17,8 @@
 	var config     = null;
 	// res holder
 	var resCopy    = null;
+	// id holder
+	var idCopy 	   = null;
 	// current collection we update
 	var collectionCopy = null;
 	function setConfig(loadedConfig) {
@@ -48,6 +50,7 @@
 			mongoose.connection.db.collection('categories', function (err, collection) {
 				console.log('[Admin] updateCategory err: ' + err);
 				category.updateCategory(collection, element, updateCategories);
+				idCopy  = element.id;
 				resCopy = res;
 				collectionCopy = collection;
 		    });
@@ -63,6 +66,7 @@
 			mongoose.connection.db.collection('carousel', function (err, collection) {
 				console.log('[Admin] updateCarousel err: ' + err);
 				carousel.updateCarousel(collection, element, updateCarousels);
+				idCopy  = element.id;
 				resCopy = res;
 				collectionCopy = collection;
 		    });
@@ -78,6 +82,7 @@
 			mongoose.connection.db.collection('products', function (err, collection) {
 				console.log('[Admin] updateProduct err: ' + err);
 				product.updateProduct(collection, element, updateProducts);
+				idCopy  = element.id;
 				resCopy = res;
 				collectionCopy = collection;
 		    });
@@ -91,6 +96,7 @@
 		if((element.username === config.username)&&(element.password === config.password)){
 			// we connect to contact database ith the acc and pass
 			mongoose.connection.db.collection('contact', function (err, collection) {
+				idCopy  = element.id;
 				contact.updateContact(collection, element, res);
 		    });
 		} else {
@@ -123,7 +129,8 @@
 		} else {
 			resCopy.send({
 				'updated': true,
-				'error': false
+				'error'  : false,
+				'id'	 : idCopy
 			});
 		}
 

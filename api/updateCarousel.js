@@ -27,7 +27,7 @@
 		if(typeof element.image !== "boolean") {
 			element.image = config.carouselPrototype.image;
 		}
-		if(typeof element.zIndex !== "number") {
+		if(element.zIndex.length == 0) {
 			element.zIndex = config.carouselPrototype.zIndex;
 		}
 		if(typeof element.shownOnCarousel !== "boolean") {

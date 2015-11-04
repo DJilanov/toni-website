@@ -7,7 +7,7 @@
   	<!-- create title, image, description -->
    		<div class="col-lg-4">
      		<!-- image -->
-     		<img ng-if="model.image" src="{{'./img/' + model.id + '.png'}}" alt="{{model.imageDescription}}">
+     		<img ng-if="model.image" src="{{'./img/' + config.smallImage + model.id + '.png'}}" alt="{{model.imageDescription}}">
 			<img ng-if="model.image == false" src="./img/blank.png" alt="{{model.imageDescription}}">
    		</div>
 	    <div class="col-lg-8">

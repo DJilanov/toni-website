@@ -39,9 +39,14 @@ angular.module('EditProduct')
         	 * @info: when we click on element from the categories list we show the inner list (that is currently hidden) whitch contains the products
 			 * @index: This is the index of the element in the categories list
 			 */
-        	$scope.onSave = function(result) {
+        	$scope.onSave = function(data) {
         		// TODO: Show succesfully updated message
-            	alert('Saved');
+        		if(data.error) {
+        			alert(data.error);
+        		} else {
+        			// we check witch element is updated
+        			alert(config.success);
+        		}
         	};
         	/*
         	 * @info: used when we save a product. This calls the service and sends post request with the product
@@ -68,6 +73,34 @@ angular.module('EditProduct')
 				products[products.length - 1].category = category;
 				products[products.length - 1].new = true;
 			};
+        	/*
+        	 * @info: used when we want to update image
+			 * @file: This is the image that we updated
+			 * @id: This is the id of the product we set the image to
+			 */
+        	$scope.upload = function(file, id) {
+        		if(file[0].type.indexOf('image') > -1){
+	        		var element = checkForItem(id);
+	        		element.changedImage = true;
+	        		element.attachedImage = file[0];
+        		} else {
+        			alert('Its not image!');
+        		}
+        	};
+        	/*
+        	 * @info: here we check for each item
+			 * @id: This is the id of the product we set the image to
+			 */
+        	function checkForItem(id) {
+        		for(var counter = 0; counter < $scope.products.length; counter++) {
+        			for(var innerCounter = 0; innerCounter < $scope.products[counter].length; innerCounter++) {
+	        			if(($scope.products[counter][innerCounter] !== undefined)&&($scope.products[counter][innerCounter].id === id)){
+	        				return $scope.products[counter][innerCounter];
+	        			}
+	        		}
+        		}
+        		return false;
+        	}
 			// used to fetch the products and populate the page
 			sharingSvc.getProducts($scope.getProducts);
 		}]);

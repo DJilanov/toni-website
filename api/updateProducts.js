@@ -44,8 +44,8 @@
 		if(element.type.length == 0) {
 			element.type = config.productPrototype.type;
 		}
-		if(typeof element.zIndex !== "number") {
-			element.zIndex = config.productPrototype.zIndex;
+		if(element.zIndex.length == 0) {
+			element.zIndex = config.carouselPrototype.zIndex;
 		}
 		if(typeof element.shown !== "boolean") {
 			element.shown = config.productPrototype.shown;
@@ -60,9 +60,10 @@
 			delete element.password;
 		}
 		if(element.changedImage !== undefined) {
-			imgUpload.readFile(element.attachedImage, element.id);
+			imgUpload.renameAndResizeImage(element.attachedImagePath, element.id);
 			delete element.changedImage;
-			delete element.attachedImage;
+			delete element.attachedImagePath;
+			delete element.buffer;
 			element.image = true;
 		}
 	}

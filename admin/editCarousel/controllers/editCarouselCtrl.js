@@ -1,36 +1,34 @@
 'use strict';
 
 angular.module('EditCarousel')
-    .controller('EditCarouselCtrl', ['$scope',  'sharingSvc',
-        function ($scope,  sharingSvc) {
+    .controller('EditCarouselCtrl', ['$scope', '$route',  'sharingSvc',
+        function ($scope, $route,  sharingSvc) {
 
             // here we integrate the navigation items
             $scope.carouselImages = [];
             // the name of the user
             $scope.name = config.name;
-        	var location = config.carousel;
+            // image array
+            $scope.imageArray = [];
 			//------------------------------------------------------
 			// here we import the nav items
         	$scope.setCarouselImages = function(products, categories, carousel){
-	        	for (var key in carousel) {
-				    if (carousel.hasOwnProperty(key)) {
-				        var navItem = carousel[key];
-				        // important check that this is objects own property
-				        // not from prototype prop inherited
-				        if(typeof navItem !== "string"){
-				           $scope.carouselImages[navItem['zIndex']] = navItem;
-				        }
-				    }
+				$scope.carouselImages = carousel;
+				for(var carouselCounter = 0; carouselCounter < carousel.length; carouselCounter++) {
+					$scope.imageArray[carouselCounter] = {};
+					$scope.imageArray[carouselCounter].url = './../img/'+ config.smallImage + carousel[carouselCounter].id + '.png';
 				}
         	};
         	// here we get the callback after call to the server is compleate
-        	$scope.onSave = function() {
+        	$scope.onSave = function(data) {
         		// TODO: Show succesfully updated message
-            	alert('Saved');
-        	};
-        	// here we set the update new carousel image
-        	$scope.changeImage = function(item) {
-        		debugger;
+        		if(data.error) {
+        			alert(data.error);
+        		} else {
+        			// we check witch element is updated
+        			alert(config.success);
+        		}
+
         	};
         	// here we save the carousel item
         	$scope.save = function(carouselItem) {

@@ -3,7 +3,9 @@ var config = {
 	carousel_interval: 4000,
 	// test api
 	api: 'http://localhost:8080/api/home',
-	imageFront: '/toni-website/img/'
+	imageFront: '/toni-website/img/',
+	bigImage    : 'big',
+	smallImage	: 'small',
 	// real api
 	// api: '<website>:8080/api/home'
 }

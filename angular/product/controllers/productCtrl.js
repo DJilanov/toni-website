@@ -23,6 +23,7 @@ angular.module('Product')
         		var currentProduct = products[productsId];
         		// we set the sorted products into the products tab
         		$scope.products = $scope.sortProductsByZIndex(currentProduct);
+        		$scope.config = config;
         	};
         	// used to sort products by theirs z index
         	$scope.sortProductsByZIndex = function(products) {
