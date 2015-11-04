@@ -38,12 +38,18 @@ angular.module('EditCarousel')
         	};
         	// here we upload image on click of the image
         	$scope.upload = function(file, id) {
-        		var element = checkForItem(id);
-        		// add image
-        	}
+        		if(file[0].type.indexOf('image') > -1){
+	        		var element = checkForItem(id);
+	        		element.changedImage = true;
+	        		element.attachedImage = file[0];
+        		} else {
+        			alert('Its not image!');
+        		}
+        	};
+        	// here we check for each item
         	function checkForItem(id) {
         		for(var counter = 0; counter < $scope.carouselImages.length; counter++) {
-        			if($scope.carouselImages[counter].id === id){
+        			if(($scope.carouselImages[counter] !== undefined)&&($scope.carouselImages[counter].id === id)){
         				return $scope.carouselImages[counter];
         			}
         		}

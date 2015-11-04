@@ -56,13 +56,42 @@ angular.module('Home').factory('sharingSvc', ['$http', '$location',
         	}
         	data.username = userIds.username;
         	data.password = userIds.password;
-	       	$http({
-			    method: 'POST',
-			    url: config.api + '/' + product.type,
-			    params: data,
-       			headers: {'Content-Type': 'application/json'}
-			})
-			.success(function(data, status, headers, config) {
+        	var http = {};
+        	if(data.attachedImage) {
+        		http = $http({
+				    method: 'POST',
+				    url: config.api + '/' + product.type,
+				    params: data,
+		            headers: {
+		                'Content-Type': 'multipart/form-data'
+		            },
+		            data: {
+		                file: data.attachedImage
+		            },
+		            transformRequest: function (data, headersGetter) {
+		                var formData = new FormData();
+		                angular.forEach(data, function (value, key) {
+		                    formData.append(key, value);
+		                });
+
+		                var headers = headersGetter();
+		                delete headers['Content-Type'];
+
+		                return formData;
+		            }
+				});
+        	} else {
+        		http = $http({
+				    method: 'POST',
+				    url: config.api + '/' + product.type,
+				    params: data,
+		            headers: {
+		                'Content-Type': 'application/json'
+		            }
+				});
+        	}
+
+			http.success(function(data, status, headers, config) {
 			    response = data;
 			})
 			.error(function(data, status, headers, config) {

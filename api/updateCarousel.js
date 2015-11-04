@@ -43,9 +43,10 @@
 			delete element.password;
 		}
 		if(element.changedImage !== undefined) {
-			imgUpload.readFile(element.attachedImage, element.id);
+			imgUpload.renameAndResizeImage(element.attachedImagePath, element.id);
 			delete element.changedImage;
-			delete element.attachedImage;
+			delete element.attachedImagePath;
+			delete element.buffer;
 			element.image = true;
 		}
 	}

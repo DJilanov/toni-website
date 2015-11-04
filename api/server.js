@@ -1,19 +1,23 @@
 // server.js
 // BASE SETUP
 // =============================================================================
-
+// here we declare all constants we gonna use
+var config 	   = require('./config');
+	config     = config.getConfig();
 // call the packages we need
 var express    = require('express');        // call express
 var app        = express();                 // define our app using express
 var bodyParser = require('body-parser');
 var mongoose   = require('mongoose');
+var multer 	   = require('multer'); // v1.0.5
+var upload 	   = multer({
+  dest: config.imageFolder,
+});
+var path 	   = require('path');
 // here we declare all functions we use for the standart user interface
 var home       = require('./home');
 // here we declare all functions we use for the admin user interface
 var admin      = require('./admin');
-// here we declare all constants we gonna use
-var config 	   = require('./config');
-	config     = config.getConfig();
 // configure app to use bodyParser()
 // this will let us get nv.PORT || 8080;        // set our port
 
@@ -82,7 +86,8 @@ app.post('/api/admin/category', function (req, res){
 	var answer = admin.updateCategory(req.query, res);
 	res.json(req.query);
 });
-app.post('/api/admin/carousel', function (req, res){
+app.post('/api/admin/carousel', upload.single('file'), function (req, res) {
 	console.log('[Server.js]Post request to carousel');
+	req.query.attachedImagePath = req.file.path;
 	admin.updateCarousel(req.query, res);
 });

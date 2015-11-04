@@ -1,12 +1,18 @@
 // used as container for the main constants
 (function() {
 	var config = {
-		'dbUsername'  : 'admin',
-		'dbPassword'  : 'toni1221',
-		'username'	  : 'admin',
-		'password'	  : 'toni1221',
-		'api'     	  : '@ds047792.mongolab.com:47792/toni-website',
-		'imageFolder' : '../img/',
+		'dbUsername'    	: 'admin',
+		'dbPassword'    	: 'toni1221',
+		'username'	    	: 'admin',
+		'password'	    	: 'toni1221',
+		'api'     	    	: '@ds047792.mongolab.com:47792/toni-website',
+		'imageFolder'   	: '../img/',
+		'bigImage'	    	: 'big',
+		'bigImageWidth' 	: 800,
+		'bigImageHeight'	: 600,
+		'smallImage'		: 'small',
+		'smallImageWidth' 	: 200,
+		'smallImageHeight'	: 150,
 		// will update on each 6000 seconds
 		'updateOn': 6000,
 

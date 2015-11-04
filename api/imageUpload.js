@@ -2,37 +2,47 @@
 (function() {
 	// we use the file system to save and load files
 	var fs         = require('fs');
+	// we use the image magic to resize the images
+	var im         = require('imagemagick');
 	// used as container for the config
 	var config = null;
 	function setConfig(loadedConfig) {
 		config = loadedConfig;
 	}
 
-	function readFile(image, id) {
-		fs.readFile(image, function (err, data) {
-			console.log(image);
-
-			/// If there's an error
-			if(!image){
-				return "There was an error";
-			} else {
-
-			  var path = config.imageFolder + id;
-
-			  /// write image to folder and return error or the path
-			  fs.writeFile(path, data, function (err) {
-			  	if(err === undefined) {
-			  		return path;
-			  	} else{
-			  		return "There was an error";
-			  	}
-			  });
-			}
+	function renameAndResizeImage(path, id) {
+		// rename the big image
+		fs.rename(path, config.imageFolder + config.bigImage + id + '.png', function(err) {
+		    if ( err ) console.log('ERROR: ' + err);
+		});
+		// resize the big image
+		im.resize({
+		  srcPath : config.imageFolder + config.bigImage +  id + '.png',
+		  dstPath : config.imageFolder + config.bigImage +  id + '.png',
+		  width   : config.bigImageWidth,
+		  height  : config.bigImageHeight,
+  		  format  : 'png',
+		}, function(err, stdout, stderr){
+		  if (err) throw err;
+		  console.log('resized ' + config.imageFolder + config.bigImage + id + '.png' + ' to fit within 256x256px');
+		});
+		// copy the image so we can have small version
+		fs.createReadStream(config.imageFolder + config.bigImage + id + '.png').pipe(fs.createWriteStream(config.imageFolder + config.smallImage + id + '.png'));
+		// resize the big image
+		im.resize({
+		  srcPath : config.imageFolder + config.smallImage +  id + '.png',
+		  dstPath : config.imageFolder + config.smallImage +  id + '.png',
+		  width   : config.smallImageWidth,
+		  height  : config.smallImageHeight,
+  		  format  : 'png',
+		}, function(err, stdout, stderr){
+		  if (err) throw err;
+		  console.log('resized ' + config.imageFolder + config.smallImage + id + '.png' + ' to fit within 256x256px');
 		});
 	}
 
 	module.exports = {
-	    readFile	: readFile,
-	    setConfig		: setConfig
+	    renameAndResizeImage : renameAndResizeImage,
+	    setConfig			 : setConfig
 	};
 }());
