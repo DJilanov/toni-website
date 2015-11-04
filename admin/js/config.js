@@ -3,8 +3,8 @@ var config = {
 	carousel_interval: 4000,
 	password_reset_on_days: 1,
 	name: 'Toni',
-	// test api
-	api: 'http://localhost:8080/api/admin',
+	// office ip
+	api: 'http://192.168.17.82:8080/api/home',
 	carousel 	: '/carousel',
 	products 	: '/products',
 	category 	: '/category',

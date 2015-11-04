@@ -17,8 +17,8 @@ angular.module('Home').factory('sharingSvc', ['$http',
 	        if(response === null) {
 	        	$http.get(config.api).success(function(data, status, headers, config) {
 				    response = data;
-				}).error(function(data, status, headers, config) {
-				    alert('Error on fetching from the server');
+				}).error(function(data, status, headers, config) {debugger;
+				    //alert('Error on fetching from the server');
 				}).then(function(){
 					// we must rework the app to be build whitout the need of this parsing
 					products = sortProductsByCategory(response.products);
