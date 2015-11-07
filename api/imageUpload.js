@@ -20,10 +20,9 @@
 		  srcPath : config.imageFolder + config.bigImage +  id + '.png',
 		  dstPath : config.imageFolder + config.bigImage +  id + '.png',
 		  width   : config.bigImageWidth,
-		  height  : config.bigImageHeight,
-  		  format  : 'png',
+		  height  : config.bigImageHeight
 		}, function(err, stdout, stderr){
-		  if (err) throw err;
+		  if (err) console.log('error with ' + config.imageFolder + config.smallImage +  id + '.png');
 		  console.log('resized ' + config.imageFolder + config.bigImage + id + '.png' + ' to fit within 256x256px');
 		});
 		// copy the image so we can have small version
@@ -33,10 +32,9 @@
 		  srcPath : config.imageFolder + config.smallImage +  id + '.png',
 		  dstPath : config.imageFolder + config.smallImage +  id + '.png',
 		  width   : config.smallImageWidth,
-		  height  : config.smallImageHeight,
-  		  format  : 'png',
+		  height  : config.smallImageHeight
 		}, function(err, stdout, stderr){
-		  if (err) throw err;
+		  if (err) console.log('error with ' + config.imageFolder + config.smallImage +  id + '.png');
 		  console.log('resized ' + config.imageFolder + config.smallImage + id + '.png' + ' to fit within 256x256px');
 		});
 	}
