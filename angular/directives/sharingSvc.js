@@ -17,7 +17,7 @@ angular.module('Home').factory('sharingSvc', ['$http',
 	        if(response === null) {
 	        	$http.get(config.api).success(function(data, status, headers, config) {
 				    response = data;
-				}).error(function(data, status, headers, config) {debugger;
+				}).error(function(data, status, headers, config) {
 				    //alert('Error on fetching from the server');
 				}).then(function(){
 					// we must rework the app to be build whitout the need of this parsing
@@ -35,8 +35,13 @@ angular.module('Home').factory('sharingSvc', ['$http',
         	productToView = product;
         }
 
-        function getProductToView() {
-        	return productToView;
+        function getProductToView(callback) {
+          if(productToView != undefined) {
+            return productToView;
+          } else {
+            getProducts(callback);
+          }
+        	
         }
        	// the idea from that function is that after we get
        	function sortProductsByCategory(products) {
