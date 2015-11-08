@@ -19,4 +19,6 @@ angular.module('Carousel', ['ui.bootstrap', 'ngAnimate'])
 			};
         	// we call the ajax
 			sharingSvc.getProducts($scope.setCarouselItems);
+            // we timestamp the images to remove chaching
+            $scope.time = Math.floor(Date.now() / 1000);
 		}]);

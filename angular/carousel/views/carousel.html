@@ -2,7 +2,7 @@
 	<div>
   		<carousel interval="myInterval">
     		<slide ng-repeat="slide in slides" active="slide.active">
-    			<img ng-if="slide.image" src="{{'./img/' + slide.id + '.png'}}" alt="{{slide.imageDescription}}" style="margin:auto;">
+    			<img ng-if="slide.image" src="{{'./img/' + config.bigImage + slide.id + '.png' + '?' + time}}" alt="{{slide.imageDescription}}" style="margin:auto;">
 				<img ng-if="slide.image == false" src="./img/blank.png" alt="{{slide.imageDescription}}" style="margin:auto;">
 	      		<img ng-src="{{slide.url}}" >
 	      		<div class="carousel-caption">

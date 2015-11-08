@@ -20,4 +20,6 @@ angular.module('View')
         		$scope.product = product;
         	}
         	$scope.config = config;
+            // we timestamp the images to remove chaching
+            $scope.time = Math.floor(Date.now() / 1000);
 		}]);

@@ -51,4 +51,6 @@ angular.module('Home', ['ngAnimate'])
         	// for dad site we must use = 0
         	// we call the ajax
 			sharingSvc.getProducts($scope.setProducts, productName);
+            // we timestamp the images to remove chaching
+            $scope.time = Math.floor(Date.now() / 1000);
 		}]);

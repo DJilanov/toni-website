@@ -44,5 +44,7 @@ angular.module('Product')
         	};
         	// the idea of the function is to get the location so we can use it as name of the products we need to show
         	sharingSvc.getProducts($scope.callback, productName);
+            // we timestamp the images to remove chaching
+            $scope.time = Math.floor(Date.now() / 1000);
 
 		}]);
