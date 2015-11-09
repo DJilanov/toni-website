@@ -21,19 +21,19 @@
 		if(element.id.length == 0) {
 			element.id = new ObjectID();
 		}
-		if(element.imageDescription.length == 0) {
+		if(element.imageDescription == 'auto') {
 			element.imageDescription = config.carouselPrototype.imageDescription;
 		}
 		if(typeof element.image !== "boolean") {
 			element.image = config.carouselPrototype.image;
 		}
-		if(element.zIndex.length == 0) {
+		if(element.zIndex == 'auto') {
 			element.zIndex = config.carouselPrototype.zIndex;
 		}
 		if(typeof element.shownOnCarousel !== "boolean") {
 			element.shownOnCarousel = config.carouselPrototype.shownOnCarousel;
 		}
-		if(element.type.length == 0) {
+		if(element.type == 'auto') {
 			element.type = config.carouselPrototype.type;
 		}
 		if((element.username !== undefined) && (element.username.length !== 0)) {

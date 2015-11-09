@@ -20,22 +20,22 @@
 		if(element.id.length == 0) {
 			element.id = new ObjectID();
 		}
-		if(element.title.length == 0) {
+		if(element.title == 'auto') {
 			element.title = config.productPrototype.title;
 		}
-		if(element.description.length == 0) {
+		if(element.description == 'auto') {
 			element.description = config.productPrototype.description;
 		}
-		if(element.moreInfo.length == 0) {
+		if(element.moreInfo == 'auto') {
 			element.moreInfo = config.productPrototype.moreInfo;
 		}
-		if(element.oldPrice.length == 0) {
+		if(element.oldPrice == 'auto') {
 			element.oldPrice = config.productPrototype.oldPrice;
 		}
-		if(element.newPrice.length == 0) {
+		if(element.newPrice == 'auto') {
 			element.newPrice = config.productPrototype.newPrice;
 		}
-		if(element.offPrice.length == 0) {
+		if(element.offPrice == 'auto') {
 			element.offPrice = config.productPrototype.offPrice;
 		}
 		if(typeof element.image !== "boolean") {

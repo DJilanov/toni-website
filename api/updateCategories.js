@@ -19,19 +19,19 @@
 		if(element.id.length == 0) {
 			element.id = new ObjectID();
 		}
-		if(element.title.length == 0) {
+		if(element.title == 'auto') {
 			element.title = config.categoryPrototype.title;
 		}
-		if(element.description.length == 0) {
+		if(element.description == 'auto') {
 			element.description = config.categoryPrototype.description;
 		}
 		if(element.products.length == 0) {
 			element.products = config.categoryPrototype.products;
 		}
-		if(element.name.length == 0) {
+		if(element.name == 'auto') {
 			element.name = config.categoryPrototype.name;
 		}
-		if(element.zIndex.length == 0) {
+		if(element.zIndex == 'auto') {
 			element.zIndex = config.carouselPrototype.zIndex;
 		}
 		if(element.type.length == 0) {
