@@ -49,7 +49,7 @@
 	}
 
 	module.exports = {
-	    updateCarousel	: updateCarousel,
+	    updateMainConfig	: updateMainConfig,
 	    setConfig		: setConfig
 	};
 }());
