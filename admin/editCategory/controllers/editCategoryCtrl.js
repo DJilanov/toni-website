@@ -43,11 +43,8 @@ angular.module('EditCategory')
         	 * @info: used when we want to add category
 			 * @category: This is the category in what we want to add the category
 			 */
-			$scope.add = function(category) {
-				var products = $scope.products[category];
-				products[products.length] = config.productPrototype;
-				products[products.length - 1].category = category;
-				products[products.length - 1].new = true;
+			$scope.add = function() {
+				$scope.categories[$scope.categories.length] = config.categoryPrototype;
 			};
 			sharingSvc.getProducts($scope.getCategories);
 		}]);

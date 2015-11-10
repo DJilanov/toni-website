@@ -70,12 +70,14 @@
 						   	<textarea class="form-control" id="textarea" name="textarea" ng-model="category.description"></textarea>
 						   </div>
 						</div>
-						<a class="btn btn-info  col-md-12" ng-click="save(category)">Save</a>
+						<a class="btn btn-info  col-md-6" ng-click="save(category)">Save</a>
+						<a class="btn btn-danger col-md-6" ng-click="delete(category)">Delete</a>
 					</fieldset>
 				</form>
 	        </accordion-group>
         </div>
     </accordion>
+    <a class="btn btn-primary col-md-12" ng-click="add()">Add new category</a>
 </div>
 <footer>
 	<!-- <a class="btn btn-info  col-md-12" ng-click="add()">Add more</a> -->

@@ -61,7 +61,7 @@
 			}
 		};console.log('\n[UpdateCategories] element final:' + JSON.stringify(secondaryQuerry))
 		// we check what we gonna do with the element
-		if(element.delete === true){
+		if(element.delete === 'true'){
 			console.log('\n[UpdateCategories] Deleting element:' + JSON.stringify(element));
 			collection.remove(querry, secondaryQuerry, callback);
 		} else {
