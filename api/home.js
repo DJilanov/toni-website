@@ -13,6 +13,8 @@
 	var carouselDatabase = {};
 	// here we save the db with the contact iamges and titles
 	var contactDatabase = {};
+	// here we save the db with the contact iamges and titles
+	var mainConfigDatabase = {};
 
 	function getCategoryDatabase() {
 		return categoryDatabase;
@@ -28,6 +30,10 @@
 
 	function getContactDatabase() {
 		return contactDatabase;
+	}
+
+	function getМainConfigDatabase() {
+		return mainConfigDatabase;
 	}
 
 	function setConfig(loadedConfig) {
@@ -74,6 +80,11 @@
 		    mongoose.connection.db.collection('contact', function (err, collection) {
 		    	collection.find().toArray(function(err, docs) {
 		            contactDatabase = docs;
+		   		});
+		    });
+		    mongoose.connection.db.collection('mainConfig ', function (err, collection) {
+		    	collection.find().toArray(function(err, docs) {
+		            mainConfigDatabase = docs;
 		   		});
 		    });
 		});

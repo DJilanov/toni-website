@@ -4,9 +4,9 @@ var config = {
 	password_reset_on_days: 1,
 	name: 'Toni',
 	// office ip
-	// api: 'http://192.168.17.82:8080/api/home',
+	api: 'http://192.168.17.82:8080/api/home',
 	// home ip
-	api: 'http://192.168.1.3:8080/api/admin',
+	// api: 'http://192.168.1.3:8080/api/admin',
 	home 		: '/home',
 	carousel 	: '/carousel',
 	products 	: '/products',

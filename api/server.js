@@ -82,6 +82,7 @@ app.get('/api/admin', function (req, res){
 	var database = admin.auth(req.param('username'), req.param('password'));
 	res.json(database);
 });
+
 app.post('/api/admin/product', upload.single('file'), function (req, res){
 	console.log('[Server.js]Post request to products');
 	if(req.file !== undefined) {
@@ -90,15 +91,26 @@ app.post('/api/admin/product', upload.single('file'), function (req, res){
 	admin.updateProduct(req.query, res);
 	res.json(req.query);
 });
+
 app.post('/api/admin/category', function (req, res){
 	console.log('[Server.js]Post request to category');
 	admin.updateCategory(req.query, res);
 	res.json(req.query);
 });
+
 app.post('/api/admin/carousel', upload.single('file'), function (req, res) {
 	console.log('[Server.js]Post request to carousel');
 	if(req.file !== undefined) {
 		req.query.attachedImagePath = req.file.path;
 	}
 	admin.updateCarousel(req.query, res);
+});
+
+app.post('/api/admin/mainConfig', upload.single('file'), function (req, res){
+	console.log('[Server.js]Post request to products');
+	if(req.file !== undefined) {
+		req.query.attachedImagePath = req.file.path;
+	}
+	admin.updateMainConfig(req.query, res);
+	res.json(req.query);
 });

@@ -9,6 +9,7 @@
 	var category   = require('./updateCategories');
 	var product    = require('./updateProducts');
 	var contact    = require('./updateContact');
+	var mainConfig = require('./updateMainConfig');
 	// here we declare the function we use for the image saving
 	var imgUpload  = require('./imageUpload');
 	// here we save the db
@@ -24,11 +25,12 @@
 	function setConfig(loadedConfig) {
 		console.log('[Admin]SetConfig fired');
 		config = loadedConfig;
-		// here we set the config there so we can use the carousel prototype
+		// here we set the config there so we can use the prototypes
 		carousel.setConfig(loadedConfig);
 		category.setConfig(loadedConfig);
 		product.setConfig(loadedConfig);
 		contact.setConfig(loadedConfig);
+		mainConfig.setConfig(loadedConfig);
 		imgUpload.setConfig(loadedConfig);
 	}
 
@@ -36,9 +38,10 @@
 		if((logedUsername === config.username)&&(logedPassword === config.password)){
 			database = {
 				"categories": home.getCategoryDatabase(),
-				"products": home.getProductDatabase(),
-				"carousel": home.getCarouselDatabase(),
-				"contact"   : home.getContactDatabase()
+				"products"  : home.getProductDatabase(),
+				"carousel"  : home.getCarouselDatabase(),
+				"contact"   : home.getContactDatabase(),
+				"mainConfig": home.getМainConfigDatabase()
 			};
 			return database;
 		}
@@ -46,7 +49,7 @@
 	// here we update products into the database
 	function updateCategory(element, res) {
 		if((element.username === config.username)&&(element.password === config.password)){
-			// we connect to carousel database ith the acc and pass
+			// we connect to carousel database with the acc and pass
 			mongoose.connection.db.collection('categories', function (err, collection) {
 				console.log('[Admin] updateCategory err: ' + err);
 				category.updateCategory(collection, element, updateCategories);
@@ -62,7 +65,7 @@
 	// here we update products into the database
 	function updateCarousel(element, res) {
 		if((element.username === config.username)&&(element.password === config.password)){
-			// we connect to carousel database ith the acc and pass
+			// we connect to carousel database with the acc and pass
 			mongoose.connection.db.collection('carousel', function (err, collection) {
 				console.log('[Admin] updateCarousel err: ' + err);
 				carousel.updateCarousel(collection, element, updateCarousels);
@@ -78,7 +81,7 @@
 	// here we update products into the database
 	function updateProduct(element, res) {
 		if((element.username === config.username)&&(element.password === config.password)){
-			// we connect to products database ith the acc and pass
+			// we connect to products database with the acc and pass
 			mongoose.connection.db.collection('products', function (err, collection) {
 				console.log('[Admin] updateProduct err: ' + err);
 				product.updateProduct(collection, element, updateProducts);
@@ -94,10 +97,26 @@
 	// here we update products into the database
 	function updateContact(element, res) {
 		if((element.username === config.username)&&(element.password === config.password)){
-			// we connect to contact database ith the acc and pass
+			// we connect to contact database with the acc and pass
 			mongoose.connection.db.collection('contact', function (err, collection) {
 				idCopy  = element.id;
 				contact.updateContact(collection, element, res);
+		    });
+		} else {
+			return 'Wrong acc or password';
+		}
+	}
+
+	// here we update products into the database
+	function updateMainConfig(element, res) {
+		if((element.username === config.username)&&(element.password === config.password)){
+			// we connect to main config database with the acc and pass
+			mongoose.connection.db.collection('mainConfig', function (err, collection) {
+				console.log('[Admin] mainConfig err: ' + err);
+				mainConfig.updateMainConfig(collection, element, updateMainConfigs);
+				idCopy  = element.id;
+				resCopy = res;
+				collectionCopy = collection;
 		    });
 		} else {
 			return 'Wrong acc or password';
@@ -115,6 +134,16 @@
 	}
 
 	function updateCategories (err, doc) {
+		home.updateCategories(collectionCopy);
+		resSend(err);
+	}
+
+	function updateContacts (err, doc) {
+		home.updateCategories(collectionCopy);
+		resSend(err);
+	}
+
+	function updateMainConfigs (err, doc) {
 		home.updateCategories(collectionCopy);
 		resSend(err);
 	}

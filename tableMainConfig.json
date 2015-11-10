@@ -1,3 +1,8 @@
 {
-    "backgroundImg": ""
+	// the image that will be on the background
+    "backgroundImgUrl": "",
+    // will you show the img to everyone
+    "showBackgroundImg": false,
+    // on how many seconds the database gonna be backed up
+    "backupOn": 36000
 }
