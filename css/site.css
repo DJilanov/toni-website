@@ -104,7 +104,6 @@ html { overflow: -moz-scrollbars-none; }
 }
 img{
   margin:auto;
-  width: 400px;
 }
 #slides_control {
   position:absolute;
@@ -147,6 +146,15 @@ img{
 /* carousel */
 #slides_control .carousel-indicators li {
     border: 1px solid gray;
+}
+.carousel-inner {
+	height: 300px;
+}
+.carousel-inner .item {
+	height: 100%;
+}
+.carousel-inner .item img{
+	max-height: 100%;
 }
 /* home screen */
 .dealsContainer img {

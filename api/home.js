@@ -58,6 +58,12 @@
 	    });
 	}
 
+	function updateMainConfigs(collection) {
+		collection.find().toArray(function(err, docs) {
+	        mainConfigDatabase = docs;
+	    });
+	}
+
 	function connectDb(){
 		// we cache the product list by the viewing user
 		mongoose.connection.on('connected', function () {
@@ -82,7 +88,7 @@
 		            contactDatabase = docs;
 		   		});
 		    });
-		    mongoose.connection.db.collection('mainConfig ', function (err, collection) {
+		    mongoose.connection.db.collection('mainConfig', function (err, collection) {
 		    	collection.find().toArray(function(err, docs) {
 		            mainConfigDatabase = docs;
 		   		});
@@ -112,14 +118,16 @@
 	}
 
 	module.exports = {
-	    connectDb			: connectDb,
-	    setConfig			: setConfig,
-	    getCategoryDatabase	: getCategoryDatabase,
-	    getProductDatabase	: getProductDatabase,
-	    getCarouselDatabase : getCarouselDatabase,
-	    getContactDatabase  : getContactDatabase,
-	    updateProducts		: updateProducts,
-	    updateCategories	: updateCategories,
-	    updateCarousels		: updateCarousels
+	    connectDb			 : connectDb,
+	    setConfig			 : setConfig,
+	    getCategoryDatabase	 : getCategoryDatabase,
+	    getProductDatabase	 : getProductDatabase,
+	    getCarouselDatabase  : getCarouselDatabase,
+	    getContactDatabase   : getContactDatabase,
+	    getМainConfigDatabase: getМainConfigDatabase,
+	    updateProducts		 : updateProducts,
+	    updateCategories	 : updateCategories,
+	    updateCarousels		 : updateCarousels,
+	    updateMainConfigs	 : updateMainConfigs
 	};
 }());

@@ -144,7 +144,7 @@
 	}
 
 	function updateMainConfigs (err, doc) {
-		home.updateCategories(collectionCopy);
+		home.updateMainConfigs(collectionCopy);
 		resSend(err);
 	}
 

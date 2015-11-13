@@ -73,7 +73,8 @@ app.get('/api/home', function (req, res){
 		"categories": home.getCategoryDatabase(),
 		"products"  : home.getProductDatabase(),
 		"carousel"  : home.getCarouselDatabase(),
-		"contact"   : home.getContactDatabase()
+		"contact"   : home.getContactDatabase(),
+		"mainConfig": home.getМainConfigDatabase(),
 	});
 });
 
