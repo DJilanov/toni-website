@@ -35,7 +35,7 @@ var _mainModules = [
     ,'Modals'
     ,'Product'
     ,'View'
-    ,'Video'
+    ,'Contacts'
     ,'Carousel'
    // ,'infinite-scroll'
     , 'Modals'

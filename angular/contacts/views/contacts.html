@@ -1,3 +1,28 @@
-<div>
-contacti
+<div class="container contacts">
+	<div class="col-lg-6" id="map">
+
+	</div>
+	<div class="col-lg-6">
+		<h3>
+			{{text.contactOurAddress}}
+		</h3>
+		<div>
+			{{text.contactCoordinateAdress}}
+		</div>
+		<h4 class="spaceTop">
+			{{text.contactPhoneTitle}}
+		</h4>
+		<div>
+			{{text.contactPhone}}
+		</div>
+		<h4 class="spaceTop">
+			{{text.contactFormTitle}}
+		</h4>
+	</div>
 </div>
+<script type="text/ng-template" id="mapTemplate.html">
+  	<div id="content">
+		<h1 id="firstHeading" class="firstHeading">{{helloMessage}}</h1>
+		<div id="bodyContent"><p>{{address}}</p></div>
+	</div>
+</script>

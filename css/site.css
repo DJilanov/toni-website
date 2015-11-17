@@ -160,3 +160,13 @@ img{
 .dealsContainer img {
     max-width: 100%;
 }
+/* contacts */
+#map {
+	height:450px;
+}
+.contacts {
+	margin-top: -2%;
+}
+.spaceTop {
+	margin-top: 5%;
+}

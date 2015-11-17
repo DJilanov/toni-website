@@ -5,7 +5,7 @@
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <meta charset="utf-8">
     <meta content="Freelancing Web and Mobile Interaction Designer based in Sofia, Bulgaria." name="description">
-    <title>Web &amp; Mobile UX/UI Designer — Dimitar Jilanov</title>
+    <title>Компютърни части - Жиланови</title>
     <link href="./css/normalize.css" media="screen" rel="stylesheet" type="text/css">
     <link href="./css/site.css" media="screen" rel="stylesheet" type="text/css">
     <link href="./css/mediaQuery.css" media="screen" rel="stylesheet" type="text/css">
@@ -13,6 +13,7 @@
     <link href="./third-party/bootstrap-3.1.1-dist/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" href="./img/logo2.png" />
     <!-- scripts -->
+    <script src="./js/googleApi.js" ></script>
     <script src="./js/config.js" ></script>
     <script src="./language/lang_bg.js" ></script>
     <script src="./language/lang_en.js" ></script>
@@ -58,16 +59,14 @@
     <script src="./angular/view/view.js" ></script>
     <script src="./angular/view/controllers/viewCtrl.js" ></script>
     <!-- video -->
-    <script src="./angular/video/video.js" ></script>
-    <script src="./angular/video/controllers/videoCtrl.js" ></script>
+    <script src="./angular/contacts/contacts.js" ></script>
+    <script src="./angular/contacts/controllers/contactsCtrl.js" ></script>
     <!-- sharing -->
     <script src="./angular/directives/sharingSvc.js" ></script>
   </head>
   <body ng-app="app">
     <!-- we import the navigation -->
-    <header>
-        <div ng-include="'./angular/header/views/header.html'" ng-controller="HeaderCtrl"> </div>
-    </header>
+    <div ng-include="'./angular/header/views/header.html'" ng-controller="HeaderCtrl"> </div>
     <div class="mainPage" ng-view></div>
     <!-- <div class="container" ng-view></div> -->
     <!-- used for dark background -->

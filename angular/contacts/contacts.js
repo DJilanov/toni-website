@@ -3,4 +3,4 @@
 angular.module('Contacts', [])
     .config(function () {})
     .constant('homePath', '/home');
-    
+
