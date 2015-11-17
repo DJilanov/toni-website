@@ -4,9 +4,9 @@ var config = {
 	// office ip
 	// api: 'http://192.168.17.82:8080/api/home',
 	// home ip
-	api: 'http://192.168.1.6:8080/api/home',
+	// api: 'http://192.168.1.6:8080/api/home',
 	// server ip
-	// api: 'http://194.79.15.131:8080/api/home',
+	api: 'http://194.79.15.131:8080/api/home',
 	imageFront: '/toni-website/img/',
 	bigImage    : 'big',
 	smallImage	: 'small',
