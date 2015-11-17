@@ -3,7 +3,7 @@ var lang_bg = {
 	"homePageDescription": "Промоции описание",
 	"headerContact": "Контакти",
 	"contactMarker": "Нашите координати",
-	"contactAddress": "Въведи координатите тук",
+	"contactAddress": "Въведи координатите тук като ги намеря",
 	"contactOurAddress": "Адреса ни е:",
 	"contactCoordinateAdress": "Еди къде си",
 	"contactPhoneTitle": "Moжете да се свържете с нас на телефонен номер:",

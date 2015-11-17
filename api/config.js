@@ -45,7 +45,7 @@
 			"offPrice": "Blank",
 			"image": false,
 			"zIndex": 255,
-			"shown": false,
+			"dailyOffer": false,
 			"type": "product",
 			"category": "",
 			"id": ""
