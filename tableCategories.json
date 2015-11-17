@@ -1,60 +1,55 @@
 {
-    "title": "Today's Deals",
-    "description": "The best deals and offers across the web. To find out about our deals first every day, subscribe to the Deals Newsletter.",
-    "products": "0",
-    "name": "Home",
-    "zIndex": 0,
-    "shownOnNav": false,
-    "type": "category",
-    "id": "0"
-}
-{
-    "title": "csGo's Deals",
-    "description": "The best deals and offers across the web. To find out about our deals first every day, subscribe to the Deals Newsletter.",
-    "products": "1",
-    "name": "CS:GO",
-    "zIndex": 1,
-    "shownOnNav": true,
-    "type": "category",
-    "id": "1"
-}
-{
-    "title": "gridAutoSport's Deals",
-    "description": "The best deals and offers across the web. To find out about our deals first every day, subscribe to the Deals Newsletter.",
-    "products": "2",
-    "name": "Grid Auto Sport",
-    "zIndex": 2,
-    "shownOnNav": true,
-    "type": "category",
-    "id": "2"
-}
-{
-    "title": "finalFantasy14's Deals",
-    "description": "The best deals and offers across the web. To find out about our deals first every day, subscribe to the Deals Newsletter.",
-    "products": "3",
-    "name": "Final Fantasy XIV",
-    "zIndex": 3,
-    "shownOnNav": true,
-    "type": "category",
-    "id": "3"
-}
-{
-    "title": "worldOfTanks's Deals",
-    "description": "The best deals and offers across the web. To find out about our deals first every day, subscribe to the Deals Newsletter.",
-    "products": "4",
-    "name": "World Of Tanks",
-    "zIndex": 4,
-    "shownOnNav": true,
-    "type": "category",
-    "id": "4"
-}
-{
-    "title": "other games Deals",
-    "description": "The best deals and offers across the web. To find out about our deals first every day, subscribe to the Deals Newsletter.",
-    "products": "5",
-    "name": "Other games",
-    "zIndex": 5,
-    "shownOnNav": true,
-    "type": "category",
-    "id": "5"
+   "description":"The best deals and offers across the web. To find out about our deals first every day, subscribe to the Deals Newsletter.",
+   "id":"0",
+   "name":"Промоции",
+   "products":"0",
+   "shownOnNav":"false",
+   "title":"Промоции",
+   "type":"category",
+   "zIndex":"0"
+}{
+   "description":"The best deals and offers across the web. To find out about our deals first every day, subscribe to the Deals Newsletter.",
+   "id":"1",
+   "name":"Памети",
+   "products":"1",
+   "shownOnNav":"true",
+   "title":"Памети",
+   "type":"category",
+   "zIndex":"1"
+}{
+   "description":"The best deals and offers across the web. To find out about our deals first every day, subscribe to the Deals Newsletter.",
+   "id":"2",
+   "name":"Процесори",
+   "products":"2",
+   "shownOnNav":"true",
+   "title":"Процесори",
+   "type":"category",
+   "zIndex":"2"
+}{
+   "description":"The best deals and offers across the web. To find out about our deals first every day, subscribe to the Deals Newsletter.",
+   "id":"3",
+   "name":"Дискове",
+   "products":"3",
+   "shownOnNav":"true",
+   "title":"Дискове",
+   "type":"category",
+   "zIndex":"3"
+}{
+   "description":"The best deals and offers across the web. To find out about our deals first every day, subscribe to the Deals Newsletter.",
+   "id":"4",
+   "name":"Видеокарти",
+   "products":"4",
+   "shownOnNav":"true",
+   "title":"Видеокарти",
+   "type":"category",
+   "zIndex":"4"
+}{
+   "description":"The best deals and offers across the web. To find out about our deals first every day, subscribe to the Deals Newsletter.",
+   "id":"5",
+   "name":"Услуги",
+   "products":"5",
+   "shownOnNav":"true",
+   "title":"Услуги",
+   "type":"category",
+   "zIndex":"5"
 }

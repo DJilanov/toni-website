@@ -8,18 +8,14 @@ angular.module('Header')
             $scope.searchInput = null;
             // here we integrate the navigation items
             $scope.navigationItems = [];
-            // modal flag
-            $scope.showModal = false;
-		    $scope.toggleModal = function(){
-		        $scope.showModal = !$scope.showModal;
+        	$scope.texts = language.getText();
+		    $scope.goToContacts = function(){
+        		$location.path( "/contacts/");
 		    };
             // we set the active page to be shown in the header as black background
-            $scope.getClass = function(path) {
-	        	var location = $location.$$path.indexOf(path);
-	        	if(location > 0){
-	        		return 'active';
-	        	}
-			};
+            $scope.isActive = function (viewLocation) {
+		        return viewLocation === $location.path();
+		    };
 			//------------------------------------------------------
 			// here we import the nav items
         	$scope.setNavigationitems = function(products, categories){

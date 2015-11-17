@@ -76,7 +76,7 @@ angular.module('app', _mainModules )
         });
 
         routes.push({
-            name: '/contact',
+            name: '/contacts',
             params: {
                 templateUrl: './angular/contacts/views/contacts.html',
                 controller: 'ContactsCtrl'

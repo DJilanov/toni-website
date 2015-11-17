@@ -2,8 +2,8 @@
 	<div ng-include="'./angular/carousel/views/carousel.html'" ng-controller="CarouselCtrl" class="homePage"> </div>
 	<footer>
 	  <div class="container">
-		  <h1>{{category.title}}</h1>
-		  <p>{{category.description}}</p>
+		  <h1>{{texts.homePageBigTitle}}</h1>
+		  <p>{{texts.homePageDescription}}</p>
 		</div>
 		<div class="container dealsContainer">
 		  	<div class="col-lg-4" ng-repeat="model in products| filter: {'type': 'product'}" ng-click="onProductClick(model)">
