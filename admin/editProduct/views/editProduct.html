@@ -28,7 +28,6 @@
 						  <label class="col-md-4 control-label" for="appendedtext">Product image</label>
 						  <div class="col-md-4">
 						    <div class="input-group">
-						      <input id="appendedtext" name="appendedtext" class="form-control" ng-model="product.image" type="text">
 	      					  <input type="file" name="file" onchange="angular.element(this).scope().upload(this.files, this.getAttribute('data'))" data="{{product.id}}"/>
 						    </div>
 						  </div>
@@ -47,6 +46,14 @@
 						  <label class="col-md-4 control-label" for="textarea">Product description</label>
 						  <div class="col-md-4">
 						    <textarea class="form-control" id="textarea" name="textarea" ng-model="product.description"></textarea>
+						  </div>
+						</div>
+
+						<!-- Textarea -->
+						<div class="form-group">
+						  <label class="col-md-4 control-label" for="textarea">Is it shown on daily offers</label>
+						  <div class="col-md-4">
+							<input name="isShown" type="checkbox" ng-model="product.dailyOffer" ng-checked="product.dailyOffer" aria-label="Slave input">
 						  </div>
 						</div>
 

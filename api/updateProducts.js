@@ -53,6 +53,9 @@
 		if(element.type.length == 0) {
 			element.type = config.productPrototype.type;
 		}
+		if(element.dailyOffer.length == 0) {
+			element.dailyOffer = config.productPrototype.dailyOffer;
+		}
 		if((element.username !== undefined) && (element.username.length !== 0)) {
 			delete element.username;
 		}
@@ -76,6 +79,7 @@
 			$set: {
 				'title': element.title,
 				'description': element.description,
+				'dailyOffer': element.dailyOffer,
 				'moreInfo': element.moreInfo,
 				'oldPrice': element.oldPrice,
 				'newPrice': element.newPrice,
