@@ -1,6 +1,6 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="navbar-header">
-    <span class="navbar-brand" ng-click="goToContacts()">{{texts.headerContact}}</span>
+    <span class="navbar-brand">{{texts.headerCompany}}</span>
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
@@ -14,6 +14,9 @@
       </li>
       <li ng-class="{ active: isActive('/product/{{navItem.link}}')}" ng-show="navItem.shownOnNav">
         <a ng-href="#/product/{{navItem.link}}">{{navItem.name}}</a>
+      </li>
+       <li ng-class="{ active: isActive('/contacts')}" ng-if="$last">
+        <a ng-href="#/contacts">{{texts.headerContact}}</a>
       </li>
     </ul>
     <div class="navbar-header navbar-right">

@@ -6,7 +6,7 @@ angular.module('Contacts')
         	$scope.text = language.getText();
             (function() {
 			// Create a map object and specify the DOM element for display.
-				var myCoords = {lat: 42.649853515390795, lng: 23.356552720069885};
+				var myCoords = {lat: 42.709923, lng: 23.379968};
 				var map = new google.maps.Map(document.getElementById('map'), {
 				    center: myCoords,
 				    scrollwheel: true,

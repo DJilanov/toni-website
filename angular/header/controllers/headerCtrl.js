@@ -9,9 +9,6 @@ angular.module('Header')
             // here we integrate the navigation items
             $scope.navigationItems = [];
         	$scope.texts = language.getText();
-		    $scope.goToContacts = function(){
-        		$location.path( "/contacts/");
-		    };
             // we set the active page to be shown in the header as black background
             $scope.isActive = function (viewLocation) {
 		        return viewLocation === $location.path();
