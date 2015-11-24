@@ -56,6 +56,12 @@
 		if(element.dailyOffer.length == 0) {
 			element.dailyOffer = config.productPrototype.dailyOffer;
 		}
+		if(element.dailyOffer.length == 0) {
+			element.dailyOffer = config.productPrototype.dailyOffer;
+		}
+		if(element.count.length == 0) {
+			element.count = config.productPrototype.count;
+		}
 		if((element.username !== undefined) && (element.username.length !== 0)) {
 			delete element.username;
 		}
@@ -88,7 +94,8 @@
 				'zIndex': element.zIndex,
 				'shown': element.shown,
 				'type': element.type,
-				'category': element.category
+				'category': element.category,
+				'count': element.count
 			}
 		};
 		// we check what we gonna do with the element

@@ -48,7 +48,8 @@
 			"dailyOffer": false,
 			"type": "product",
 			"category": "",
-			"id": ""
+			"id": "",
+			"count": "0"
 		},
 
 		contactPrototype: {
