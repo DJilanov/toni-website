@@ -23,69 +23,77 @@
 						<!-- Form Name -->
 						<legend>{{product.title}}</legend>
 						<div class="pull-right" ng-show="product.new !== undefined">New</div>
-						<!-- Appended Input-->
+						<!-- Append image Input-->
 						<div class="form-group">
-						  <label class="col-md-4 control-label" for="appendedtext">Product image</label>
+						  <label class="col-md-4 control-label">Product image</label>
 						  <div class="col-md-4">
 						    <div class="input-group">
-	      					  <input type="file" name="file" onchange="angular.element(this).scope().upload(this.files, this.getAttribute('data'))" data="{{product.id}}"/>
+	      					  <input type="file" name="fileUpload" onchange="angular.element(this).scope().upload(this.files, this.getAttribute('data'))" data="{{product.id}}"/>
 						    </div>
 						  </div>
 						</div>
 
-						<!-- Text input-->
+						<!-- Title Text input-->
 						<div class="form-group">
-						  <label class="col-md-4 control-label" for="textinput">Product title</label>
+						  <label class="col-md-4 control-label" for="titleInput">Product title</label>
 						  <div class="col-md-4">
-						    <input id="textinput" name="textinput" type="text" class="form-control input-md" ng-model="product.title">
+						    <input id="titleInput" name="titleInput" type="text" class="form-control input-md" ng-model="product.title">
 						  </div>
 						</div>
 
-						<!-- Textarea -->
+                        <!-- Description Text input-->
 						<div class="form-group">
-						  <label class="col-md-4 control-label" for="textarea">Product description</label>
+						  <label class="col-md-4 control-label" for="descriptionInput">Product description</label>
 						  <div class="col-md-4">
-						    <textarea class="form-control" id="textarea" name="textarea" ng-model="product.description"></textarea>
+						    <textarea class="form-control" id="descriptionInput" name="descriptionInput" ng-model="product.description"></textarea>
 						  </div>
 						</div>
 
-						<!-- Textarea -->
+						<!-- Daily offers checkbox -->
 						<div class="form-group">
-						  <label class="col-md-4 control-label" for="textarea">Is it shown on daily offers</label>
+						  <label class="col-md-4 control-label" for="dailyOffersCheckbox">Is it shown on daily offers</label>
 						  <div class="col-md-4">
-							<input name="isShown" type="checkbox" ng-model="product.dailyOffer" ng-checked="product.dailyOffer" aria-label="Slave input">
+							<input id="dailyOffersCheckbox" name="dailyOffersCheckbox" type="checkbox" ng-model="product.dailyOffer" ng-checked="product.dailyOffer" aria-label="Slave input">
 						  </div>
 						</div>
 
-						<!-- Text input-->
+						<!-- More info input-->
 						<div class="form-group">
-						  <label class="col-md-4 control-label" for="textinput">Product more info</label>
+						  <label class="col-md-4 control-label" for="moreInfoInput">Product more info</label>
 						  <div class="col-md-4">
-						    <input id="textinput" name="textinput" type="text" class="form-control input-md" ng-model="product.moreInfo">
+						    <input id="moreInfoInput" name="moreInfoInput" type="text" class="form-control input-md" ng-model="product.moreInfo">
 						  </div>
 						</div>
 
-						<!-- Text input-->
+						<!-- Count input-->
 						<div class="form-group">
-						  <label class="col-md-4 control-label" for="textinput">Product new price</label>
+							<label class="col-md-4 control-label" for="countInput">Product count left</label>
+							<div class="col-md-4">
+								<input id="countInput" name="countInput" type="text" class="form-control input-md" ng-model="product.count">
+							</div>
+						</div>
+
+						<!-- New price input-->
+						<div class="form-group">
+						  <label class="col-md-4 control-label" for="newPriceInput">Product new price</label>
 						  <div class="col-md-4">
-						    <input id="textinput" name="textinput" type="text" class="form-control input-md" ng-model="product.newPrice">
+						    <input id="newPriceInput" name="newPriceInput" type="text" class="form-control input-md" ng-model="product.newPrice">
 						  </div>
 						</div>
 
-						<!-- Text input-->
+						<!-- Old price input-->
 						<div class="form-group">
-						  <label class="col-md-4 control-label" for="textinput">Product old price</label>
+						  <label class="col-md-4 control-label" for="oldPriceinput">Product old price</label>
 						  <div class="col-md-4">
-						    <input id="textinput" name="textinput" type="text" class="form-control input-md" ng-model="product.oldPrice">
+						    <input id="oldPriceinput" name="oldPriceinput" type="text" class="form-control input-md" ng-model="product.oldPrice">
 						  </div>
 						</div>
 
-						<!-- Text input-->
+						<!-- Off price input-->
 						<div class="form-group">
-						  <label class="col-md-4 control-label" for="textinput">Product off price</label>
+						  <label class="col-md-4 control-label" for="offPriceInput">Product off price</label>
 						  <div class="col-md-4">
-						    <input id="textinput" name="textinput" type="text" class="form-control input-md" ng-model="product.offPrice">
+						    <input id="offPriceInput" name="offPriceInput" type="text" class="form-control input-md" ng-model="product.offPrice">
 						  </div>
 						</div>
 						<a class="btn btn-info  col-md-6" ng-click="save(product)">Save</a>

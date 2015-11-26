@@ -4,6 +4,7 @@ angular.module('Contacts')
     .controller('ContactsCtrl', ['$scope', 'sharingSvc', '$location', '$templateCache',
         function ($scope, sharingSvc, $location, $templateCache) {
         	$scope.text = language.getText();
+			$scope.form = {};
             (function() {
 			// Create a map object and specify the DOM element for display.
 				var myCoords = {lat: 42.709923, lng: 23.379968};
@@ -27,13 +28,9 @@ angular.module('Contacts')
 				infowindow.open(map, marker);
 			})();
 
-        	// we set the products in variable to be shown on screen
-        	$scope.setContacts = function(products) {
-        		// products = $scope.sortProductsByDailyOffer(products);
-        		// // we set the sorted products into the products tab
-        		// $scope.products = $scope.sortProductsByZIndex(products);
-        	};
-
-
-			sharingSvc.getProducts($scope.setContacts);
+        	$scope.submitForm = function() {
+				debugger;
+				var data = {form: $scope.form, response: grecaptcha.getResponse()}
+				//todo: send them to backend and send the resposne to https://www.google.com/recaptcha/api/siteverify so you can check is it correct key
+			};
 		}]);

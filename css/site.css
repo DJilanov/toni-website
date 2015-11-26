@@ -170,3 +170,9 @@ img{
 .spaceTop {
 	margin-top: 5%;
 }
+.g-recaptcha{
+    padding-left: 0px !important;
+}
+.contactSubmit {
+    height: 78px;
+}
