@@ -59,7 +59,7 @@
 		if(element.dailyOffer.length == 0) {
 			element.dailyOffer = config.productPrototype.dailyOffer;
 		}
-		if(element.count.length == 0) {
+		if((!element.count)||(element.count.length == 0)) {
 			element.count = config.productPrototype.count;
 		}
 		if((element.username !== undefined) && (element.username.length !== 0)) {

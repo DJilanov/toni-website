@@ -4,11 +4,12 @@ var config = {
 	password_reset_on_days: 1,
 	name: 'Toni',
 	// office ip
-	api: 'http://10.22.41.38:8080/api/home',
+	// api: 'http://10.22.41.38:8080/api/home',
 	// home ip
 	// api: 'http://192.168.1.6:8080/api/admin',
 	// server ip
 	// api: 'http://194.79.15.131:8080/api/admin',
+	api: 'http://jilanov.eu:8080/api/admin',
 	home 		: '/home',
 	carousel 	: '/carousel',
 	products 	: '/products',
