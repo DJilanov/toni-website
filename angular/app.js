@@ -28,7 +28,6 @@ var _mainModules = [
   //  ,'ngLocale'
    // ,'pasvaz.bindonce'
     ,'Services'
-    ,'Api'
     ,'Home'
     ,'Header'
     ,'Login'

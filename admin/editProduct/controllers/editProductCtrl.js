@@ -52,7 +52,7 @@ angular.module('EditProduct')
         	 * @info: used when we save a product. This calls the service and sends post request with the product
 			 * @product: This is the product that we want to save
 			 */
-			$scope.save = function(product) {debugger;
+			$scope.save = function(product) {
 				sharingSvc.save($scope.onSave, product);
 			};
         	/*

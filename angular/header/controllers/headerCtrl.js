@@ -13,9 +13,12 @@ angular.module('Header')
             $scope.isActive = function (viewLocation) {
 		        return viewLocation === $location.path();
 		    };
+			$scope.selected = undefined;
+			$scope.products = [];
 			//------------------------------------------------------
 			// here we import the nav items
         	$scope.setNavigationitems = function(products, categories){
+				$scope.products = products;
 	        	for (var key in categories) {
 				    if (categories.hasOwnProperty(key)) {
 				        var navItem = categories[key];
@@ -30,8 +33,7 @@ angular.module('Header')
         	};
         	// we call the ajax
 			sharingSvc.getProducts($scope.setNavigationitems);
-
-			//------------------------------------------------------
+			// ---------------------------------------------------
 
 			$scope.changeLanguage = function() {
 			    debugger;

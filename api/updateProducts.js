@@ -3,7 +3,7 @@
 	// here we declare the function we use for the image saving
 	var imgUpload  = require('./imageUpload');
 	// we use it for creation of new objects
-    var ObjectID = require('mongodb').ObjectID;
+	var ObjectId = require('mongodb').ObjectID;
 	// used as container for the config
 	var config = null;
 	function setConfig(loadedConfig) {
@@ -17,9 +17,6 @@
 	}
 	// here we check for missing elements on element creation and we create a new for it
 	function checkForMissingElements(element) {
-		if(element.id.length == 0) {
-			element.id = new ObjectID();
-		}
 		if(element.title == 'auto') {
 			element.title = config.productPrototype.title;
 		}
@@ -79,7 +76,7 @@
 	// here we send the element to the database and we return info
 	function sendAndReturn(collection, element, callback) {
 		var querry = {
-			"id": element.id
+			"_id": ObjectId(element._id)
 		};
 		var secondaryQuerry = {
 			$set: {
@@ -101,10 +98,14 @@
 		// we check what we gonna do with the element
 		if(element.delete === 'true'){
 			console.log('\n[UpdateProduct] Deleting element:' + JSON.stringify(element));
-			collection.remove(querry, secondaryQuerry, callback);
+			collection.deleteOne(querry, callback);
+		} else if(element.new) {
+			var data = secondaryQuerry['$set'];
+			data.id = querry.id;
+			console.log('\n[UpdateProduct] Creating element:' + JSON.stringify(element));
+			collection.insertOne(data , callback);
 		} else {
 			console.log('\n[UpdateProduct] Updating element:' + JSON.stringify(element));
-			console.log('\n[UpdateProduct] Updated element:' + JSON.stringify(secondaryQuerry));
 			collection.update(querry, secondaryQuerry, callback);
 		}
 	}
