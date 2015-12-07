@@ -38,22 +38,16 @@
 		if(typeof element.image !== "boolean") {
 			element.image = config.productPrototype.image;
 		}
-		if(element.type.length == 0) {
+		if(element.type == 'auto') {
 			element.type = config.productPrototype.type;
 		}
-		if(element.zIndex.length == 0) {
+		if(element.zIndex == 'auto') {
 			element.zIndex = config.carouselPrototype.zIndex;
 		}
 		if(typeof element.shown !== "boolean") {
 			element.shown = config.productPrototype.shown;
 		}
-		if(element.type.length == 0) {
-			element.type = config.productPrototype.type;
-		}
-		if(element.dailyOffer.length == 0) {
-			element.dailyOffer = config.productPrototype.dailyOffer;
-		}
-		if(element.dailyOffer.length == 0) {
+		if(element.dailyOffer == 'auto') {
 			element.dailyOffer = config.productPrototype.dailyOffer;
 		}
 		if((!element.count)||(element.count.length == 0)) {
@@ -66,7 +60,7 @@
 			delete element.password;
 		}
 		if(element.changedImage !== undefined) {
-			imgUpload.renameAndResizeImage(element.attachedImagePath, element.id);
+			imgUpload.renameAndResizeImage(element.attachedImagePath, element._id);
 			delete element.changedImage;
 			delete element.attachedImagePath;
 			delete element.buffer;

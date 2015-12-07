@@ -37,8 +37,8 @@ var _mainModules = [
     ,'Contacts'
     ,'Carousel'
    // ,'infinite-scroll'
-    , 'Modals'
-   // ,'ui.bootstrap'
+    ,'Modals'
+    ,'ui.bootstrap'
 ];
 
 angular.module('app', _mainModules )

@@ -40,7 +40,7 @@ angular.module('Product')
         	// we view the product
         	$scope.onProductClick = function(product) {
         		sharingSvc.viewProduct(product);
-        		$location.path( "/view/" + product.id);
+        		$location.path( "/view/" + product._id);
         	};
         	// the idea of the function is to get the location so we can use it as name of the products we need to show
         	sharingSvc.getProducts($scope.callback, productName);
