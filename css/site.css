@@ -180,3 +180,6 @@ img{
 .dropdown-menu {
     width:100%;
 }
+#search {
+    margin-top: -20px;
+}

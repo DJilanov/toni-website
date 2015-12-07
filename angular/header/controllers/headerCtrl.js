@@ -13,7 +13,7 @@ angular.module('Header')
             $scope.isActive = function (viewLocation) {
 		        return viewLocation === $location.path();
 		    };
-			$scope.selected = undefined;
+			$scope.selected = 'Search for...';
 			$scope.products = [];
 			//------------------------------------------------------
 			// here we import the nav items
@@ -50,6 +50,9 @@ angular.module('Header')
 			$scope.search = function(item, model, label) {
 				sharingSvc.viewProduct(item);
 				$location.path( "/view/" + item._id);
+			};
+			$scope.clearSearch = function() {
+				$scope.selected = '';
 			};
 			// TODO: Integrate when you click on shop by department it must be pull down menu and you have
 			// the choise between the product creators ( samsung , nokia and etc )

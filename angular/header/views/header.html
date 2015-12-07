@@ -34,9 +34,9 @@
     </div>
     <div class='col-lg-9'>
       <div class="input-group search">
-        <input name="states" id="typeAhead" type="text" placeholder="Search for..." ng-model="selected" typeahead="product.title + ' (' + product.description + ')' for product in findProduct($viewValue)" class="form-control" typeahead-on-select="search($item, $model, $label)"/>>
+        <input name="states" id="typeAhead" type="text" placeholder="Search for..." ng-model="selected" typeahead="product.title + ' (' + product.description + ')' for product in findProduct($viewValue)" class="form-control" typeahead-on-select="search($item, $model, $label)" ng-click="clearSearch()"/>>
         <span class="input-group-btn">
-          <button class="btn btn-default" type="button" ng-click='search()'>Search</button>
+          <button class="btn btn-default" type="button" id="search"" ng-click='search()'>Search</button>
         </span>
       </div>
     </div>
