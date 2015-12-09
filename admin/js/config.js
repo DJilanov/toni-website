@@ -49,6 +49,7 @@ var config = {
 		"image": "",
 		"zIndex": 255,
 		"dailyOffer": false,
+		"shown": true,
 		"type": "product",
 		"category": "",
 		"id": "",

@@ -73,7 +73,7 @@ angular.module('EditProduct')
 			 */
 			$scope.add = function(category) {
 				var products = $scope.products[category];
-				products[products.length] = config.productPrototype;
+				products[products.length] = JSON.parse(JSON.stringify(config.productPrototype));
 				products[products.length - 1].category = category;
 				products[products.length - 1].new = true
 				products[products.length - 1].newId = $scope.newProductsArray.length;

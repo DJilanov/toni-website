@@ -108,21 +108,17 @@ img{
 #slides_control {
   position:absolute;
   width: 100%;
-  top:100px;
+  top:115px;
 }
 .flag {
 	height: 34px;
   	width: 70px;
 }
-/* first section */
-.home{
-	margin-top:30%;
-}
-.mainPage{
-	margin-top:10%;
-}
 .carousel {
 	height: 300px;
+}
+footer {
+    margin-top: 400px;
 }
 .productPrice{
     color: orange;
@@ -139,10 +135,6 @@ img{
 .blue{
     color: blue;
 }
-.info{
-    margin-bottom:50px;
-    margin-top:50px;
-}
 /* carousel */
 #slides_control .carousel-indicators li {
     border: 1px solid gray;
@@ -157,18 +149,9 @@ img{
 	max-height: 100%;
 }
 /* home screen */
-.dealsContainer img {
-    max-width: 100%;
-}
 /* contacts */
 #map {
 	height:450px;
-}
-.contacts {
-	margin-top: -2%;
-}
-.spaceTop {
-	margin-top: 5%;
 }
 .g-recaptcha{
     padding-left: 0px !important;
@@ -182,4 +165,23 @@ img{
 }
 #search {
     margin-top: -20px;
+}
+
+/* REFACTOR THIS */
+.dealsContainer {
+    margin-top: 35px;
+}
+.contacts {
+    margin-top: 110px;
+}
+.spaceTop {
+    margin-top: 5%;
+}
+.dealsContainer img {
+    max-width: 100%;
+    margin-top: 35px;
+}
+.info{
+    margin-bottom:50px;
+    margin-top:50px;
 }

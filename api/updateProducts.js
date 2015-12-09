@@ -128,6 +128,7 @@
 		// we set the id to the product so we can put the image
 		product._id = result.ops[0]._id;
 		setImage(product);
+		console.log('New Element ID: ' + product._id)
 		elementCallback();
 	}
 

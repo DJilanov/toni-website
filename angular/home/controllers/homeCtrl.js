@@ -14,7 +14,7 @@ angular.module('Home', ['ngAnimate'])
         	$scope.setProducts = function(products) {
         		products = $scope.sortProductsByDailyOffer(products);
         		// we set the sorted products into the products tab
-        		$scope.products = $scope.sortProductsByZIndex(products);
+        		$scope.products = products;
         	};
         	// used to sort witch products are in the daily offer
         	$scope.sortProductsByDailyOffer = function(products) {
@@ -36,6 +36,9 @@ angular.module('Home', ['ngAnimate'])
         		for(var productCounter = 0; productCounter < products.length; productCounter++) {
         			product = products[productCounter];
         			zIndex = product['zIndex'];
+					if(sortedProducts[zIndex] !== undefined) {
+						zIndex = 255 + Math.random() * 10000;
+					}
         			sortedProducts[zIndex] = product;
         		}
         		return sortedProducts;

@@ -19,6 +19,7 @@ var _mainModules = [
   //  ,'Filters'
    'ngRoute'
    ,'ngResource'
+   ,'ui.bootstrap'
    ,'ngAnimate'
   //  ,'ngSanitize'
   //  ,'ngCookies'
@@ -38,7 +39,6 @@ var _mainModules = [
     ,'Carousel'
    // ,'infinite-scroll'
     ,'Modals'
-    ,'ui.bootstrap'
 ];
 
 angular.module('app', _mainModules )
