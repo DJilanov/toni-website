@@ -28,7 +28,7 @@
 						  <label class="col-md-4 control-label">Product image</label>
 						  <div class="col-md-4">
 						    <div class="input-group">
-	      					  <input type="file" name="fileUpload" onchange="angular.element(this).scope().upload(this.files, this.getAttribute('data'))" data="{{product.id}}"/>
+	      					  <input type="file" name="fileUpload" onchange="angular.element(this).scope().upload(this.files, this.getAttribute('data'), this.getAttribute('data2'))" data="{{product._id}}" data2="{{product.newId}}"/>
 						    </div>
 						  </div>
 						</div>
