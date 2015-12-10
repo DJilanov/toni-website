@@ -120,21 +120,6 @@ img{
 footer {
     margin-top: 400px;
 }
-.productPrice{
-    color: orange;
-}
-.productPrice .oldPrice{
-    text-decoration: line-through;
-}
-.productPrice .newPrice{
-    font-weight: bold;
-}
-.productPrice .priceOff{
-    font-style: italic;
-}
-.blue{
-    color: blue;
-}
 /* carousel */
 #slides_control .carousel-indicators li {
     border: 1px solid gray;
@@ -177,11 +162,112 @@ footer {
 .spaceTop {
     margin-top: 5%;
 }
-.dealsContainer img {
-    max-width: 100%;
-    margin-top: 35px;
-}
 .info{
     margin-bottom:50px;
     margin-top:50px;
+}
+
+/* ---------------------------------- */
+/*          REFACTORED DESIGN         */
+/* ---------------------------------- */
+/* products containers */
+.dealsContainer .product {
+    min-width: 250px;
+    min-height: 250px;
+    margin-bottom: 13px;
+    position: relative;
+}
+
+.product-image-container {
+    text-align: center;
+    position: relative;
+}
+
+.image-container {
+    width: 255px;
+    height: 255px;
+    border: 1px solid #d6d4d4;
+}
+
+.dealsContainer img {
+    position: relative;
+    padding: 15px;
+    max-width: 100%;
+}
+
+.productPrice {
+    margin-top: 30px;
+}
+
+.oldPrice{
+    font-size: 17px;
+    text-decoration: line-through;
+}
+.newPrice{
+    font: 600 21px/26px "Open Sans", sans-serif;
+    color: #333;
+}
+
+.box {
+
+}
+
+.box {
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    overflow: hidden;
+    height: 85px;
+    width: 85px;
+    text-align: center;
+    z-index: 0;
+}
+
+.box span{
+    font: 700 14px/12px Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    padding: 9px 0 7px;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.24);
+    width: 130px;
+    text-align: center;
+    display: block;
+    position: absolute;
+    left: -33px;
+    top: 16px;
+    z-index: 1;
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.new-box span {
+    color: #fff;
+    background: #6ad4ff;
+}
+
+.offer-box span {
+    color: #fff;
+    background: #FF0015;
+}
+
+.quick-view-button {
+    font: 700 13px/16px Arial, Helvetica, sans-serif;
+    color: #777676;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -21px 0 0 -53px;
+    padding: 13px 0 0;
+    background: rgba(255, 255, 255, 0.82);
+    width: 107px;
+    height: 43px;
+    text-align: center;
+    -moz-box-shadow: rgba(0, 0, 0, 0.16) 0 2px 8px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.16) 0 2px 8px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0 2px 8px;
+}
+/* global variables */
+a {
+    color: #777;
+    text-decoration: none;
 }

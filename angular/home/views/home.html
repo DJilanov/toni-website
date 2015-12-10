@@ -6,7 +6,7 @@
 		  <p>{{texts.homePageDescription}}</p>
 		</div>
 		<div class="container dealsContainer">
-		  	<div class="col-lg-4" ng-repeat="model in products| filter: {'type': 'product'}" ng-click="onProductClick(model)">
+		  	<div class="col-lg-4 product" ng-repeat="model in products| filter: {'type': 'product'}" ng-click="onProductClick(model)">
 		  	<!-- create title, image, description -->
 		   		<div class="col-lg-4">
 		     		<!-- image -->

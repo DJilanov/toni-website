@@ -16,4 +16,7 @@ var lang_bg = {
 	"contactFormYourEmailEnter": "Въведете вашата електронна поща",
 	"contactFormYourMessage": "Вашето съобщение",
 	"contactFormSend": "Изпрати",
+	"productNew": "Нов",
+	"productOffer": "Оферта",
+	"productView": "Бърз преглед"
 };

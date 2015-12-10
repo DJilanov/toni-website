@@ -46,6 +46,7 @@
 			"image": false,
 			"zIndex": 255,
 			"dailyOffer": false,
+			"isNew": false,
 			"type": "product",
 			"category": "",
 			"id": "",

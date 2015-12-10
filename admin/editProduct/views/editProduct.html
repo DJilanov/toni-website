@@ -57,6 +57,14 @@
 						  </div>
 						</div>
 
+						<!-- Is it new checkbox -->
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="isNewCheckbox">Does it need new label</label>
+							<div class="col-md-4">
+								<input id="isNewCheckbox" name="isNewCheckbox" type="checkbox" ng-model="product.isNew" ng-checked="product.isNew" aria-label="Slave input">
+							</div>
+						</div>
+
 						<!-- More info input-->
 						<div class="form-group">
 						  <label class="col-md-4 control-label" for="moreInfoInput">Product more info</label>
@@ -86,14 +94,6 @@
 						  <label class="col-md-4 control-label" for="oldPriceinput">Product old price</label>
 						  <div class="col-md-4">
 						    <input id="oldPriceinput" name="oldPriceinput" type="text" class="form-control input-md" ng-model="product.oldPrice">
-						  </div>
-						</div>
-
-						<!-- Off price input-->
-						<div class="form-group">
-						  <label class="col-md-4 control-label" for="offPriceInput">Product off price</label>
-						  <div class="col-md-4">
-						    <input id="offPriceInput" name="offPriceInput" type="text" class="form-control input-md" ng-model="product.offPrice">
 						  </div>
 						</div>
 						<a class="btn btn-info  col-md-6" ng-click="save(product)">Save</a>

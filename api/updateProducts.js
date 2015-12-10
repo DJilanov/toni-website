@@ -99,7 +99,8 @@
 				'shown': element.shown,
 				'type': element.type,
 				'category': element.category,
-				'count': element.count
+				'count': element.count,
+				'isNew': element.isNew
 			}
 		};
 		// we check what we gonna do with the element
