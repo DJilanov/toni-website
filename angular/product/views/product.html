@@ -28,8 +28,11 @@
 			 <a class="new-box box" ng-show="model.isNew !== 'false'">
 				 <span>{{text.productNew}}</span>
 			 </a>
-			<a class="offer-box box" ng-show="model.dailyOffer !== 'false'">
-				<span>{{text.productOffer}}</span>
+			 <a class="offer-box box" ng-show="model.dailyOffer !== 'false'">
+				 <span>{{text.productOffer}}</span>
+			 </a>
+			<a class="over-box box" ng-show="model.count == '0'">
+				<span>{{text.productOver}}</span>
 			</a>
 			<!-- showed on hover -->
 			<a class="quick-view-button">

@@ -240,6 +240,11 @@ footer {
     transform: rotate(-45deg);
 }
 
+.over-box span {
+    color: #fff;
+    background: #000;
+}
+
 .new-box span {
     color: #fff;
     background: #6ad4ff;

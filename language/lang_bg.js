@@ -18,5 +18,6 @@ var lang_bg = {
 	"contactFormSend": "Изпрати",
 	"productNew": "Нов",
 	"productOffer": "Оферта",
-	"productView": "Бърз преглед"
+	"productView": "Бърз преглед",
+	"productOver": "Изчерпан"
 };
