@@ -5,7 +5,8 @@ angular.module('Home', ['ngAnimate'])
         function ($scope, $location, $http, sharingSvc) {
         	$scope.response = null;
         	$scope.config = config;
-        	$scope.texts = language.getText();
+			// we get the language text
+			$scope.text = language.getText();
         	$scope.onProductClick = function(product) {
         		sharingSvc.viewProduct(product);
         		$location.path( "/view" );

@@ -118,7 +118,7 @@ img{
 	height: 300px;
 }
 footer {
-    margin-top: 400px;
+    margin-top: 420px;
 }
 /* carousel */
 #slides_control .carousel-indicators li {
@@ -181,6 +181,7 @@ footer {
 .product-image-container {
     text-align: center;
     position: relative;
+    margin-bottom: 50px;
 }
 
 .image-container {
@@ -208,8 +209,9 @@ footer {
     color: #333;
 }
 
-.box {
-
+.spacer {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .box {
@@ -260,7 +262,7 @@ footer {
     color: #777676;
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: 140px;
     margin: -21px 0 0 -53px;
     padding: 13px 0 0;
     background: rgba(255, 255, 255, 0.82);
@@ -270,6 +272,41 @@ footer {
     -moz-box-shadow: rgba(0, 0, 0, 0.16) 0 2px 8px;
     -webkit-box-shadow: rgba(0, 0, 0, 0.16) 0 2px 8px;
     box-shadow: rgba(0, 0, 0, 0.16) 0 2px 8px;
+    display: none;
+    cursor:pointer;
+}
+
+.content_price {
+    position: relative;
+    left: 0;
+    bottom: 25px;
+    width: 100%;
+    background-color: black;
+    padding: 9px 0;
+    display: none;
+}
+
+.button-container {
+    display: none;
+}
+
+.content_price span {
+    color: white;
+}
+
+.add_to_cart_button {
+    position: relative;
+}
+
+.product:hover .content_price {
+    display: block;
+}
+
+.product:hover .button-container {
+    display: block;
+}
+.product:hover .quick-view-button {
+    display: block;
 }
 /* global variables */
 a {

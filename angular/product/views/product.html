@@ -3,41 +3,51 @@
   <p>{{category.description}}</p>
 </div>
 <div class="container dealsContainer">
-  	<div class="product col-xs-12 col-sm-4 col-md-3 first-in-line last-line first-item-of-mobile-line" ng-repeat="model in products | filter: {'type': 'product'}" ng-click="onProductClick(model)">
-		<div class="product-image-container">
-			<!-- create title, image, description -->
-			<!-- image -->
-			<div class="image-container">
-				<img ng-if="model.image" src="{{'./img/' + config.smallImage + model._id + '.png' + '?' + time}}" alt="{{model.imageDescription}}">
-				<img ng-if="model.image == false" src="{{'./img/blank.png' + '?' + time}}" alt="{{model.imageDescription}}">
+	<div>
+		<div class="product col-xs-12 col-sm-4 col-md-3 first-in-line last-line first-item-of-mobile-line" ng-repeat="model in products | filter: {'type': 'product'}" ng-click="onProductClick(model)">
+			<div class="product-image-container">
+				<!-- create title, image, description -->
+				<!-- image -->
+				<div class="image-container">
+					<img ng-if="model.image" src="{{'./img/' + config.smallImage + model._id + '.png' + '?' + time}}" alt="{{model.imageDescription}}">
+					<img ng-if="model.image == false" src="{{'./img/blank.png' + '?' + time}}" alt="{{model.imageDescription}}">
+				</div>
+				 <!-- title -->
+				 <h3>{{model.title}}</h3>
+				 <!-- attention -->
+				 <div class='blue'>
+				   <span>{{model.description}}</span>
+				 </div>
+				 <!-- description -->
+				 <div class='infoProduct'>
+				   <span>{{model.moreInfo}}.</span>
+				 </div>
+				 <div class='productPrice'>
+					 <span class='newPrice'>{{model.newPrice}}</span>
+					 <span class='oldPrice' ng-show="model.oldPrice">{{model.oldPrice}}</span>
+				 </div>
+				 <a class="new-box box" ng-show="model.isNew !== 'false'">
+					 <span>{{text.productNew}}</span>
+				 </a>
+				 <a class="offer-box box" ng-show="model.dailyOffer !== 'false'">
+					 <span>{{text.productOffer}}</span>
+				 </a>
+				<a class="over-box box" ng-show="model.count == '0'">
+					<span>{{text.productOver}}</span>
+				</a>
+				<!-- showed on hover -->
+				<a class="quick-view-button">
+					<span>{{text.productView}}</span>
+				</a>
+				<div class="content_price" itemprop="offers" itemscope="" itemtype="https://schema.org/Offer">
+					<span class='newPrice'>{{model.newPrice}}</span>
+					<span class='oldPrice' ng-show="model.oldPrice">{{model.oldPrice}}</span>
+				</div>
+				<div class="button-container">
+					<div class="btn btn-primary add_to_cart_button" title="Добавяне към количката">
+						<span>Добавяне към количката</span>
+					</div>
+				</div>
 			</div>
-			 <!-- title -->
-			 <h3>{{model.title}}</h3>
-			 <!-- attention -->
-			 <div class='blue'>
-			   <span>{{model.description}}</span>
-			 </div>
-			 <!-- description -->
-			 <div class='infoProduct'>
-			   <span>{{model.moreInfo}}.</span>
-			 </div>
-			 <div class='productPrice'>
-				 <span class='newPrice'>{{model.newPrice}}</span>
-				 <span class='oldPrice' ng-show="model.oldPrice">{{model.oldPrice}}</span>
-			 </div>
-			 <a class="new-box box" ng-show="model.isNew !== 'false'">
-				 <span>{{text.productNew}}</span>
-			 </a>
-			 <a class="offer-box box" ng-show="model.dailyOffer !== 'false'">
-				 <span>{{text.productOffer}}</span>
-			 </a>
-			<a class="over-box box" ng-show="model.count == '0'">
-				<span>{{text.productOver}}</span>
-			</a>
-			<!-- showed on hover -->
-			<a class="quick-view-button">
-				<span>{{text.productView}}</span>
-			</a>
-	    </div>
-	</div>
+		</div>
 </div>
