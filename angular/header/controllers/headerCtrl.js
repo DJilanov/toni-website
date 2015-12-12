@@ -13,7 +13,7 @@ angular.module('Header')
             $scope.isActive = function (viewLocation) {
 		        return viewLocation === $location.path();
 		    };
-			$scope.selected = 'Search for...';
+			$scope.selected = $scope.texts.headerSearchFor;
 			$scope.products = [];
 			//------------------------------------------------------
 			// here we import the nav items

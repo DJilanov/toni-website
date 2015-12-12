@@ -7,10 +7,11 @@ angular.module('Home', ['ngAnimate'])
         	$scope.config = config;
 			// we get the language text
 			$scope.text = language.getText();
-        	$scope.onProductClick = function(product) {
-        		sharingSvc.viewProduct(product);
-        		$location.path( "/view" );
-        	};
+			// we view the product
+			$scope.onProductClick = function(product) {
+				sharingSvc.viewProduct(product);
+				$location.path( "/view/" + product._id);
+			};
         	// we set the products in variable to be shown on screen
         	$scope.setProducts = function(products) {
         		products = $scope.sortProductsByDailyOffer(products);
