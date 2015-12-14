@@ -38,6 +38,7 @@ angular.module('EditProduct')
         		for(var productsCounter = 0; productsCounter < products.length; productsCounter++) {
         			$scope.categorySize[productsCounter] = products[productsCounter].length;
         		}
+				$scope.checkProducts(products);
         	};
         	/*
         	 * @info: when we click on element from the categories list we show the inner list (that is currently hidden) whitch contains the products
@@ -52,6 +53,17 @@ angular.module('EditProduct')
         			alert(config.success);
         		}
         	};
+			/*
+			* @info Fix the problem with the string based boolean elements
+			*/
+			$scope.checkProducts = function(products) {
+				for(var categoryCounter = 0; categoryCounter < products.length; categoryCounter++) {
+					for(var productCounter = 0; productCounter < products[categoryCounter].length; productCounter++) {
+						products[categoryCounter][productCounter].isNew = JSON.parse(products[categoryCounter][productCounter].isNew);
+						products[categoryCounter][productCounter].dailyOffer = JSON.parse(products[categoryCounter][productCounter].dailyOffer);
+					}
+				}
+			};
         	/*
         	 * @info: used when we save a product. This calls the service and sends post request with the product
 			 * @product: This is the product that we want to save

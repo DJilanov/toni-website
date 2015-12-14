@@ -101,6 +101,8 @@ angular.module('Home').factory('sharingSvc', ['$http',
        		var category = null;
        		for(var productCounter = 0; productCounter < products.length; productCounter++) {
        			product = products[productCounter];
+				product.dailyOffer = JSON.parse(product.dailyOffer);
+				product.isNew = JSON.parse(product.isNew);
        			category = parseInt(product.category);
        			if(sortedProducts[category] === undefined) {
        				sortedProducts[category] = [];

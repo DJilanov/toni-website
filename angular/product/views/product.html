@@ -26,10 +26,10 @@
 					 <span class='newPrice'>{{model.newPrice}}</span>
 					 <span class='oldPrice' ng-show="model.oldPrice">{{model.oldPrice}}</span>
 				 </div>
-				 <a class="new-box box" ng-show="model.isNew !== 'false'">
+				 <a class="new-box box" ng-show="model.isNew">
 					 <span>{{text.productNew}}</span>
 				 </a>
-				 <a class="offer-box box" ng-show="model.dailyOffer !== 'false'">
+				 <a class="offer-box box" ng-show="model.dailyOffer">
 					 <span>{{text.productOffer}}</span>
 				 </a>
 				<a class="over-box box" ng-show="model.count == '0'">
