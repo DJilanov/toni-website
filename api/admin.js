@@ -38,10 +38,7 @@
 		if((logedUsername === config.username)&&(logedPassword === config.password)){
 			database = {
 				"categories": home.getCategoryDatabase(),
-				"products"  : home.getProductDatabase(),
-				"carousel"  : home.getCarouselDatabase(),
-				"contact"   : home.getContactDatabase(),
-				"mainConfig": home.getМainConfigDatabase()
+				"products"  : home.getProductDatabase()
 			};
 			return database;
 		}
