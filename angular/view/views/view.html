@@ -34,7 +34,7 @@
                 <!-- prices -->
                 <div>
                     <p id="new_price"><span>{{product.newPrice}}</span></p>
-                    <p id="old_price"><span class="oldPrice">{{product.oldPrice}}</span><span class="difference">{{product.difference}}</span></p>
+                    <p id="old_price" ng-show="product.oldPrice"><span class="oldPrice">{{product.oldPrice}}</span><span class="difference">{{product.difference}}</span></p>
                 </div>
             </div> <!-- end content_prices -->
             <div class="product_attributes clearfix">
