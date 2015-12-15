@@ -10,7 +10,7 @@ var lang_bg = {
 	"contactMarker": "Координати",
 	"contactAddress": "Улица Могилите. София 1836",
 	"contactOurAddress": "Адрес",
-	"contactCoordinateAdress": "Улица Могилите. София 1836",
+	"contactCoordinateAdress": "жк.Левски Г,ул. Могилите бл.4, София 1836",
 	"contactPhoneTitle": "Телефон за връзка",
 	"contactPhone": "0878613400",
 	"contactFormTitle": "Може да ни изпратите запитване през формата",
