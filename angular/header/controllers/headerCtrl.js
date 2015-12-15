@@ -18,6 +18,7 @@ angular.module('Header')
 		    };
 			$scope.selected = $scope.texts.headerSearchFor;
 			$scope.products = [];
+			$scope.flagSrc = 'img/flag-' + language.getLang() + '.png';
 			//------------------------------------------------------
 			// here we import the nav items
         	$scope.setNavigationitems = function(products, categories){
@@ -45,6 +46,14 @@ angular.module('Header')
 			sharingSvc.getProducts($scope.setNavigationitems);
 
 			$scope.changeLanguage = function() {
+				var lang = language.getLang();
+				if(config.langs.indexOf(lang) < config.langs.length) {
+					language.setLanguage(config.langs[config.langs.indexOf(lang) + 1]);
+				} else {
+					language.setLanguage(config.langs[0]);
+				}
+				lang = language.getLang();
+				$scope.flagSrc = 'img/flag-' + lang + '.png';
         		$scope.texts = language.getText();
 			};
 

@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('Carousel', ['ui.bootstrap', 'ngAnimate'])
-    .controller('CarouselCtrl', ['$scope', 'sharingSvc',
-        function ($scope, sharingSvc) {
+    .controller('CarouselCtrl', ['$scope', 'sharingSvc', '$location',
+        function ($scope, sharingSvc, $location) {
             $scope.myInterval = 3000;
             // we generate dummy object
 			$scope.slides = [{
@@ -23,6 +23,11 @@ angular.module('Carousel', ['ui.bootstrap', 'ngAnimate'])
 						}
 					}
 				}
+			};
+			// we view the product
+			$scope.onProductClick = function(product) {
+				sharingSvc.viewProduct(product);
+				$location.path( "/view/" + product._id);
 			};
         	// we call the ajax
 			sharingSvc.getProducts($scope.setCarouselItems);
