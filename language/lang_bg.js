@@ -1,4 +1,4 @@
-var lang_bg = {
+var bg = {
 	"homePageBigTitle": "Промоции",
 	"homePageDescription": "Промоции описание",
 	"headerContact": "Контакти",

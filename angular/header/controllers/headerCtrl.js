@@ -8,13 +8,17 @@ angular.module('Header')
             $scope.searchInput = null;
             // here we integrate the navigation items
             $scope.navigationItems = [];
+            // here we integrate language
         	$scope.texts = language.getText();
+        	// here we set the default language
+        	$scope.language = config.defaultLang;
             // we set the active page to be shown in the header as black background
             $scope.isActive = function (viewLocation) {
 		        return viewLocation === $location.path();
 		    };
 			$scope.selected = $scope.texts.headerSearchFor;
 			$scope.products = [];
+			$scope.flagSrc = 'img/flag-' + language.getLang() + '.png';
 			//------------------------------------------------------
 			// here we import the nav items
         	$scope.setNavigationitems = function(products, categories){
@@ -42,9 +46,15 @@ angular.module('Header')
 			sharingSvc.getProducts($scope.setNavigationitems);
 
 			$scope.changeLanguage = function() {
-			    debugger;
-			    // TODO: Integrate translation using the translation JSON. It can be done by spliting the info.
-			    // Need to check out how to broadcast translating event.
+				var lang = language.getLang();
+				if(config.langs.indexOf(lang) < config.langs.length) {
+					language.setLanguage(config.langs[config.langs.indexOf(lang) + 1]);
+				} else {
+					language.setLanguage(config.langs[0]);
+				}
+				lang = language.getLang();
+				$scope.flagSrc = 'img/flag-' + lang + '.png';
+        		$scope.texts = language.getText();
 			};
 
 			$scope.search = function(item, model, label) {

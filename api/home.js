@@ -78,21 +78,6 @@
 		            categoryDatabase = docs;
 		   		});
 		    });
-		    mongoose.connection.db.collection('carousel', function (err, collection) {
-		    	collection.find().toArray(function(err, docs) {
-		            carouselDatabase = docs;
-		   		});
-		    });
-		    mongoose.connection.db.collection('contact', function (err, collection) {
-		    	collection.find().toArray(function(err, docs) {
-		            contactDatabase = docs;
-		   		});
-		    });
-		    mongoose.connection.db.collection('mainConfig', function (err, collection) {
-		    	collection.find().toArray(function(err, docs) {
-		            mainConfigDatabase = docs;
-		   		});
-		    });
 		});
 
 		// If the connection throws an error
@@ -122,9 +107,6 @@
 	    setConfig			 : setConfig,
 	    getCategoryDatabase	 : getCategoryDatabase,
 	    getProductDatabase	 : getProductDatabase,
-	    getCarouselDatabase  : getCarouselDatabase,
-	    getContactDatabase   : getContactDatabase,
-	    getМainConfigDatabase: getМainConfigDatabase,
 	    updateProducts		 : updateProducts,
 	    updateCategories	 : updateCategories,
 	    updateCarousels		 : updateCarousels,

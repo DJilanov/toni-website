@@ -21,9 +21,8 @@
     </ul>
     <div class="navbar-header navbar-right">
       <p class="navbar-text">
-       <a href="#" class="navbar-link">{{texts.headerUsername}}</a>
+       <a href="#" class="navbar-link float-right">{{texts.headerUsername}}</a>
       </p>
-      <div class='col-lg-1'></div>
     </div>
   </div>
   <div class="navbar-collapse collapse">
@@ -36,13 +35,13 @@
       <div class="input-group search">
         <input name="states" id="typeAhead" type="text" placeholder="{{texts.headerSearchFor}}" ng-model="selected" typeahead="product.title + ' (' + product.description + ')' for product in findProduct($viewValue)" class="form-control" typeahead-on-select="search($item, $model, $label)" ng-click="clearSearch()"/>>
         <span class="input-group-btn">
-          <button class="btn btn-default" type="button" id="search"" ng-click='search()'>{{texts.headerSearch}}</button>
+          <button class="btn btn-default" type="button" id="search" ng-click='search()'>{{texts.headerSearch}}</button>
         </span>
       </div>
     </div>
     <div class='col-lg-1'>
      <!-- image of the flag -->
-     <img class='flag' src="img/flag-bg.png" alt="product" width="50px" ng-click='changeLanguage()'>
+     <img class='flag' ng-src="{{flagSrc}}" alt="product" width="50px" ng-click='changeLanguage()'>
     </div>
   </div>
 </nav>

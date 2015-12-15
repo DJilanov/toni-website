@@ -1,20 +1,23 @@
 var language = (function() {
 	'use strict';
 	var text = eval(config.defaultLang);
+	var language = config.defaultLang;
 	var setLanguage = function(lang) {
-		if(lang === 'bg') {
-			text = lang_bg;
-		} else if(lang === 'en') {
-			text = lang_en;
-		}
+		text = eval(lang);
+		language = lang;
 	};
 	var getText = function() {
 		return text;
 	};
 
+	var getLang = function() {
+		return language;
+	};
+
 	/* GameModel public API */
 	return {
 		setLanguage  : setLanguage,
-		getText    	 : getText
+		getText    	 : getText,
+		getLang		 : getLang
 	};
 }());

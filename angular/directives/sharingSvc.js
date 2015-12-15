@@ -28,18 +28,14 @@ angular.module('Home').factory('sharingSvc', ['$http',
 					// we must rework the app to be build whitout the need of this parsing
 					products = sortProductsByCategory(response.products);
 					categories = response.categories;
-					carousel = response.carousel;
-					mainConfig = response.mainConfig[0];
-					// we set the background if it is avalible
-					setBackgroundIfAvalible(mainConfig);
 					// return the collections
 					for(var callbackCounter = 0; callbackCounter < callbackArray.length; callbackCounter++) {
-						callbackArray[callbackCounter](products, categories, carousel);
+						callbackArray[callbackCounter](products, categories);
 					}
 				});
 			} else {
 				if(products !== null) {
-					callback(products, categories, carousel);
+					callback(products, categories);
 				} else {
 					callbackArray.push(callback);
 				}
@@ -101,6 +97,11 @@ angular.module('Home').factory('sharingSvc', ['$http',
        		var category = null;
        		for(var productCounter = 0; productCounter < products.length; productCounter++) {
        			product = products[productCounter];
+				product.dailyOffer = JSON.parse(product.dailyOffer);
+				product.isNew = JSON.parse(product.isNew);
+				if(product.carousel !== undefined) {
+					product.carousel = JSON.parse(product.carousel);
+				}
        			category = parseInt(product.category);
        			if(sortedProducts[category] === undefined) {
        				sortedProducts[category] = [];

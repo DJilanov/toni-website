@@ -23,7 +23,7 @@ angular.module('Home', ['ngAnimate'])
         		var dailyOfferProducts = [];
         		for(var categoryCounter = 0; categoryCounter < products.length; categoryCounter++) {
         			for(var productCounter = 0; productCounter < products[categoryCounter].length; productCounter++) {
-	        			if(products[categoryCounter][productCounter].dailyOffer) {
+	        			if(products[categoryCounter][productCounter].dailyOffer === true) {
 	        				dailyOfferProducts.push(products[categoryCounter][productCounter]);
 	        			}
 	        		}

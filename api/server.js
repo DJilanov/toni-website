@@ -71,10 +71,7 @@ app.all('/*', function (req, res, next) {
 app.get('/api/home', function (req, res){
 	res.json({
 		"categories": home.getCategoryDatabase(),
-		"products"  : home.getProductDatabase(),
-		"carousel"  : home.getCarouselDatabase(),
-		"contact"   : home.getContactDatabase(),
-		"mainConfig": home.getМainConfigDatabase(),
+		"products"  : home.getProductDatabase()
 	});
 });
 

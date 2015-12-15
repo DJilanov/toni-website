@@ -24,7 +24,7 @@ angular.module('Product')
         		var productsId = $scope.category.products;
         		var currentProduct = products[productsId];
         		// we set the sorted products into the products tab
-        		$scope.products = currentProduct;console.log(currentProduct)
+        		$scope.products = currentProduct;
         		$scope.config = config;
         	};
         	// used to sort products by theirs z index

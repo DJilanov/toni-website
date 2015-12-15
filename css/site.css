@@ -113,6 +113,10 @@ img{
 .flag {
 	height: 34px;
   	width: 70px;
+    float: right;
+}
+.float-right {
+    float: right;
 }
 .carousel {
 	height: 300px;
