@@ -9,6 +9,8 @@ angular.module('Product')
         	$scope.products = null;
         	// used to contain the name of the product for the call
         	var productName = null;
+			// we get the language text
+			$scope.text = language.getText();
         	// the idea of the function is to get the location so we can use it as name of the products we need to show
         	$scope.getLocation = function() {
         		var location = $location.$$path.split('/')[2];
@@ -22,7 +24,7 @@ angular.module('Product')
         		var productsId = $scope.category.products;
         		var currentProduct = products[productsId];
         		// we set the sorted products into the products tab
-        		$scope.products = $scope.sortProductsByZIndex(currentProduct);
+        		$scope.products = currentProduct;
         		$scope.config = config;
         	};
         	// used to sort products by theirs z index
@@ -40,7 +42,7 @@ angular.module('Product')
         	// we view the product
         	$scope.onProductClick = function(product) {
         		sharingSvc.viewProduct(product);
-        		$location.path( "/view/" + product.id);
+        		$location.path( "/view/" + product._id);
         	};
         	// the idea of the function is to get the location so we can use it as name of the products we need to show
         	sharingSvc.getProducts($scope.callback, productName);

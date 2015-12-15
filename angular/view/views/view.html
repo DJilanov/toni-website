@@ -1,23 +1,76 @@
-<div class="col-lg-12">
-	<!-- create title, image, description -->
-	<div class="col-lg-4">
-		<!-- image -->
-        <img ng-if="product.image" src="{{'./img/' + config.bigImage + product.id + '.png' + '?' + time}}" alt="{{product.imageDescription}}">
+<div class="viewPage container">
+     <!-- create title, image, description -->
+     <div class="col-xs-12 col-sm-3 col-md-4 product-image">
+        <!-- image -->
+        <img ng-if="product.image" src="{{'./img/' + config.bigImage + product._id + '.png' + '?' + time}}" alt="{{product.imageDescription}}">
         <img ng-if="product.image == false" src="{{'./img/blank.png' + '?' + time}}" alt="{{product.imageDescription}}">
-	</div>
-    <div class="col-lg-8">
-     <!-- title -->
-     <h3>{{product.title}}</h3>
-     <!-- attention -->
-     <div class='blue'>
-       <span>{{product.description}}</span>
+         <a class="new-box box" ng-show="model.isNew !== 'false'">
+             <span>{{text.productNew}}</span>
+         </a>
+         <a class="offer-box box" ng-show="model.dailyOffer !== 'false'">
+             <span>{{text.productOffer}}</span>
+         </a>
+         <a class="over-box box" ng-show="model.count == '0'">
+             <span>{{text.productOver}}</span>
+         </a>
+         <!-- showed on hover -->
+         <a class="quick-view-button">
+             <span>{{text.productViewMore}} <i class="fa fa-search"></i></span>
+         </a>
      </div>
-     <!-- description -->
-     <div class='infoProduct'>
-       <span>{{product.moreInfo}}.</span>
+     <!-- Product info -->
+     <div class="col-xs-12 col-sm-3 col-md-4">
+         <!-- title -->
+         <h3>{{product.title}}</h3>
+         <!-- attention -->
+         <div class='blue'>
+           <span>{{product.description}}</span>
+         </div>
      </div>
-     <div class='productPrice'>
-       <span class='oldPrice'>{{product.oldPrice}}</span> <span class='newPrice'>{{product.newPrice}}</span> <span class='priceOff'>({{product.offPrice}}% off)</span>
-     </div>
+     <!-- Pay product -->
+     <div class="col-xs-12 col-sm-3 col-md-4">
+        <div class="box-info-product">
+            <div class="content_prices clearfix">
+                <!-- prices -->
+                <div>
+                    <p id="new_price"><span>{{product.newPrice}}</span></p>
+                    <p id="old_price" ng-show="product.oldPrice"><span class="oldPrice">{{product.oldPrice}}</span><span class="difference">{{product.difference}}</span></p>
+                </div>
+            </div> <!-- end content_prices -->
+            <div class="product_attributes clearfix">
+                <!-- quantity wanted -->
+                <p id="quantity_wanted_p">
+                    <label for="quantity_wanted">{{text.productAmount}}</label>
+                    <input type="number" min="1" name="qty" id="quantity_wanted" class="text" value="1">
+                    <a href="#" data-field-qty="qty" class="btn btn-default button-minus product_quantity_down">
+                        <span><i class="icon-minus fa fa-minus"></i></span>
+                    </a>
+                    <a href="#" data-field-qty="qty" class="btn btn-default button-plus product_quantity_up">
+                        <span><i class="icon-plus fa fa-plus"></i></span>
+                    </a>
+                    <span class="clearfix"></span>
+                </p>
+                <!-- minimal quantity wanted -->
+                <p id="minimal_quantity_wanted_p" style="display: none;">
+                    {{text.productMinAmount}} <b id="minimal_quantity_label">1</b>
+                </p>
+            </div> <!-- end product_attributes -->
+            <div class="box-cart-bottom">
+                <div>
+                    <p id="add_to_cart" class="buttons_bottom_block no-print">
+                        <button type="submit" name="Submit" class="exclusive">
+                            <span>{{text.productAddToCart}}</span>
+                        </button>
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
+    <section class="page-product-box col-xs-12">
+        <h3 class="page-product-heading">{{text.productMoreInfo}}</h3>
+        <!-- full description -->
+        <div class="rte">
+            {{product.moreInfo}}
+        </div>
+    </section>
 </div>

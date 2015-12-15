@@ -19,6 +19,7 @@ var _mainModules = [
   //  ,'Filters'
    'ngRoute'
    ,'ngResource'
+   ,'ui.bootstrap'
    ,'ngAnimate'
   //  ,'ngSanitize'
   //  ,'ngCookies'
@@ -28,7 +29,6 @@ var _mainModules = [
   //  ,'ngLocale'
    // ,'pasvaz.bindonce'
     ,'Services'
-    ,'Api'
     ,'Home'
     ,'Header'
     ,'Login'
@@ -38,8 +38,7 @@ var _mainModules = [
     ,'Contacts'
     ,'Carousel'
    // ,'infinite-scroll'
-    , 'Modals'
-   // ,'ui.bootstrap'
+    ,'Modals'
 ];
 
 angular.module('app', _mainModules )

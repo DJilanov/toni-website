@@ -28,7 +28,6 @@ var _mainModules = [
    // ,'pasvaz.bindonce'
     ,'Home'
     ,'EditNavigation'
-    ,'EditCarousel'
     ,'EditProduct'
     ,'EditCategory'
    // ,'infinite-scroll'

@@ -14,8 +14,15 @@ angular.module('Carousel', ['ui.bootstrap', 'ngAnimate'])
 				zIndex: "0"
 			}];
 			// here we set the items into the carousel
-			$scope.setCarouselItems = function(products, categories, carousel) {
-				$scope.slides = carousel;
+			$scope.setCarouselItems = function(products, categories) {
+				$scope.slides = [];
+				for(var categoryCounter = 0; categoryCounter < products.length; categoryCounter ++) {
+					for (var productCounter = 0; productCounter < products[categoryCounter].length; productCounter++) {
+						if (products[categoryCounter][productCounter].carousel) {
+							$scope.slides.push(products[categoryCounter][productCounter])
+						}
+					}
+				}
 			};
         	// we call the ajax
 			sharingSvc.getProducts($scope.setCarouselItems);

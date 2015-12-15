@@ -2,7 +2,7 @@ var config = {
 	// we set here the interval of the carousel in the front page
 	carousel_interval: 4000,
 	// office ip
-	// api: 'http://10.22.41.38:8080/api/home',
+	api: 'http://10.22.41.68:8080/api/home',
 	// home ip
 	api: 'http://192.168.1.6:8080/api/home',
 	// server ip

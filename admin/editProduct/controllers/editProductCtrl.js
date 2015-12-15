@@ -23,6 +23,10 @@ angular.module('EditProduct')
 			 * @info: used to show the name of the administrator
         	 */
         	$scope.name = config.name;
+			/*
+			 * @info: used to contain all new products
+			 */
+			$scope.newProductsArray = [];
         	/*
         	 * @info: this is the callback of the function that get us the products from the storage
 			 * @products: This is the products collection
@@ -34,6 +38,7 @@ angular.module('EditProduct')
         		for(var productsCounter = 0; productsCounter < products.length; productsCounter++) {
         			$scope.categorySize[productsCounter] = products[productsCounter].length;
         		}
+				$scope.checkProducts(products);
         	};
         	/*
         	 * @info: when we click on element from the categories list we show the inner list (that is currently hidden) whitch contains the products
@@ -48,11 +53,22 @@ angular.module('EditProduct')
         			alert(config.success);
         		}
         	};
+			/*
+			* @info Fix the problem with the string based boolean elements
+			*/
+			$scope.checkProducts = function(products) {
+				for(var categoryCounter = 0; categoryCounter < products.length; categoryCounter++) {
+					for(var productCounter = 0; productCounter < products[categoryCounter].length; productCounter++) {
+						products[categoryCounter][productCounter].isNew = JSON.parse(products[categoryCounter][productCounter].isNew);
+						products[categoryCounter][productCounter].dailyOffer = JSON.parse(products[categoryCounter][productCounter].dailyOffer);
+					}
+				}
+			};
         	/*
         	 * @info: used when we save a product. This calls the service and sends post request with the product
 			 * @product: This is the product that we want to save
 			 */
-			$scope.save = function(product) {debugger;
+			$scope.save = function(product) {
 				sharingSvc.save($scope.onSave, product);
 			};
         	/*
@@ -69,18 +85,20 @@ angular.module('EditProduct')
 			 */
 			$scope.add = function(category) {
 				var products = $scope.products[category];
-				products[products.length] = config.productPrototype;
+				products[products.length] = JSON.parse(JSON.stringify(config.productPrototype));
 				products[products.length - 1].category = category;
-				products[products.length - 1].new = true;
+				products[products.length - 1].new = true
+				products[products.length - 1].newId = $scope.newProductsArray.length;
+				$scope.newProductsArray.push(products[products.length - 1]);
 			};
         	/*
         	 * @info: used when we want to update image
 			 * @file: This is the image that we updated
 			 * @id: This is the id of the product we set the image to
 			 */
-        	$scope.upload = function(file, id) {
+        	$scope.upload = function(file, id, newId) {
         		if(file[0].type.indexOf('image') > -1){
-	        		var element = checkForItem(id);
+	        		var element = checkForItem(id, newId);
 	        		element.changedImage = true;
 	        		element.attachedImage = file[0];
         		} else {
@@ -91,10 +109,13 @@ angular.module('EditProduct')
         	 * @info: here we check for each item
 			 * @id: This is the id of the product we set the image to
 			 */
-        	function checkForItem(id) {
+        	function checkForItem(id, newId) {
+				if(id == "") {
+					return $scope.newProductsArray[newId];
+				}
         		for(var counter = 0; counter < $scope.products.length; counter++) {
         			for(var innerCounter = 0; innerCounter < $scope.products[counter].length; innerCounter++) {
-	        			if(($scope.products[counter][innerCounter] !== undefined)&&($scope.products[counter][innerCounter].id === id)){
+	        			if(($scope.products[counter][innerCounter] !== undefined)&&($scope.products[counter][innerCounter]._id === id)){
 	        				return $scope.products[counter][innerCounter];
 	        			}
 	        		}

@@ -5,23 +5,25 @@ angular.module('Home', ['ngAnimate'])
         function ($scope, $location, $http, sharingSvc) {
         	$scope.response = null;
         	$scope.config = config;
-        	$scope.texts = language.getText();
-        	$scope.onProductClick = function(product) {
-        		sharingSvc.viewProduct(product);
-        		$location.path( "/view" );
-        	};
+			// we get the language text
+			$scope.text = language.getText();
+			// we view the product
+			$scope.onProductClick = function(product) {
+				sharingSvc.viewProduct(product);
+				$location.path( "/view/" + product._id);
+			};
         	// we set the products in variable to be shown on screen
         	$scope.setProducts = function(products) {
         		products = $scope.sortProductsByDailyOffer(products);
         		// we set the sorted products into the products tab
-        		$scope.products = $scope.sortProductsByZIndex(products);
+        		$scope.products = products;
         	};
         	// used to sort witch products are in the daily offer
         	$scope.sortProductsByDailyOffer = function(products) {
         		var dailyOfferProducts = [];
         		for(var categoryCounter = 0; categoryCounter < products.length; categoryCounter++) {
         			for(var productCounter = 0; productCounter < products[categoryCounter].length; productCounter++) {
-	        			if(products[categoryCounter][productCounter].dailyOffer) {
+	        			if(products[categoryCounter][productCounter].dailyOffer === true) {
 	        				dailyOfferProducts.push(products[categoryCounter][productCounter]);
 	        			}
 	        		}
@@ -36,6 +38,9 @@ angular.module('Home', ['ngAnimate'])
         		for(var productCounter = 0; productCounter < products.length; productCounter++) {
         			product = products[productCounter];
         			zIndex = product['zIndex'];
+					if(sortedProducts[zIndex] !== undefined) {
+						zIndex = 255 + Math.random() * 10000;
+					}
         			sortedProducts[zIndex] = product;
         		}
         		return sortedProducts;

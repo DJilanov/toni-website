@@ -21,21 +21,21 @@
     </ul>
     <div class="navbar-header navbar-right">
       <p class="navbar-text">
-       <a href="#" class="navbar-link float-right">Username  </a>
+       <a href="#" class="navbar-link float-right">{{texts.headerUsername}}</a>
       </p>
     </div>
   </div>
   <div class="navbar-collapse collapse">
     <div class='col-lg-2'>
       <ul class="nav navbar-nav">
-        <li><a href="#">Shop by Department</a></li>
+        <li><a href="#">{{texts.headerShopByType}}</a></li>
       </ul>
     </div>
     <div class='col-lg-9'>
       <div class="input-group search">
-        <input type="text" class="form-control" placeholder="Search for..." ng-model="searchInput">
+        <input name="states" id="typeAhead" type="text" placeholder="{{texts.headerSearchFor}}" ng-model="selected" typeahead="product.title + ' (' + product.description + ')' for product in findProduct($viewValue)" class="form-control" typeahead-on-select="search($item, $model, $label)" ng-click="clearSearch()"/>>
         <span class="input-group-btn">
-          <button class="btn btn-default" type="button" ng-click='search()'>Search</button>
+          <button class="btn btn-default" type="button" id="search"" ng-click='search()'>{{texts.headerSearch}}</button>
         </span>
       </div>
     </div>

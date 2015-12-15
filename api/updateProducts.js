@@ -3,23 +3,26 @@
 	// here we declare the function we use for the image saving
 	var imgUpload  = require('./imageUpload');
 	// we use it for creation of new objects
-    var ObjectID = require('mongodb').ObjectID;
+	var ObjectId = require('mongodb').ObjectID;
 	// used as container for the config
 	var config = null;
+	// here we contain the callback of the creating image
+	var elementCallback = null;
+	// here we contain the element we edit
+	var product = null;
 	function setConfig(loadedConfig) {
 		config = loadedConfig;
 	}
 	// here we update products into the database
 	function updateProduct(collection, element, callback) {
+		product = JSON.parse(JSON.stringify(element));
 		checkForMissingElements(element);
+		setCallback(callback);
 		sendAndReturn(collection, element, callback);
 
 	}
 	// here we check for missing elements on element creation and we create a new for it
 	function checkForMissingElements(element) {
-		if(element.id.length == 0) {
-			element.id = new ObjectID();
-		}
 		if(element.title == 'auto') {
 			element.title = config.productPrototype.title;
 		}
@@ -41,22 +44,16 @@
 		if(typeof element.image !== "boolean") {
 			element.image = config.productPrototype.image;
 		}
-		if(element.type.length == 0) {
+		if(element.type == 'auto') {
 			element.type = config.productPrototype.type;
 		}
-		if(element.zIndex.length == 0) {
+		if(element.zIndex == 'auto') {
 			element.zIndex = config.carouselPrototype.zIndex;
 		}
 		if(typeof element.shown !== "boolean") {
 			element.shown = config.productPrototype.shown;
 		}
-		if(element.type.length == 0) {
-			element.type = config.productPrototype.type;
-		}
-		if(element.dailyOffer.length == 0) {
-			element.dailyOffer = config.productPrototype.dailyOffer;
-		}
-		if(element.dailyOffer.length == 0) {
+		if(element.dailyOffer == 'auto') {
 			element.dailyOffer = config.productPrototype.dailyOffer;
 		}
 		if((!element.count)||(element.count.length == 0)) {
@@ -69,17 +66,24 @@
 			delete element.password;
 		}
 		if(element.changedImage !== undefined) {
-			imgUpload.renameAndResizeImage(element.attachedImagePath, element.id);
-			delete element.changedImage;
-			delete element.attachedImagePath;
-			delete element.buffer;
+			if(element.new === undefined) {
+				setImage(element);
+			}
 			element.image = true;
 		}
+	}
+	// here we set the image to the element
+	function setImage(element) {
+		imgUpload.renameAndResizeImage(element.attachedImagePath, element._id);
+		delete element.changedImage;
+		delete element.attachedImagePath;
+		delete element.buffer;
+		element.image = true;
 	}
 	// here we send the element to the database and we return info
 	function sendAndReturn(collection, element, callback) {
 		var querry = {
-			"id": element.id
+			"_id": ObjectId(element._id)
 		};
 		var secondaryQuerry = {
 			$set: {
@@ -95,18 +99,39 @@
 				'shown': element.shown,
 				'type': element.type,
 				'category': element.category,
-				'count': element.count
+				'count': element.count,
+				'isNew': element.isNew,
+				'carousel': element.carousel
 			}
 		};
 		// we check what we gonna do with the element
 		if(element.delete === 'true'){
 			console.log('\n[UpdateProduct] Deleting element:' + JSON.stringify(element));
-			collection.remove(querry, secondaryQuerry, callback);
+			collection.deleteOne(querry, callback);
+		} else if(element.new) {
+			var data = secondaryQuerry['$set'];
+			data.id = querry.id;
+			console.log('\n[UpdateProduct] Creating element:' + JSON.stringify(element));
+			collection.insertOne(data, activateCallback);
 		} else {
 			console.log('\n[UpdateProduct] Updating element:' + JSON.stringify(element));
-			console.log('\n[UpdateProduct] Updated element:' + JSON.stringify(secondaryQuerry));
 			collection.update(querry, secondaryQuerry, callback);
 		}
+	}
+
+	function setCallback(callback) {
+		elementCallback = callback;
+	}
+
+	function activateCallback(err, result) {
+		if(err){
+			console.log('[UpdateProducts] activateCallback error ' + err);
+		}
+		// we set the id to the product so we can put the image
+		product._id = result.ops[0]._id;
+		setImage(product);
+		console.log('New Element ID: ' + product._id)
+		elementCallback();
 	}
 
 	module.exports = {

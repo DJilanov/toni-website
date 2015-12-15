@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('Header')
-    .controller('HeaderCtrl', ['$scope', '$location', 'sharingSvc',
-        function ($scope, $location, sharingSvc) {
+    .controller('HeaderCtrl', ['$scope', '$location', 'sharingSvc', '$filter',
+        function ($scope, $location, sharingSvc, $filter) {
             // TODO integrate search functionallity into the database. When you type here it calls to
             // the database and show result as bootstrap search suggestions
             $scope.searchInput = null;
@@ -16,9 +16,16 @@ angular.module('Header')
             $scope.isActive = function (viewLocation) {
 		        return viewLocation === $location.path();
 		    };
+			$scope.selected = $scope.texts.headerSearchFor;
+			$scope.products = [];
 			//------------------------------------------------------
 			// here we import the nav items
         	$scope.setNavigationitems = function(products, categories){
+				for(var categoryCounter = 0; categoryCounter < products.length; categoryCounter++) {
+					for(var productCounter = 0; productCounter < products[categoryCounter].length; productCounter++) {
+						$scope.products.push(products[categoryCounter][productCounter]);
+					}
+				}
 	        	for (var key in categories) {
 				    if (categories.hasOwnProperty(key)) {
 				        var navItem = categories[key];
@@ -31,27 +38,22 @@ angular.module('Header')
 				    }
 				}
         	};
+			$scope.findProduct = function(keyword) {
+				return $filter('filter')($scope.products , {'$': keyword});
+			};
         	// we call the ajax
 			sharingSvc.getProducts($scope.setNavigationitems);
-
-			//------------------------------------------------------
 
 			$scope.changeLanguage = function() {
         		$scope.texts = language.getText();
 			};
 
-			$scope.searchInputChange = function() {
-				debugger;
-			    // TODO: Integrate Search functionallity. When you type it waits 1 sec and then sends string
-			    // for search into the back end. It must update and show bootstrap suggestions when you type
-			    // when you click on suggestion it opens it on view mode
+			$scope.search = function(item, model, label) {
+				sharingSvc.viewProduct(item);
+				$location.path( "/view/" + item._id);
 			};
-
-			$scope.search = function() {
-				debugger;
-			    // TODO: Integrate Search functionallity. When you click the button it sends the string and if the
-			    // response is only 1 camera it auto opens it on view mode. if there are more response it shows product list
-			    // containing them
+			$scope.clearSearch = function() {
+				$scope.selected = '';
 			};
 			// TODO: Integrate when you click on shop by department it must be pull down menu and you have
 			// the choise between the product creators ( samsung , nokia and etc )
