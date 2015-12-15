@@ -8,7 +8,10 @@ angular.module('Header')
             $scope.searchInput = null;
             // here we integrate the navigation items
             $scope.navigationItems = [];
+            // here we integrate language
         	$scope.texts = language.getText();
+        	// here we set the default language
+        	$scope.language = config.defaultLang;
             // we set the active page to be shown in the header as black background
             $scope.isActive = function (viewLocation) {
 		        return viewLocation === $location.path();
@@ -34,9 +37,7 @@ angular.module('Header')
 			//------------------------------------------------------
 
 			$scope.changeLanguage = function() {
-			    debugger;
-			    // TODO: Integrate translation using the translation JSON. It can be done by spliting the info.
-			    // Need to check out how to broadcast translating event.
+        		$scope.texts = language.getText();
 			};
 
 			$scope.searchInputChange = function() {
