@@ -13,6 +13,7 @@ var bg = {
 	"contactCoordinateAdress": "жк.Левски Г,ул. Могилите бл.4, София 1836",
 	"contactPhoneTitle": "Телефон за връзка",
 	"contactPhone": "0878613400",
+	"contactRules": "Посещения на място след предварително договаряне.",
 	"contactFormTitle": "Може да ни изпратите запитване през формата",
 	"contactFormYourName": "Вашето име",
 	"contactFormYourNameEnter": "Въведете вашето име",

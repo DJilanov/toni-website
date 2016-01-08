@@ -23,22 +23,40 @@ angular.module('Product')
         		// re sort the products in the way we want
         		var productsId = $scope.category.products;
         		var currentProduct = products[productsId];
+				$scope.config = config;
         		// we set the sorted products into the products tab
-        		$scope.products = currentProduct;
-        		$scope.config = config;
+				products = $scope.sortProductsByZIndex(currentProduct);
+				// we set the sorted products into the products tab
+				$scope.products = sortArray(products);
         	};
         	// used to sort products by theirs z index
-        	$scope.sortProductsByZIndex = function(products) {
-        		var sortedProducts = [];
-        		var zIndex = null;
-        		var product = {};
-        		for(var productCounter = 0; productCounter < products.length; productCounter++) {
-        			product = products[productCounter];
-        			zIndex = product['zIndex'];
-        			sortedProducts[zIndex] = product;
-        		}
-        		return sortedProducts;
-        	};
+			$scope.sortProductsByZIndex = function(products) {
+				var sortedProducts = [];
+				var product = {};
+				for(var productCounter = 0; productCounter < products.length; productCounter++) {
+					product = products[productCounter];
+					setProduct(product, sortedProducts);
+				}
+				return sortedProducts;
+			};
+			function setProduct(product, sortedProducts) {
+				var zIndex = product['zIndex'];
+				if(sortedProducts[zIndex] !== undefined) {
+					product['zIndex']++;
+					setProduct(product, sortedProducts);
+				} else {
+					sortedProducts[zIndex] = product;
+				}
+			}
+			function sortArray(products) {
+				var sortedArray = [];
+				for(var productCounter = 0; productCounter < products.length; productCounter++) {
+					if(products[productCounter] !== undefined) {
+						sortedArray.push(products[productCounter]);
+					}
+				}
+				return sortedArray;
+			}
         	// we view the product
         	$scope.onProductClick = function(product) {
         		sharingSvc.viewProduct(product);

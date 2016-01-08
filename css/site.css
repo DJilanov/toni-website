@@ -506,6 +506,20 @@ h3.page-product-heading {
     border-bottom: none;
     background: #fbfbfb;
 }
+.helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+.viewPage .product-image{
+    text-align: center; margin: 1em 0;
+}
+.viewPage img{
+    vertical-align: middle;
+}
+.viewPage .quick-view-button {
+    top: 50%;
+}
 /* global variables */
 a {
     color: #777;

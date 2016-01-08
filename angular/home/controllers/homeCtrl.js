@@ -15,8 +15,9 @@ angular.module('Home', ['ngAnimate'])
         	// we set the products in variable to be shown on screen
         	$scope.setProducts = function(products) {
         		products = $scope.sortProductsByDailyOffer(products);
+				products = $scope.sortProductsByZIndex(products);
         		// we set the sorted products into the products tab
-        		$scope.products = products;
+        		$scope.products = sortArray(products);
         	};
         	// used to sort witch products are in the daily offer
         	$scope.sortProductsByDailyOffer = function(products) {
@@ -24,6 +25,7 @@ angular.module('Home', ['ngAnimate'])
         		for(var categoryCounter = 0; categoryCounter < products.length; categoryCounter++) {
         			for(var productCounter = 0; productCounter < products[categoryCounter].length; productCounter++) {
 	        			if(products[categoryCounter][productCounter].dailyOffer === true) {
+							products[categoryCounter][productCounter]['zIndex'] = parseInt(products[categoryCounter][productCounter]['zIndex']);
 	        				dailyOfferProducts.push(products[categoryCounter][productCounter]);
 	        			}
 	        		}
@@ -33,18 +35,31 @@ angular.module('Home', ['ngAnimate'])
         	// used to sort products by theirs z index
         	$scope.sortProductsByZIndex = function(products) {
         		var sortedProducts = [];
-        		var zIndex = null;
         		var product = {};
         		for(var productCounter = 0; productCounter < products.length; productCounter++) {
         			product = products[productCounter];
-        			zIndex = product['zIndex'];
-					if(sortedProducts[zIndex] !== undefined) {
-						zIndex = 255 + Math.random() * 10000;
-					}
-        			sortedProducts[zIndex] = product;
+					setProduct(product, sortedProducts);
         		}
         		return sortedProducts;
         	};
+			function setProduct(product, sortedProducts) {
+				var zIndex = product['zIndex'];
+				if(sortedProducts[zIndex] !== undefined) {
+					product['zIndex']++;
+					setProduct(product, sortedProducts);
+				} else {
+					sortedProducts[zIndex] = product;
+				}
+			}
+			function sortArray(products) {
+				var sortedArray = [];
+				for(var productCounter = 0; productCounter < products.length; productCounter++) {
+					if(products[productCounter] !== undefined) {
+						sortedArray.push(products[productCounter]);
+					}
+				}
+				return sortedArray;
+			}
         	// for toni website we need to show only the today deals on the home
         	var productName = '1';
         	// for dad site we must use = 0

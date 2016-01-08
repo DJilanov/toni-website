@@ -11,6 +11,6 @@
     "multer": "~1.0.6"
   },
   "scripts": {
-    "start": "http-server"
+    "start": "http-server -p 7000"
   }
 }

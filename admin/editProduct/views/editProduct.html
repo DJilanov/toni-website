@@ -81,11 +81,27 @@
 						  </div>
 						</div>
 
+						<!-- Details view info textarea-->
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="detailsViewInfo">Product details view additional info</label>
+							<div class="col-md-4">
+								<textarea id="detailsViewInfo" name="moreInfoInput"  class="form-control input-md" rows="5" ng-model="product.detailsViewInfo"></textarea>
+							</div>
+						</div>
+
 						<!-- Count input-->
 						<div class="form-group">
 							<label class="col-md-4 control-label" for="countInput">Product count left</label>
 							<div class="col-md-4">
 								<input id="countInput" name="countInput" type="text" class="form-control input-md" ng-model="product.count">
+							</div>
+						</div>
+
+						<!-- Index of element on the page-->
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="zIndexInput">Index of product on the page</label>
+							<div class="col-md-4">
+								<input id="zIndexInput" name="countInput" type="text" class="form-control input-md" ng-model="product.zIndex">
 							</div>
 						</div>
 
@@ -104,6 +120,7 @@
 						    <input id="oldPriceinput" name="oldPriceinput" type="text" class="form-control input-md" ng-model="product.oldPrice">
 						  </div>
 						</div>
+
 						<a class="btn btn-info  col-md-6" ng-click="save(product)">Save</a>
 						<a class="btn btn-danger col-md-6" ng-click="delete(product)">Delete</a>
 						<a class="btn btn-primary col-md-12" ng-click="add(product.category)" ng-show="$last">Add new product</a>

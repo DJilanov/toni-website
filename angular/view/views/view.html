@@ -2,6 +2,7 @@
      <!-- create title, image, description -->
      <div class="col-xs-12 col-sm-3 col-md-4 product-image">
         <!-- image -->
+        <span class="helper"></span>
         <img ng-if="product.image" src="{{'./img/' + config.bigImage + product._id + '.png' + '?' + time}}" alt="{{product.imageDescription}}">
         <img ng-if="product.image == false" src="{{'./img/blank.png' + '?' + time}}" alt="{{product.imageDescription}}">
          <a class="new-box box" ng-show="model.isNew !== 'false'">
@@ -24,7 +25,7 @@
          <h3>{{product.title}}</h3>
          <!-- attention -->
          <div class='blue'>
-           <span>{{product.description}}</span>
+           <div>{{product.description}}</div>
          </div>
      </div>
      <!-- Pay product -->
@@ -42,10 +43,10 @@
                 <p id="quantity_wanted_p">
                     <label for="quantity_wanted">{{text.productAmount}}</label>
                     <input type="number" min="1" name="qty" id="quantity_wanted" class="text" value="1">
-                    <a href="#" data-field-qty="qty" class="btn btn-default button-minus product_quantity_down">
+                    <a data-field-qty="qty" class="btn btn-default button-minus product_quantity_down">
                         <span><i class="icon-minus fa fa-minus"></i></span>
                     </a>
-                    <a href="#" data-field-qty="qty" class="btn btn-default button-plus product_quantity_up">
+                    <a data-field-qty="qty" class="btn btn-default button-plus product_quantity_up">
                         <span><i class="icon-plus fa fa-plus"></i></span>
                     </a>
                     <span class="clearfix"></span>
@@ -70,7 +71,7 @@
         <h3 class="page-product-heading">{{text.productMoreInfo}}</h3>
         <!-- full description -->
         <div class="rte">
-            {{product.moreInfo}}
+            {{product.detailsViewInfo}}
         </div>
     </section>
 </div>

@@ -41,9 +41,6 @@
 		if(element.offPrice == 'auto') {
 			element.offPrice = config.productPrototype.offPrice;
 		}
-		if(typeof element.image !== "boolean") {
-			element.image = config.productPrototype.image;
-		}
 		if(element.type == 'auto') {
 			element.type = config.productPrototype.type;
 		}
@@ -65,7 +62,7 @@
 		if((element.password !== undefined) && (element.password.length !== 0)) {
 			delete element.password;
 		}
-		if(element.changedImage !== undefined) {
+		if(element.changedImage !== undefined) {console.log('in')
 			if(element.new === undefined) {
 				setImage(element);
 			}
@@ -91,6 +88,7 @@
 				'description': element.description,
 				'dailyOffer': element.dailyOffer,
 				'moreInfo': element.moreInfo,
+				'detailsViewInfo': element.detailsViewInfo,
 				'oldPrice': element.oldPrice,
 				'newPrice': element.newPrice,
 				'offPrice': element.offPrice,
@@ -112,7 +110,11 @@
 			var data = secondaryQuerry['$set'];
 			data.id = querry.id;
 			console.log('\n[UpdateProduct] Creating element:' + JSON.stringify(element));
-			collection.insertOne(data, activateCallback);
+			if(element.image) {
+				collection.insertOne(data, activateCallback);
+			} else {
+				collection.insertOne(data, elementCallback);
+			}
 		} else {
 			console.log('\n[UpdateProduct] Updating element:' + JSON.stringify(element));
 			collection.update(querry, secondaryQuerry, callback);

@@ -13,6 +13,7 @@ var en = {
 	"contactCoordinateAdress": "Street Могилите. Sofia 1836",
 	"contactPhoneTitle": "You can contact us",
 	"contactPhone": "0878613400",
+	"contactRules": "На място само след предварителна оговорка!",
 	"contactFormTitle": "You can send us ask",
 	"contactFormYourName": "Your name",
 	"contactFormYourNameEnter": "Enter your name",

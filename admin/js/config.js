@@ -4,7 +4,7 @@ var config = {
 	password_reset_on_days: 1,
 	name: 'Toni',
 	// office ip
-	// api: 'http://10.22.41.68:8080/api/admin',
+	// api: 'http://10.22.41.87:8080/api/admin',
 	// home ip
 	// api: 'http://192.168.1.6:8080/api/admin',
 	// server ip

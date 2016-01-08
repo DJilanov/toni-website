@@ -15,12 +15,13 @@ angular.module('Home')
         	var currentDateTime = (new Date()).getTime();
         	$scope.update = function(login) {
         		if((login.username !== '') && (login.password !== '')) {
-        			localStorage.setItem('username', login.username);
-        			localStorage.setItem('password', login.password);
-        			if((localStorage.getItem('timestamp').length === 0) && (login.remember)) {
-	        			var tomorrowDateTime = currentDateTime + config.password_reset_on_days * 60 * 60 * 24;
-	        			localStorage.setItem('timestamp', tomorrowDateTime);
-        			}
+        			if(login.remember) {
+						localStorage.setItem('username', login.username);
+						localStorage.setItem('password', login.password);
+        			} else {
+						localStorage.setItem('username', '');
+						localStorage.setItem('password', '');
+					}
         			sharingSvc.login($scope.setProducts, login);
         		}
         	};
@@ -34,20 +35,15 @@ angular.module('Home')
         		sharingSvc.viewProduct(product);
         		$location.path( "/edit" );
         	};
-
         	// we check is there a saved properties
         	if(localStorage.getItem('username') !== undefined) {
         		var username = localStorage.getItem('username');
         		var password = localStorage.getItem('password');
-        		var timestamp = localStorage.getItem('timestamp');
-        	 	if(timestamp > currentDateTime) {
-        	 		var login = {
-        	 			username: username,
-        	 			password: password
-        	 		};
-        	 		$scope.update(login);
-        	 	} else {
-        	 		localStorage.setItem('timestamp', '');
-        	 	}
+				var login = {
+					username: username,
+					password: password,
+					remember: true
+				};
+				$scope.update(login);
         	}
 		}]);
