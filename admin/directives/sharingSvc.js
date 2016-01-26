@@ -37,6 +37,9 @@ angular.module('Home').factory('sharingSvc', ['$http', '$location',
 				if(response !== "") {
 					products = sortProductsByCategory(response.products);
 					categories = response.categories;
+					for(var categoriesCounter = 0; categoriesCounter < categories.length; categoriesCounter++) {
+						categories[categoriesCounter].info = JSON.parse(categories[categoriesCounter].info);
+					}
 					carousel = response.carousel;
 					contact = response.contact;
 

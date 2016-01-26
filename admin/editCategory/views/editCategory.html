@@ -14,34 +14,51 @@
 		<div ng-repeat="category in categories">
 		    <accordion-group is-open="status.isOpen[$index]" >
 		        <accordion-heading>
-		            <span>{{category.title}}</span>
+		            <span>{{category.info[config.defaultLang].title}}</span>
 		            <i class="fa chevron-icon" ng-class="{'fa-chevron-down': status.isOpen[$index], 'fa-chevron-right': !status.isOpen[$index]}"></i>
 		        </accordion-heading>
 				<form class="form-horizontal spacing-30">
 					<fieldset>
 						<!-- Form Name -->
-						<legend>{{category.title}}</legend>
-						<!-- Appended Input-->
-						<div class="form-group">
-						  <label class="col-md-4 control-label" for="appendedtext">Navigation title</label>
-						  <div class="col-md-4">
-						    <div class="input-group">
-						    	<input id="textinput" name="textinput" type="text" class="form-control input-md" ng-model="category.title" ng-model="category.title">
-						    </div>
-						  </div>
+						<legend>{{navItem.info[config.defaultLang].title}}</legend>
+
+						<div class="form-group" ng-repeat="lang in config.langs">
+							<!-- Appended Input-->
+							<div class="form-group">
+								<label class="col-md-4 control-label">Category title {{lang}}</label>
+								<div class="col-md-4">
+									<input type="text" class="form-control input-md" ng-model="category.info[lang].title">
+								</div>
+							</div>
+
+							<!-- Text input-->
+							<div class="form-group">
+								<label class="col-md-4 control-label">Category name {{lang}}</label>
+								<div class="col-md-4">
+									<input type="text" class="form-control input-md" ng-model="category.info[lang].name">
+								</div>
+							</div>
+
+							<!-- Text input-->
+							<div class="form-group">
+								<label class="col-md-4 control-label">Category description {{lang}}</label>
+								<div class="col-md-4">
+									<input type="text" class="form-control input-md" ng-model="category.info[lang].description">
+								</div>
+							</div>
 						</div>
 
 						<!-- Text input-->
 						<div class="form-group">
-						  <label class="col-md-4 control-label" for="textinput">Show on position</label>
+						  <label class="col-md-4 control-label">Show on position</label>
 						  <div class="col-md-4">
-						    <input id="textinput" name="textinput" type="text" class="form-control input-md" ng-model="category['zIndex']" ng-model="category['zIndex']">
+						    <input name="textinput" type="text" class="form-control input-md" ng-model="category['zIndex']" ng-model="category['zIndex']">
 						  </div>
 						</div>
 
 						<!-- Textarea -->
 						<div class="form-group">
-						  <label class="col-md-4 control-label" for="textarea">Is it shown on navigation</label>
+						  <label class="col-md-4 control-label">Is it shown on navigation</label>
 						  <div class="col-md-4">
 							<input name="isShown" type="checkbox" ng-model="category.shownOnNav" ng-checked="category.shownOnNav" aria-label="Slave input">
 						  </div>
@@ -49,26 +66,10 @@
 
 						<!-- Text input-->
 						<div class="form-group">
-						  <label class="col-md-4 control-label" for="textinput">Navigation name</label>
+						  <label class="col-md-4 control-label" >Products</label>
 						  <div class="col-md-4">
-						    <input id="textinput" name="textinput" type="text" class="form-control input-md" ng-model="category.name">
+						    <input type="text" class="form-control input-md" ng-model="category.products">
 						  </div>
-						</div>
-
-						<!-- Text input-->
-						<div class="form-group">
-						  <label class="col-md-4 control-label" for="textinput">Products</label>
-						  <div class="col-md-4">
-						    <input id="textinput" name="textinput" type="text" class="form-control input-md" ng-model="category.products">
-						  </div>
-						</div>
-
-						<!-- Text input-->
-						<div class="form-group">
-						   <label class="col-md-4 control-label" for="textinput">Description</label>
-						   <div class="col-md-4">
-						   	<textarea class="form-control" id="textarea" name="textarea" ng-model="category.description"></textarea>
-						   </div>
 						</div>
 						<a class="btn btn-info  col-md-6" ng-click="save(category)">Save</a>
 						<a class="btn btn-danger col-md-6" ng-click="delete(category)">Delete</a>

@@ -11,6 +11,10 @@ angular.module('EditNavigation')
 			 * @info: used to controll how many tabs can be open
         	 */
         	$scope.oneAtATime = config.oneAtATime;
+			/*
+			 * Used to contain the config so we can use it into the scope
+			 */
+			$scope.config = config;
         	/*
 			 * @info: add new navigation item to the form
         	 */
@@ -24,6 +28,7 @@ angular.module('EditNavigation')
 			 * @info: when you click save button of a navbar you save it here
         	 */
             $scope.save = function(naviItem) {
+				naviItem.info = JSON.stringify(naviItem.info);debugger;
             	sharingSvc.save($scope.onSave, naviItem);
             };
         	/*
@@ -37,7 +42,7 @@ angular.module('EditNavigation')
         	/*
 			 * @info: here we import the nav items
         	 */
-        	$scope.setNavigationitems = function(products, categories) {
+        	$scope.setNavigationitems = function(products, categories) {debugger;
 	        	for (var naviCounter = 0; naviCounter < categories.length; naviCounter++) {
 			        var navItem = categories[naviCounter];
 			        // important check that this is objects own property

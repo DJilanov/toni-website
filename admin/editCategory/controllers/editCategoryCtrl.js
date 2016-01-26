@@ -4,6 +4,10 @@ angular.module('EditCategory')
     .controller('EditCategoryCtrl', ['$scope',  'sharingSvc',
         function ($scope,  sharingSvc) {
         	$scope.categories = [];
+			/*
+			 * Used to contain the config so we can use it into the scope
+			 */
+			$scope.config = config;
 
         	/*
         	 * @info: we set the categorys so we can show them to screen
@@ -13,7 +17,6 @@ angular.module('EditCategory')
         			if(typeof categories[key] !== 'string') {
         				$scope.categories[$scope.categories.length] = categories[key];
         			}
-
         		}
         	};
         	/*
@@ -45,6 +48,7 @@ angular.module('EditCategory')
 			 */
 			$scope.add = function() {
 				$scope.categories[$scope.categories.length] = config.categoryPrototype;
+				$scope.categories[$scope.categories.length - 1].new = true;
 			};
 			sharingSvc.getProducts($scope.getCategories);
 		}]);

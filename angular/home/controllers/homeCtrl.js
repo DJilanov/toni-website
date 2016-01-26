@@ -9,7 +9,7 @@ angular.module('Home', ['ngAnimate'])
 			$scope.text = language.getText();
 			// we view the product
 			$scope.onProductClick = function(product) {
-				sharingSvc.viewProduct(product);
+				sharingSvc.viewProduct(product);debugger;
 				$location.path( "/view/" + product._id);
 			};
         	// we set the products in variable to be shown on screen

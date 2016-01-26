@@ -14,44 +14,47 @@
 		<div ng-repeat="navItem in navigationItems | filter: { 'type': 'category' }">
 		    <accordion-group is-open="status.isOpen[$index]" >
 		        <accordion-heading>
-		            <span>{{navItem.title}}</span>
+		            <span>{{navItem.info[config.defaultLang].title}}</span>
 		            <i class="fa chevron-icon" ng-class="{'fa-chevron-down': status.isOpen[$index], 'fa-chevron-right': !status.isOpen[$index]}"></i>
 		        </accordion-heading>
 				<form class="form-horizontal spacing-30">
 					<fieldset>
 						<!-- Form Name -->
-						<legend>{{navItem.title}}</legend>
-						<!-- Appended Input-->
-						<div class="form-group">
-						  <label class="col-md-4 control-label" for="appendedtext">Navigation title</label>
-						  <div class="col-md-4">
-						    <div class="input-group">
-						    	<input id="textinput" name="textinput" type="text" class="form-control input-md" ng-model="navItem.title" ng-model="navItem.title">
-						    </div>
-						  </div>
+						<legend>{{navItem.info[config.defaultLang].title}}</legend>
+
+						<div class="form-group" ng-repeat="lang in config.langs">
+							<!-- Appended Input-->
+							<div class="form-group">
+								<label class="col-md-4 control-label">Navigation title {{lang}}</label>
+								<div class="col-md-4">
+									<input name="textinput" type="text" class="form-control input-md" ng-model="navItem.info[lang].title">
+								</div>
+							</div>
+
+							<!-- Text input-->
+							<div class="form-group">
+								<label class="col-md-4 control-label">Navigation name {{lang}}</label>
+								<div class="col-md-4">
+									<input name="textinput" type="text" class="form-control input-md" ng-model="navItem.info[lang].name">
+								</div>
+							</div>
 						</div>
+
+
 
 						<!-- Text input-->
 						<div class="form-group">
-						  <label class="col-md-4 control-label" for="textinput">Show on position</label>
+						  <label class="col-md-4 control-label">Show on position</label>
 						  <div class="col-md-4">
-						    <input id="textinput" name="textinput" type="text" class="form-control input-md" ng-model="navItem['zIndex']" ng-model="navItem['zIndex']">
+						    <input name="textinput" type="text" class="form-control input-md" ng-model="navItem['zIndex']">
 						  </div>
 						</div>
 
 						<!-- Textarea -->
 						<div class="form-group">
-						  <label class="col-md-4 control-label" for="textarea">Is it shown on navigation</label>
+						  <label class="col-md-4 control-label">Is it shown on navigation</label>
 						  <div class="col-md-4">
 							<input name="isShown" type="checkbox" ng-model="navItem.shownOnNav" ng-checked="navItem.shownOnNav" aria-label="Slave input">
-						  </div>
-						</div>
-
-						<!-- Text input-->
-						<div class="form-group">
-						  <label class="col-md-4 control-label" for="textinput">Navigation name</label>
-						  <div class="col-md-4">
-						    <input id="textinput" name="textinput" type="text" class="form-control input-md" ng-model="navItem.name"
 						  </div>
 						</div>
 						<a class="btn btn-info  col-md-12" ng-click="save(navItem)">Save</a>

@@ -1,55 +1,35 @@
 {
-   "description":"The best deals and offers across the web. To find out about our deals first every day, subscribe to the Deals Newsletter.",
-   "id":"0",
-   "name":"Промоции",
-   "products":"0",
-   "shownOnNav":"false",
-   "title":"Промоции",
-   "type":"category",
-   "zIndex":"0"
-}{
-   "description":"The best deals and offers across the web. To find out about our deals first every day, subscribe to the Deals Newsletter.",
-   "id":"1",
-   "name":"Памети",
-   "products":"1",
-   "shownOnNav":"true",
-   "title":"Памети",
-   "type":"category",
-   "zIndex":"1"
-}{
-   "description":"The best deals and offers across the web. To find out about our deals first every day, subscribe to the Deals Newsletter.",
-   "id":"2",
-   "name":"Процесори",
-   "products":"2",
-   "shownOnNav":"true",
-   "title":"Процесори",
-   "type":"category",
-   "zIndex":"2"
-}{
-   "description":"The best deals and offers across the web. To find out about our deals first every day, subscribe to the Deals Newsletter.",
-   "id":"3",
-   "name":"Дискове",
-   "products":"3",
-   "shownOnNav":"true",
-   "title":"Дискове",
-   "type":"category",
-   "zIndex":"3"
-}{
-   "description":"The best deals and offers across the web. To find out about our deals first every day, subscribe to the Deals Newsletter.",
-   "id":"4",
-   "name":"Видеокарти",
-   "products":"4",
-   "shownOnNav":"true",
-   "title":"Видеокарти",
-   "type":"category",
-   "zIndex":"4"
-}{
-   "description":"The best deals and offers across the web. To find out about our deals first every day, subscribe to the Deals Newsletter.",
-   "id":"5",
-   "name":"Услуги",
-   "products":"5",
-   "shownOnNav":"true",
-   "title":"Услуги",
-   "type":"category",
-   "zIndex":"5"
+  "info": "{\"bg\":{\"title\":\"\u0414\u0438\u0441\u043a\u043e\u0432\u0435\",\"name\":\"\u0414\u0438\u0441\u043a\u043e\u0432\u0435\"},\"en\":{\"title\":\"\u0414\u0438\u0441\u043a\u043e\u0432\u0435 12\",\"name\":\"\u0414\u0438\u0441\u043a\u043e\u0432\u0435 12\"}}",
+  "products": "3",
+  "zIndex": "3",
+  "shownOnNav": "true",
+  "type": "category"
+}
+{
+"info": "{\"bg\":{\"title\":\"\u041f\u0440\u043e\u0446\u0435\u0441\u043e\u0440\u0438\",\"name\":\"\u041f\u0440\u043e\u0446\u0435\u0441\u043e\u0440\u0438\"},\"en\":{\"title\":\"\u041f\u0440\u043e\u0446\u0435\u0441\u043e\u0440\u0438 1\",\"name\":\"\u041f\u0440\u043e\u0446\u0435\u0441\u043e\u0440\u0438\"}}",
+"products": "2",
+"zIndex": "2",
+"shownOnNav": "true",
+"type": "category"
+}
+{
+"info": "{\"bg\":{\"title\":\"\u0412\u0438\u0434\u0435\u043e\u043a\u0430\u0440\u0442\u0438\",\"name\":\"\u0412\u0438\u0434\u0435\u043e\u043a\u0430\u0440\u0442\u0438\"},\"en\":{\"title\":\"\u0412\u0438\u0434\u0435\u043e\u043a\u0430\u0440\u0442\u0438 1\",\"name\":\"\u0412\u0438\u0434\u0435\u043e\u043a\u0430\u0440\u0442\u0438\"}}",
+"products": "4",
+"zIndex": "4",
+"shownOnNav": "true",
+"type": "category"
+}
+{
+"info": "{\"bg\":{\"title\":\"\u0423\u0441\u043b\u0443\u0433\u0438\",\"name\":\"\u0423\u0441\u043b\u0443\u0433\u0438\"},\"en\":{\"title\":\"\u0423\u0441\u043b\u0443\u0433\u0438 1\",\"name\":\"\u0423\u0441\u043b\u0443\u0433\u0438\"}}",
+"products": "5",
+"zIndex": "5",
+"shownOnNav": "true",
+"type": "category"
+}
+{
+"info": "{\"bg\":{\"title\":\"\u0412\u0438\u0434\u0435\u043e\u043d\u0430\u0431\u043b\u044e\u0434\u0435\u043d\u0438\u0435\",\"name\":\"\u0412\u0438\u0434\u0435\u043e\u043d\u0430\u0431\u043b\u044e\u0434\u0435\u043d\u0438\u0435\"},\"en\":{\"title\":\"\u0412\u0438\u0434\u0435\u043e\u043d\u0430\u0431\u043b\u044e\u0434\u0435\u043d\u0438\u0435 1\",\"name\":\"\u0412\u0438\u0434\u0435\u043e\u043d\u0430\u0431\u043b\u044e\u0434\u0435\u043d\u0438\u0435\"}}",
+"products": "0",
+"zIndex": "6",
+"shownOnNav": "true",
+"type": "category"
 }

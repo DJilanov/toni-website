@@ -12,6 +12,8 @@ angular.module('Header')
         	$scope.texts = language.getText();
         	// here we set the default language
         	$scope.language = config.defaultLang;
+			// here we set the config so we can use it at scope
+			$scope.config = config;
             // we set the active page to be shown in the header as black background
             $scope.isActive = function (viewLocation) {
 		        return viewLocation === $location.path();
@@ -33,8 +35,10 @@ angular.module('Header')
 				        // important check that this is objects own property
 				        // not from prototype prop inherited
 				        if(typeof navItem !== "string"){
-				           $scope.navigationItems[navItem['zIndex']] = navItem;
-				           $scope.navigationItems[navItem['zIndex']].link = key;
+				            $scope.navigationItems[navItem['zIndex']] = navItem;
+				            $scope.navigationItems[navItem['zIndex']].link = key;
+							$scope.navigationItems[navItem['zIndex']].name = navItem.info[language.getLang()].name;
+							$scope.navigationItems[navItem['zIndex']].title = navItem.info[language.getLang()].title;
 				        }
 				    }
 				}
@@ -44,10 +48,10 @@ angular.module('Header')
 			};
         	// we call the ajax
 			sharingSvc.getProducts($scope.setNavigationitems);
-
+			// activated when click on flag. Changes language
 			$scope.changeLanguage = function() {
 				var lang = language.getLang();
-				if(config.langs.indexOf(lang) < config.langs.length) {
+				if(config.langs.indexOf(lang) < config.langs.length - 1) {
 					language.setLanguage(config.langs[config.langs.indexOf(lang) + 1]);
 				} else {
 					language.setLanguage(config.langs[0]);
@@ -55,12 +59,19 @@ angular.module('Header')
 				lang = language.getLang();
 				$scope.flagSrc = 'img/flag-' + lang + '.png';
         		$scope.texts = language.getText();
+				for(var naviCounter = 0; naviCounter < $scope.navigationItems.length; naviCounter++) {
+					if($scope.navigationItems[naviCounter] !== undefined) {
+						$scope.navigationItems[naviCounter].name = $scope.navigationItems[naviCounter].info[lang].name;
+						$scope.navigationItems[naviCounter].title = $scope.navigationItems[naviCounter].info[lang].title;
+					}
+				}
 			};
-
+			// activated when you click on product form the search input
 			$scope.search = function(item, model, label) {
 				sharingSvc.viewProduct(item);
 				$location.path( "/view/" + item._id);
 			};
+			// clear all elements in the search toolbox
 			$scope.clearSearch = function() {
 				$scope.selected = '';
 			};

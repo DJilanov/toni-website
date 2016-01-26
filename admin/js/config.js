@@ -4,12 +4,12 @@ var config = {
 	password_reset_on_days: 1,
 	name: 'Toni',
 	// office ip
-	// api: 'http://10.22.41.87:8080/api/admin',
+	api: 'http://10.22.41.71:8080/api/admin',
 	// home ip
 	// api: 'http://192.168.1.6:8080/api/admin',
 	// server ip
 	// api: 'http://194.79.15.131:8080/api/admin',
-	api: 'http://jilanov.eu:8080/api/admin',
+	// api: 'http://jilanov.eu:8080/api/admin',
 	home 		: '/home',
 	carousel 	: '/carousel',
 	products 	: '/products',
@@ -18,6 +18,9 @@ var config = {
 	bigImage    : 'big',
 	smallImage	: 'small',
 	success		: 'Refresh the page to see the changes',
+
+	defaultLang : 'bg',
+	langs		: ['bg', 'en'],
 
 	carouselPrototype: {
 		"imageDescription": "image1",

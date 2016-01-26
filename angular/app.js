@@ -67,7 +67,7 @@ angular.module('app', _mainModules )
         });
 
         routes.push({
-            name: '/view/:id',
+            name: '/view/:title',
             params: {
                 templateUrl: './angular/view/views/view.html',
                 controller: 'ViewCtrl'

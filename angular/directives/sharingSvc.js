@@ -23,11 +23,14 @@ angular.module('Home').factory('sharingSvc', ['$http',
 	        	$http.get(config.api).success(function(data, status, headers, config) {
 				    response = data;
 				}).error(function(data, status, headers, config) {
-				    //alert('Error on fetching from the server');
+				    alert('Error on fetching from the server');
 				}).then(function(){
 					// we must rework the app to be build whitout the need of this parsing
 					products = sortProductsByCategory(response.products);
 					categories = response.categories;
+					for(var categoriesCounter = 0; categoriesCounter < categories.length; categoriesCounter++) {
+						categories[categoriesCounter].info = JSON.parse(categories[categoriesCounter].info);
+					}
 					// return the collections
 					for(var callbackCounter = 0; callbackCounter < callbackArray.length; callbackCounter++) {
 						callbackArray[callbackCounter](products, categories);
