@@ -65,7 +65,7 @@
 		    "backgroundImgUrl": "background.png",
 		    "showBackgroundImg": false,
 		    "backupOn": 36000
-		},
+		}
 	};
 	function getConfig(){
 		return config;
