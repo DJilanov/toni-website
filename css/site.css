@@ -526,10 +526,15 @@ a {
     text-decoration: none;
 }
 
+.product-image-container h2 {
+    font-size: 22px;
+}
+
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak
 {
     display: none;
 }
+
 .loadingText {
     position: relative;
     margin: 100px auto;
