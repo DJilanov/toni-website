@@ -13,7 +13,7 @@
 	<accordion class="accordion" close-others="oneAtATime">
         <accordion-group  ng-repeat="categorie in categories" is-open="status.isOpen[$index]" >
             <accordion-heading>
-                <span>{{categorie.title}}</span>
+                <span>{{categorie.info.bg.title}}</span>
                 <span class="badge">{{categorySize[$index]}}</span>
                 <i class="fa chevron-icon" ng-class="{'fa-chevron-down': status.isOpen[$index], 'fa-chevron-right': !status.isOpen[$index]}"></i>
             </accordion-heading>
@@ -119,6 +119,14 @@
 						  <div class="col-md-4">
 						    <input id="oldPriceinput" name="oldPriceinput" type="text" class="form-control input-md" ng-model="product.oldPrice">
 						  </div>
+						</div>
+
+						<!-- link input-->
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="linkInput">Product link name</label>
+							<div class="col-md-4">
+								<input id="linkInput" name="linkInput" type="text" class="form-control input-md" ng-model="product.link">
+							</div>
 						</div>
 
 						<a class="btn btn-info  col-md-6" ng-click="save(product)">Save</a>

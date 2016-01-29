@@ -19,7 +19,11 @@ angular.module('Product')
         	// we set callback function for the fetch
         	$scope.callback = function(products, categories) {
         		// used for title and description
-        		$scope.category = categories[$scope.getLocation()];
+				for(var categoryCounter = 0; categoryCounter < categories.length; categoryCounter++) {
+					if(categories[categoryCounter].link === $scope.getLocation()) {
+						$scope.category = categories[categoryCounter];
+					}
+				}
         		// re sort the products in the way we want
         		var productsId = $scope.category.products;
         		var currentProduct = products[productsId];
@@ -60,7 +64,7 @@ angular.module('Product')
         	// we view the product
         	$scope.onProductClick = function(product) {
         		sharingSvc.viewProduct(product);
-        		$location.path( "/view/" + product._id);
+        		$location.path( "/view/" + product.link);
         	};
         	// the idea of the function is to get the location so we can use it as name of the products we need to show
         	sharingSvc.getProducts($scope.callback, productName);

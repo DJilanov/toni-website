@@ -1,35 +1,5 @@
-{
-  "info": "{\"bg\":{\"title\":\"\u0414\u0438\u0441\u043a\u043e\u0432\u0435\",\"name\":\"\u0414\u0438\u0441\u043a\u043e\u0432\u0435\"},\"en\":{\"title\":\"\u0414\u0438\u0441\u043a\u043e\u0432\u0435 12\",\"name\":\"\u0414\u0438\u0441\u043a\u043e\u0432\u0435 12\"}}",
-  "products": "3",
-  "zIndex": "3",
-  "shownOnNav": "true",
-  "type": "category"
-}
-{
-"info": "{\"bg\":{\"title\":\"\u041f\u0440\u043e\u0446\u0435\u0441\u043e\u0440\u0438\",\"name\":\"\u041f\u0440\u043e\u0446\u0435\u0441\u043e\u0440\u0438\"},\"en\":{\"title\":\"\u041f\u0440\u043e\u0446\u0435\u0441\u043e\u0440\u0438 1\",\"name\":\"\u041f\u0440\u043e\u0446\u0435\u0441\u043e\u0440\u0438\"}}",
-"products": "2",
-"zIndex": "2",
-"shownOnNav": "true",
-"type": "category"
-}
-{
-"info": "{\"bg\":{\"title\":\"\u0412\u0438\u0434\u0435\u043e\u043a\u0430\u0440\u0442\u0438\",\"name\":\"\u0412\u0438\u0434\u0435\u043e\u043a\u0430\u0440\u0442\u0438\"},\"en\":{\"title\":\"\u0412\u0438\u0434\u0435\u043e\u043a\u0430\u0440\u0442\u0438 1\",\"name\":\"\u0412\u0438\u0434\u0435\u043e\u043a\u0430\u0440\u0442\u0438\"}}",
-"products": "4",
-"zIndex": "4",
-"shownOnNav": "true",
-"type": "category"
-}
-{
-"info": "{\"bg\":{\"title\":\"\u0423\u0441\u043b\u0443\u0433\u0438\",\"name\":\"\u0423\u0441\u043b\u0443\u0433\u0438\"},\"en\":{\"title\":\"\u0423\u0441\u043b\u0443\u0433\u0438 1\",\"name\":\"\u0423\u0441\u043b\u0443\u0433\u0438\"}}",
-"products": "5",
-"zIndex": "5",
-"shownOnNav": "true",
-"type": "category"
-}
-{
-"info": "{\"bg\":{\"title\":\"\u0412\u0438\u0434\u0435\u043e\u043d\u0430\u0431\u043b\u044e\u0434\u0435\u043d\u0438\u0435\",\"name\":\"\u0412\u0438\u0434\u0435\u043e\u043d\u0430\u0431\u043b\u044e\u0434\u0435\u043d\u0438\u0435\"},\"en\":{\"title\":\"\u0412\u0438\u0434\u0435\u043e\u043d\u0430\u0431\u043b\u044e\u0434\u0435\u043d\u0438\u0435 1\",\"name\":\"\u0412\u0438\u0434\u0435\u043e\u043d\u0430\u0431\u043b\u044e\u0434\u0435\u043d\u0438\u0435\"}}",
-"products": "0",
-"zIndex": "6",
-"shownOnNav": "true",
-"type": "category"
-}
+{"_id":{"$oid":"56a7aa90ffc0edc23e62cce1"},"info":"{\"bg\":{\"title\":\"Дискове\",\"name\":\"Дискове\"},\"en\":{\"title\":\"Дискове 12\",\"name\":\"Дискове 12\"}}","products":"3","zIndex":"3","shownOnNav":"true","type":"category","link":"diskove"}
+{"_id":{"$oid":"56a7aa90ffc0edc23e62cce2"},"info":"{\"bg\":{\"title\":\"Процесори\",\"name\":\"Процесори\"},\"en\":{\"title\":\"Процесори 1\",\"name\":\"Процесори\"}}","products":"2","zIndex":"2","shownOnNav":"true","type":"category","link":"procesori"}
+{"_id":{"$oid":"56a7aa90ffc0edc23e62cce3"},"info":"{\"bg\":{\"title\":\"Видеокарти\",\"name\":\"Видеокарти\"},\"en\":{\"title\":\"Видеокарти 1\",\"name\":\"Видеокарти\"}}","products":"4","zIndex":"4","shownOnNav":"true","type":"category","link":"videokarti"}
+{"_id":{"$oid":"56a7aa90ffc0edc23e62cce4"},"info":"{\"bg\":{\"title\":\"Услуги\",\"name\":\"Услуги\"},\"en\":{\"title\":\"Услуги 1\",\"name\":\"Услуги\"}}","products":"5","zIndex":"5","shownOnNav":"true","type":"category","link":"uslugi"}
+{"_id":{"$oid":"56a7aa90ffc0edc23e62cce5"},"info":"{\"bg\":{\"title\":\"Видеонаблюдение\",\"name\":\"Видеонаблюдение\"},\"en\":{\"title\":\"Видеонаблюдение 1\",\"name\":\"Видеонаблюдение\"}}","products":"0","zIndex":"6","shownOnNav":"true","type":"category","link":"videonabludenie"}

@@ -34,12 +34,29 @@ angular.module('EditProduct')
 			 */
         	$scope.getProducts = function(products, categories) {
         		$scope.products = products;
-        		$scope.categories = categories;
+        		$scope.categories = $scope.sortCategories(categories);
         		for(var productsCounter = 0; productsCounter < products.length; productsCounter++) {
         			$scope.categorySize[productsCounter] = products[productsCounter].length;
         		}
 				$scope.checkProducts(products);
         	};
+			/*
+			 * @info: used to sort categories based on products
+			 */
+			$scope.sortCategories = function(categories){
+				//var sortedCategories = [];
+				//var result = [];
+				//for(var categoryCounter = 0; categoryCounter < categories.length; categoryCounter++) {
+				//	sortedCategories[categories[categoryCounter].products] = categories[categoryCounter];
+				//}
+				//for(var categoryCounter = 0; categoryCounter < sortedCategories.length; categoryCounter++) {
+				//	if(sortedCategories[categoryCounter] !== undefined) {
+				//		result.push(sortedCategories[categoryCounter]);
+				//	}
+				//}
+				//return result;
+				return categories;
+			};
         	/*
         	 * @info: when we click on element from the categories list we show the inner list (that is currently hidden) whitch contains the products
 			 * @index: This is the index of the element in the categories list

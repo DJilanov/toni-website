@@ -36,7 +36,6 @@ angular.module('Header')
 				        // not from prototype prop inherited
 				        if(typeof navItem !== "string"){
 				            $scope.navigationItems[navItem['zIndex']] = navItem;
-				            $scope.navigationItems[navItem['zIndex']].link = key;
 							$scope.navigationItems[navItem['zIndex']].name = navItem.info[language.getLang()].name;
 							$scope.navigationItems[navItem['zIndex']].title = navItem.info[language.getLang()].title;
 				        }
@@ -69,7 +68,7 @@ angular.module('Header')
 			// activated when you click on product form the search input
 			$scope.search = function(item, model, label) {
 				sharingSvc.viewProduct(item);
-				$location.path( "/view/" + item._id);
+				$location.path( "/view/" + item.link);
 			};
 			// clear all elements in the search toolbox
 			$scope.clearSearch = function() {

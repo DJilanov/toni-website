@@ -178,7 +178,7 @@ footer {
 .dealsContainer .product {
     min-width: 250px;
     min-height: 250px;
-    margin-bottom: 13px;
+    margin-bottom: 50px;
     position: relative;
 }
 
@@ -188,6 +188,21 @@ footer {
     margin-bottom: 50px;
     height: 500px;
 }
+
+/*.product-image-container h1 {*/
+    /*max-height: 90px;*/
+    /*overflow: hidden;*/
+/*}*/
+
+/*.product-image-container h2 {*/
+    /*max-height: 50px;*/
+    /*overflow: hidden;*/
+/*}*/
+
+/*.product-image-container h2 {*/
+    /*max-height: 50px;*/
+    /*overflow: hidden;*/
+/*}*/
 
 .image-container {
     width: 255px;

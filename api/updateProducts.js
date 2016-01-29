@@ -99,7 +99,8 @@
 				'category': element.category,
 				'count': element.count,
 				'isNew': element.isNew,
-				'carousel': element.carousel
+				'carousel': element.carousel,
+				'link': element.link
 			}
 		};
 		// we check what we gonna do with the element
