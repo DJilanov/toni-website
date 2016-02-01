@@ -158,7 +158,7 @@ footer {
 
 /* REFACTOR THIS */
 .dealsContainer {
-    margin-top: 35px;
+    margin-top: 60px;
 }
 .contacts {
     margin-top: 110px;
@@ -335,7 +335,7 @@ footer {
 
 }
 .descriptionProduct {
-    max-height: 40px;
+    max-height:  50px;
     text-overflow: ellipsis;
     overflow: hidden;
 }

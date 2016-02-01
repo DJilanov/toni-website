@@ -50,7 +50,8 @@
 				'products': element.products,
 				'zIndex': element.zIndex,
 				'shownOnNav': element.shownOnNav,
-				'type': element.type
+				'type': element.type,
+				'link': element.link
 			}
 		};
 		// we check what we gonna do with the element

@@ -44,18 +44,17 @@ angular.module('EditProduct')
 			 * @info: used to sort categories based on products
 			 */
 			$scope.sortCategories = function(categories){
-				//var sortedCategories = [];
-				//var result = [];
-				//for(var categoryCounter = 0; categoryCounter < categories.length; categoryCounter++) {
-				//	sortedCategories[categories[categoryCounter].products] = categories[categoryCounter];
-				//}
-				//for(var categoryCounter = 0; categoryCounter < sortedCategories.length; categoryCounter++) {
-				//	if(sortedCategories[categoryCounter] !== undefined) {
-				//		result.push(sortedCategories[categoryCounter]);
-				//	}
-				//}
-				//return result;
-				return categories;
+				var sortedCategories = [];
+				var result = [];
+				for(var categoryCounter = 0; categoryCounter < categories.length; categoryCounter++) {
+					sortedCategories[categories[categoryCounter].products] = categories[categoryCounter];
+				}
+				for(var categoryCounter = 0; categoryCounter < sortedCategories.length; categoryCounter++) {
+					if(sortedCategories[categoryCounter] !== undefined) {
+						result.push(sortedCategories[categoryCounter]);
+					}
+				}
+				return result;
 			};
         	/*
         	 * @info: when we click on element from the categories list we show the inner list (that is currently hidden) whitch contains the products

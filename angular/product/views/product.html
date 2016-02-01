@@ -9,8 +9,8 @@
 				<!-- create title, image, description -->
 				<!-- image -->
 				<div class="image-container">
-					<img ng-if="model.image" src="{{'./img/' + config.smallImage + model._id + '.png' + '?' + time}}" alt="{{model.imageDescription}}">
-					<img ng-if="model.image == false" src="{{'./img/blank.png' + '?' + time}}" alt="{{model.imageDescription}}">
+					<img ng-if="model.image" ng-src="{{'./img/' + config.smallImage + model._id + '.png' + '?' + time}}" alt="{{model.imageDescription}}">
+					<img ng-if="model.image == false" ng-src="{{'./img/blank.png' + '?' + time}}" alt="{{model.imageDescription}}">
 				</div>
 				 <!-- title -->
 				 <h1>{{model.title}}</h1>

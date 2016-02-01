@@ -3,8 +3,8 @@
      <div class="col-xs-12 col-sm-3 col-md-4 product-image">
         <!-- image -->
         <span class="helper"></span>
-        <img ng-if="product.image" src="{{'./img/' + config.bigImage + product._id + '.png' + '?' + time}}" alt="{{product.imageDescription}}">
-        <img ng-if="product.image == false" src="{{'./img/blank.png' + '?' + time}}" alt="{{product.imageDescription}}">
+        <img ng-if="product.image" ng-src="{{'./img/' + config.bigImage + product._id + '.png' + '?' + time}}" alt="{{product.imageDescription}}">
+        <img ng-if="product.image == false" ng-src="{{'./img/blank.png' + '?' + time}}" alt="{{product.imageDescription}}">
          <a class="new-box box" ng-show="model.isNew !== 'false'">
              <span>{{text.productNew}}</span>
          </a>
@@ -34,7 +34,7 @@
             <div class="content_prices clearfix">
                 <!-- prices -->
                 <div>
-                    <p id="new_price"><span>{{product.newPrice}}</span></p>
+                    <p id="new_price"><span>{{product.newPrice}}</span><span> {{vault}}</span></p>
                     <p id="old_price" ng-show="product.oldPrice"><span class="oldPrice">{{product.oldPrice}}</span><span class="difference">{{product.difference}}</span></p>
                 </div>
             </div> <!-- end content_prices -->
@@ -42,11 +42,11 @@
                 <!-- quantity wanted -->
                 <p id="quantity_wanted_p">
                     <label for="quantity_wanted">{{text.productAmount}}</label>
-                    <input type="number" min="1" name="qty" id="quantity_wanted" class="text" value="1">
-                    <a data-field-qty="qty" class="btn btn-default button-minus product_quantity_down">
+                    <input type="number" min="1" name="qty" id="quantity_wanted" class="text" value="1" ng-model="product.amount">
+                    <a data-field-qty="qty" class="btn btn-default button-minus product_quantity_down" ng-click="increaseAmount(false)">
                         <span><i class="icon-minus fa fa-minus"></i></span>
                     </a>
-                    <a data-field-qty="qty" class="btn btn-default button-plus product_quantity_up">
+                    <a data-field-qty="qty" class="btn btn-default button-plus product_quantity_up" ng-click="increaseAmount(true)">
                         <span><i class="icon-plus fa fa-plus"></i></span>
                     </a>
                     <span class="clearfix"></span>
@@ -59,7 +59,7 @@
             <div class="box-cart-bottom">
                 <div>
                     <p id="add_to_cart" class="buttons_bottom_block no-print">
-                        <button type="submit" name="Submit" class="exclusive">
+                        <button type="submit" name="Submit" class="exclusive" ng-click="addToCart()">
                             <span>{{text.productAddToCart}}</span>
                         </button>
                     </p>
