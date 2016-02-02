@@ -29,5 +29,6 @@ var bg = {
 	"productAmount": "Количество",
 	"productMinAmount": "Минималното количество за покупка на продукта е",
 	"productAddToCart": "Добавяне към количката",
-	"productMoreInfo": "Повече информация"
+	"productMoreInfo": "Повече информация",
+	"addToCartSuccess": "Успешно добавяне към количката с поръчки"
 };

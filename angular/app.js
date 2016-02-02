@@ -37,6 +37,7 @@ var _mainModules = [
     ,'View'
     ,'Contacts'
     ,'Carousel'
+    ,'Cart'
    // ,'infinite-scroll'
     ,'Modals'
 ];
@@ -79,6 +80,14 @@ angular.module('app', _mainModules )
             params: {
                 templateUrl: './angular/contacts/views/contacts.html',
                 controller: 'ContactsCtrl'
+            }
+        });
+
+        routes.push({
+            name: '/cart',
+            params: {
+                templateUrl: './angular/cart/views/cart.html',
+                controller: 'CartCtrl'
             }
         });
 

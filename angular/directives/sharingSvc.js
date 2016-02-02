@@ -4,14 +4,11 @@ angular.module('Home').factory('sharingSvc', ['$http',
 
     function($http) {
 
-    	var productList = {};
     	var productToView 	= null;
     	// used for the fetch
     	var response 		= null;
     	var products 		= null;
     	var categories 		= null;
-    	var carousel 		= null;
-    	var mainConfig 		= null;
     	var firstTime 		= true;
     	var callbackArray 	= [];
 		var loaded = false;

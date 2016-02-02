@@ -43,6 +43,18 @@ angular.module('View')
 			};
 			// used to add products to cart
 			$scope.addToCart = function() {
-
+				var order = {
+					'date': new Date(),
+					'product': $scope.product,
+					'amount': $scope.product.amount,
+					'total': $scope.product.amount * parseFloat($scope.product.newPrice)
+				};
+				if(localStorage.getItem('cart') === null) {
+					localStorage.setItem('cart', JSON.stringify([]));
+				}
+				var cart = JSON.parse(localStorage.getItem('cart'));
+				cart.push(order);
+				localStorage.setItem('cart', JSON.stringify(cart));
+				alert($scope.text.addToCartSuccess);
 			};
 		}]);
