@@ -8,7 +8,7 @@ angular.module('View')
 			// we set the config so it can be usable in the screen
 			$scope.config = config;
 			// we set the vault
-			$scope.vault = config.vaults[config.langs.indexOf(language.getLang())]
+			$scope.vault = config.vaults[config.langs.indexOf(language.getLang())];
         	// used if there is no selected product and have to check witch is with this ID
         	function getProduct(products) {
         		var link = $routeParams.title;

@@ -1,6 +1,6 @@
 <div class="container dealsContainer">
     <div>
-        <div class="product col-xs-12 col-sm-4 col-md-3 first-in-line last-line first-item-of-mobile-line" ng-repeat="model in products" >
+        <div class="product col-xs-12 col-sm-4 col-md-3 first-in-line last-line first-item-of-mobile-line" ng-repeat="model in products" ng-click="onProductClick(model.product)">
             <div class="product-image-container">
                 <!-- create title, image, description -->
                 <!-- image -->
@@ -10,14 +10,11 @@
                 </div>
                 <!-- title -->
                 <h1>{{model.product.title}}</h1>
+
                 <!-- attention -->
                 <h2 class='descriptionProduct'>
                     <span>{{model.product.description}}</span>
                 </h2>
-                <!-- description -->
-                <div class='infoProduct'>
-                    <span>{{model.product.moreInfo}}.</span>
-                </div>
                 <div class='productPrice'>
                     <span class='newPrice'>{{model.product.newPrice}}</span>
                     <span class='oldPrice' ng-show="model.product.oldPrice">{{model.oldPrice}}</span>
@@ -35,14 +32,14 @@
                 <a class="quick-view-button">
                     <span>{{text.productView}}</span>
                 </a>
+                <!-- showed on hover -->
+                <a class="remove-from-cart-button" ng-click="removeFromCart(model); $event.stopPropagation();">
+                    <span>X</span>
+                </a>
                 <div class="content_price">
-                    <span class='newPrice'>{{model.product.newPrice}}</span>
-                    <span class='oldPrice' ng-show="model.product.oldPrice">{{model.product.oldPrice}}</span>
-                </div>
-                <div class="button-container">
-                    <div class="btn btn-primary add_to_cart_button" title="{{text.productAddToCart}}">
-                        <span>{{text.productAddToCart}}</span>
-                    </div>
+                    <span class='newPrice'  ng-show="model.amount > 1">{{model.amount}} X {{model.product.newPrice}} = {{model.total}}</span>
+                    <span class='newPrice'  ng-show="model.amount == 1">{{model.product.newPrice}}</span>
+                    <span> {{vault}}</span>
                 </div>
             </div>
         </div>

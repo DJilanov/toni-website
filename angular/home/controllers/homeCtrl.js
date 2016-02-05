@@ -60,6 +60,23 @@ angular.module('Home', ['ngAnimate'])
 				}
 				return sortedArray;
 			}
+
+			// used to add products to cart
+			$scope.addToCart = function(product) {
+				var order = {
+					'date': new Date(),
+					'product': product,
+					'amount': 1,
+					'total': parseFloat(product.newPrice)
+				};
+				if(localStorage.getItem('cart') === null) {
+					localStorage.setItem('cart', JSON.stringify([]));
+				}
+				var cart = JSON.parse(localStorage.getItem('cart'));
+				cart.push(order);
+				localStorage.setItem('cart', JSON.stringify(cart));
+				alert($scope.text.addToCartSuccess);
+			};
         	// for toni website we need to show only the today deals on the home
         	var productName = '1';
         	// for dad site we must use = 0

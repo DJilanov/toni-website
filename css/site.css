@@ -299,6 +299,12 @@ footer {
     cursor:pointer;
 }
 
+.remove-from-cart-button {
+    position: absolute;
+    top: 0;
+    right: 5px;
+}
+
 .content_price {
     position: relative;
     left: 0;

@@ -66,6 +66,23 @@ angular.module('Product')
         		sharingSvc.viewProduct(product);
         		$location.path( "/view/" + product.link);
         	};
+
+			// used to add products to cart
+			$scope.addToCart = function(product) {
+				var order = {
+					'date': new Date(),
+					'product': product,
+					'amount': 1,
+					'total': parseFloat(product.newPrice)
+				};
+				if(localStorage.getItem('cart') === null) {
+					localStorage.setItem('cart', JSON.stringify([]));
+				}
+				var cart = JSON.parse(localStorage.getItem('cart'));
+				cart.push(order);
+				localStorage.setItem('cart', JSON.stringify(cart));
+				alert($scope.text.addToCartSuccess);
+			};
         	// the idea of the function is to get the location so we can use it as name of the products we need to show
         	sharingSvc.getProducts($scope.callback, productName);
             // we timestamp the images to remove chaching
