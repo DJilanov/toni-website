@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html id="screen">
+<html id="screen" ng-app="app">
   <head lang="en">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="text/javascript" content="text/javascript">
@@ -11,7 +11,7 @@
     <meta name="robots" content="index, follow">
     <meta name="revisit-after" content="14 days">
     <meta name="description" content="Компютърни части втора ръка, komputarni chasti vtora ruka, Компютъри, Лаптоп, Рам памет, Хард диск, Части, Компютри втора ръка, Лаптопи втора ръка">
-    <title>Компютърни части втора ръка за лаптопи и компютри</title>
+    <title ng-bind="pageTitle"></title>
     <link href="./third-party/font-awesome-4.0.3/css/font-awesome.min.css" media="screen" rel="stylesheet" type="text/css">
     <link href="./third-party/bootstrap-3.1.1-dist/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
     <link href="./css/normalize.css" media="screen" rel="stylesheet" type="text/css">
@@ -20,7 +20,7 @@
     <link href="./css/mediaQuery.css" media="screen" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" href="./img/logo2.png" />
   </head>
-  <body ng-app="app" lang="en">
+  <body lang="en">
     <!-- we import the navigation -->
     <div ng-include="'./angular/header/views/header.html'" ng-controller="HeaderCtrl"> </div>
     <div class="mainPage" ng-view></div>

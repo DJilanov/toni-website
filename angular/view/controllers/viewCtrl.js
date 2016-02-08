@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('View')
-    .controller('ViewCtrl', ['$scope', '$routeParams', 'sharingSvc',
-        function ($scope, $routeParams, sharingSvc) {
+    .controller('ViewCtrl', ['$scope', '$routeParams', 'sharingSvc', '$rootScope',
+        function ($scope, $routeParams, sharingSvc, $rootScope) {
 			// we get the language text
 			$scope.text = language.getText();
 			// we set the config so it can be usable in the screen
@@ -27,6 +27,8 @@ angular.module('View')
         	}
 			function setProduct(product) {
 				$scope.product = product;
+				// we set the page title
+				$rootScope.pageTitle = product.title;
 				$scope.product.difference = parseFloat(product.newPrice) - parseFloat(product.oldPrice);
 				$scope.product.amount = 1;
 				$scope.product.min = 1;

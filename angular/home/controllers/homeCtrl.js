@@ -1,12 +1,14 @@
 'use strict';
 
 angular.module('Home', ['ngAnimate'])
-    .controller('HomeCtrl', ['$scope', '$location', '$http', 'sharingSvc',
-        function ($scope, $location, $http, sharingSvc) {
+    .controller('HomeCtrl', ['$scope', '$location', '$http', 'sharingSvc', '$rootScope',
+        function ($scope, $location, $http, sharingSvc, $rootScope) {
         	$scope.response = null;
         	$scope.config = config;
 			// we get the language text
 			$scope.text = language.getText();
+			// we set the page title
+			$rootScope.pageTitle = $scope.text.homePageTitle;
 			// we view the product
 			$scope.onProductClick = function(product) {
 				sharingSvc.viewProduct(product);

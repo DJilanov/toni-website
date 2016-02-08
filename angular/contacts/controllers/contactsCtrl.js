@@ -1,9 +1,11 @@
 'use strict';
 
 angular.module('Contacts')
-    .controller('ContactsCtrl', ['$scope', 'sharingSvc', '$location', '$templateCache',
-        function ($scope, sharingSvc, $location, $templateCache) {
+    .controller('ContactsCtrl', ['$scope', 'sharingSvc', '$location', '$templateCache', '$rootScope',
+        function ($scope, sharingSvc, $location, $templateCache, $rootScope) {
         	$scope.text = language.getText();
+			// we set the page title
+			$rootScope.pageTitle = $scope.text.contactPageTitle;
 			$scope.form = {};
             (function() {
 			// Create a map object and specify the DOM element for display.

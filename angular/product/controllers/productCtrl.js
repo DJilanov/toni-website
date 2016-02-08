@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('Product')
-    .controller('ProductCtrl', ['$scope', '$location', '$http', 'sharingSvc',
-        function ($scope, $location, $http, sharingSvc) {
+    .controller('ProductCtrl', ['$scope', '$location', '$http', 'sharingSvc', '$rootScope',
+        function ($scope, $location, $http, sharingSvc, $rootScope) {
         	// used to contain the ajax response for the category type
         	$scope.category = null;
         	// used to contain the ajax response for the products
@@ -22,6 +22,8 @@ angular.module('Product')
 				for(var categoryCounter = 0; categoryCounter < categories.length; categoryCounter++) {
 					if(categories[categoryCounter].link === $scope.getLocation()) {
 						$scope.category = categories[categoryCounter];
+						// we set the page title
+						$rootScope.pageTitle = $scope.category.name;
 					}
 				}
         		// re sort the products in the way we want

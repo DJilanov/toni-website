@@ -4,10 +4,12 @@
 'use strict';
 
 angular.module('Cart', ['ui.bootstrap', 'ngAnimate'])
-    .controller('CartCtrl', ['$scope', 'sharingSvc', '$location',
-        function ($scope, sharingSvc, $location) {
+    .controller('CartCtrl', ['$scope', 'sharingSvc', '$location', '$rootScope',
+        function ($scope, sharingSvc, $location, $rootScope) {
             // we get the language text
             $scope.text = language.getText();
+            // we set the page title
+            $rootScope.pageTitle = $scope.text.cartPageTitle;
             // we set the config so it can be usable in the screen
             $scope.config = config;
             // we set the vault
