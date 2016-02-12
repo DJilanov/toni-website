@@ -544,10 +544,17 @@ h3.page-product-heading {
 .viewPage .quick-view-button {
     top: 50%;
 }
+.cartContainer .image-container {
+    width: 100%;
+}
 /* global variables */
 a {
     color: #777;
     text-decoration: none;
+}
+
+.rightText {
+    text-align: right;
 }
 
 .product-image-container h2 {

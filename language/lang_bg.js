@@ -1,4 +1,10 @@
 var bg = {
+	"homePageTitle": "Компютърни части втора ръка за лаптопи и компютри Жиланов ЕООД",
+	"productPageTitle": "",
+	"contactPageTitle": "Връзка с Жиланов ЕООД",
+	"viewPageTitle": "Преглед на {{product}} в Жиланов ЕООД",
+	"cartPageTitle": "Количка с поръчки от Жиланов ЕООД",
+	//---------------------------------------------------------------------
 	"homePageBigTitle": "Промоции",
 	"homePageDescription": "Промоции описание",
 	"headerContact": "Контакти",
@@ -19,6 +25,7 @@ var bg = {
 	"contactFormYourNameEnter": "Въведете вашето име",
 	"contactFormYourEmail": "Вашата електронна поща",
 	"contactFormYourEmailEnter": "Въведете вашата електронна поща",
+	"contactFormYourPhoneNumber": "Въведете вашия телефонен номер",
 	"contactFormYourMessage": "Вашето съобщение",
 	"contactFormSend": "Изпрати",
 	"productNew": "Нов",
@@ -32,10 +39,6 @@ var bg = {
 	"productMoreInfo": "Повече информация",
 	"addToCartSuccess": "Успешно добавяне към количката с поръчки",
 	"removeFromCartSuccess": "Успешно премахване на поръчката",
-	//---------------------------------------------------------------------
-	"homePageTitle": "Компютърни части втора ръка за лаптопи и компютри Жиланов ЕООД",
-	"productPageTitle": "",
-	"contactPageTitle": "Връзка с Жиланов ЕООД",
-	"viewPageTitle": "Преглед на {{product}} в Жиланов ЕООД",
-	"cartPageTitle": "Количка с поръчки от Жиланов ЕООД"
+	"emptyCart": "Количката ви е празна",
+	"continueToPay": "Продължаване към поръчване"
 };

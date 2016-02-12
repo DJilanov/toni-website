@@ -11,6 +11,10 @@ angular.module('Product')
         	var productName = null;
 			// we get the language text
 			$scope.text = language.getText();
+			// we set the config as parameter
+			$scope.config = config;
+			// we set the vault
+			$scope.vault = config.vaults[config.langs.indexOf(language.getLang())];
         	// the idea of the function is to get the location so we can use it as name of the products we need to show
         	$scope.getLocation = function() {
         		var location = $location.$$path.split('/')[2];
@@ -29,7 +33,6 @@ angular.module('Product')
         		// re sort the products in the way we want
         		var productsId = $scope.category.products;
         		var currentProduct = products[productsId];
-				$scope.config = config;
         		// we set the sorted products into the products tab
 				products = $scope.sortProductsByZIndex(currentProduct);
 				// we set the sorted products into the products tab

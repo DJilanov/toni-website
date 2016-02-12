@@ -38,6 +38,7 @@ var _mainModules = [
     ,'Contacts'
     ,'Carousel'
     ,'Cart'
+    ,'vcRecaptcha'
    // ,'infinite-scroll'
     ,'Modals'
 ];

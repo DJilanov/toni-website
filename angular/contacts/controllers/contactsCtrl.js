@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('Contacts')
-    .controller('ContactsCtrl', ['$scope', 'sharingSvc', '$location', '$templateCache', '$rootScope',
-        function ($scope, sharingSvc, $location, $templateCache, $rootScope) {
+    .controller('ContactsCtrl', ['$scope', 'sharingSvc', '$location', '$templateCache', '$rootScope', 'vcRecaptchaService',
+        function ($scope, sharingSvc, $location, $templateCache, $rootScope, vcRecaptchaService) {
         	$scope.text = language.getText();
 			// we set the page title
 			$rootScope.pageTitle = $scope.text.contactPageTitle;
@@ -32,7 +32,19 @@ angular.module('Contacts')
 
         	$scope.submitForm = function() {
 				debugger;
-				var data = {form: $scope.form, response: grecaptcha.getResponse()}
-				//todo: send them to backend and send the resposne to https://www.google.com/recaptcha/api/siteverify so you can check is it correct key
+				if(vcRecaptchaService.getResponse() === ""){ //if string is empty
+					alert("Please resolve the captcha and submit!")
+				}else {
+					var post_data = {  //prepare payload for request
+						'form':$scope.form,
+						'g-recaptcha-response':vcRecaptchaService.getResponse()  //send g-captcah-reponse to our server
+					};
+					sharingSvc.sendContactForm(recievedMessage ,post_data);
+
+				}
 			};
+
+			function recievedMessage() {
+				alert('Съобщението е изпратено!');
+			}
 		}]);

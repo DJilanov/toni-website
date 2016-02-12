@@ -41,6 +41,7 @@ angular.module('Header')
 				        }
 				    }
 				}
+
         	};
 			$scope.findProduct = function(keyword) {
 				return $filter('filter')($scope.products , {'$': keyword});

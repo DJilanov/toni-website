@@ -28,9 +28,10 @@ angular.module('View')
 			function setProduct(product) {
 				$scope.product = product;
 				// we set the page title
-				$rootScope.pageTitle = product.title;
+				$rootScope.pageTitle = product.title + ' - ' + product.description;
 				$scope.product.difference = parseFloat(product.newPrice) - parseFloat(product.oldPrice);
 				$scope.product.amount = 1;
+
 				$scope.product.min = 1;
 			}
 			// used to controll the amount of

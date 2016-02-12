@@ -67,13 +67,13 @@ angular.module('Home').factory('sharingSvc', ['$http',
 		function sendContactForm(callback, form) {
 			http = $http({
 				method: 'POST',
-				url: config.api + '/' + product.type,
+				url: config.api + '/message',
 				params: data,
 				headers: {
 					'Content-Type': 'multipart/form-data'
 				},
 				data: {
-					file: data.attachedImage
+					form: form
 				}
 			});
 

@@ -13,12 +13,19 @@ angular.module('Cart', ['ui.bootstrap', 'ngAnimate'])
             // we set the config so it can be usable in the screen
             $scope.config = config;
             // we set the vault
-            $scope.vault = config.vaults[config.langs.indexOf(language.getLang())]
+            $scope.vault = config.vaults[config.langs.indexOf(language.getLang())];
             // we set the products array
             $scope.products = [];
+            // is the cart empty
+            $scope.emptyCart = false;
+            // total price
+            $scope.totalPrice = 0;
             // used if there is no selected product and have to check witch is with this ID
-            if((localStorage.getItem('cart'))&&(localStorage.getItem('cart').length > 0)) {
+            if((localStorage.getItem('cart'))&&(localStorage.getItem('cart').length > 3)) {
                 $scope.products = JSON.parse(localStorage.getItem('cart'));
+                calculateTotalPrice();
+            } else {
+                $scope.emptyCart = true;
             }
 
             // we view the product
@@ -35,6 +42,17 @@ angular.module('Cart', ['ui.bootstrap', 'ngAnimate'])
                         localStorage.setItem('cart', JSON.stringify($scope.products));
                         alert($scope.text.removeFromCartSuccess);
                     }
+                }
+                if($scope.products.length === 0) {
+                    $scope.emptyCart = true;
+                }
+                calculateTotalPrice();
+            };
+            // calculate total price
+            function calculateTotalPrice() {
+                $scope.totalPrice = 0;
+                for(var productCounter = 0; productCounter < $scope.products.length; productCounter++) {
+                    $scope.totalPrice += $scope.products[productCounter].total;
                 }
             };
         }]);

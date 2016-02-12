@@ -5,6 +5,8 @@ angular.module('Home', ['ngAnimate'])
         function ($scope, $location, $http, sharingSvc, $rootScope) {
         	$scope.response = null;
         	$scope.config = config;
+			// we set the vault
+			$scope.vault = config.vaults[config.langs.indexOf(language.getLang())];
 			// we get the language text
 			$scope.text = language.getText();
 			// we set the page title

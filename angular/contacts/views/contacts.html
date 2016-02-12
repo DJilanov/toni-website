@@ -1,55 +1,78 @@
 <div class="container contacts">
-	<div class="col-lg-6" id="map">
+    <div class="col-lg-6" id="map">
 
-	</div>
-	<div class="col-lg-6">
-		<h3>
-			{{text.contactOurAddress}}
-		</h3>
-		<div>
-			{{text.contactCoordinateAdress}}
-		</div>
-		<h4 class="spaceTop">
-			{{text.contactPhoneTitle}}
-		</h4>
-		<div>
-			{{text.contactPhone}}
-		</div>
-		<h5>
-			{{text.contactRules}}
-		</h5>
-		<h4 class="spaceTop">
-			{{text.contactFormTitle}}
-		</h4>
-		<form ng-submit="submitForm()">
-			<div class="col-lg-12">
-			  <div class="form-group">
-				<label for="InputName">{{text.contactFormYourName}}</label>
-				<div class="input-group">
-				  <input type="text" class="form-control" name="InputName" id="InputName" placeholder="{{text.contactFormYourNameEnter}}" ng-model="form.name" required>
-				  <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
-			  </div>
-			  <div class="form-group">
-				<label for="InputEmail">{{text.contactFormYourEmail}}</label>
-				<div class="input-group">
-				  <input type="email" class="form-control" id="InputEmail" name="InputEmail" placeholder="{{text.contactFormYourEmailEnter}}" ng-model="form.email" required  >
-				  <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
-			  </div>
-			  <div class="form-group">
-				<label for="InputMessage">{{text.contactFormYourMessage}}</label>
-				<div class="input-group">
-				  <textarea name="InputMessage" id="InputMessage" class="form-control" rows="5" ng-model="form.message" required></textarea>
-				  <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
-				</div>
-			  <div class="g-recaptcha col-lg-8" data-sitekey="6Lf10xETAAAAAFoODW33iIglPTpRXndsVkUmUOQh" data-callback="function(){debugger}"></div>
-				<input type="submit" id="submit" value="{{text.contactFormSend}}" class="btn btn-info pull-right col-lg-4 contactSubmit" />
-			</div>
-		</form>
-	</div>
+    </div>
+    <div class="col-lg-6">
+        <h3>
+            {{text.contactOurAddress}}
+        </h3>
+
+        <div>
+            {{text.contactCoordinateAdress}}
+        </div>
+        <h4 class="spaceTop">
+            {{text.contactPhoneTitle}}
+        </h4>
+
+        <div>
+            {{text.contactPhone}}
+        </div>
+        <h5>
+            {{text.contactRules}}
+        </h5>
+        <h4 class="spaceTop">
+            {{text.contactFormTitle}}
+        </h4>
+
+        <form ng-submit="submitForm()">
+            <div class="col-lg-12">
+                <div class="form-group">
+                    <label for="InputName">{{text.contactFormYourName}}</label>
+
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="InputName" id="InputName"
+                               placeholder="{{text.contactFormYourNameEnter}}" ng-model="form.name" required>
+                        <span class="input-group-addon"><i
+                                class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
+                </div>
+                <div class="form-group">
+                    <label for="InputEmail">{{text.contactFormYourEmail}}</label>
+
+                    <div class="input-group">
+                        <input type="email" class="form-control" id="InputEmail" name="InputEmail"
+                               placeholder="{{text.contactFormYourEmailEnter}}" ng-model="form.email" required>
+                        <span class="input-group-addon"><i
+                                class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
+                </div>
+                <div class="form-group">
+                    <label for="InputEmail">{{text.contactFormYourPhoneNumber}}</label>
+
+                    <div class="input-group">
+                        <input type="phone" class="form-control" id="InputPhone" name="InputPhone"
+                               placeholder="{{text.contactFormYourPhoneNumber}}" ng-model="form.phone" required>
+                        <span class="input-group-addon"><i
+                                class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
+                </div>
+                <div class="form-group">
+                    <label for="InputMessage">{{text.contactFormYourMessage}}</label>
+
+                    <div class="input-group">
+                        <textarea name="InputMessage" id="InputMessage" class="form-control" rows="5"
+                                  ng-model="form.message" required></textarea>
+                        <span class="input-group-addon"><i
+                                class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
+                </div>
+                <div vc-recaptcha key="'6Lf10xETAAAAAFoODW33iIglPTpRXndsVkUmUOQh'"></div>
+                <input type="submit" id="submit" value="{{text.contactFormSend}}"
+                       class="btn btn-info pull-right col-lg-4 contactSubmit"/>
+            </div>
+        </form>
+    </div>
 </div>
 <script type="text/ng-template" id="mapTemplate.html">
-  	<div id="content">
-		<h2 id="firstHeading" class="firstHeading">{{helloMessage}}</h2>
-		<div id="bodyContent"><p>{{address}}</p></div>
-	</div>
+    <div id="content">
+        <h2 id="firstHeading" class="firstHeading">{{helloMessage}}</h2>
+
+        <div id="bodyContent"><p>{{address}}</p></div>
+    </div>
 </script>
