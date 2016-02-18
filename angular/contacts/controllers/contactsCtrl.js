@@ -31,7 +31,6 @@ angular.module('Contacts')
 			})();
 
         	$scope.submitForm = function() {
-				debugger;
 				if(vcRecaptchaService.getResponse() === ""){ //if string is empty
 					alert("Please resolve the captcha and submit!")
 				}else {
@@ -40,7 +39,6 @@ angular.module('Contacts')
 						'g-recaptcha-response':vcRecaptchaService.getResponse()  //send g-captcah-reponse to our server
 					};
 					sharingSvc.sendContactForm(recievedMessage ,post_data);
-
 				}
 			};
 

@@ -4,16 +4,13 @@ angular.module('Home').factory('sharingSvc', ['$http', '$location',
 
     function($http, $location) {
 
-    	var productList = {};
     	// used for the fetch
     	var response   = null;
     	var products   = null;
     	var categories = null;
-    	var carousel   = null;
-    	var contact    = null;
+    	var messages    = null;
 
     	var userIds = {};
-    	var productToView = null;
         // we fetch the products and show them. we save them into the array for future direct use
         function login(callback, id) {
         	var id = {
@@ -40,10 +37,9 @@ angular.module('Home').factory('sharingSvc', ['$http', '$location',
 					for(var categoriesCounter = 0; categoriesCounter < categories.length; categoriesCounter++) {
 						categories[categoriesCounter].info = JSON.parse(categories[categoriesCounter].info);
 					}
-					carousel = response.carousel;
-					contact = response.contact;
+					messages = response.messages;
 
-					callback(products, categories, carousel, contact);
+					callback(products, categories, messages);
 				} else {
 					// if tony is a noob
 					alert("WRONG PASSWORD NOOB, DELETE THE GAME PLEASE!");
@@ -121,7 +117,7 @@ angular.module('Home').factory('sharingSvc', ['$http', '$location',
        				$location.path( "/home" );
        			}
        		} else {
-       			callback(products, categories, carousel);
+       			callback(products, categories, messages);
        		}
        	}
        	// the idea from that function is that after we get

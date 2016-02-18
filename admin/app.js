@@ -30,6 +30,7 @@ var _mainModules = [
     ,'EditNavigation'
     ,'EditProduct'
     ,'EditCategory'
+    ,'EditMessages'
    // ,'infinite-scroll'
     ,'ui.bootstrap'
 ];
@@ -84,10 +85,10 @@ angular.module('app', _mainModules )
         });
 
         routes.push({
-            name: '/editContact',
+            name: '/messages',
             params: {
-                templateUrl: './editContact/views/editContact.html',
-                controller: 'EditContactCtrl'
+                templateUrl: './editMessages/views/editMessages.html',
+                controller: 'EditMessagesCtrl'
             }
         });
 

@@ -65,30 +65,19 @@ angular.module('Home').factory('sharingSvc', ['$http',
 		}
 		// we save the products and show alert that it is saved.
 		function sendContactForm(callback, form) {
-			http = $http({
-				method: 'POST',
-				url: config.api + '/message',
-				params: data,
-				headers: {
-					'Content-Type': 'multipart/form-data'
-				},
-				data: {
-					form: form
-				}
-			});
+			grecaptcha.reset();
+			form.new = 'true';
+			$http.post(config.api + '/message',form)
+				.success(function(data, status, headers, config) {
+					response = data;
+				}).error(function(data, status, headers, config) {
+					alert('Error on fetching from the server');
+				}).then(function(){
+					if(response != null) {
+						callback(response);
+					}
 
-			http.success(function(data, status, headers, config) {
-				response = data;
-			})
-			.error(function(data, status, headers, config) {
-				alert('Error on fetching from the server');
-			})
-			.then(function(){
-				if(response != null) {
-					callback(response);
-				}
-
-			});
+				});
 		}
 
         function setBackgroundIfAvalible(config) {

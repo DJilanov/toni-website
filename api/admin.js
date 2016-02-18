@@ -8,8 +8,7 @@
 	var carousel   = require('./updateCarousel');
 	var category   = require('./updateCategories');
 	var product    = require('./updateProducts');
-	var contact    = require('./updateContact');
-	var mainConfig = require('./updateMainConfig');
+	var message    = require('./updateMessage');
 	// here we declare the function we use for the image saving
 	var imgUpload  = require('./imageUpload');
 	// here we save the db
@@ -29,19 +28,29 @@
 		carousel.setConfig(loadedConfig);
 		category.setConfig(loadedConfig);
 		product.setConfig(loadedConfig);
-		contact.setConfig(loadedConfig);
-		mainConfig.setConfig(loadedConfig);
 		imgUpload.setConfig(loadedConfig);
+		message.setConfig(loadedConfig);
 	}
 
 	function auth(logedUsername, logedPassword) {
 		if((logedUsername === config.username)&&(logedPassword === config.password)){
 			database = {
 				"categories": home.getCategoryDatabase(),
-				"products"  : home.getProductDatabase()
+				"products"  : home.getProductDatabase(),
+				"messages"  : home.getMessagesDatabase()
 			};
 			return database;
 		}
+	}
+	// here we update the messages into the database
+	function updateMessage(element, res) {
+		mongoose.connection.db.collection('messages', function (err, collection) {
+			console.log('[Admin] updateMessage err: ' + err);
+			message.updateMessage(collection, element, updateMessages);
+			idCopy  = element.id;
+			resCopy = res;
+			collectionCopy = collection;
+		});
 	}
 	// here we update products into the database
 	function updateCategory(element, res) {
@@ -91,42 +100,8 @@
 		}
 	}
 
-	// here we update products into the database
-	function updateContact(element, res) {
-		if((element.username === config.username)&&(element.password === config.password)){
-			// we connect to contact database with the acc and pass
-			mongoose.connection.db.collection('contact', function (err, collection) {
-				idCopy  = element.id;
-				contact.updateContact(collection, element, res);
-		    });
-		} else {
-			return 'Wrong acc or password';
-		}
-	}
-
-	// here we update products into the database
-	function updateMainConfig(element, res) {
-		if((element.username === config.username)&&(element.password === config.password)){
-			// we connect to main config database with the acc and pass
-			mongoose.connection.db.collection('mainConfig', function (err, collection) {
-				console.log('[Admin] mainConfig err: ' + err);
-				mainConfig.updateMainConfig(collection, element, updateMainConfigs);
-				idCopy  = element.id;
-				resCopy = res;
-				collectionCopy = collection;
-		    });
-		} else {
-			return 'Wrong acc or password';
-		}
-	}
-
 	function updateProducts (err, doc) {
 		home.updateProducts(collectionCopy);
-		resSend(err);
-	}
-
-	function updateCarousels (err, doc) {
-		home.updateCarousels(collectionCopy);
 		resSend(err);
 	}
 
@@ -135,13 +110,8 @@
 		resSend(err);
 	}
 
-	function updateContacts (err, doc) {
-		home.updateCategories(collectionCopy);
-		resSend(err);
-	}
-
-	function updateMainConfigs (err, doc) {
-		home.updateMainConfigs(collectionCopy);
+	function updateMessages  (err, doc) {
+		home.updateMessages(collectionCopy);
 		resSend(err);
 	}
 
@@ -194,7 +164,7 @@
 	    updateCategory: updateCategory,
 	    updateCarousel: updateCarousel,
 	    updateProduct : updateProduct,
-	    updateContact : updateContact,
+	    updateMessage : updateMessage,
 	    setConfig     : setConfig,
 	    connectDb     : connectDb,
 	    auth          : auth

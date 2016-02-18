@@ -6,13 +6,11 @@
 	// user viewed website
 	var mongoose   = require('mongoose');
 	// here we save the db with the categories for the nav
-	var categoryDatabase = {};
+	var categoryDatabase   = {};
 	// here we save the db with the products
-	var productsDatabase = {};
-	// here we save the db with the carousel iamges and titles
-	var carouselDatabase = {};
+	var productsDatabase   = {};
 	// here we save the db with the contact iamges and titles
-	var contactDatabase = {};
+	var messageDatabase    = {};
 	// here we save the db with the contact iamges and titles
 	var mainConfigDatabase = {};
 
@@ -24,16 +22,8 @@
 		return productsDatabase;
 	}
 
-	function getCarouselDatabase() {
-		return carouselDatabase;
-	}
-
-	function getContactDatabase() {
-		return contactDatabase;
-	}
-
-	function getМainConfigDatabase() {
-		return mainConfigDatabase;
+	function getMessagesDatabase() {
+		return messageDatabase;
 	}
 
 	function setConfig(loadedConfig) {
@@ -43,12 +33,6 @@
 	function updateProducts(collection) {
 		collection.find().toArray(function(err, docs) {
 	        productsDatabase = docs;
-	    });
-	}
-
-	function updateCarousels(collection) {
-		collection.find().toArray(function(err, docs) {
-	        carouselDatabase = docs;
 	    });
 	}
 
@@ -62,6 +46,12 @@
 		collection.find().toArray(function(err, docs) {
 	        mainConfigDatabase = docs;
 	    });
+	}
+
+	function updateMessages(collection) {
+		collection.find().toArray(function(err, docs) {
+			messageDatabase = docs;
+		});
 	}
 
 	function connectDb(){
@@ -78,6 +68,11 @@
 		            categoryDatabase = docs;
 		   		});
 		    });
+			mongoose.connection.db.collection('messages', function (err, collection) {
+				collection.find().toArray(function(err, docs) {
+					messageDatabase = docs;
+				});
+			});
 		});
 
 		// If the connection throws an error
@@ -107,9 +102,10 @@
 	    setConfig			 : setConfig,
 	    getCategoryDatabase	 : getCategoryDatabase,
 	    getProductDatabase	 : getProductDatabase,
+		getMessagesDatabase	 : getMessagesDatabase,
 	    updateProducts		 : updateProducts,
 	    updateCategories	 : updateCategories,
-	    updateCarousels		 : updateCarousels,
-	    updateMainConfigs	 : updateMainConfigs
+	    updateMainConfigs	 : updateMainConfigs,
+		updateMessages		 : updateMessages
 	};
 }());

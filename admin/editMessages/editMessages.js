@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('EditContact', [])
+angular.module('EditMessages', [])
     .config(function () {})
     .constant('homePath', '/home');
 

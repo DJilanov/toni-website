@@ -113,3 +113,15 @@ app.post('/api/admin/mainConfig', upload.single('file'), function (req, res){
 	admin.updateMainConfig(req.query, res);
 	res.json(req.query);
 });
+
+app.post('/api/home/message', function (req, res){
+	console.log('[Server.js]Post request to messages');
+	admin.updateMessage(req.body, res);
+	res.json(req.query);
+});
+
+app.post('/api/admin/message', function (req, res){
+	console.log('[Server.js]Post request to messages');
+	admin.updateMessage(req.query, res);
+	res.json(req.query);
+});
