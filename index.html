@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html id="screen" ng-app="app">
   <head lang="en">
+    <meta property="og:title" content="Компютърни части Жиланов ЕООД" />
+    <meta property="og:description" content="Евтини памети, процесори, камери и всичко от което имате нужда!" />
+    <meta property="og:image" content="./img/logo2.png" />
+    <meta property="og:image:secure_url" content="./img/logo2.png" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="text/javascript" content="text/javascript">
     <meta name="text/javascript" content="text/css">
@@ -12,12 +16,14 @@
     <meta name="revisit-after" content="14 days">
     <meta name="description" content="Компютърни части втора ръка, komputarni chasti vtora ruka, Компютъри, Лаптоп, Рам памет, Хард диск, Части, Компютри втора ръка, Лаптопи втора ръка">
     <title ng-bind="pageTitle"></title>
-    <link href="./third-party/font-awesome-4.0.3/css/font-awesome.min.css" media="screen" rel="stylesheet" type="text/css">
-    <link href="./third-party/bootstrap-3.1.1-dist/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
-    <link href="./css/normalize.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="./third-party/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="./third-party/bootstrap-3.1.1-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="./css/normalize.css" rel="stylesheet" type="text/css">
     <link href="./node_modules/please-wait/build/please-wait.css" media="screen" rel="stylesheet" type="text/css">
-    <link href="./css/site.css" media="screen" rel="stylesheet" type="text/css">
-    <link href="./css/mediaQuery.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="./css/site.css" rel="stylesheet" type="text/css">
+    <link href="./css/mediaQuery.css" rel="stylesheet" type="text/css">
+    <link href="./css/addThis.css" rel="stylesheet" type="text/css">
+    <link href="./css/print.css" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" href="./img/logo2.png" />
   </head>
   <body lang="en">
@@ -37,6 +43,9 @@
   </script>
   <script async defer
           src="https://www.google.com/recaptcha/api.js?onload=vcRecaptchaApiLoaded&render=explicit&hl=bg"></script>
+  <!-- toolbar -->
+  <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56c639435b6223f9"></script>
+
 
   <script src="./js/config.js" ></script>
   <script src="./js/jquery.min.js" ></script>
@@ -90,6 +99,15 @@
   <!-- hide loading screen -->
   <script>
     window.loading_screen.finish();
+  </script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-74039352-1', 'auto');
+    ga('send', 'pageview');
   </script>
 </html>
 <!-- TODO: Integrate currency into product list. Integrate better alignment there -->

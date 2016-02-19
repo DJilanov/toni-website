@@ -1,0 +1,8 @@
+@media print {
+    .navbar-fixed-top , .box, .product_attributes, .box-cart-bottom {
+        display: none;
+    }
+    .page-product-box {
+        page-break-before: always;
+    }
+}
