@@ -35,14 +35,14 @@
             <div class="content_prices clearfix">
                 <!-- prices -->
                 <div>
-                    <p id="new_price"><span itemprop="lowPrice" itemscope itemtype="http://schema.org/AggregateOffer" >{{product.newPrice}}</span><span itemprop="priceCurrency" content="BG"> {{vault}}</span></p>
-                    <p id="old_price" ng-show="product.oldPrice"><span class="oldPrice" itemprop="highPrice" itemscope itemtype="http://schema.org/AggregateOffer">{{product.oldPrice}}</span><span class="difference">{{product.difference}}</span></p>
+                    <p id="new_price"><span>{{product.newPrice}}</span><span content="BG"> {{vault}}</span></p>
+                    <p id="old_price" ng-show="product.oldPrice"><span class="oldPrice">{{product.oldPrice}}</span><span class="difference">{{product.difference}}</span></p>
                 </div>
             </div> <!-- end content_prices -->
             <div class="product_attributes clearfix">
                 <!-- quantity wanted -->
                 <p id="quantity_wanted_p">
-                    <label for="quantity_wanted" itemprop="availability" href="http://schema.org/InStock">{{text.productAmount}}</label>
+                    <label for="quantity_wanted">{{text.productAmount}}</label>
                     <input type="number" min="1" name="qty" id="quantity_wanted" class="text" value="1" ng-model="product.amount">
                     <a data-field-qty="qty" class="btn btn-default button-minus product_quantity_down" ng-click="increaseAmount(false)">
                         <span><i class="icon-minus fa fa-minus"></i></span>
@@ -69,9 +69,18 @@
         </div>
     </div>
     <div class="hidden">
+        <div class="content_price" itemprop="offers" itemscope="" itemtype="https://schema.org/Offer">
+            <span itemprop="price" class='newPrice'>oт 20 Лева</span>
+            <span itemprop="priceCurrency" content="BGN">{{vault}}</span>
+        </div>
       <span itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
         <span itemprop="ratingValue">4.8</span> звезди, базирани на <span itemprop="reviewCount">89
           </span> ревюта
+      </span>
+      <span itemprop="offers" itemscope itemtype="http://schema.org/AggregateOffer">
+        от <span itemprop="lowPrice">20</span> to
+        <span itemprop="highPrice">100</span> лева
+        <meta itemprop="priceCurrency" content="BGN" />
       </span>
     </div>
     <section class="page-product-box col-xs-12">

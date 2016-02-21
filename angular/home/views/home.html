@@ -2,7 +2,7 @@
 	<div ng-include="'./angular/carousel/views/carousel.html'" ng-controller="CarouselCtrl" class="homePage"> </div>
 	<footer>
 		<div class="container dealsContainer">
-			<div class="product col-xs-12 col-sm-4 col-md-3" ng-repeat="model in products | filter: {'type': 'product'}" ng-click="onProductClick(model)" itemscope itemtype="http://schema.org/Product">
+			<div class="product col-xs-12 col-sm-4 col-md-3" ng-repeat="model in products | filter: {'type': 'product'}" ng-click="onProductClick(model)"  itemscope itemtype="http://schema.org/Product">
 				<div class="product-image-container">
 					<!-- create title, image, description -->
 					<!-- image -->
@@ -16,10 +16,10 @@
 					<h2 class='blue'>
 						<span itemprop="description">{{model.description}}</span>
 					</h2>
-					<div class='productPrice'>
-						<span itemprop="lowPrice" class='newPrice'>{{model.newPrice}}</span>
-						<span itemprop="highPrice" class='oldPrice' ng-show="model.oldPrice">{{model.oldPrice}}</span>
-						<span itemprop="priceCurrency">{{vault}}</span>
+					<div class='productPrice' >
+						<span class='newPrice'>{{model.newPrice}}</span>
+						<span class='oldPrice' ng-show="model.oldPrice">{{model.oldPrice}}</span>
+						<span content="BGN">{{vault}}</span>
 					</div>
 					<a class="new-box box" ng-show="model.isNew !== 'false'">
 						<span itemprop="itemCondition">{{text.productNew}}</span>
@@ -34,7 +34,7 @@
 					<a class="quick-view-button">
 						<span>{{text.productView}}</span>
 					</a>
-					<div class="content_price" itemprop="offers" itemscope="" itemtype="https://schema.org/Offer">
+					<div class="content_price">
 						<span class='newPrice'>{{model.newPrice}}</span>
 						<span class='oldPrice' ng-show="model.oldPrice">{{model.oldPrice}}</span>
 						<span>{{vault}}</span>
@@ -45,13 +45,23 @@
 						</div>
 					</div>
 				</div>
+				<div class="hidden">
+					<div class="content_price" itemprop="offers" itemscope="" itemtype="https://schema.org/Offer">
+						<span itemprop="price" class='newPrice'>oт 20 Лева</span>
+						<span itemprop="priceCurrency" content="BGN">{{vault}}</span>
+					</div>
+				  <span itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+					<span itemprop="ratingValue">4.8</span> звезди, базирани на <span itemprop="reviewCount">89
+					  </span> ревюта
+				  </span>
+				  <span itemprop="offers" itemscope itemtype="http://schema.org/AggregateOffer">
+				    от <span itemprop="lowPrice">20</span> to
+				    <span itemprop="highPrice">100</span> лева
+				    <meta itemprop="priceCurrency" content="BGN" />
+				  </span>
+				</div>
 			</div>
 		</div>
-		<div class="hidden">
-		  <span itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
-			<span itemprop="ratingValue">4.8</span> звезди, базирани на <span itemprop="reviewCount">89
-			  </span> ревюта
-		  </span>
-		</div>
+		
 	</footer>
 </div>
