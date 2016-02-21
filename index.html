@@ -116,7 +116,7 @@
       "@type": "Organization",
       "name" : "Онлайн магазин на Жиланов ЕООД",
       "alternateName" : "Онлайн магазин на Жиланов ЕООД",
-      "url": "www.jilanov.eu",
+      "url": "http://www.jilanov.eu",
       "logo": "http://www.jilanov.eu/img/logo2.png",
       "contactPoint" : [{
         "@type" : "ContactPoint",
@@ -136,64 +136,31 @@
         "postalCode": "1836",
         "addressCountry": "BG"
       },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 42.709923,
-        "longitude": 23.379968
-      },
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": [
-            "Monday",
-            "Tuesday"
-          ],
-          "opens": "11:30",
-          "closes": "22:00"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": [
-            "Wednesday",
-            "Thursday",
-            "Friday"
-          ],
-          "opens": "11:30",
-          "closes": "23:00"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": "Saturday",
-          "opens": "16:00",
-          "closes": "23:00"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": "Sunday",
-          "opens": "16:00",
-          "closes": "22:00"
-        }
-      ],
-      "acceptsReservations": "True",
-      "deliveryMethod":[
-        "http://purl.org/goodrelations/v1#DeliveryModePickUp",
-        "http://purl.org/goodrelations/v1#DeliveryModeOwnFleet"
-      ],
-      "priceSpecification":{
-        "@type":"DeliveryChargeSpecification",
-        "appliesToDeliveryMethod":"http://purl.org/goodrelations/v1#DeliveryModeOwnFleet",
-        "priceCurrency":"BG",
-        "price":0.0,
-        "eligibleTransactionVolume":{
-          "@type":"PriceSpecification",
-          "priceCurrency":"BG",
-          "price":3.70
-        }
-      },
       "potentialAction": {
         "@type": "SearchAction",
         "target": "https://jilanov.eu/#/search?q={search_term_string}",
         "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Store",
+      "@id": "http://jilanov.eu",
+      "name": "Онлайн магазин на Жиланов ЕООД",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "1600 Saratoga Ave",
+        "addressLocality": "San Jose",
+        "addressRegion": "CA",
+        "postalCode": "95129",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 42.709923,
+        "longitude": 23.379968
       }
     }
     </script>
