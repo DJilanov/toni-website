@@ -3,7 +3,7 @@
  */
 'use strict';
 
-angular.module('Cart', ['ui.bootstrap', 'ngAnimate'])
+angular.module('Cart')
     .controller('CartCtrl', ['$scope', 'sharingSvc', '$location', '$rootScope',
         function ($scope, sharingSvc, $location, $rootScope) {
             // we get the language text

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('Carousel', ['ui.bootstrap', 'ngAnimate'])
+angular.module('Carousel')
     .controller('CarouselCtrl', ['$scope', 'sharingSvc', '$location',
         function ($scope, sharingSvc, $location) {
             $scope.myInterval = 3000;
