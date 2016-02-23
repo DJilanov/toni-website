@@ -9,6 +9,7 @@
 	var category   = require('./updateCategories');
 	var product    = require('./updateProducts');
 	var message    = require('./updateMessage');
+	var order      = require('./updateOrders');
 	// here we declare the function we use for the image saving
 	var imgUpload  = require('./imageUpload');
 	// here we save the db
@@ -52,6 +53,16 @@
 			collectionCopy = collection;
 		});
 	}
+	// here we update the messages into the database
+	function updateOrder(element, res) {
+		mongoose.connection.db.collection('orders', function (err, collection) {
+			console.log('[Admin] updateOrder err: ' + err);
+			order.updateOrder(collection, element, updateOrders);
+			idCopy  = element.id;
+			resCopy = res;
+			collectionCopy = collection;
+		});
+	}
 	// here we update products into the database
 	function updateCategory(element, res) {
 		if((element.username === config.username)&&(element.password === config.password)){
@@ -59,22 +70,6 @@
 			mongoose.connection.db.collection('categories', function (err, collection) {
 				console.log('[Admin] updateCategory err: ' + err);
 				category.updateCategory(collection, element, updateCategories);
-				idCopy  = element.id;
-				resCopy = res;
-				collectionCopy = collection;
-		    });
-		} else {
-			return 'Wrong acc or password';
-		}
-	}
-
-	// here we update products into the database
-	function updateCarousel(element, res) {
-		if((element.username === config.username)&&(element.password === config.password)){
-			// we connect to carousel database with the acc and pass
-			mongoose.connection.db.collection('carousel', function (err, collection) {
-				console.log('[Admin] updateCarousel err: ' + err);
-				carousel.updateCarousel(collection, element, updateCarousels);
 				idCopy  = element.id;
 				resCopy = res;
 				collectionCopy = collection;
@@ -105,13 +100,13 @@
 		resSend(err);
 	}
 
-	function updateCategories (err, doc) {
-		home.updateCategories(collectionCopy);
+	function updateMessages  (err, doc) {
+		home.updateMessages(collectionCopy);
 		resSend(err);
 	}
 
-	function updateMessages  (err, doc) {
-		home.updateMessages(collectionCopy);
+	function updateOrders  (err, doc) {
+		home.updateOrders(collectionCopy);
 		resSend(err);
 	}
 
@@ -162,9 +157,9 @@
 
 	module.exports = {
 	    updateCategory: updateCategory,
-	    updateCarousel: updateCarousel,
 	    updateProduct : updateProduct,
 	    updateMessage : updateMessage,
+		updateOrder   : updateOrder,
 	    setConfig     : setConfig,
 	    connectDb     : connectDb,
 	    auth          : auth

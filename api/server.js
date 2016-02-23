@@ -120,8 +120,8 @@ app.post('/api/home/message', function (req, res){
 	res.json(req.query);
 });
 
-app.post('/api/admin/message', function (req, res){
-	console.log('[Server.js]Post request to messages');
-	admin.updateMessage(req.query, res);
+app.post('/api/home/order', function (req, res){
+	console.log('[Server.js]Post request to orders');
+	admin.updateOrder(req.body, res);
 	res.json(req.query);
 });

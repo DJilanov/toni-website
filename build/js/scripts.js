@@ -21457,9 +21457,9 @@ angular.module("app", _mainModules).config([ "$routeProvider", "$httpProvider", 
         }
     });
     routes.push({
-        name: "/cart",
+        name: "/order",
         params: {
-            templateUrl: "./angular/cart/views/cart.html",
+            templateUrl: "./angular/order/views/order.html",
             controller: "CartCtrl"
         }
     });
@@ -21575,8 +21575,8 @@ angular.module("Cart").controller("CartCtrl", [ "$scope", "sharingSvc", "$locati
     $scope.products = [];
     $scope.emptyCart = false;
     $scope.totalPrice = 0;
-    if (localStorage.getItem("cart") && localStorage.getItem("cart").length > 3) {
-        $scope.products = JSON.parse(localStorage.getItem("cart"));
+    if (localStorage.getItem("order") && localStorage.getItem("order").length > 3) {
+        $scope.products = JSON.parse(localStorage.getItem("order"));
         calculateTotalPrice();
     } else {
         $scope.emptyCart = true;
@@ -21590,7 +21590,7 @@ angular.module("Cart").controller("CartCtrl", [ "$scope", "sharingSvc", "$locati
         for (var productCounter = 0; productCounter < $scope.products.length; productCounter++) {
             if (timestamp === Date.parse($scope.products[productCounter].date)) {
                 $scope.products.splice(productCounter, 1);
-                localStorage.setItem("cart", JSON.stringify($scope.products));
+                localStorage.setItem("order", JSON.stringify($scope.products));
                 alert($scope.text.removeFromCartSuccess);
             }
         }

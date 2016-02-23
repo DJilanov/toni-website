@@ -26,6 +26,7 @@ var bg = {
 	"contactFormYourEmail": "Вашата електронна поща",
 	"contactFormYourEmailEnter": "Въведете вашата електронна поща",
 	"contactFormYourPhoneNumber": "Въведете вашия телефонен номер",
+	"contactFormYourAddress": "Въведете вашия адрес",
 	"contactFormYourMessage": "Вашето съобщение",
 	"contactFormSend": "Изпрати",
 	"productNew": "Нов",
@@ -40,5 +41,6 @@ var bg = {
 	"addToCartSuccess": "Успешно добавяне към количката с поръчки",
 	"removeFromCartSuccess": "Успешно премахване на поръчката",
 	"emptyCart": "Количката ви е празна",
-	"continueToPay": "Продължаване към поръчване"
+	"continueToPay": "Продължаване към поръчване",
+	"orderRecieved": "Поръчката е получена успешно!"
 };

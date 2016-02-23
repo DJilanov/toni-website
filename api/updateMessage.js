@@ -42,15 +42,15 @@
 		};
 		// we check what we gonna do with the element
 		if(element.delete === 'true'){
-			console.log('\n[UpdateCategories] Deleting element:' + JSON.stringify(element));
+			console.log('\n[UpdateMessage] Deleting element:' + JSON.stringify(element));
 			console.log('delete query: ' + JSON.stringify(querry));
 			collection.deleteOne(querry, callback);
 		} else if(element.new === 'true'){
-			console.log('\n[UpdateCategories] Creating element:' + JSON.stringify(element));
+			console.log('\n[UpdateMessage] Creating element:' + JSON.stringify(element));
 			var data = secondaryQuerry['$set'];
 			collection.insertOne(data, callback);
 		} else {
-			console.log('\n[UpdateCategories] Updating element:' + JSON.stringify(element));
+			console.log('\n[UpdateMessage] Updating element:' + JSON.stringify(element));
 			collection.update(querry, secondaryQuerry, callback);
 		}
 	}

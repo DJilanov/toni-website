@@ -63,11 +63,12 @@ angular.module('Home').factory('sharingSvc', ['$http',
 			}
 			callback(products, categories);
 		}
+
 		// we save the products and show alert that it is saved.
 		function sendContactForm(callback, form) {
 			grecaptcha.reset();
 			form.new = 'true';
-			$http.post(config.api + '/message',form)
+			$http.post(config.api + '/message', form)
 				.success(function(data, status, headers, config) {
 					response = data;
 				}).error(function(data, status, headers, config) {
@@ -78,6 +79,23 @@ angular.module('Home').factory('sharingSvc', ['$http',
 					}
 
 				});
+		}
+
+		// we save the products and show alert that it is saved.
+		function sendOrderForm(callback, form) {
+			grecaptcha.reset();
+			form.new = 'true';
+			$http.post(config.api + '/order', form)
+					.success(function(data, status, headers, config) {
+						response = data;
+					}).error(function(data, status, headers, config) {
+				alert('Error on fetching from the server');
+			}).then(function(){
+				if(response != null) {
+					callback(response);
+				}
+
+			});
 		}
 
         function setBackgroundIfAvalible(config) {
@@ -124,7 +142,8 @@ angular.module('Home').factory('sharingSvc', ['$http',
             getProducts: getProducts,
             viewProduct: viewProduct,
             getProductToView: getProductToView,
-			sendContactForm: sendContactForm
+			sendContactForm: sendContactForm,
+			sendOrderForm: sendOrderForm
         };
     }
 ]);

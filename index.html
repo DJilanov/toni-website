@@ -2,6 +2,8 @@
 <html id="screen" ng-app="app">
   <head lang="en">
     <meta property="og:title" content="Компютърни компоненти Жиланов ЕООД" />
+    <meta property="og:type" content="Жиланов ЕООД" />
+    <meta property="og:url" content="www.jilanov.eu" />
     <meta property="og:description" content="Всичко за вашия компютър на най-конкурентни цени!" />
     <meta property="og:image" content="./img/logo2.png" />
     <meta property="og:image:secure_url" content="./img/logo2.png" />
@@ -30,6 +32,60 @@
     <link rel="alternate" hreflang="bg" href="http://jilanov.eu" /
   </head>
   <body lang="en">
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "name" : "Жиланов ЕООД",
+        "alternateName" : "Онлайн магазин на Жиланов ЕООД",
+        "url": "http://www.jilanov.eu",
+        "logo": "http://www.jilanov.eu/img/logo2.png",
+        "contactPoint" : [{
+          "@type" : "ContactPoint",
+          "telephone" : "+359878466180",
+          "contactType" : "sales",
+          "areaServed" : "BG",
+          "availableLanguage" : ["Bulgarian","English"]
+        }],
+        "sameAs" : [
+          "https://www.facebook.com/Jilanovltd"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Bulgaria, Sofia, Levski G",
+          "addressLocality": "Sofia",
+          "addressRegion": "Sofia",
+          "postalCode": "1836",
+          "addressCountry": "BG"
+        },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://jilanov.eu/#/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "Store",
+        "@id": "http://jilanov.eu",
+        "name": "Жиланов ЕООД",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Bulgaria, Sofia, Levski G",
+          "addressLocality": "Sofia",
+          "addressRegion": "Sofia",
+          "postalCode": "1836",
+          "addressCountry": "BG"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 42.711330,
+          "longitude": 23.375995
+        }
+      }
+    </script>
     <!-- we import the navigation -->
     <div ng-include="'./angular/header/views/header.html'" ng-controller="HeaderCtrl"> </div>
     <div class="mainPage" ng-view></div>
@@ -93,8 +149,11 @@
   <script src="./angular/view/view.js" ></script>
   <script src="./angular/view/controllers/viewCtrl.js" ></script>
   <!-- cart -->
-  <script src="./angular/cart/cart.js" ></script>
-  <script src="./angular/cart/controllers/cartCtrl.js" ></script>
+  <script src="angular/cart/cart.js" ></script>
+  <script src="angular/cart/controllers/cartCtrl.js" ></script>
+  <!-- order -->
+  <script src="angular/order/order.js" ></script>
+  <script src="angular/order/controllers/orderCtrl.js" ></script>
   <!-- video -->
   <script src="./angular/contacts/contacts.js" ></script>
   <script src="./angular/contacts/controllers/contactsCtrl.js" ></script>
@@ -114,59 +173,5 @@
     ga('set', 'userId', 'storeUser'); // Задайте User-ID чрез параметъра „user_id“ на влязъл потребител.
     ga('send', 'pageview');
   </script>
-  <script type="application/ld+json">
-    {
-      "@context": "http://schema.org",
-      "@type": "Organization",
-      "name" : "Жиланов ЕООД",
-      "alternateName" : "Онлайн магазин на Жиланов ЕООД",
-      "url": "http://www.jilanov.eu",
-      "logo": "http://www.jilanov.eu/img/logo2.png",
-      "contactPoint" : [{
-        "@type" : "ContactPoint",
-        "telephone" : "+359878466180",
-        "contactType" : "sales",
-        "areaServed" : "BG",
-        "availableLanguage" : ["Bulgarian","English"]
-      }],
-      "sameAs" : [
-        "https://www.facebook.com/Jilanovltd"
-      ],
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Bulgaria, Sofia, Levski G",
-        "addressLocality": "Sofia",
-        "addressRegion": "Sofia",
-        "postalCode": "1836",
-        "addressCountry": "BG"
-      },
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://jilanov.eu/#/search?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "http://schema.org",
-      "@type": "Store",
-      "@id": "http://jilanov.eu",
-      "name": "Жиланов ЕООД",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Bulgaria, Sofia, Levski G",
-        "addressLocality": "Sofia",
-        "addressRegion": "Sofia",
-        "postalCode": "1836",
-        "addressCountry": "BG"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 42.711330,
-        "longitude": 23.375995
-      }
-    }
-    </script>
 </html>
 <!-- TODO: Integrate currency into product list. Integrate better alignment there -->

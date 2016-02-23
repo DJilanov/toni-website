@@ -65,7 +65,7 @@ angular.module('Home')
 				return sortedArray;
 			}
 
-			// used to add products to cart
+			// used to add products to order
 			$scope.addToCart = function(product) {
 				var order = {
 					'date': new Date(),

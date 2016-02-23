@@ -465,6 +465,7 @@ footer {
     padding: 13px 19px 0;
 }
 .box-info-product .exclusive {
+    width: 100%;
     padding: 0;
     border-top: 1px solid #0079b6;
     border-right: 1px solid #006fa8;
@@ -546,6 +547,9 @@ h3.page-product-heading {
 }
 .cartContainer .image-container {
     width: 100%;
+}
+.order {
+    margin-bottom: 50px;
 }
 /* global variables */
 a {

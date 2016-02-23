@@ -38,6 +38,7 @@ var _mainModules = [
     ,'Contacts'
     ,'Carousel'
     ,'Cart'
+    ,'Order'
     ,'vcRecaptcha'
    // ,'infinite-scroll'
     ,'Modals'
@@ -89,6 +90,14 @@ angular.module('app', _mainModules )
             params: {
                 templateUrl: './angular/cart/views/cart.html',
                 controller: 'CartCtrl'
+            }
+        });
+
+        routes.push({
+            name: '/order',
+            params: {
+                templateUrl: './angular/order/views/order.html',
+                controller: 'OrderCtrl'
             }
         });
 

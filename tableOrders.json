@@ -1,0 +1,21 @@
+{
+  "_id": {
+    "$oid": "56cc7acfe4b0fee2d9c4726e"
+  },
+  "date": "Tue Feb 23 2016 17:25:28 GMT+0200 (FLE Standard Time)",
+  "clientName": "Mitko",
+  "clientPhone": "088881",
+  "clientEmail": "mitko@abv.bg",
+  "clientAddress": "Sofia, Levski G",
+  "clientOrders": [
+    {
+      "id": "564a0c51ffc0edc23e6258ae",
+      "amount": "2"
+    },
+    {
+      "id": "566d4d34ec36ddeb05825def",
+      "amount": "1"
+    }
+  ],
+  "type": "order"
+}

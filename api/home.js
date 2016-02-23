@@ -9,10 +9,10 @@
 	var categoryDatabase   = {};
 	// here we save the db with the products
 	var productsDatabase   = {};
-	// here we save the db with the contact iamges and titles
+	// here we save the db with the messages
 	var messageDatabase    = {};
-	// here we save the db with the contact iamges and titles
-	var mainConfigDatabase = {};
+	// here we save the db with the orders
+	var ordersDatabase = {};
 
 	function getCategoryDatabase() {
 		return categoryDatabase;
@@ -24,6 +24,10 @@
 
 	function getMessagesDatabase() {
 		return messageDatabase;
+	}
+
+	function getOrdersDatabase() {
+		return ordersDatabase;
 	}
 
 	function setConfig(loadedConfig) {
@@ -42,15 +46,15 @@
 	    });
 	}
 
-	function updateMainConfigs(collection) {
-		collection.find().toArray(function(err, docs) {
-	        mainConfigDatabase = docs;
-	    });
-	}
-
 	function updateMessages(collection) {
 		collection.find().toArray(function(err, docs) {
 			messageDatabase = docs;
+		});
+	}
+
+	function updateOrders(collection) {
+		collection.find().toArray(function(err, docs) {
+			ordersDatabase = docs;
 		});
 	}
 
@@ -71,6 +75,11 @@
 			mongoose.connection.db.collection('messages', function (err, collection) {
 				collection.find().toArray(function(err, docs) {
 					messageDatabase = docs;
+				});
+			});
+			mongoose.connection.db.collection('orders', function (err, collection) {
+				collection.find().toArray(function(err, docs) {
+					ordersDatabase = docs;
 				});
 			});
 		});
@@ -103,9 +112,10 @@
 	    getCategoryDatabase	 : getCategoryDatabase,
 	    getProductDatabase	 : getProductDatabase,
 		getMessagesDatabase	 : getMessagesDatabase,
+		getOrdersDatabase	 : getOrdersDatabase,
 	    updateProducts		 : updateProducts,
 	    updateCategories	 : updateCategories,
-	    updateMainConfigs	 : updateMainConfigs,
-		updateMessages		 : updateMessages
+		updateMessages		 : updateMessages,
+		updateOrders		 : updateOrders
 	};
 }());

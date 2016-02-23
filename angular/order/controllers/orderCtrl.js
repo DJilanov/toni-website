@@ -3,8 +3,8 @@
  */
 'use strict';
 
-angular.module('Cart')
-    .controller('CartCtrl', ['$scope', 'sharingSvc', '$location', '$rootScope',
+angular.module('Order')
+    .controller('OrderCtrl', ['$scope', 'sharingSvc', '$location', '$rootScope',
         function ($scope, sharingSvc, $location, $rootScope) {
             // we get the language text
             $scope.text = language.getText();
@@ -16,10 +16,12 @@ angular.module('Cart')
             $scope.vault = config.vaults[config.langs.indexOf(language.getLang())];
             // we set the products array
             $scope.products = [];
-            // is the cart empty
+            // is the order empty
             $scope.emptyCart = false;
             // total price
             $scope.totalPrice = 0;
+            // form object
+            $scope.form = {};
             // used if there is no selected product and have to check witch is with this ID
             if((localStorage.getItem('cart'))&&(localStorage.getItem('cart').length > 3)) {
                 $scope.products = JSON.parse(localStorage.getItem('cart'));
@@ -27,19 +29,31 @@ angular.module('Cart')
             } else {
                 $scope.emptyCart = true;
             }
-
-            // we view the product
-            $scope.onProductClick = function(product) {
-                sharingSvc.viewProduct(product);
-                $location.path( "/view/" + product.link);
+            // we send the cart orders
+            $scope.sendCart = function() {
+                var orders = [];
+                for(var productsCounter = 0; productsCounter < $scope.products.length; productsCounter++) {
+                    var product = {};
+                    product.amount = $scope.products[productsCounter].amount;
+                    product.id = $scope.products[productsCounter].product._id;
+                    orders.push(product);
+                }
+                $scope.form.orders = JSON.stringify(orders);
+                sharingSvc.sendOrderForm(orderRecieved, $scope.form);
             };
+
+            function orderRecieved() {
+                alert($scope.text.orderRecieved)
+            }
+
+
             // we view the product
             $scope.removeFromCart = function(product) {
                 var timestamp = Date.parse(product.date);
                 for(var productCounter = 0; productCounter < $scope.products.length; productCounter++) {
                     if(timestamp === Date.parse($scope.products[productCounter].date)) {
                         $scope.products.splice(productCounter, 1);
-                        localStorage.setItem('cart', JSON.stringify($scope.products));
+                        localStorage.setItem('order', JSON.stringify($scope.products));
                         alert($scope.text.removeFromCartSuccess);
                     }
                 }
@@ -54,9 +68,5 @@ angular.module('Cart')
                 for(var productCounter = 0; productCounter < $scope.products.length; productCounter++) {
                     $scope.totalPrice += $scope.products[productCounter].total;
                 }
-            }
-            // go to orders
-            $scope.goToOrders = function() {
-                $location.path( "/order/");
             }
         }]);
