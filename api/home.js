@@ -37,24 +37,28 @@
 	function updateProducts(collection) {
 		collection.find().toArray(function(err, docs) {
 	        productsDatabase = docs;
+			console.log('Update products database');
 	    });
 	}
 
 	function updateCategories(collection) {
 		collection.find().toArray(function(err, docs) {
 	        categoryDatabase = docs;
+			console.log('Update categories database');
 	    });
 	}
 
 	function updateMessages(collection) {
 		collection.find().toArray(function(err, docs) {
 			messageDatabase = docs;
+			console.log('Update messages database');
 		});
 	}
 
 	function updateOrders(collection) {
 		collection.find().toArray(function(err, docs) {
 			ordersDatabase = docs;
+			console.log('Update orders database');
 		});
 	}
 

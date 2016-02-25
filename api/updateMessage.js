@@ -25,8 +25,13 @@
 	}
 	// here we send the element to the database and we return info
 	function sendAndReturn(collection, element, callback) {
+		if(typeof element.form === "string") {
+			var form = JSON.parse(element.form);
+		} else {
+			form = element.form;
+		}
 		var querry = {
-			"_id": ObjectId(element.form._id)
+			"_id": ObjectId(form._id)
 		};
 		if (typeof element.info !== 'string') {
 			element.info = JSON.stringify(element.info)

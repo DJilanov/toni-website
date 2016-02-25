@@ -26,7 +26,7 @@ angular.module('EditOrders')
             };
             // delete message
             $scope.delete = function(order) {
-                var form = { "form": order };
+                var form = order;
                 form.type = order.type;
                 form.delete = "true";
                 sharingSvc.save($scope.onSave, form);
