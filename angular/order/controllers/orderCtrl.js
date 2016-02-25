@@ -36,6 +36,7 @@ angular.module('Order')
                     var product = {};
                     product.amount = $scope.products[productsCounter].amount;
                     product.id = $scope.products[productsCounter].product._id;
+                    product.total = $scope.products[productsCounter].product.total;
                     orders.push(product);
                 }
                 $scope.form.orders = JSON.stringify(orders);
@@ -43,7 +44,8 @@ angular.module('Order')
             };
 
             function orderRecieved() {
-                alert($scope.text.orderRecieved)
+                alert($scope.text.orderRecieved);
+                localStorage.setItem('cart','[]');
             }
 
 

@@ -38,7 +38,8 @@
 			database = {
 				"categories": home.getCategoryDatabase(),
 				"products"  : home.getProductDatabase(),
-				"messages"  : home.getMessagesDatabase()
+				"messages"  : home.getMessagesDatabase(),
+				"orders"	: home.getOrdersDatabase()
 			};
 			return database;
 		}

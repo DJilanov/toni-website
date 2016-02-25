@@ -8,7 +8,8 @@ angular.module('Home').factory('sharingSvc', ['$http', '$location',
     	var response   = null;
     	var products   = null;
     	var categories = null;
-    	var messages    = null;
+    	var messages   = null;
+		var orders 	   = null;
 
     	var userIds = {};
         // we fetch the products and show them. we save them into the array for future direct use
@@ -38,8 +39,9 @@ angular.module('Home').factory('sharingSvc', ['$http', '$location',
 						categories[categoriesCounter].info = JSON.parse(categories[categoriesCounter].info);
 					}
 					messages = response.messages;
+					orders = response.orders;
 
-					callback(products, categories, messages);
+					callback(products, categories, messages, orders);
 				} else {
 					// if tony is a noob
 					alert("WRONG PASSWORD NOOB, DELETE THE GAME PLEASE!");
@@ -117,7 +119,7 @@ angular.module('Home').factory('sharingSvc', ['$http', '$location',
        				$location.path( "/home" );
        			}
        		} else {
-       			callback(products, categories, messages);
+       			callback(products, categories, messages, orders);
        		}
        	}
        	// the idea from that function is that after we get

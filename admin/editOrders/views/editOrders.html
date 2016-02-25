@@ -1,0 +1,91 @@
+<!-- create title, image, description -->
+<div class="welcome">
+    <div>Welcome to the orders edit panel {{name}}!</div>
+    <div>Choose what you want to edit with clicking on it.</div>
+</div>
+<div class="col-lg-12">
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" ng-model="oneAtATime" checked="true">
+            Open only one at a time
+        </label>
+    </div>
+    <accordion class="accordion" close-others="oneAtATime">
+        <accordion-group  ng-repeat="order in orders" is-open="status.isOpen[$index]" >
+            <accordion-heading>
+                <span>{{order.clientName}}</span>
+                <i class="fa chevron-icon" ng-class="{'fa-chevron-down': status.isOpen[$index], 'fa-chevron-right': !status.isOpen[$index]}"></i>
+            </accordion-heading>
+            <form class="form-horizontal spacing-30">
+                <fieldset>
+                    <!-- Form Name -->
+                    <legend>{{order.clientName}}</legend>
+                    <!-- Email Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="nameInput">Order sender email</label>
+                        <div class="col-md-4">
+                            <input id="nameInput" name="nameInput" type="text" class="form-control input-md" ng-model="order.clientEmail">
+                        </div>
+                    </div>
+
+                    <!-- Phone Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="phoneInput">Order sender phone</label>
+                        <div class="col-md-4">
+                            <textarea class="form-control" id="phoneInput" name="phoneInput" ng-model="order.clientPhone"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Date Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="dateInput">Order date</label>
+                        <div class="col-md-4">
+                            <textarea class="form-control" id="dateInput" name="dateInput" ng-model="order.date"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Address Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="addressInput">Order sender address</label>
+                        <div class="col-md-4">
+                            <textarea class="form-control" id="addressInput" name="addressInput" ng-model="order.clientAddress"></textarea>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+            <div ng-repeat="orderItem in order.clientOrders track by $index" class="col-lg-12">
+                <form class="form-horizontal spacing-30">
+                    <!-- Form Name -->
+                    <legend>{{orderItem.product.title}}</legend>
+                    <fieldset>
+                        <!-- Title Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="titleInput">Product description</label>
+                            <div class="col-md-4">
+                                <input id="titleInput" name="titleInput" type="text" class="form-control input-md" ng-model="orderItem.product.description">
+                            </div>
+                        </div>
+
+                        <!-- Description Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="descriptionInput">Product amount</label>
+                            <div class="col-md-4">
+                                <textarea class="form-control" id="descriptionInput" name="descriptionInput" ng-model="orderItem.amount"></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Description Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="priceInput">Product single price</label>
+                            <div class="col-md-4">
+                                <textarea class="form-control" id="priceInput" name="priceInput" ng-model="orderItem.product.newPrice"></textarea>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+
+            <a class="btn btn-danger col-md-12" ng-click="delete(message)">Delete</a>
+        </accordion-group>
+    </accordion>
+</div>

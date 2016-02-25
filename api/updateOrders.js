@@ -33,11 +33,11 @@
         }
         var secondaryQuerry = {
             $set: {
-                'date': element.name,
-                'clientName': element.email,
+                'date': new Date(),
+                'clientName': element.name,
                 'clientPhone': element.phone,
-                'clientEmail': element.message,
-                'clientAddress': element.email,
+                'clientEmail': element.email,
+                'clientAddress': element.address,
                 'clientOrders': element.orders,
                 'type': "order"
             }

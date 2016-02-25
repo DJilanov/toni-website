@@ -31,6 +31,7 @@ var _mainModules = [
     ,'EditProduct'
     ,'EditCategory'
     ,'EditMessages'
+    ,'EditOrders'
    // ,'infinite-scroll'
     ,'ui.bootstrap'
 ];
@@ -89,6 +90,14 @@ angular.module('app', _mainModules )
             params: {
                 templateUrl: './editMessages/views/editMessages.html',
                 controller: 'EditMessagesCtrl'
+            }
+        });
+
+        routes.push({
+            name: '/orders',
+            params: {
+                templateUrl: './editOrders/views/editOrders.html',
+                controller: 'EditOrdersCtrl'
             }
         });
 
