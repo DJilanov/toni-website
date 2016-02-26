@@ -10085,7 +10085,7 @@
 
 var config = {
     carousel_interval: 4e3,
-    api: "http://jilanov.eu:8080/api/home",
+    api: "http://10.22.41.48:8080/api/home",
     imageFront: "/toni-website/img/",
     bigImage: "big",
     smallImage: "small",
@@ -17029,6 +17029,7 @@ var bg = {
     contactFormYourEmail: "Вашата електронна поща",
     contactFormYourEmailEnter: "Въведете вашата електронна поща",
     contactFormYourPhoneNumber: "Въведете вашия телефонен номер",
+    contactFormYourAddress: "Въведете вашия адрес",
     contactFormYourMessage: "Вашето съобщение",
     contactFormSend: "Изпрати",
     productNew: "Нов",
@@ -17043,7 +17044,8 @@ var bg = {
     addToCartSuccess: "Успешно добавяне към количката с поръчки",
     removeFromCartSuccess: "Успешно премахване на поръчката",
     emptyCart: "Количката ви е празна",
-    continueToPay: "Продължаване към поръчване"
+    continueToPay: "Продължаване към поръчване",
+    orderRecieved: "Поръчката е получена успешно!"
 };
 
 var en = {
@@ -21421,7 +21423,7 @@ if (isSafari) {
     document.getElementsByTagName("head")[0].appendChild(link);
 }
 
-var _mainModules = [ "ngRoute", "ngResource", "ui.bootstrap", "ngAnimate", "Services", "Home", "Header", "Login", "Modals", "Product", "View", "Contacts", "Carousel", "Cart", "vcRecaptcha", "Modals" ];
+var _mainModules = [ "ngRoute", "ngResource", "ui.bootstrap", "ngAnimate", "Services", "Home", "Header", "Login", "Modals", "Product", "View", "Contacts", "Carousel", "Cart", "Order", "vcRecaptcha", "Modals" ];
 
 angular.module("app", _mainModules).config([ "$routeProvider", "$httpProvider", function($routeProvider, $httpProvider) {
     $routeProvider.otherwise({
@@ -21457,10 +21459,17 @@ angular.module("app", _mainModules).config([ "$routeProvider", "$httpProvider", 
         }
     });
     routes.push({
+        name: "/cart",
+        params: {
+            templateUrl: "./angular/cart/views/cart.html",
+            controller: "CartCtrl"
+        }
+    });
+    routes.push({
         name: "/order",
         params: {
             templateUrl: "./angular/order/views/order.html",
-            controller: "CartCtrl"
+            controller: "OrderCtrl"
         }
     });
     routes.forEach(function(route) {
@@ -21575,8 +21584,8 @@ angular.module("Cart").controller("CartCtrl", [ "$scope", "sharingSvc", "$locati
     $scope.products = [];
     $scope.emptyCart = false;
     $scope.totalPrice = 0;
-    if (localStorage.getItem("order") && localStorage.getItem("order").length > 3) {
-        $scope.products = JSON.parse(localStorage.getItem("order"));
+    if (localStorage.getItem("cart") && localStorage.getItem("cart").length > 3) {
+        $scope.products = JSON.parse(localStorage.getItem("cart"));
         calculateTotalPrice();
     } else {
         $scope.emptyCart = true;
@@ -21590,7 +21599,7 @@ angular.module("Cart").controller("CartCtrl", [ "$scope", "sharingSvc", "$locati
         for (var productCounter = 0; productCounter < $scope.products.length; productCounter++) {
             if (timestamp === Date.parse($scope.products[productCounter].date)) {
                 $scope.products.splice(productCounter, 1);
-                localStorage.setItem("order", JSON.stringify($scope.products));
+                localStorage.setItem("cart", JSON.stringify($scope.products));
                 alert($scope.text.removeFromCartSuccess);
             }
         }
@@ -21605,6 +21614,9 @@ angular.module("Cart").controller("CartCtrl", [ "$scope", "sharingSvc", "$locati
             $scope.totalPrice += $scope.products[productCounter].total;
         }
     }
+    $scope.goToOrders = function() {
+        $location.path("/order/");
+    };
 } ]);
 
 "use strict";
@@ -21723,6 +21735,19 @@ angular.module("Home").factory("sharingSvc", [ "$http", function($http) {
             }
         });
     }
+    function sendOrderForm(callback, form) {
+        grecaptcha.reset();
+        form.new = "true";
+        $http.post(config.api + "/order", form).success(function(data, status, headers, config) {
+            response = data;
+        }).error(function(data, status, headers, config) {
+            alert("Error on fetching from the server");
+        }).then(function() {
+            if (response != null) {
+                callback(response);
+            }
+        });
+    }
     function setBackgroundIfAvalible(config) {
         if (config.showBackgroundImg) {
             document.getElementById("screen").style.background = "url('img/background.png') no-repeat right top";
@@ -21762,7 +21787,8 @@ angular.module("Home").factory("sharingSvc", [ "$http", function($http) {
         getProducts: getProducts,
         viewProduct: viewProduct,
         getProductToView: getProductToView,
-        sendContactForm: sendContactForm
+        sendContactForm: sendContactForm,
+        sendOrderForm: sendOrderForm
     };
 } ]);
 
@@ -22245,6 +22271,65 @@ angular.module("Modals").factory("signOutDialogSvc", [ "$modal", "loginPath", fu
         open: open
     };
 } ]);
+
+"use strict";
+
+angular.module("Order").controller("OrderCtrl", [ "$scope", "sharingSvc", "$location", "$rootScope", function($scope, sharingSvc, $location, $rootScope) {
+    $scope.text = language.getText();
+    $rootScope.pageTitle = $scope.text.cartPageTitle;
+    $scope.config = config;
+    $scope.vault = config.vaults[config.langs.indexOf(language.getLang())];
+    $scope.products = [];
+    $scope.emptyCart = false;
+    $scope.totalPrice = 0;
+    $scope.form = {};
+    if (localStorage.getItem("cart") && localStorage.getItem("cart").length > 3) {
+        $scope.products = JSON.parse(localStorage.getItem("cart"));
+        calculateTotalPrice();
+    } else {
+        $scope.emptyCart = true;
+    }
+    $scope.sendCart = function() {
+        var orders = [];
+        for (var productsCounter = 0; productsCounter < $scope.products.length; productsCounter++) {
+            var product = {};
+            product.amount = $scope.products[productsCounter].amount;
+            product.id = $scope.products[productsCounter].product._id;
+            product.total = $scope.products[productsCounter].product.total;
+            orders.push(product);
+        }
+        $scope.form.orders = JSON.stringify(orders);
+        sharingSvc.sendOrderForm(orderRecieved, $scope.form);
+    };
+    function orderRecieved() {
+        alert($scope.text.orderRecieved);
+        localStorage.setItem("cart", "[]");
+    }
+    $scope.removeFromCart = function(product) {
+        var timestamp = Date.parse(product.date);
+        for (var productCounter = 0; productCounter < $scope.products.length; productCounter++) {
+            if (timestamp === Date.parse($scope.products[productCounter].date)) {
+                $scope.products.splice(productCounter, 1);
+                localStorage.setItem("order", JSON.stringify($scope.products));
+                alert($scope.text.removeFromCartSuccess);
+            }
+        }
+        if ($scope.products.length === 0) {
+            $scope.emptyCart = true;
+        }
+        calculateTotalPrice();
+    };
+    function calculateTotalPrice() {
+        $scope.totalPrice = 0;
+        for (var productCounter = 0; productCounter < $scope.products.length; productCounter++) {
+            $scope.totalPrice += $scope.products[productCounter].total;
+        }
+    }
+} ]);
+
+"use strict";
+
+angular.module("Order", []).config(function() {}).constant("homePath", "/home");
 
 "use strict";
 

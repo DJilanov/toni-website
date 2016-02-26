@@ -11,7 +11,7 @@ angular.module('EditOrders')
                     orders[ordersCounter].clientOrders = JSON.parse(orders[ordersCounter].clientOrders);
                 }
                 // needs refactor
-                for(var ordersCounter = 0; ordersCounter < orders.length - 1; ordersCounter++) {
+                for(var ordersCounter = 0; ordersCounter < orders.length; ordersCounter++) {
                     for(var clientOrdersCounter = 0; clientOrdersCounter < orders[ordersCounter].clientOrders.length; clientOrdersCounter++) {
                         for(var categoriesCounter = 0; categoriesCounter < products.length; categoriesCounter++) {
                             for(var productsCounter = 0; productsCounter < products[categoriesCounter].length; productsCounter++) {

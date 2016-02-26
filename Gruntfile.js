@@ -72,7 +72,7 @@ module.exports = function (grunt) {
                         flatten: true,
                         cwd: 'third-party/',
                         src: 'please-wait/build/*',
-                        dest: 'build/js/please-wait/'
+                        dest: 'build/please-wait/'
                     }
                 ]
                 
