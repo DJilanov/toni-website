@@ -1,0 +1,108 @@
+<div class="viewPage container" itemscope itemtype="http://schema.org/Product">
+    <div class="addthis_sharing_toolbox"></div>
+     <!-- create title, image, description -->
+     <div class="col-xs-12 col-sm-3 col-md-4 product-image">
+        <!-- image -->
+        <span class="helper"></span>
+        <img itemprop="image" ng-if="product.image" ng-src="{{'./img/' + config.bigImage + product._id + '.png' + '?' + time}}" alt="{{product.description}}">
+        <img itemprop="image" ng-if="product.image == false" ng-src="{{'./img/blank.png' + '?' + time}}" alt="{{product.description}}">
+         <a class="new-box box" ng-show="model.isNew !== 'false'">
+             <span>{{text.productNew}}</span>
+         </a>
+         <a class="offer-box box" ng-show="model.dailyOffer !== 'false'">
+             <span>{{text.productOffer}}</span>
+         </a>
+         <a class="over-box box" ng-show="model.count == '0'">
+             <span>{{text.productOver}}</span>
+         </a>
+         <!-- showed on hover -->
+         <a class="quick-view-button">
+             <span>{{text.productViewMore}} <i class="fa fa-search"></i></span>
+         </a>
+     </div>
+     <!-- Product info -->
+     <div class="col-xs-12 col-sm-3 col-md-4">
+         <!-- title -->
+         <h3 itemprop="name">{{product.title}}</h3>
+         <!-- attention -->
+         <div class='blue'>
+           <div itemprop="description">{{product.description}}</div>
+         </div>
+     </div>
+     <!-- Pay product -->
+     <div class="col-xs-12 col-sm-3 col-md-4 break">
+        <div class="box-info-product">
+            <div class="content_prices clearfix">
+                <!-- prices -->
+                <div>
+                    <p id="new_price"><span>{{product.newPrice}}</span><span content="BG"> {{vault}}</span></p>
+                    <p id="old_price" ng-show="product.oldPrice"><span class="oldPrice">{{product.oldPrice}}</span><span class="difference">{{product.difference}}</span></p>
+                </div>
+            </div> <!-- end content_prices -->
+            <div class="product_attributes clearfix">
+                <!-- quantity wanted -->
+                <p id="quantity_wanted_p">
+                    <label for="quantity_wanted">{{text.productAmount}}</label>
+                    <input type="number" min="1" name="qty" id="quantity_wanted" class="text" value="1" ng-model="product.amount">
+                    <a data-field-qty="qty" class="btn btn-default button-minus product_quantity_down" ng-click="increaseAmount(false)">
+                        <span><i class="icon-minus fa fa-minus"></i></span>
+                    </a>
+                    <a data-field-qty="qty" class="btn btn-default button-plus product_quantity_up" ng-click="increaseAmount(true)">
+                        <span><i class="icon-plus fa fa-plus"></i></span>
+                    </a>
+                    <span class="clearfix"></span>
+                </p>
+                <!-- minimal quantity wanted -->
+                <p id="minimal_quantity_wanted_p" style="display: none;">
+                    {{text.productMinAmount}} <b id="minimal_quantity_label">1</b>
+                </p>
+            </div> <!-- end product_attributes -->
+            <div class="box-cart-bottom">
+                <div>
+                    <p id="add_to_cart" class="buttons_bottom_block no-print">
+                        <button type="submit" name="Submit" class="exclusive" ng-click="addToCart()">
+                            <span>{{text.productAddToCart}}</span>
+                        </button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hidden">
+        <div class="content_price" itemprop="offers" itemscope="" itemtype="https://schema.org/Offer">
+            <span itemprop="price" class='newPrice'>oт 20 Лева</span>
+            <span itemprop="priceCurrency" content="BGN">{{vault}}</span>
+        </div>
+      <span itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+        <span itemprop="ratingValue">4.8</span> звезди, базирани на <span itemprop="reviewCount">89
+          </span> ревюта
+      </span>
+      <span itemprop="offers" itemscope itemtype="http://schema.org/AggregateOffer">
+        от <span itemprop="lowPrice">20</span> to
+        <span itemprop="highPrice">100</span> лева
+        <meta itemprop="priceCurrency" content="BGN" />
+      </span>
+    </div>
+    <section class="page-product-box col-xs-12">
+        <h3 class="page-product-heading">{{text.productMoreInfo}}</h3>
+        <!-- full description -->
+        <div class="rte">
+            {{product.detailsViewInfo}}
+        </div>
+    </section>
+    <ol vocab="http://schema.org/" typeof="BreadcrumbList" class="hidden">
+        <li property="itemListElement" typeof="ListItem">
+            <a property="item" typeof="WebPage"
+               href="https://jilanov.eu/home">
+                <span property="name">Жиланов ЕООД</span></a>
+            <meta property="position" content="1">
+        </li>
+        ›
+        <li property="itemListElement" typeof="ListItem">
+            <a property="item" typeof="WebPage"
+               href="https://jilanov.eu/{{product.link}}">
+                <span property="name">{{product.title}}</span></a>
+            <meta property="position" content="2">
+        </li>
+    </ol>
+</div>

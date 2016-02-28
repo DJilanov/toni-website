@@ -1,0 +1,111 @@
+<div class="container dealsContainer cartContainer">
+    <div class="col-xs-8">
+        <form ng-submit="submitForm()" ng-show="!emptyCart">
+            <div class="col-lg-12 order">
+                <div class="form-group">
+                    <label for="InputName">{{text.contactFormYourName}}</label>
+
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="InputName" id="InputName"
+                               placeholder="{{text.contactFormYourNameEnter}}" ng-model="form.name" required>
+                        <span class="input-group-addon"><i
+                                class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
+                </div>
+                <div class="form-group">
+                    <label for="InputEmail">{{text.contactFormYourEmail}}</label>
+
+                    <div class="input-group">
+                        <input type="email" class="form-control" id="InputEmail" name="InputEmail"
+                               placeholder="{{text.contactFormYourEmailEnter}}" ng-model="form.email" required>
+                        <span class="input-group-addon"><i
+                                class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
+                </div>
+                <div class="form-group">
+                    <label for="InputEmail">{{text.contactFormYourPhoneNumber}}</label>
+
+                    <div class="input-group">
+                        <input type="phone" class="form-control" id="InputPhone" name="InputPhone"
+                               placeholder="{{text.contactFormYourPhoneNumber}}" ng-model="form.phone" required>
+                        <span class="input-group-addon"><i
+                                class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
+                </div>
+                <div class="form-group">
+                    <label for="InputAdress">{{text.contactFormYourAddress}}</label>
+
+                    <div class="input-group">
+                        <input type="InputAdress" class="form-control" id="InputAdress" name="InputAdress"
+                               placeholder="{{text.contactFormYourAddress}}" ng-model="form.address" required>
+                        <span class="input-group-addon"><i
+                                class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
+                </div>
+                <div vc-recaptcha key="'6Lf10xETAAAAAFoODW33iIglPTpRXndsVkUmUOQh'"></div>
+            </div>
+        </form>
+        <div class="product col-xs-6 first-in-line last-line first-item-of-mobile-line" ng-repeat="model in products">
+            <div class="product-image-container">
+                <!-- create title, image, description -->
+                <!-- image -->
+                <div class="image-container">
+                    <img ng-if="model.product.image" ng-src="{{'./img/' + config.smallImage + model.product._id + '.png' + '?' + time}}" alt="{{model.product.imageDescription}}">
+                    <img ng-if="model.product.image == false" ng-src="{{'./img/blank.png' + '?' + time}}" alt="{{model.product.imageDescription}}">
+                </div>
+                <!-- title -->
+                <h1>{{model.product.title}}</h1>
+
+                <!-- attention -->
+                <h2 class='descriptionProduct'>
+                    <span>{{model.product.description}}</span>
+                </h2>
+                <div class='productPrice'>
+                    <span class='newPrice'>{{model.product.newPrice}}</span><span> {{vault}}</span>
+                </div>
+                <a class="new-box box" ng-show="model.product.isNew">
+                    <span>{{text.productNew}}</span>
+                </a>
+                <a class="offer-box box" ng-show="model.dailyOffer">
+                    <span>{{text.productOffer}}</span>
+                </a>
+                <a class="over-box box" ng-show="model.count == '0'">
+                    <span>{{text.productOver}}</span>
+                </a>
+                <!-- showed on hover -->
+                <a class="quick-view-button">
+                    <span>{{text.productView}}</span>
+                </a>
+                <!-- showed on hover -->
+                <a class="remove-from-cart-button" ng-click="removeFromCart(model); $event.stopPropagation();">
+                    <span>X</span>
+                </a>
+                <div class="content_price">
+                    <span class='newPrice'  ng-show="model.amount > 1">{{model.amount}} X {{model.product.newPrice}} = {{model.total}}</span>
+                    <span class='newPrice'  ng-show="model.amount == 1">{{model.product.newPrice}}</span>
+                    <span> {{vault}}</span>
+                </div>
+            </div>
+        </div>
+
+        <div ng-show="emptyCart" class="rightText">
+            В момента нямате продукти в количката
+        </div>
+    </div>
+    <!-- Pay product -->
+    <div class="col-xs-4" ng-show="!emptyCart">
+        <div class="box-info-product">
+            <div class="content_prices clearfix">
+                <!-- prices -->
+                <div>
+                    <p id="new_price"><span>{{totalPrice}}</span><span> {{vault}}</span></p>
+                </div>
+            </div>
+            <div class="box-cart-bottom">
+                <div>
+                    <p id="add_to_cart" class="buttons_bottom_block no-print">
+                        <button type="submit" name="Submit" class="exclusive" ng-click="sendCart()">
+                            <span>{{text.contactFormSend}}</span>
+                        </button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

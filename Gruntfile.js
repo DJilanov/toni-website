@@ -18,29 +18,6 @@ module.exports = function (grunt) {
             }
         },
 
-        replace: {
-            replaceHtml: {
-                src: ['index.html'],
-                dest: 'build/',
-                replacements: [{
-                    from: /<script([^<]*)<\/script>/g,
-                    to: ''
-                }, {
-                    from: /<link([^<]*)>/g,
-                    to: ''
-                }, {
-                    from: '<!-- Angular js file -->',
-                    to: '<script src="js/angular.js"></script>'
-                }, {
-                    from: '<!-- Develop js file -->',
-                    to: '<script src="js/scripts.js"></script><script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBbPzFEwNVTHNoZ-bz7YYqO1eMRPqTyUA&signed_in=true&libraries=places&maxResults=10"async defer></script>'
-                }, {
-                    from: '<!-- Develop css file -->',
-                    to: '<link rel="stylesheet" type="text/css" href="css/styles.css">'
-                }]
-            }
-        },
-
         uglify: {
             dist: {
                 options: {
@@ -50,6 +27,7 @@ module.exports = function (grunt) {
                 },
                 files: {
                     'build/js/scripts.js': [
+                        'js/angular.min.js',
                         'js/*.js',
                         'language/*.js',
                         'third-party/bootstrap-3.1.1-dist/js/bootstrap.min.js',
@@ -57,7 +35,18 @@ module.exports = function (grunt) {
                         'js/angular-route/angular-route.min.js',
                         'third-party/angular-animate/angular-animate.min.js', 
                         'third-party/angular-bootstrap/ui-bootstrap.min.js', 
-                        'angular/**/*.js', 
+                        'angular/carousel/carousel.js',  
+                        'angular/cart/cart.js',  
+                        'angular/contacts/contacts.js',  
+                        'angular/header/header.js',  
+                        'angular/home/home.js',  
+                        'angular/login/login.js',  
+                        'angular/order/order.js',  
+                        'angular/product/product.js',  
+                        'angular/view/view.js', 
+                        'angular/modal/modal.js', 
+                        'angular/**/*.js',  
+                        '!angular/app.js',
                         'angular/app.js'
                     ]
                 }
@@ -73,9 +62,57 @@ module.exports = function (grunt) {
                         cwd: 'third-party/',
                         src: 'please-wait/build/*',
                         dest: 'build/please-wait/'
-                    }
+                    },
+                    {
+                        expand: true,
+                        flatten: true,
+                        cwd: './',
+                        src: 'img/*',
+                        dest: 'build/img/'
+                    },
+                    {
+                        expand: true,
+                        flatten: true,
+                        cwd: './',
+                        src: 'package.json',
+                        dest: 'build/'
+                    },
+                    {
+                        expand: true,
+                        flatten: false,
+                        cwd: './angular/',
+                        src: '*/views/*.html',
+                        dest: 'build/angular/'
+                    },
                 ]
                 
+            }
+        },
+
+        replace: {
+            replaceHtml: {
+                src: ['index.html'],
+                dest: 'build/',
+                replacements: [{
+                    from: /<script([^<]*)<\/script>/g,
+                    to: ''
+                }, {
+                    from: /<link([^<]*)>/g,
+                    to: ''
+                }, {
+                    from: '<!-- Develop js file -->',
+                    to: '<script src="./please-wait/please-wait.min.js"></script>'+
+                        '<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBbPzFEwNVTHNoZ-bz7YYqO1eMRPqTyUA"></script>'+
+                        '<script async defer src="https://www.google.com/recaptcha/api.js?onload=vcRecaptchaApiLoaded&render=explicit&hl=bg"></script>'+
+                        '<script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56c639435b6223f9"></script>'+
+                        '<script src="./js/scripts.js"></script>'
+                }, {
+                    from: '<!-- Develop css file -->',
+                    to: '<link rel="stylesheet" type="text/css" href="./css/styles.css">'+
+                        '<link rel="stylesheet" type="text/css" href="./please-wait/please-wait.css">'+
+                        '<link rel="shortcut icon" href="./img/logo2.png" />'+
+                        '<link rel="alternate" hreflang="bg" href="http://jilanov.eu"/>'
+                }]
             }
         }
 
@@ -96,6 +133,6 @@ module.exports = function (grunt) {
 
 
     grunt.registerTask ('release', ['clean', 'jshint', 'concat', 'replace', 'angular-builder', 'uglify', 'copy']);
-    grunt.registerTask ('debug', ['clean', 'concat', 'uglify', 'copy']);
+    grunt.registerTask ('debug', ['clean', 'concat', 'uglify', 'copy', 'replace']);
 
 };

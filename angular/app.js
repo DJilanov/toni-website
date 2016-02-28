@@ -28,11 +28,11 @@ var _mainModules = [
   //  ,'ngMock'
   //  ,'ngLocale'
    // ,'pasvaz.bindonce'
-    ,'Services'
+    //,'Services'
     ,'Home'
     ,'Header'
     ,'Login'
-    ,'Modals'
+    //,'Modals'
     ,'Product'
     ,'View'
     ,'Contacts'
@@ -41,7 +41,7 @@ var _mainModules = [
     ,'Order'
     ,'vcRecaptcha'
    // ,'infinite-scroll'
-    ,'Modals'
+   // ,'Modals'
 ];
 
 angular.module('app', _mainModules )
