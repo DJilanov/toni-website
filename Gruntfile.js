@@ -33,8 +33,9 @@ module.exports = function (grunt) {
                         'third-party/bootstrap-3.1.1-dist/js/bootstrap.min.js',
                         'js/angular-resource/angular-resource.min.js', 
                         'js/angular-route/angular-route.min.js',
-                        'third-party/angular-animate/angular-animate.min.js', 
-                        'third-party/angular-bootstrap/ui-bootstrap.min.js', 
+                        'third-party/angular-animate/angular-animate.min.js',
+                        'third-party/angular-bootstrap/ui-bootstrap.min.js',
+                        'third-party/angular-bootstrap/ui-bootstrap-tpls.min.js',
                         'angular/carousel/carousel.js',  
                         'angular/cart/cart.js',  
                         'angular/contacts/contacts.js',  
@@ -105,7 +106,10 @@ module.exports = function (grunt) {
                         '<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBbPzFEwNVTHNoZ-bz7YYqO1eMRPqTyUA"></script>'+
                         '<script async defer src="https://www.google.com/recaptcha/api.js?onload=vcRecaptchaApiLoaded&render=explicit&hl=bg"></script>'+
                         '<script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56c639435b6223f9"></script>'+
-                        '<script src="./js/scripts.js"></script>'
+                        '<script src="./js/scripts.js"></script>' +
+                        '<script> window.loading_screen.finish(); </script>'+
+                        '<script>'+
+                        "(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','//www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-74039352-1', 'auto'); ga('set', 'userId', 'storeUser'); ga('send', 'pageview'); </script>"
                 }, {
                     from: '<!-- Develop css file -->',
                     to: '<link rel="stylesheet" type="text/css" href="./css/styles.css">'+
@@ -133,6 +137,6 @@ module.exports = function (grunt) {
 
 
     grunt.registerTask ('release', ['clean', 'jshint', 'concat', 'replace', 'angular-builder', 'uglify', 'copy']);
-    grunt.registerTask ('debug', ['clean', 'concat', 'uglify', 'copy', 'replace']);
+    grunt.registerTask ('build', ['clean', 'concat', 'uglify', 'copy', 'replace']);
 
 };
