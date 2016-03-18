@@ -85,6 +85,13 @@ module.exports = function (grunt) {
                         src: '*/views/*.html',
                         dest: 'build/angular/'
                     },
+                    {
+                        expand: true,
+                        flatten: false,
+                        cwd: './third-party/bootstrap-3.1.1-dist/fonts/',
+                        src: '*.*',
+                        dest: 'build/fonts/'
+                    },
                 ]
                 
             }
