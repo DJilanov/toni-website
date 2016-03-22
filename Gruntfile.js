@@ -18,12 +18,22 @@ module.exports = function (grunt) {
             }
         },
 
+        cssmin: {
+            target: {
+                files: [{
+                    expand: true,
+                    cwd: 'release/css',
+                    src: 'build/css/styles.css',
+                    dest: 'build/css/'
+                }]
+            }
+        },
+
         uglify: {
             dist: {
                 options: {
-                    mangle: false,
-                    compress: false,
-                    beautify: true
+                    mangle: true,
+                    compress: true
                 },
                 files: {
                     'build/js/scripts.js': [
@@ -91,7 +101,7 @@ module.exports = function (grunt) {
                         cwd: './third-party/bootstrap-3.1.1-dist/fonts/',
                         src: '*.*',
                         dest: 'build/fonts/'
-                    },
+                    }
                 ]
                 
             }
@@ -139,11 +149,10 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
 
     // Test tasks below can also be executed with the command line option `--build debug` to generate debug builds.
 
-
-    grunt.registerTask ('release', ['clean', 'jshint', 'concat', 'replace', 'angular-builder', 'uglify', 'copy']);
-    grunt.registerTask ('build', ['clean', 'concat', 'uglify', 'copy', 'replace']);
+    grunt.registerTask ('build', ['clean', 'concat', 'cssmin', 'uglify', 'copy', 'replace']);
 
 };
