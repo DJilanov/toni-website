@@ -22,8 +22,8 @@ module.exports = function (grunt) {
             target: {
                 files: [{
                     expand: true,
-                    cwd: 'release/css',
-                    src: 'build/css/styles.css',
+                    cwd: 'build/',
+                    src: 'css/styles.css',
                     dest: 'build/css/'
                 }]
             }
