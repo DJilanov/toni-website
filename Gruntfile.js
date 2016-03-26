@@ -24,7 +24,7 @@ module.exports = function (grunt) {
                     expand: true,
                     cwd: 'build/',
                     src: 'css/styles.css',
-                    dest: 'build/css/'
+                    dest: 'build/'
                 }]
             }
         },
