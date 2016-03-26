@@ -90,6 +90,27 @@ module.exports = function (grunt) {
                     },
                     {
                         expand: true,
+                        flatten: true,
+                        cwd: './',
+                        src: 'robots.txt',
+                        dest: 'build/'
+                    },
+                    {
+                        expand: true,
+                        flatten: true,
+                        cwd: './',
+                        src: 'sitemap.xml',
+                        dest: 'build/'
+                    },
+                    {
+                        expand: true,
+                        flatten: true,
+                        cwd: './',
+                        src: 'README.md',
+                        dest: 'build/'
+                    },
+                    {
+                        expand: true,
                         flatten: false,
                         cwd: './angular/',
                         src: '*/views/*.html',
