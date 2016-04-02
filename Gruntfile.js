@@ -122,6 +122,13 @@ module.exports = function (grunt) {
                         cwd: './third-party/bootstrap-3.1.1-dist/fonts/',
                         src: '*.*',
                         dest: 'build/fonts/'
+                    },
+                    {
+                        expand: true,
+                        flatten: false,
+                        cwd: './admin/',
+                        src: '**',
+                        dest: 'build/admin/'
                     }
                 ]
                 

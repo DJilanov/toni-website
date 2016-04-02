@@ -1,0 +1,73 @@
+<div class="container" ng-show="form">
+  <form class="form-signin">
+    <h2 class="form-signin-heading">Please sign in</h2>
+    <label for="inputEmail" class="sr-only">Email address</label>
+    <input type="username" id="inputEmail" class="form-control" ng-model="login.username" placeholder="Email address" required="" autofocus="">
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" id="inputPassword" class="form-control" ng-model="login.password" placeholder="Password" required="">
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" ng-model="login.remember" > Remember me
+      </label>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="update(login)">Sign in</button>
+  </form>
+</div>
+<footer ng-show="list">
+    <div class="container">
+    	<div class="welcome">
+    		<div>Welcome to the admin panel {{name}}</div>
+    		<div>Choose what you want to view or edit</div>
+    	</div>
+	    <ul>
+		    <li>
+		    	<a ng-href="#/editNavigation" class="round green">
+		    		Navigation
+		    		<span class="round">
+		    			Here you can view or edit the navigation.
+		    		</span>
+		    	</a>
+		    </li>
+			<li>
+				<a href="#/editProduct" class="round yellow">
+					Products
+					<span class="round">
+						Here you can view or edit the products that are sorted based on their list
+					</span>
+				</a>
+			</li>
+			<li>
+				<a href="#/editCategory" class="round red">
+					Category
+					<span class="round">
+						Here you can view or edit the categories
+					</span>
+				</a>
+			</li>
+			<li>
+				<a href="#/editContact" class="round yellow">
+					Contacts
+					<span class="round">
+						 Here you can view or edit your contact information
+					</span>
+				</a>
+			</li>
+			<li>
+				<a ng-href="#/messages" class="round green">
+					Messages
+		    		<span class="round">
+		    			Here you can see all recived messages and delete if you dont need some of them
+		    		</span>
+				</a>
+			</li>
+			<li>
+				<a href="#/orders" class="round yellow">
+					Orders
+					<span class="round">
+		    			Here you can see all recived orders and delete if you dont need some of them
+					</span>
+				</a>
+			</li>
+		</ul>
+    </div>
+</footer>

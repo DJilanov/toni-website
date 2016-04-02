@@ -1,0 +1,140 @@
+<!-- create title, image, description -->
+<div class="welcome">
+	<div>Welcome to the product edit panel {{name}}!</div>
+	<div>Choose what you want to edit with clicking on it.</div>
+</div>
+<div class="col-lg-12">
+    <div class="checkbox">
+    	<label>
+     		<input type="checkbox" ng-model="oneAtATime" checked="true">
+      		Open only one at a time
+    	</label>
+  	</div>
+	<accordion class="accordion" close-others="oneAtATime">
+        <accordion-group  ng-repeat="categorie in categories" is-open="status.isOpen[$index]" >
+            <accordion-heading>
+                <span>{{categorie.info.bg.title}}</span>
+                <span class="badge">{{categorySize[$index]}}</span>
+                <i class="fa chevron-icon" ng-class="{'fa-chevron-down': status.isOpen[$index], 'fa-chevron-right': !status.isOpen[$index]}"></i>
+            </accordion-heading>
+            <div ng-repeat="product in products[$index] track by $index" class="col-lg-12">
+            	<form class="form-horizontal spacing-30">
+					<fieldset>
+						<!-- Form Name -->
+						<legend>{{product.title}}</legend>
+						<div class="pull-right" ng-show="product.new !== undefined">New</div>
+						<!-- Append image Input-->
+						<div class="form-group">
+						  <label class="col-md-4 control-label">Product image</label>
+						  <div class="col-md-4">
+						    <div class="input-group">
+	      					  <input type="file" name="fileUpload" onchange="angular.element(this).scope().upload(this.files, this.getAttribute('data'), this.getAttribute('data2'))" data="{{product._id}}" data2="{{product.newId}}"/>
+						    </div>
+						  </div>
+						</div>
+
+						<!-- Title Text input-->
+						<div class="form-group">
+						  <label class="col-md-4 control-label" for="titleInput">Product title</label>
+						  <div class="col-md-4">
+						    <input id="titleInput" name="titleInput" type="text" class="form-control input-md" ng-model="product.title">
+						  </div>
+						</div>
+
+                        <!-- Description Text input-->
+						<div class="form-group">
+						  <label class="col-md-4 control-label" for="descriptionInput">Product description</label>
+						  <div class="col-md-4">
+						    <textarea class="form-control" id="descriptionInput" name="descriptionInput" ng-model="product.description"></textarea>
+						  </div>
+						</div>
+
+						<!-- Daily offers checkbox -->
+						<div class="form-group">
+						  <label class="col-md-4 control-label" for="dailyOffersCheckbox">Is it shown on daily offers</label>
+						  <div class="col-md-4">
+							<input id="dailyOffersCheckbox" name="dailyOffersCheckbox" type="checkbox" ng-model="product.dailyOffer" ng-checked="product.dailyOffer" aria-label="Slave input">
+						  </div>
+						</div>
+
+						<!-- Is it new checkbox -->
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="isNewCheckbox">Does it need new label</label>
+							<div class="col-md-4">
+								<input id="isNewCheckbox" name="isNewCheckbox" type="checkbox" ng-model="product.isNew" ng-checked="product.isNew" aria-label="Slave input">
+							</div>
+						</div>
+
+						<!-- Add it at carousel -->
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="isonCarousel">Shall we show it to the carousel</label>
+							<div class="col-md-4">
+								<input id="isonCarousel" name="isNewCheckbox" type="checkbox" ng-model="product.carousel" ng-checked="product.carousel" aria-label="Slave input">
+							</div>
+						</div>
+
+						<!-- More info input-->
+						<div class="form-group">
+						  <label class="col-md-4 control-label" for="moreInfoInput">Product more info</label>
+						  <div class="col-md-4">
+						    <input id="moreInfoInput" name="moreInfoInput" type="text" class="form-control input-md" ng-model="product.moreInfo">
+						  </div>
+						</div>
+
+						<!-- Details view info textarea-->
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="detailsViewInfo">Product details view additional info</label>
+							<div class="col-md-4">
+								<textarea id="detailsViewInfo" name="moreInfoInput"  class="form-control input-md" rows="5" ng-model="product.detailsViewInfo"></textarea>
+							</div>
+						</div>
+
+						<!-- Count input-->
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="countInput">Product count left</label>
+							<div class="col-md-4">
+								<input id="countInput" name="countInput" type="text" class="form-control input-md" ng-model="product.count">
+							</div>
+						</div>
+
+						<!-- Index of element on the page-->
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="zIndexInput">Index of product on the page</label>
+							<div class="col-md-4">
+								<input id="zIndexInput" name="countInput" type="text" class="form-control input-md" ng-model="product.zIndex">
+							</div>
+						</div>
+
+						<!-- New price input-->
+						<div class="form-group">
+						  <label class="col-md-4 control-label" for="newPriceInput">Product new price</label>
+						  <div class="col-md-4">
+						    <input id="newPriceInput" name="newPriceInput" type="text" class="form-control input-md" ng-model="product.newPrice">
+						  </div>
+						</div>
+
+						<!-- Old price input-->
+						<div class="form-group">
+						  <label class="col-md-4 control-label" for="oldPriceinput">Product old price</label>
+						  <div class="col-md-4">
+						    <input id="oldPriceinput" name="oldPriceinput" type="text" class="form-control input-md" ng-model="product.oldPrice">
+						  </div>
+						</div>
+
+						<!-- link input-->
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="linkInput">Product link name</label>
+							<div class="col-md-4">
+								<input id="linkInput" name="linkInput" type="text" class="form-control input-md" ng-model="product.link">
+							</div>
+						</div>
+
+						<a class="btn btn-info  col-md-6" ng-click="save(product)">Save</a>
+						<a class="btn btn-danger col-md-6" ng-click="delete(product)">Delete</a>
+						<a class="btn btn-primary col-md-12" ng-click="add(product.category)" ng-show="$last">Add new product</a>
+					</fieldset>
+				</form>
+			</div>
+        </accordion-group>
+    </accordion>
+</div>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta charset="utf-8">
+    <meta content="f u" name="description">
+    <title>Admin Panel - Toni Website</title>
+    <link href="./css/normalize.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="./css/site.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="./css/mediaQuery.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="./third-party/font-awesome-4.0.3/css/font-awesome.min.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="./third-party/bootstrap-3.3.4-dist/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="./img/logo2.png" />
+    <!-- scripts -->
+    <script src="./js/config.js" ></script>
+    <script src="./js/jquery.min.js" ></script>
+    <script src="./js/site.js" ></script>
+    <script src="./third-party/bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
+    <script src="./js/angular.min.js" ></script>
+    <script src="./js/angular-route/angular-route.min.js" ></script>
+    <script src="./js/angular-resource/angular-resource.min.js" ></script>
+    <script src="./js/ui-bootstrap-tpls-0.13.3.min.js"></script>
+    <!-- angular -->
+    <script src="./app.js" ></script>
+    <!-- login -->
+    <script src="./home/home.js" ></script>
+    <script src="./home/controllers/homeCtrl.js" ></script>
+    <!-- edit navigation -->
+    <script src="./editNavigation/editNavigation.js" ></script>
+    <script src="./editNavigation/controllers/editNavigationCtrl.js" ></script>
+    <!-- edit product -->
+    <script src="./editProduct/editProduct.js" ></script>
+    <script src="./editProduct/controllers/editProductCtrl.js"></script>
+    <!-- edit category -->
+    <script src="./editCategory/editCategory.js" ></script>
+    <script src="./editCategory/controllers/editCategoryCtrl.js"></script>
+    <!-- edit messages -->
+    <script src="./editMessages/editMessages.js" ></script>
+    <script src="./editMessages/controllers/editMessagesCtrl.js"></script>
+    <!-- edit orders -->
+    <script src="./editOrders/editOrders.js" ></script>
+    <script src="./editOrders/controllers/editOrdersCtrl.js"></script>
+    <!-- sharing -->
+    <script src="./directives/sharingSvc.js" ></script>
+  </head>
+  <body ng-app="app">
+    <div ng-class="{ mainContainer:!loginPage,staticHeight:infScroll }" ng-view></div>
+    <!-- <div class="container" ng-view></div> -->
+    <!-- used for dark background -->
+    <div class="overlay hide"></div>
+  </body>
+</html>
+<!-- TODO: Integrate currency into product list. Integrate better alignment there -->
