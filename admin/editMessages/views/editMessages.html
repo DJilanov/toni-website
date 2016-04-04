@@ -4,6 +4,14 @@
             <!-- Form Name -->
             <legend>{{message.email}}</legend>
 
+            <!-- Date Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="dateInput">Message date</label>
+                <div class="col-md-4">
+                    <input id="dateInput" name="dateInput" type="text" class="form-control input-md" ng-model="message.date">
+                </div>
+            </div>
+
             <!-- Name Text input-->
             <div class="form-group">
                 <label class="col-md-4 control-label" for="nameInput">Message sender name</label>

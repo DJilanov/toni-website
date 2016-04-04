@@ -42,6 +42,7 @@
 				'email': element.form.email,
 				'phone': element.form.phone,
 				'message': element.form.message,
+				'date': new Date(),
 				'type': "message"
 			}
 		};
