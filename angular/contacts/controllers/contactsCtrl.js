@@ -38,11 +38,7 @@ angular.module('Contacts')
 						'form':$scope.form,
 						'g-recaptcha-response':vcRecaptchaService.getResponse()  //send g-captcah-reponse to our server
 					};
-					sharingSvc.sendContactForm(recievedMessage ,post_data);
+					sharingSvc.sendContactForm(post_data);
 				}
 			};
-
-			function recievedMessage() {
-				alert('Съобщението е изпратено!');
-			}
 		}]);

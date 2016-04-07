@@ -82,6 +82,16 @@ app.get('/api/admin', function (req, res){
 	res.json(database);
 });
 
+app.post('/api/login', function (req, res) {
+	console.log('[Server.js]Post request to login');
+	home.loginUser(req.query, res);
+});
+
+app.post('/api/register', function (req, res) {
+	console.log('[Server.js]Post request to register');
+	home.registerUser(req.query, res);
+});
+
 app.post('/api/admin/product', upload.single('file'), function (req, res){
 	console.log('[Server.js]Post request to products');
 	if(req.file !== undefined) {

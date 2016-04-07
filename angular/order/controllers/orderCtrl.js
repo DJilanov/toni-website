@@ -40,13 +40,8 @@ angular.module('Order')
                     orders.push(product);
                 }
                 $scope.form.orders = JSON.stringify(orders);
-                sharingSvc.sendOrderForm(orderRecieved, $scope.form);
+                sharingSvc.sendOrderForm($scope.form);
             };
-
-            function orderRecieved() {
-                alert($scope.text.orderRecieved);
-                localStorage.setItem('cart','[]');
-            }
 
 
             // we view the product
