@@ -23,39 +23,28 @@
 		  height  : config.bigImageHeight
 		}, function(err, stdout, stderr){
 		  if (err) console.log('error with ' + config.imageFolder + config.smallImage +  id + '.png');
-		  console.log('resized ' + config.imageFolder + config.bigImage + id + '.png' + ' to fit within 256x256px');
-		});
-		// copy the image so we can have small version
-		fs.copy(config.imageFolder + config.bigImage + id + '.png', config.imageFolder + config.smallImage + id + '.png', function (err) {
-		  if (err) return console.error(err)
-		  im.resize({
-			  srcPath : config.imageFolder + config.smallImage +  id + '.png',
-			  dstPath : config.imageFolder + config.smallImage +  id + '.png',
-			  width   : config.smallImageWidth,
-			  height  : config.smallImageHeight
-			}, function(err, stdout, stderr){
-			  if (err) console.log('error with ' + config.imageFolder + config.smallImage +  id + '.png');
-			  console.log('resized ' + config.imageFolder + config.smallImage + id + '.png' + ' to fit within 256x256px');
-			  fs.copy(config.imageFolder + config.smallImage + id + '.png', config.buildImageFolder + config.smallImage + id + '.png', function (err) {
-				  if (err) return console.error(err)
-				  console.log("success!")
-				});
+			  console.log('resized ' + config.imageFolder + config.bigImage + id + '.png' + ' to fit within 256x256px');
+			  fs.copy(config.imageFolder + config.bigImage + id + '.png', config.imageFolder + config.smallImage + id + '.png', function (err) {
+				if (err) return console.error(err)
+				  im.resize({
+					  srcPath : config.imageFolder + config.smallImage +  id + '.png',
+					  dstPath : config.imageFolder + config.smallImage +  id + '.png',
+					  width   : config.smallImageWidth,
+					  height  : config.smallImageHeight
+					}, function(err, stdout, stderr){
+					  if (err) console.log('error with ' + config.imageFolder + config.smallImage +  id + '.png');
+					  console.log('resized ' + config.imageFolder + config.smallImage + id + '.png' + ' to fit within 256x256px');
+					  fs.copy(config.imageFolder + config.smallImage + id + '.png', config.buildImageFolder + config.smallImage + id + '.png', function (err) {
+						  if (err) return console.error(err)
+						  console.log("success!")
+						});
+					});
 			});
-		});
-		// resize the big image
-		im.resize({
-		  srcPath : config.imageFolder + config.smallImage +  id + '.png',
-		  dstPath : config.imageFolder + config.smallImage +  id + '.png',
-		  width   : config.smallImageWidth,
-		  height  : config.smallImageHeight
-		}, function(err, stdout, stderr){
-		  if (err) console.log('error with ' + config.imageFolder + config.smallImage +  id + '.png');
-		  console.log('resized ' + config.imageFolder + config.smallImage + id + '.png' + ' to fit within 256x256px');
-		});
 
-		fs.copy(config.imageFolder + config.bigImage + id + '.png', config.buildImageFolder + config.bigImage + id + '.png', function (err) {
-		  if (err) return console.error(err)
-		  console.log("success!")
+			fs.copy(config.imageFolder + config.bigImage + id + '.png', config.buildImageFolder + config.bigImage + id + '.png', function (err) {
+			  if (err) return console.error(err)
+			  console.log("success!")
+			});
 		});
 		
 	}
