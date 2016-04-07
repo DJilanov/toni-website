@@ -13,6 +13,40 @@
 	var messageDatabase    = {};
 	// here we save the db with the orders
 	var ordersDatabase = {};
+	// here we save the db with the users
+	var usersDatabase = {};
+	// current collection we update
+	var userCollectionCopy = {};
+	// users controller
+	var registerUser      = require('./registerUser');
+
+	function loginUser(element, res) {
+		console.log(usersDatabase);
+		// check is that email already used
+		mongoose.connection.db.collection('users', function (err, collection) {
+			console.log('[Home] updateProduct err: ' + err);
+			collection.find({"email": element.email}).toArray(function(err, docs) {
+		            console.log(docs);
+		            // if the email is used check password and if it is same return acc info
+	   		});
+		});
+	}
+
+	function registerUser(element, res) {
+		console.log(usersDatabase);
+		// check is that email already used
+		mongoose.connection.db.collection('users', function (err, collection) {
+			console.log('[Home] updateProduct err: ' + err);
+			collection.find({"email": element.email}).toArray(function(err, docs) {
+		            console.log(docs);
+		            // if the email is used check return error else continue to register
+		            return false;
+				registerUser.registerUser(collection, element, updateUsers);
+				userCollectionCopy = collection;
+
+	   		});
+		});
+	}
 
 	function getCategoryDatabase() {
 		return categoryDatabase;
@@ -32,6 +66,15 @@
 
 	function setConfig(loadedConfig) {
 		config = loadedConfig;
+	}
+
+	function updateUsers(err, doc) {
+		userCollectionCopy.find().toArray(function(err, docs) {
+	        usersDatabase = docs;
+			console.log('Update users database');
+		});
+		// check the doc or err for the user we created. Needs better logic
+		resSend(err);
 	}
 
 	function updateProducts(collection) {
@@ -84,6 +127,11 @@
 			mongoose.connection.db.collection('orders', function (err, collection) {
 				collection.find().toArray(function(err, docs) {
 					ordersDatabase = docs;
+				});
+			});
+			mongoose.connection.db.collection('users', function (err, collection) {
+				collection.find().toArray(function(err, docs) {
+					usersDatabase = docs;
 				});
 			});
 		});

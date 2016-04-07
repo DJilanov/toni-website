@@ -9,10 +9,11 @@ var bg = {
 	"homePageDescription": "Промоции описание",
 	"headerContact": "Контакти",
 	"headerCompany": "ЖИЛАНОВ ЕООД",
-	"headerUsername": "Акаунт",
+	"headerUsername": "Вход в профила",
 	"headerShopByType": "Пазарувай по тип",
 	"headerSearch": "Търси",
 	"headerSearchFor": "Потърси...",
+	//---------------------------------------------------------------------
 	"contactMarker": "Координати",
 	"contactAddress": "Улица Могилите. София 1836",
 	"contactOurAddress": "Адрес",
@@ -29,6 +30,7 @@ var bg = {
 	"contactFormYourAddress": "Въведете вашия адрес",
 	"contactFormYourMessage": "Вашето съобщение",
 	"contactFormSend": "Изпрати",
+	//---------------------------------------------------------------------
 	"productNew": "Нов",
 	"productOffer": "Оферта",
 	"productView": "Бърз преглед",
@@ -43,5 +45,8 @@ var bg = {
 	"emptyCart": "Количката ви е празна",
 	"continueToPay": "Продължаване към поръчване",
 	"orderRecieved": "Поръчката е получена успешно!",
-	"price": "Цена"
+	"price": "Цена",
+	//------------------------------------------------------------------
+	"errorFetchFromServer": "Изнинка грешка при свързването със сървъра",
+	"successSendMessage": "Съобщението е изпратено"
 };

@@ -10,6 +10,8 @@
 	var product    = require('./updateProducts');
 	var message    = require('./updateMessage');
 	var order      = require('./updateOrders');
+	// users controller
+	var registerUser      = require('./registerUser');
 	// here we declare the function we use for the image saving
 	var imgUpload  = require('./imageUpload');
 	// here we save the db
@@ -31,6 +33,7 @@
 		product.setConfig(loadedConfig);
 		imgUpload.setConfig(loadedConfig);
 		message.setConfig(loadedConfig);
+		registerUser.setConfig(loadedConfig);
 	}
 
 	function auth(logedUsername, logedPassword) {
