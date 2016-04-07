@@ -8,7 +8,6 @@
 	// server ip
 	// api: 'http://194.79.15.131:8080/api/home',
 	// api: 'http://jilanov.eu:8080/api/home',
-	imageFront: '/toni-website/img/',
 	bigImage    : 'big',
 	smallImage	: 'small',
 	defaultLang : 'bg',

@@ -118,9 +118,6 @@ app.post('/api/admin/carousel', upload.single('file'), function (req, res) {
 
 app.post('/api/admin/mainConfig', upload.single('file'), function (req, res){
 	console.log('[Server.js]Post request to products');
-	if(req.file !== undefined) {
-		req.query.attachedImagePath = req.file.path;
-	}
 	admin.updateMainConfig(req.query, res);
 	res.json(req.query);
 });

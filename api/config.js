@@ -7,6 +7,7 @@
 		'password'	    	: 'toni1221',
 		'api'     	    	: '@ds047792.mongolab.com:47792/toni-website',
 		'imageFolder'   	: '../img/',
+		'buildImageFolder' : '../build/img/',
 		'bigImage'	    	: 'big',
 		'bigImageWidth' 	: 800,
 		'bigImageHeight'	: 600,

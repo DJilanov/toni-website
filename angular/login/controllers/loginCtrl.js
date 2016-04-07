@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('Login')
-    .controller('HomeCtrl', ['$scope', '$location', '$http', 'sharingSvc',
+    .controller('LoginCtrl', ['$scope', '$location', '$http', 'sharingSvc',
         function ($scope, $location, $http, sharingSvc) {
 
           // used for the login part

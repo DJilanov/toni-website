@@ -26,6 +26,7 @@
 		  console.log('resized ' + config.imageFolder + config.bigImage + id + '.png' + ' to fit within 256x256px');
 		});
 		// copy the image so we can have small version
+		fs.createReadStream(config.imageFolder + config.bigImage + id + '.png').pipe(fs.createWriteStream(config.buildImageFolder + config.bigImage + id + '.png'));
 		fs.createReadStream(config.imageFolder + config.bigImage + id + '.png').pipe(fs.createWriteStream(config.imageFolder + config.smallImage + id + '.png'));
 		// resize the big image
 		im.resize({
@@ -37,6 +38,7 @@
 		  if (err) console.log('error with ' + config.imageFolder + config.smallImage +  id + '.png');
 		  console.log('resized ' + config.imageFolder + config.smallImage + id + '.png' + ' to fit within 256x256px');
 		});
+		fs.createReadStream(config.imageFolder + config.smallImage + id + '.png').pipe(fs.createWriteStream(config.buildImageFolder + config.smallImage + id + '.png'));
 	}
 
 	module.exports = {
