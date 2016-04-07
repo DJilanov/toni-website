@@ -17,7 +17,7 @@
 						<span itemprop="description">{{model.description}}</span>
 					</h2>
 					<div class='productPrice' >
-						<span class='newPrice'>{{model.newPrice}}</span>
+						<span class='newPrice'>{{text.price}} {{model.newPrice}}</span>
 						<span class='oldPrice' ng-show="model.oldPrice">{{model.oldPrice}}</span>
 						<span content="BGN">{{vault}}</span>
 					</div>
@@ -35,7 +35,7 @@
 						<span>{{text.productView}}</span>
 					</a>
 					<div class="content_price">
-						<span class='newPrice'>{{model.newPrice}}</span>
+						<span class='newPrice'>{{text.price}} {{model.newPrice}}</span>
 						<span class='oldPrice' ng-show="model.oldPrice">{{model.oldPrice}}</span>
 						<span>{{vault}}</span>
 					</div>

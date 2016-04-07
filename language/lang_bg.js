@@ -42,5 +42,6 @@ var bg = {
 	"removeFromCartSuccess": "Успешно премахване на поръчката",
 	"emptyCart": "Количката ви е празна",
 	"continueToPay": "Продължаване към поръчване",
-	"orderRecieved": "Поръчката е получена успешно!"
+	"orderRecieved": "Поръчката е получена успешно!",
+	"price": "Цена"
 };

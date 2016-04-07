@@ -85,6 +85,7 @@ app.get('/api/admin', function (req, res){
 app.post('/api/admin/product', upload.single('file'), function (req, res){
 	console.log('[Server.js]Post request to products');
 	if(req.file !== undefined) {
+		console.log('Send image on product');
 		req.query.attachedImagePath = req.file.path;
 	}
 	admin.updateProduct(req.query, res);
