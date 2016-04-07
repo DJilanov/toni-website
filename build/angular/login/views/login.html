@@ -1,17 +1,37 @@
-<!-- navigation -->
-<section ng-include="main.templates.navigation">  
- {{main.navigation}}
-</section> 
-<!-- carousel -->
-<section class='carousel_section' ng-include="main.templates.carousel">
-  {{main.carousel}}
-</section>
-<!-- refered -->
-<section class='first' ng-include="main.templates.productTemplate">
-  {{main.productTemplate}}
-</section>
-<footer>
-  <div class='info'>
-    <span>End info</span>
-  </div>
-</footer>
+<div class="container" ng-show="login">
+  <form class="form-signin">
+    <h2 class="form-signin-heading">Please sign in</h2>
+    <label for="inputEmail" class="sr-only">Email address</label>
+    <input type="username" id="inputEmail" class="form-control" ng-model="loginInfo.username" placeholder="Email address" required="" autofocus="">
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" id="inputPassword" class="form-control" ng-model="loginInfo.password" placeholder="Password" required="">
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" ng-model="loginInfo.remember" > Remember me
+      </label>
+    </div>
+    <div vc-recaptcha key="'6Lf10xETAAAAAFoODW33iIglPTpRXndsVkUmUOQh'"></div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="logon(loginInfo)">Sign in</button>
+    <div>
+      <span>or</span>
+    </div>
+    <button class="btn btn-lg btn-info btn-block" type="submit" ng-click="goToRegister()">Register</button>
+  </form>
+</div>
+<div class="container" ng-show="!login">
+  <form class="form-signin">
+    <h2 class="form-signin-heading">Fill all fields to register</h2>
+    <label for="inputEmail" class="sr-only">Username</label>
+    <input type="username" id="inputEmail" class="form-control" ng-model="register.username" placeholder="Email address" required="" autofocus="">
+    <label for="inputEmail" class="sr-only">Email address</label>
+    <input type="username" id="inputEmail" class="form-control" ng-model="register.email" placeholder="Email address" required="" autofocus="">
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" id="inputPassword" class="form-control" ng-model="register.password" placeholder="Password" required=""> 
+    <label for="inputPassword" class="sr-only">Repeat your password</label>
+    <input type="username" id="inputEmail" class="form-control" ng-model="register.repeatedPassword" placeholder="Repeated password" required="" autofocus="">
+    <label for="inputPassword" class="sr-only">Address</label>
+    <input type="password" id="inputPassword" class="form-control" ng-model="register.address" placeholder="Address" required="">
+    <div vc-recaptcha key="'6Lf10xETAAAAAFoODW33iIglPTpRXndsVkUmUOQh'"></div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="regon(register)">Register</button>
+  </form>
+</div>

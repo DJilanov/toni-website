@@ -2,7 +2,7 @@
 	<div>
   		<carousel interval="myInterval">
     		<slide ng-repeat="slide in slides" active="slide.active" ng-click="onProductClick(slide)">
-				<img ng-src="{{'./img/' + config.bigImage + slide._id + '.png' + '?' + time}}" alt="slide">
+				<img ng-src="{{'./img/' + config.bigImage + '' + slide._id + '.png' + '?' + time}}" alt="slide">
 	      		<div class="carousel-caption">
 	        		<h4>{{slide.description}}</h4>
 	      		</div>
