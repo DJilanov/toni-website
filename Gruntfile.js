@@ -56,6 +56,7 @@ module.exports = function (grunt) {
                         'angular/product/product.js',  
                         'angular/view/view.js', 
                         'angular/modal/modal.js', 
+                        'angular/profile/profile.js', 
                         'angular/**/*.js',  
                         '!angular/app.js',
                         'angular/app.js'
