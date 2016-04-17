@@ -3,7 +3,6 @@
 angular.module('Login')
     .controller('LoginCtrl', ['$scope', '$location', '$http', 'sharingSvc',
         function ($scope, $location, $http, sharingSvc) {
-
           // used for the login part
           $scope.login = {
             username: '',
@@ -21,7 +20,7 @@ angular.module('Login')
           };
 
           // used to recognise witch state is currently active by the adress ( we use controller and the view on both login and register)
-          if($location.url === 'login') {
+          if($location.$$path === '/login') {
             $scope.login = true;
           } else {
             $scope.login = false;
