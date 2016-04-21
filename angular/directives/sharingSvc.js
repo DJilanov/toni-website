@@ -126,7 +126,7 @@ angular.module('Home').factory('sharingSvc', ['$http', '$location',
                     alert(text.errorFetchFromServer);
                 }).then(function(response) {
                     if (response != null) {
-                        alert($scope.text.orderRecieved);
+                        alert(text.orderRecieved);
                         localStorage.setItem('cart', '[]');
                         // move the page to the home
                         $location.path('/home');
@@ -145,7 +145,7 @@ angular.module('Home').factory('sharingSvc', ['$http', '$location',
                     alert(text.errorFetchFromServer);
                 }).then(function(response) {
                     if (response != null) {
-                        alert($scope.text.successfullyLogged);
+                        alert(text.successfullyLogged);
                         user = response;
                         // move the page to the home
                         $location.path('/profile');
@@ -163,7 +163,7 @@ angular.module('Home').factory('sharingSvc', ['$http', '$location',
                     alert(text.errorFetchFromServer);
                 }).then(function(response) {
                     if (response != null) {
-                        alert($scope.text.successfullyRegistered);
+                        alert(text.successfullyRegistered);
                         user = response;
                         // move the page to the home
                         $location.path('/profile');
