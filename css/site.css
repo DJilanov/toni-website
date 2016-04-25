@@ -551,6 +551,17 @@ h3.page-product-heading {
 .order {
     margin-bottom: 50px;
 }
+/* sign in and register forms */
+.form-signin {
+    text-align: center;
+}
+.form-signin .checkbox {
+    text-align: left;
+    margin-left: 45%;
+}
+.form-signin .recaptcha {
+    margin-left: 36%;
+}
 /* global variables */
 a {
     color: #777;
