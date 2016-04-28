@@ -92,6 +92,11 @@ app.post('/api/register', function (req, res) {
 	home.registerUser(req.query, res);
 });
 
+app.post('/api/updateUser', function (req, res) {
+	console.log('[Server.js]Post request to update user');
+	home.updateUser(req.query, res);
+});
+
 app.post('/api/admin/product', upload.single('file'), function (req, res){
 	console.log('[Server.js]Post request to products');
 	if(req.file !== undefined) {
