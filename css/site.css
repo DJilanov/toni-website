@@ -158,7 +158,7 @@ footer {
 
 /* REFACTOR THIS */
 .dealsContainer {
-    margin-top: 125px;
+    margin-top: 115px;
 }
 .contacts {
     margin-top: 110px;
@@ -173,7 +173,9 @@ footer {
 .controll{
     margin-right: 0px!important;
 }
-
+#openSideBar {
+    margin-top: 9px;
+}
 /* ---------------------------------- */
 /*          REFACTORED DESIGN         */
 /* ---------------------------------- */

@@ -77,7 +77,6 @@ angular.module('Header')
             };
             // choise between products by creator
             $scope.openSideBar = function() {
-                e.preventDefault();
                 $("#wrapper").toggleClass("toggled");
             };
         }

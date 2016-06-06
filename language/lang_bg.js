@@ -10,7 +10,7 @@ var bg = {
 	"headerContact": "Контакти",
 	"headerCompany": "ЖИЛАНОВ ЕООД",
 	"headerUsername": "Вход в профила",
-	"headerShopByType": "Пазарувай по тип",
+	"headerShopByType": "Пазарувай по марка",
 	"headerSearch": "Търси",
 	"headerSearchFor": "Потърси...",
 	//---------------------------------------------------------------------

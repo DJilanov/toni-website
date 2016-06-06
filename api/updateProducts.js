@@ -85,6 +85,7 @@
 		var secondaryQuerry = {
 			$set: {
 				'title': element.title,
+				'make': element.make,
 				'description': element.description,
 				'dailyOffer': element.dailyOffer,
 				'moreInfo': element.moreInfo,

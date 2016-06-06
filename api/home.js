@@ -20,7 +20,8 @@
     // users controller
     var registerUser = require('./registerUser');
     // update users
-    var updateUser = require('./updateUser');
+    // TODO: IMPLEMENT UPDATE OF PROFILE
+    // var updateUser = require('./updateUser');
 
     function loginUser(element, res) {
         console.log(usersDatabase);
