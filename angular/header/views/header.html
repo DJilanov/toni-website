@@ -52,31 +52,15 @@
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
             <li class="sidebar-brand">
-                <a href="#">
+                <a>
                   {{texts.headerShopByType}}
               </a>
             </li>
-            <li>
-                <a href="#">Dashboard</a>
-            </li>
-            <li>
-                <a href="#">Shortcuts</a>
-            </li>
-            <li>
-                <a href="#">Overview</a>
-            </li>
-            <li>
-                <a href="#">Events</a>
-            </li>
-            <li>
-                <a href="#">About</a>
-            </li>
-            <li>
-                <a href="#">Services</a>
-            </li>
-            <li>
-                <a href="#">Contact</a>
-            </li>
+            <ng-repeat ng-repeat="(key, value) in makes">
+                <li ng-click="openScreenByMakes(key)">
+                    <a>{{ key }}</a>
+                </li>
+            </ng-repeat>
         </ul>
     </div>
 </div>

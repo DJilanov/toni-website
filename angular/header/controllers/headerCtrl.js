@@ -8,6 +8,8 @@ angular.module('Header')
             $scope.searchInput = null;
             // here we integrate the navigation items
             $scope.navigationItems = [];
+            // here we integrate the makes of the products
+            $scope.makes = {};
             // here we integrate language
             $scope.texts = language.getText();
             // here we set the default language
@@ -27,6 +29,14 @@ angular.module('Header')
                 for (var categoryCounter = 0; categoryCounter < products.length; categoryCounter++) {
                     for (var productCounter = 0; productCounter < products[categoryCounter].length; productCounter++) {
                         $scope.products.push(products[categoryCounter][productCounter]);
+                        var make = products[categoryCounter][productCounter].make;
+                        if ((make !== undefined) && (make.length > 0)) {
+                            make = make.toUpperCase();
+                            if ($scope.makes[make] == undefined) {
+                                $scope.makes[make] = [];
+                            }
+                            $scope.makes[make].push(products[categoryCounter][productCounter]);
+                        }
                     }
                 }
                 for (var key in categories) {
@@ -79,5 +89,9 @@ angular.module('Header')
             $scope.openSideBar = function() {
                 $("#wrapper").toggleClass("toggled");
             };
+            // open screen by makes
+            $scope.openScreenByMakes = function(make) {
+                $location.path("/product/" + make);
+            }
         }
     ]);

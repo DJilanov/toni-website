@@ -176,6 +176,9 @@ footer {
 #openSideBar {
     margin-top: 9px;
 }
+#sidebar-wrapper {
+    top: 100px;
+}
 /* ---------------------------------- */
 /*          REFACTORED DESIGN         */
 /* ---------------------------------- */
