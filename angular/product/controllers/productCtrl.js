@@ -39,7 +39,6 @@ angular.module('Product')
                                     $scope.products.push(products[categoryCounter][productCounter]);
                                 }
                             }
-
                         }
                     }
                     $rootScope.pageTitle = $scope.text.products + " " + $scope.getLocation();

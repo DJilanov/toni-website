@@ -22,13 +22,12 @@ angular.module('Home').factory('sharingSvc', ['$http', '$location',
                 firstTime = false;
                 callbackArray.push(callback);
                 returnDummy(callback);
-                $http.get(config.api).success(function(data, status, headers, config) {
+                $http.get(config.api + '/home').success(function(data, status, headers, config) {
                     response = data;
                 }).error(function(data, status, headers, config) {
                     alert(text.errorFetchFromServer);
                 }).then(function() {
                     loaded = true;
-                    console.log('finish');
                     // we must rework the app to be build whitout the need of this parsing
                     products = sortProductsByCategory(response.products);
                     categories = response.categories;
@@ -101,7 +100,7 @@ angular.module('Home').factory('sharingSvc', ['$http', '$location',
         function sendContactForm(form) {
             grecaptcha.reset();
             form.new = 'true';
-            $http.post(config.api + '/message', form)
+            $http.post(config.api + '/home/message', form)
                 .success(function(data, status, headers, config) {
                     response = data;
                 }).error(function(data, status, headers, config) {
@@ -119,7 +118,7 @@ angular.module('Home').factory('sharingSvc', ['$http', '$location',
         function sendOrderForm(form) {
             grecaptcha.reset();
             form.new = 'true';
-            $http.post(config.api + '/order', form)
+            $http.post(config.api + '/home/order', form)
                 .success(function(data, status, headers, config) {
                     response = data;
                 }).error(function(data, status, headers, config) {
@@ -138,17 +137,18 @@ angular.module('Home').factory('sharingSvc', ['$http', '$location',
         // we save the products and show alert that it is saved.
         function login(loginInfo) {
             grecaptcha.reset();
-            $http.post(config.api + '/login', form)
+            $http.post(config.api + '/login', loginInfo)
                 .success(function(data, status, headers, config) {
                     response = data;
                 }).error(function(data, status, headers, config) {
                     alert(text.errorFetchFromServer);
                 }).then(function(response) {
-                    if (response != null) {
-                        alert(text.successfullyLogged);
-                        user = response;
+                    if (!response.data.error) {
+                        user = response.data.response;console.log(user);
                         // move the page to the home
                         $location.path('/profile');
+                    } else {
+                        alert(text.errorWrongPassword);
                     }
                 });
         }
@@ -156,7 +156,7 @@ angular.module('Home').factory('sharingSvc', ['$http', '$location',
         // we save the products and show alert that it is saved.
         function register(regInfo) {
             grecaptcha.reset();
-            $http.post(config.api + '/register', form)
+            $http.post(config.api + '/register', regInfo)
                 .success(function(data, status, headers, config) {
                     response = data;
                 }).error(function(data, status, headers, config) {
@@ -183,6 +183,8 @@ angular.module('Home').factory('sharingSvc', ['$http', '$location',
         }
 
         return {
+            login: login,
+            register: register,
             getProducts: getProducts,
             viewProduct: viewProduct,
             getProductToView: getProductToView,

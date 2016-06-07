@@ -41,23 +41,23 @@ module.exports = function (grunt) {
                         'js/*.js',
                         'language/*.js',
                         'third-party/bootstrap-3.1.1-dist/js/bootstrap.min.js',
-                        'js/angular-resource/angular-resource.min.js', 
+                        'js/angular-resource/angular-resource.min.js',
                         'js/angular-route/angular-route.min.js',
                         'third-party/angular-animate/angular-animate.min.js',
                         'third-party/angular-bootstrap/ui-bootstrap.min.js',
                         'third-party/angular-bootstrap/ui-bootstrap-tpls.min.js',
-                        'angular/carousel/carousel.js',  
-                        'angular/cart/cart.js',  
-                        'angular/contacts/contacts.js',  
-                        'angular/header/header.js',  
-                        'angular/home/home.js',  
-                        'angular/login/login.js',  
-                        'angular/order/order.js',  
-                        'angular/product/product.js',  
-                        'angular/view/view.js', 
-                        'angular/modal/modal.js', 
-                        'angular/profile/profile.js', 
-                        'angular/**/*.js',  
+                        'angular/carousel/carousel.js',
+                        'angular/cart/cart.js',
+                        'angular/contacts/contacts.js',
+                        'angular/header/header.js',
+                        'angular/home/home.js',
+                        'angular/login/login.js',
+                        'angular/modal/modal.js',
+                        'angular/order/order.js',
+                        'angular/product/product.js',
+                        'angular/profile/profile.js',
+                        'angular/view/view.js',
+                        'angular/**/*.js',
                         '!angular/app.js',
                         'angular/app.js'
                     ]
@@ -132,7 +132,7 @@ module.exports = function (grunt) {
                         dest: 'build/admin/'
                     }
                 ]
-                
+
             }
         },
 

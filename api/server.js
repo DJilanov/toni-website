@@ -84,7 +84,7 @@ app.get('/api/admin', function (req, res){
 
 app.post('/api/login', function (req, res) {
 	console.log('[Server.js]Post request to login');
-	home.loginUser(req.query, res);
+	home.loginUser(req.body, res);
 });
 
 app.post('/api/register', function (req, res) {

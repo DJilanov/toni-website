@@ -24,19 +24,35 @@
     // var updateUser = require('./updateUser');
 
     function loginUser(element, res) {
-        console.log(usersDatabase);
         // check is that email already used
         mongoose.connection.db.collection('users', function(err, collection) {
             console.log('[Home] updateProduct err: ' + err);
             collection.find({ "email": element.email }).toArray(function(err, docs) {
-                console.log(docs);
+                if (docs[0] != undefined) {
+                    if (element.password === docs[0].password) {
+                        res.send({
+                            'response': docs[0],
+                            'error': false
+                        });
+                    } else {
+                        res.send({
+                            'updated': false,
+                            'error': true
+                        });
+                    }
+                } else {
+                    res.send({
+                        'updated': false,
+                        'error': true
+                    });
+                }
                 // if the email is used check password and if it is same return acc info
             });
         });
     }
 
     function registerUser(element, res) {
-        console.log(usersDatabase);
+        console.log(element);
         // check is that email already used
         mongoose.connection.db.collection('users', function(err, collection) {
             console.log('[Home] updateProduct err: ' + err);
@@ -188,6 +204,8 @@
         updateCategories: updateCategories,
         updateMessages: updateMessages,
         updateOrders: updateOrders,
-        updateUser: updateUser
+        updateUser: updateUser,
+        loginUser: loginUser,
+        registerUser: registerUser
     };
 }());
