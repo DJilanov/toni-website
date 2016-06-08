@@ -757,3 +757,8 @@ a {
         margin-right: 0;
     }
 }
+@media(max-width:  767) {
+    #wrapper {
+        display: none;
+    }
+}

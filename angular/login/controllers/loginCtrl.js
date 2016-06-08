@@ -3,6 +3,7 @@
 angular.module('Login')
     .controller('LoginCtrl', ['$scope', '$location', '$http', 'sharingSvc', 'vcRecaptchaService',
         function($scope, $location, $http, sharingSvc, vcRecaptchaService) {
+            $scope.text = language.getText();
             // used for the login part
             $scope.login = {
                 email: '',
@@ -15,9 +16,9 @@ angular.module('Login')
                 email: '',
                 password: '',
                 repeatedPassword: '',
-                address: '',
-                email: ''
             };
+
+            $scope.gRecaptchaResponse = '';
 
             // used to recognise witch state is currently active by the adress ( we use controller and the view on both login and register)
             if ($location.$$path === '/login') {
@@ -33,10 +34,9 @@ angular.module('Login')
 
             // used when you send log in
             $scope.logon = function() {
-                if (vcRecaptchaService.getResponse() === "") { //if string is empty
-                    alert("Please resolve the captcha and submit!")
+                if ($scope.gRecaptchaResponse === "") { //if string is empty
+                    alert($scope.text.resolveCaptcha)
                 } else {
-                    // TODO: make it break if the captcha is empty
                     if ($scope.login.remember == true) {
                         // TODO: Set token to the localstorage based witch we will know does the user loged in.
                     }
@@ -48,12 +48,15 @@ angular.module('Login')
             // used when you send register
             $scope.regon = function() {
                 if ($scope.register.password !== $scope.register.repeatedPassword) {
-                    alert('Wrong repeated password');
+                    alert($scope.text.errorDifferentPasswords);
                     $scope.register.password = "";
                     $scope.register.repeatedPassword = "";
                 } else {
-                    // set after login to move you to your profile
-                    sharingSvc.register($scope.register);
+                    // if ($scope.gRecaptchaResponse === "") { //if string is empty
+                    //     alert($scope.text.resolveCaptcha);
+                    // } else {
+                        sharingSvc.register($scope.register);
+                    // }
                 }
             };
         }

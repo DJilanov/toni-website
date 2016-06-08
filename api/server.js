@@ -89,7 +89,7 @@ app.post('/api/login', function (req, res) {
 
 app.post('/api/register', function (req, res) {
 	console.log('[Server.js]Post request to register');
-	home.registerUser(req.query, res);
+	home.registerNewUser(req.body, res);
 });
 
 app.post('/api/updateUser', function (req, res) {

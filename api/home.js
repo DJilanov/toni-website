@@ -17,6 +17,8 @@
     var usersDatabase = {};
     // current collection we update
     var userCollectionCopy = {};
+    // current res we update
+    var resCopy = {};
     // users controller
     var registerUser = require('./registerUser');
     // update users
@@ -51,18 +53,20 @@
         });
     }
 
-    function registerUser(element, res) {
-        console.log(element);
-        // check is that email already used
+    function registerNewUser(element, res) {
         mongoose.connection.db.collection('users', function(err, collection) {
-            console.log('[Home] updateProduct err: ' + err);
+            console.log('[Home] registerNewUser err: ' + err);
             collection.find({ "email": element.email }).toArray(function(err, docs) {
-                console.log(docs);
-                // if the email is used check return error else continue to register
-                return false;
-                registerUser.registerUser(collection, element, updateUsers);
-                userCollectionCopy = collection;
-
+                if (docs[0] != undefined) {
+                    res.send({
+                        'updated': false,
+                        'error': true
+                    });
+                } else {
+                    registerUser.register(collection, element, updateUsersCollection);
+                    userCollectionCopy = collection;
+                    resCopy = res;
+                }
             });
         });
     }
@@ -71,16 +75,34 @@
         console.log(usersDatabase);
         // check is that email already used
         mongoose.connection.db.collection('users', function(err, collection) {
-            console.log('[Home] updateProduct err: ' + err);
+            console.log('[Home] regis err: ' + err);
             collection.find({ "email": element.email }).toArray(function(err, docs) {
                 console.log(docs);
+                userCollectionCopy = collection;
                 // if the email is used check return error else continue to register
                 return false;
-                registerUser.registerUser(collection, element, updateUsers);
-                userCollectionCopy = collection;
 
             });
         });
+    }
+
+    function resSend(err) {
+        if (err) {
+            console.log('Error:' + err);
+            resCopy.send({
+                'updated': false,
+                'error': err
+            });
+        } else {
+            resCopy.send({
+                'updated': true,
+                'error': false
+            });
+        }
+    }
+
+    function updateUsersCollection(err, doc) {
+        updateUsers(err, doc);
     }
 
     function getCategoryDatabase() {
@@ -206,6 +228,6 @@
         updateOrders: updateOrders,
         updateUser: updateUser,
         loginUser: loginUser,
-        registerUser: registerUser
+        registerNewUser: registerNewUser
     };
 }());

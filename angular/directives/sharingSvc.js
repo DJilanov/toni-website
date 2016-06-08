@@ -144,7 +144,7 @@ angular.module('Home').factory('sharingSvc', ['$http', '$location',
                     alert(text.errorFetchFromServer);
                 }).then(function(response) {
                     if (!response.data.error) {
-                        user = response.data.response;console.log(user);
+                        user = response.data.response;
                         // move the page to the home
                         $location.path('/profile');
                     } else {
@@ -162,11 +162,12 @@ angular.module('Home').factory('sharingSvc', ['$http', '$location',
                 }).error(function(data, status, headers, config) {
                     alert(text.errorFetchFromServer);
                 }).then(function(response) {
-                    if (response != null) {
-                        alert(text.successfullyRegistered);
-                        user = response;
+                    if (!response.data.error) {
+                        user = response.data.response;
                         // move the page to the home
                         $location.path('/profile');
+                    } else {
+                        alert(text.errorFetchFromServer);
                     }
                 });
         }
@@ -182,9 +183,14 @@ angular.module('Home').factory('sharingSvc', ['$http', '$location',
             productToView = product;
         }
 
+        function getUser() {
+            return user;
+        }
+
         return {
             login: login,
             register: register,
+            getUser: getUser,
             getProducts: getProducts,
             viewProduct: viewProduct,
             getProductToView: getProductToView,

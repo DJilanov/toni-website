@@ -5,9 +5,9 @@ angular.module('Profile')
         function($scope, $location, $http, sharingSvc) {
 
             $scope.user = {
-                "username": "",
-                "password": "",
                 "email": "",
+                "password": "",
+                "username": "",
                 "address": "",
                 "orders": [{
                     "amount": 1,
@@ -15,16 +15,13 @@ angular.module('Profile')
                     "recieved": true
                 }],
                 "messages": [{
-                    "from": "5704cb1fe4b0f62792ad7076",
+                    "date": "19234657",
                     "message": "test1"
                 }]
             };
 
-            function getUserDetails(userDetails) {
-                $scope.user = userDetails;
-            }
+            $scope.user = sharingSvc.getUser();
 
             // imitate the olx user profile
-            // the navi is based on Orders | Messages | Recieved Orders | Edit profile info. Under them there is search box for all
         }
     ]);
