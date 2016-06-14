@@ -1,47 +1,66 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class="navbar-header">
-    <span class="navbar-brand">{{texts.headerCompany}}</span>
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-  </div>
-  <div class="navbar-collapse collapse">
-    <ul class="nav navbar-nav" ng-repeat="navItem in navigationItems | filter: {'type': 'category'}">
-      <li ng-class="{ active: isActive('/home')}" ng-if="$index === 0">
-        <a ng-href="#/home">{{texts.homePageBigTitle}}</a>
-      </li>
-      <li ng-class="{ active: isActive('/product/{{navItem.link}}')}" ng-show="navItem.shownOnNav">
-        <a ng-href="#/product/{{navItem.link}}">{{navItem.name}}</a>
-      </li>
-       <li ng-class="{ active: isActive('/contacts')}" ng-if="$last">
-        <a ng-href="#/contacts">{{texts.headerContact}}</a>
-      </li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right controll">
-      <li><a ng-href="#/home" class="navbar-link glyphicon glyphicon-envelope" aria-hidden="true"></a></li>
-      <li><a ng-href="#/cart" class="navbar-link glyphicon glyphicon-shopping-cart" aria-hidden="true"></a></li>
-      <li><a ng-href="#/login" class="navbar-link">{{texts.headerUsername}}</a></li>
-    </ul>
-  </div>
-  <div class="navbar-collapse collapse">
-    <div class='col-lg-2'>
-      <ul class="nav navbar-nav">
-        <li><a href="#/home">{{texts.headerShopByType}}</a></li>
-      </ul>
+    <div class="navbar-header">
+        <span class="navbar-brand">{{texts.headerCompany}}</span>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
     </div>
-    <div class='col-lg-9'>
-      <div class="input-group search">
-        <input name="states" id="typeAhead" type="text" placeholder="{{texts.headerSearchFor}}" ng-model="selected" typeahead="product.title + ' (' + product.description + ')' for product in findProduct($viewValue)" class="form-control" typeahead-on-select="search($item, $model, $label)" ng-click="clearSearch()"/>>
-        <span class="input-group-btn">
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav" ng-repeat="navItem in navigationItems | filter: {'type': 'category'}">
+            <li ng-class="{ active: isActive('/home')}" ng-if="$index === 0">
+                <a ng-href="#/home">{{texts.homePageBigTitle}}</a>
+            </li>
+            <li ng-class="{ active: isActive('/product/{{navItem.link}}')}" ng-show="navItem.shownOnNav">
+                <a ng-href="#/product/{{navItem.link}}">{{navItem.name}}</a>
+            </li>
+            <li ng-class="{ active: isActive('/contacts')}" ng-if="$last">
+                <a ng-href="#/contacts">{{texts.headerContact}}</a>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right controll">
+            <li>
+                <a ng-href="#/home" class="navbar-link glyphicon glyphicon-envelope" aria-hidden="true"></a>
+            </li>
+            <li>
+                <a ng-href="#/cart" class="navbar-link glyphicon glyphicon-shopping-cart" aria-hidden="true"></a>
+            </li>
+            <li><a ng-href="#/login" class="navbar-link">{{texts.headerUsername}}</a></li>
+        </ul>
+    </div>
+    <div class="navbar-collapse collapse">
+        <div class='col-lg-2'>
+            <button class="btn btn-default" type="button" id="openSideBar" ng-click="openSideBar()">{{texts.headerShopByType}}</button>
+        </div>
+        <div class='col-lg-9'>
+            <div class="input-group search">
+                <input name="states" id="typeAhead" type="text" placeholder="{{texts.headerSearchFor}}" ng-model="selected" typeahead="product.title + ' (' + product.description + ')' for product in findProduct($viewValue)" class="form-control" typeahead-on-select="search($item, $model, $label)" ng-click="clearSearch()" />>
+                <span class="input-group-btn">
           <button class="btn btn-default" type="button" id="search" ng-click='search()'>{{texts.headerSearch}}</button>
         </span>
-      </div>
+            </div>
+        </div>
+        <div class='col-lg-1'>
+            <!-- image of the flag -->
+            <img class='flag' ng-src="{{flagSrc}}" alt="product" width="50px" ng-click='changeLanguage()'>
+        </div>
     </div>
-    <div class='col-lg-1'>
-     <!-- image of the flag -->
-     <img class='flag' ng-src="{{flagSrc}}" alt="product" width="50px" ng-click='changeLanguage()'>
-    </div>
-  </div>
 </nav>
+<!-- Sidebar -->
+<div id="wrapper" class="toggled">
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">
+                <a>
+                  {{texts.headerShopByType}}
+              </a>
+            </li>
+            <ng-repeat ng-repeat="(key, value) in makes">
+                <li ng-click="openScreenByMakes(key)">
+                    <a>{{ key }}</a>
+                </li>
+            </ng-repeat>
+        </ul>
+    </div>
+</div>

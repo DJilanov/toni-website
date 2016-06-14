@@ -1,35 +1,31 @@
 <div class="container dealsContainer" >
-  <form class="form-signin" ng-show="login">
+  <form class="form-signin" ng-show="isLogin">
     <h2 class="form-signin-heading">Please sign in</h2>
     <label for="inputEmail" class="sr-only">Email address</label>
-    <input type="username" id="inputEmail" class="form-control" ng-model="loginInfo.username" placeholder="Email address" required="" autofocus="">
+    <input type="username" id="inputEmail" class="form-control" ng-model="login.email" placeholder="Email address" required="" autofocus="">
     <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" id="inputPassword" class="form-control" ng-model="loginInfo.password" placeholder="Password" required="">
+    <input type="password" id="inputPassword" class="form-control" ng-model="login.password" placeholder="Password" required="">
     <div class="checkbox">
       <label>
-        <input type="checkbox" ng-model="loginInfo.remember" > Remember me
+        <input type="checkbox" ng-model="login.remember" > Remember me
       </label>
     </div>
-    <div vc-recaptcha key="'6Lf10xETAAAAAFoODW33iIglPTpRXndsVkUmUOQh'" class="recaptcha"></div>
-    <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="logon(loginInfo)">Sign in</button>
+    <div vc-recaptcha ng-model="gRecaptchaResponse" key="'6Lf10xETAAAAAFoODW33iIglPTpRXndsVkUmUOQh'" class="recaptcha"></div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="logon()">Sign in</button>
     <div>
       <span>or</span>
     </div>
     <button class="btn btn-lg btn-info btn-block" type="submit" ng-click="goToRegister()">Register</button>
   </form>
-  <form class="form-signin" ng-show="!login">
+  <form class="form-signin" ng-show="!isLogin">
     <h2 class="form-signin-heading">Fill all fields to register</h2>
-    <label for="inputEmail" class="sr-only">Username</label>
-    <input type="username" id="inputEmail" class="form-control" ng-model="register.username" placeholder="Email address" required="" autofocus="">
     <label for="inputEmail" class="sr-only">Email address</label>
     <input type="username" id="inputEmail" class="form-control" ng-model="register.email" placeholder="Email address" required="" autofocus="">
     <label for="inputPassword" class="sr-only">Password</label>
     <input type="password" id="inputPassword" class="form-control" ng-model="register.password" placeholder="Password" required=""> 
-    <label for="inputPassword" class="sr-only">Repeat your password</label>
-    <input type="username" id="inputEmail" class="form-control" ng-model="register.repeatedPassword" placeholder="Repeated password" required="" autofocus="">
-    <label for="inputPassword" class="sr-only">Address</label>
-    <input type="password" id="inputPassword" class="form-control" ng-model="register.address" placeholder="Address" required="">
-    <div vc-recaptcha key="'6Lf10xETAAAAAFoODW33iIglPTpRXndsVkUmUOQh'"  class="recaptcha"></div>
-    <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="regon(register)">Register</button>
+    <label for="inputRepeatPassword" class="sr-only">Repeat your password</label>
+    <input type="password" id="inputRepeatPassword" class="form-control" ng-model="register.repeatedPassword" placeholder="Repeat password" required="" autofocus="">
+    <div vc-recaptcha ng-model="gRecaptchaResponse" key="'6Lf10xETAAAAAFoODW33iIglPTpRXndsVkUmUOQh'"  class="recaptcha"></div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="regon()">Register</button>
   </form>
 </div>

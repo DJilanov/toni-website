@@ -34,6 +34,7 @@ var _mainModules = [
     ,'Login'
     //,'Modals'
     ,'Product'
+    ,'Profile'
     ,'View'
     ,'Contacts'
     ,'Carousel'

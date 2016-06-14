@@ -84,12 +84,17 @@ app.get('/api/admin', function (req, res){
 
 app.post('/api/login', function (req, res) {
 	console.log('[Server.js]Post request to login');
-	home.loginUser(req.query, res);
+	home.loginUser(req.body, res);
 });
 
 app.post('/api/register', function (req, res) {
 	console.log('[Server.js]Post request to register');
-	home.registerUser(req.query, res);
+	home.registerNewUser(req.body, res);
+});
+
+app.post('/api/updateUser', function (req, res) {
+	console.log('[Server.js]Post request to update user');
+	home.updateUser(req.query, res);
 });
 
 app.post('/api/admin/product', upload.single('file'), function (req, res){
