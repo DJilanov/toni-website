@@ -20,7 +20,11 @@ angular.module('Header')
             $scope.isActive = function(viewLocation) {
                 return viewLocation === $location.path();
             };
+            $scope.user = JSON.parse(localStorage.getItem('user'));
             $scope.selected = $scope.texts.headerSearchFor;
+            $scope.$on('login', function() {
+                $scope.user = JSON.parse(localStorage.getItem('user'));
+            });
             $scope.products = [];
             $scope.flagSrc = 'img/flag-' + language.getLang() + '.png';
             //------------------------------------------------------

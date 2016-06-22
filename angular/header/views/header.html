@@ -26,7 +26,8 @@
             <li>
                 <a ng-href="#/cart" class="navbar-link glyphicon glyphicon-shopping-cart" aria-hidden="true"></a>
             </li>
-            <li><a ng-href="#/login" class="navbar-link">{{texts.headerUsername}}</a></li>
+            <li ng-show="!user.email"><a ng-href="#/login" class="navbar-link">{{texts.headerUsername}}</a></li>
+            <li ng-show="user.email"><a ng-href="#/profile" class="navbar-link">{{texts.headerYourProfile}}</a></li>
         </ul>
     </div>
     <div class="navbar-collapse collapse">

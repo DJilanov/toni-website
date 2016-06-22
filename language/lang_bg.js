@@ -15,6 +15,7 @@ var bg = {
 	"headerShopByType": "Пазарувай по марка",
 	"headerSearch": "Търси",
 	"headerSearchFor": "Потърси...",
+	"headerYourProfile": "Профилът ви",
 	//---------------------------------------------------------------------
 	"contactMarker": "Координати",
 	"contactAddress": "Улица Могилите. София 1836",
@@ -69,6 +70,14 @@ var bg = {
 	"profileAddress": "Въведете вашия адрес за връзка",
 	"profileOther": "Въведете допълнителна информация, която би ни била полезна за свързването с вас",
 	"profileSave": "ЗАПАЗИ",
+	"profileRecievedMessage": "Изпратено от вас",
+	"profileSendedMessage": "Изпратено до вас",
+	"profileDateMessage": "Дата на изпращане",
+	"profileMessage": "Съобщение",
+	"profileOrders": "Списък на вашите поръчки",
+	"profileOrdersStatus": "Статус на поръчката",
+	"profileOrdersStatusRecieved": "Получена",
+	"profileOrdersStatusNotRecieved": "Не получена",
 	//------------------------------------------------------------------
 	"errorFetchFromServer": "Изнинка грешка при свързването със сървъра",
 	"errorWrongPassword": "Въвели сте грешен е-мейл или парола. Опитайте отново.",

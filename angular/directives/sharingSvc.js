@@ -1,8 +1,8 @@
 'use strict';
 
-angular.module('Home').factory('sharingSvc', ['$http', '$location',
+angular.module('Home').factory('sharingSvc', ['$http', '$location', '$rootScope',
 
-    function($http, $location) {
+    function($http, $location, $rootScope) {
 
         var productToView = null;
         // used for the fetch
@@ -137,6 +137,7 @@ angular.module('Home').factory('sharingSvc', ['$http', '$location',
         // we save the products and show alert that it is saved.
         function login(loginInfo) {
             grecaptcha.reset();
+            user.remember = loginInfo.remember;
             $http.post(config.api + '/login', loginInfo)
                 .success(function(data, status, headers, config) {
                     response = data;
@@ -144,8 +145,12 @@ angular.module('Home').factory('sharingSvc', ['$http', '$location',
                     alert(text.errorFetchFromServer);
                 }).then(function(response) {
                     if (!response.data.error) {
+                        if(user.remember) {
+                            user = response.data.response;
+                            localStorage.setItem('user', JSON.stringify(user));
+                        }
                         user = response.data.response;
-                        localStorage.setItem('user', JSON.stringify(user));
+                        $rootScope.$broadcast('login');
                         // move the page to the home
                         $location.path('/profile');
                     } else {
@@ -166,6 +171,7 @@ angular.module('Home').factory('sharingSvc', ['$http', '$location',
                     if (!response.data.error) {
                         user = response.data.response;
                         localStorage.setItem('user', JSON.stringify(user));
+                        $rootScope.$broadcast('login');
                         // move the page to the home
                         $location.path('/profile');
                     } else {
