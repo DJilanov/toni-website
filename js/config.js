@@ -2,11 +2,11 @@
 	// we set here the interval of the carousel in the front page
 	carousel_interval: 4000,
 	// office ip
-	api: 'http://192.168.100.124:8080/api',
+	// api: 'http://192.168.100.124:8080/api',
 	// home ip
 	// api: 'http://192.168.1.58:8080/api',
 	// server ip
-	// api: 'http://jilanov.eu:8080/api',
+	api: 'http://jilanov.eu:8080/api',
 	bigImage    : 'big',
 	smallImage	: 'small',
 	defaultLang : 'bg',
