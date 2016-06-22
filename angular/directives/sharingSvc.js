@@ -145,6 +145,7 @@ angular.module('Home').factory('sharingSvc', ['$http', '$location',
                 }).then(function(response) {
                     if (!response.data.error) {
                         user = response.data.response;
+                        localStorage.setItem('user', JSON.stringify(user));
                         // move the page to the home
                         $location.path('/profile');
                     } else {
@@ -164,6 +165,7 @@ angular.module('Home').factory('sharingSvc', ['$http', '$location',
                 }).then(function(response) {
                     if (!response.data.error) {
                         user = response.data.response;
+                        localStorage.setItem('user', JSON.stringify(user));
                         // move the page to the home
                         $location.path('/profile');
                     } else {

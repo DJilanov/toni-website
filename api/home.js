@@ -19,8 +19,10 @@
     var userCollectionCopy = {};
     // current res we update
     var resCopy = {};
-    // users controller
+    // register users controller
     var registerUser = require('./registerUser');
+    // update users controller
+    var updateUser = require('./updateUsers');
     // update users
     // TODO: IMPLEMENT UPDATE OF PROFILE
     // var updateUser = require('./updateUser');
@@ -72,16 +74,19 @@
     }
 
     function updateUser(element, res) {
-        console.log(usersDatabase);
-        // check is that email already used
         mongoose.connection.db.collection('users', function(err, collection) {
-            console.log('[Home] regis err: ' + err);
+            console.log('[Home] registerNewUser err: ' + err);
             collection.find({ "email": element.email }).toArray(function(err, docs) {
-                console.log(docs);
-                userCollectionCopy = collection;
-                // if the email is used check return error else continue to register
-                return false;
-
+                if (docs[0] == undefined) {
+                    res.send({
+                        'updated': false,
+                        'error': true
+                    });
+                } else {
+                    updateUsers.update(collection, element, updateUsersCollection);
+                    userCollectionCopy = collection;
+                    resCopy = res;
+                }
             });
         });
     }

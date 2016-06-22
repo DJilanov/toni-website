@@ -1,9 +1,11 @@
 'use strict';
 
 angular.module('Login')
-    .controller('LoginCtrl', ['$scope', '$location', '$http', 'sharingSvc', 'vcRecaptchaService',
-        function($scope, $location, $http, sharingSvc, vcRecaptchaService) {
+    .controller('LoginCtrl', ['$scope', '$location', '$http', '$rootScope', 'sharingSvc', 'vcRecaptchaService',
+        function($scope, $location, $http, $rootScope, sharingSvc, vcRecaptchaService) {
             $scope.text = language.getText();
+            // we set the page title
+            $rootScope.pageTitle = $scope.text.loginPageTitle;
             // used for the login part
             $scope.login = {
                 email: '',

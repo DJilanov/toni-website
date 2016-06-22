@@ -36,7 +36,6 @@
             console.log('\n[UpdateUsers] Updating user:' + JSON.stringify(element));
             collection.update(querry, secondaryQuerry, callback);
         }
-    }
 
     module.exports = {
         updateUsers: updateUsers,

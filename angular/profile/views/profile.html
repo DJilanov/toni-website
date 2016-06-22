@@ -1,0 +1,27 @@
+<div class="container dealsContainer">
+    <ul class="nav nav-tabs" id="profile-navi">
+        <li role="presentation" class="active"><a ng-click="profile()">{{text.profileProfile}}</a></li>
+        <li role="presentation"><a ng-click="message()">{{text.profileMessages}}</a></li>
+        <li role="presentation"><a ng-click="order()">{{text.profileOrders}}</a></li>
+    </ul>
+</div>
+<div class="container" id="profile" ng-show="tab === 'profile'">
+    <form>
+        <h2 class="form-signin-heading">{{ text.profileFull }}</h2>
+        <label for="profileName">{{ text.profileNames }}</label>
+        <input type="username" id="profileName" class="form-control" ng-model="register.email" placeholder="{{ text.profileNames }}">
+        <label for="inputEmail">{{ text.profilePhone }}</label>
+        <input type="username" id="inputEmail" class="form-control" ng-model="register.email" placeholder="{{ text.profilePhone }}">
+        <label for="inputEmail">{{ text.profileAddress }}</label>
+        <input type="username" id="inputEmail" class="form-control" ng-model="register.email" placeholder="{{ text.profileAddress }}">
+        <label for="inputEmail">{{ text.profileOther }}</label>
+        <textarea id="inputEmail" class="form-control" ng-model="register.email">{{ text.profileOther }}</textarea>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="saveChanges()">{{ text.profileSave }}</button>
+    </form>
+</div>
+<div class="container" id="message" ng-show="tab === 'message'">
+test1
+</div>
+<div class="container" id="order" ng-show="tab === 'order'">
+test2
+</div>

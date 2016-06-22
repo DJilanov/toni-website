@@ -567,6 +567,16 @@ h3.page-product-heading {
 .form-signin .recaptcha {
     margin-left: 36%;
 }
+/* profile page */
+#profile-navi{
+    margin-top:10px;
+}
+#profile-navi li{
+    width:33%;
+}
+#profile label {
+    margin-left:1px;
+}
 /* global variables */
 a {
     color: #777;
