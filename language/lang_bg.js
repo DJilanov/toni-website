@@ -74,7 +74,6 @@ var bg = {
 	"profileSendedMessage": "Изпратено до вас",
 	"profileDateMessage": "Дата на изпращане",
 	"profileMessage": "Съобщение",
-	"profileOrders": "Списък на вашите поръчки",
 	"profileOrdersStatus": "Статус на поръчката",
 	"profileOrdersStatusRecieved": "Получена",
 	"profileOrdersStatusNotRecieved": "Не получена",

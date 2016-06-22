@@ -1,0 +1,70 @@
+<div class="container dealsContainer">
+    <ul class="nav nav-tabs" id="profile-navi">
+        <li role="presentation" class="active"><a ng-click="profile()">{{text.profileProfile}}</a></li>
+        <li role="presentation"><a ng-click="message()">{{text.profileMessages}}</a></li>
+        <li role="presentation"><a ng-click="order()">{{text.profileOrders}}</a></li>
+    </ul>
+</div>
+<div class="container" id="profile" ng-show="tab === 'profile'">
+    <form>
+        <h2 class="form-signin-heading">{{ text.profileFull }}</h2>
+        <label for="profileName">{{ text.profileNames }}</label>
+        <input type="username" id="profileName" class="form-control" ng-model="register.email" placeholder="{{ text.profileNames }}">
+        <label for="inputEmail">{{ text.profilePhone }}</label>
+        <input type="username" id="inputEmail" class="form-control" ng-model="register.email" placeholder="{{ text.profilePhone }}">
+        <label for="inputEmail">{{ text.profileAddress }}</label>
+        <input type="username" id="inputEmail" class="form-control" ng-model="register.email" placeholder="{{ text.profileAddress }}">
+        <label for="inputEmail">{{ text.profileOther }}</label>
+        <textarea id="inputEmail" class="form-control" ng-model="register.email">{{ text.profileOther }}</textarea>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="saveChanges()">{{ text.profileSave }}</button>
+    </form>
+</div>
+<div class="container" id="message" ng-show="tab === 'message'">
+    <div class="product col-xs-12" ng-repeat="message in user.messages">
+        <form class="form-horizontal spacing-30">
+            <fieldset>
+                <!-- Form Name -->
+                <legend ng-show="message.incoming">{{ text.profileRecievedMessage }}</legend>
+                <legend ng-show="!message.incoming">{{ text.profileSendedMessage }}</legend>
+                <!-- Date Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="dateInput">{{ text.profileDateMessage }}</label>
+                    <div class="col-md-4">
+                        <input id="dateInput" name="dateInput" type="text" class="form-control input-md" ng-model="message.date | date:'MM-dd-yyyy' ">
+                    </div>
+                </div>
+                <!-- Message text area-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="messageInput">{{ text.profileMessage }}</label>
+                    <div class="col-md-4">
+                        <textarea id="messageInput" name="messageInput" class="form-control input-md" rows="5" ng-model="message.message"></textarea>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+<div class="container" id="order" ng-show="tab === 'order'">
+    <div class="product col-xs-12" ng-repeat="order in user.orders">
+        <form class="form-horizontal spacing-30">
+            <fieldset>
+                <!-- Form Name -->
+                <legend>{{ text.profileOrders }}</legend>
+                <!-- Date Text input-->
+                <div class="form-group">
+                    <span>{{ text.profileOrdersStatus }}</span>
+                    <span> : </span>
+                    <span ng-show="order.recieved">{{ text.profileOrdersStatusRecieved }}</span>
+                    <span ng-show="!order.recieved">{{ text.profileOrdersStatusNotRecieved }}</span>
+                </div>
+                <!-- Message text area-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="messageInput">{{ text.profileMessage }}</label>
+                    <div class="col-md-4">
+                        <textarea id="messageInput" name="messageInput" class="form-control input-md" rows="5" ng-model="message.message"></textarea>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
