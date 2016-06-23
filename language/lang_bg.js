@@ -77,6 +77,7 @@ var bg = {
 	"profileOrdersStatus": "Статус на поръчката",
 	"profileOrdersStatusRecieved": "Получена",
 	"profileOrdersStatusNotRecieved": "Не получена",
+	"profileOrdersAmount": "на брой.",
 	//------------------------------------------------------------------
 	"errorFetchFromServer": "Изнинка грешка при свързването със сървъра",
 	"errorWrongPassword": "Въвели сте грешен е-мейл или парола. Опитайте отново.",
