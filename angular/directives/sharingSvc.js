@@ -145,11 +145,15 @@ angular.module('Home').factory('sharingSvc', ['$http', '$location', '$rootScope'
                     alert(text.errorFetchFromServer);
                 }).then(function(response) {
                     if (!response.data.error) {
+                        var remember = false;
                         if(user.remember) {
-                            user = response.data.response;
-                            localStorage.setItem('user', JSON.stringify(user));
+                            remember = true;
                         }
                         user = response.data.response;
+                        user.password = null;
+                        if(remember) {
+                            localStorage.setItem('user', JSON.stringify(user));
+                        }
                         $rootScope.$broadcast('login');
                         // move the page to the home
                         $location.path('/profile');

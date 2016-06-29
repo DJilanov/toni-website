@@ -25,6 +25,9 @@ angular.module('Header')
             $scope.$on('login', function() {
                 $scope.user = JSON.parse(localStorage.getItem('user'));
             });
+            $scope.$on('signOut', function() {
+                $scope.user = JSON.parse(localStorage.getItem('user'));
+            });
             $scope.products = [];
             $scope.flagSrc = 'img/flag-' + language.getLang() + '.png';
             //------------------------------------------------------

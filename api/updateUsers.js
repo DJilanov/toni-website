@@ -28,6 +28,7 @@
                     'username': element.username,
                     'password': element.password,
                     'email': element.email,
+                    'other': element.other,
                     'address': element.address,
                     'orders': element.orders,
                     'messages': element.messages

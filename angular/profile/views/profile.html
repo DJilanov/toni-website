@@ -9,14 +9,15 @@
     <form>
         <h2 class="form-signin-heading">{{ text.profileFull }}</h2>
         <label for="profileName">{{ text.profileNames }}</label>
-        <input type="username" id="profileName" class="form-control" ng-model="register.email" placeholder="{{ text.profileNames }}">
-        <label for="inputEmail">{{ text.profilePhone }}</label>
-        <input type="username" id="inputEmail" class="form-control" ng-model="register.email" placeholder="{{ text.profilePhone }}">
-        <label for="inputEmail">{{ text.profileAddress }}</label>
-        <input type="username" id="inputEmail" class="form-control" ng-model="register.email" placeholder="{{ text.profileAddress }}">
-        <label for="inputEmail">{{ text.profileOther }}</label>
-        <textarea id="inputEmail" class="form-control" ng-model="register.email">{{ text.profileOther }}</textarea>
+        <input type="username" id="profileName" class="form-control" ng-model="user.names" placeholder="{{ text.profileNames }}">
+        <label for="inputPhone">{{ text.profilePhone }}</label>
+        <input type="username" id="inputPhone" class="form-control" ng-model="user.phone" placeholder="{{ text.profilePhone }}">
+        <label for="inputAddress">{{ text.profileAddress }}</label>
+        <input type="username" id="inputAddress" class="form-control" ng-model="user.address" placeholder="{{ text.profileAddress }}">
+        <label for="inputOther">{{ text.profileOther }}</label>
+        <textarea id="inputOther" class="form-control" ng-model="user.other">{{ text.profileOther }}</textarea>
         <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="saveChanges()">{{ text.profileSave }}</button>
+        <button class="btn btn-lg btn-danger btn-block" type="submit" ng-click="signOut()">{{ text.profileSignOut }}</button>
     </form>
 </div>
 <div class="container" id="message" ng-show="tab === 'message'">

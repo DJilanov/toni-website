@@ -70,6 +70,7 @@ var bg = {
 	"profileAddress": "Въведете вашия адрес за връзка",
 	"profileOther": "Въведете допълнителна информация, която би ни била полезна за свързването с вас",
 	"profileSave": "ЗАПАЗИ",
+	"profileSignOut": "Изход от профила",
 	"profileRecievedMessage": "Изпратено от вас",
 	"profileSendedMessage": "Изпратено до вас",
 	"profileDateMessage": "Дата на изпращане",

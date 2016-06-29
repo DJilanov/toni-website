@@ -14,6 +14,7 @@ angular.module('Profile')
             // $scope.user = {
             //     "email": "",
             //     "password": "",
+            //     "other": "",
             //     "username": "",
             //     "address": "",
             //     "orders": [{
@@ -75,7 +76,13 @@ angular.module('Profile')
             }
 
             $scope.saveChanges = function() {
+                sharingSvc.getProducts(addOrders)
+            }
 
+            $scope.signOut = function() {
+                localStorage.setItem('user', JSON.stringify({}));
+                $location.path('/login');
+                $rootScope.$broadcast('signOut');
             }
 
             // imitate the olx user profile
