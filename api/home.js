@@ -91,7 +91,7 @@
         });
     }
 
-    function resSend(err) {
+    function resSend(err, doc) {
         if (err) {
             console.log('Error:' + err);
             resCopy.send({
@@ -101,7 +101,8 @@
         } else {
             resCopy.send({
                 'updated': true,
-                'error': false
+                'error': false,
+                'response': doc
             });
         }
     }
@@ -136,7 +137,7 @@
             console.log('Update users database');
         });
         // check the doc or err for the user we created. Needs better logic
-        resSend(err);
+        resSend(err, doc.ops[0]);
     }
 
     function updateProducts(collection) {

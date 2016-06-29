@@ -184,6 +184,10 @@ angular.module('Home').factory('sharingSvc', ['$http', '$location', '$rootScope'
                 });
         }
 
+        function saveUser(user) {
+            alert('Todo');
+        }
+
         function setBackgroundIfAvalible(config) {
             if (config.showBackgroundImg) {
                 document.getElementById('screen').style.background = "url('img/background.png') no-repeat right top";
@@ -200,14 +204,15 @@ angular.module('Home').factory('sharingSvc', ['$http', '$location', '$rootScope'
         }
 
         return {
-            login: login,
             register: register,
+            login: login,
             getUser: getUser,
+            saveUser: saveUser,
             getProducts: getProducts,
             viewProduct: viewProduct,
-            getProductToView: getProductToView,
+            sendOrderForm: sendOrderForm,
             sendContactForm: sendContactForm,
-            sendOrderForm: sendOrderForm
+            getProductToView: getProductToView,
         };
     }
 ]);

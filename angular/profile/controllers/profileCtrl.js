@@ -76,7 +76,7 @@ angular.module('Profile')
             }
 
             $scope.saveChanges = function() {
-                sharingSvc.getProducts(addOrders)
+                sharingSvc.saveUser(addOrders)
             }
 
             $scope.signOut = function() {
