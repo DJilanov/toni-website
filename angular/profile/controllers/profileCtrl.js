@@ -17,15 +17,15 @@ angular.module('Profile')
             //     "other": "",
             //     "username": "",
             //     "address": "",
-            //     "orders": [{
-            //         "amount": 1,
-            //         "id": "",
-            //         "recieved": true
-            //     }],
-            //     "messages": [{
-            //         "date": "19234657",
-            //         "message": "test1"
-            //     }]
+            // "orders": [{
+            //     "amount": 1,
+            //     "id": "564a0c51ffc0edc23e6258a0",
+            //     "recieved": true
+            // }],
+            // "messages": [{
+            //     "date": "19234657",
+            //     "message": "test1"
+            // }]
             // };
 
             $scope.user = sharingSvc.getUser();
@@ -33,7 +33,9 @@ angular.module('Profile')
                 $scope.user = JSON.parse(localStorage.getItem('user'));
             }
             $scope.orders = $scope.user.orders;
-            sharingSvc.getProducts(addOrders)
+            if ($scope.orders !== undefined) {
+                sharingSvc.getProducts(addOrders)
+            }
 
             function addOrders(products) {
                 for (var ordersCounter = 0; ordersCounter < $scope.orders.length; ordersCounter++) {
@@ -76,7 +78,14 @@ angular.module('Profile')
             }
 
             $scope.saveChanges = function() {
-                sharingSvc.saveUser(addOrders)
+                sharingSvc.saveUser($scope.user, function() {
+                    var person = JSON.parse(localStorage.getItem('user'));
+                    person.names = $scope.user.names;
+                    person.phone = $scope.user.phone;
+                    person.other = $scope.user.other;
+                    person.address = $scope.user.address;
+                    localStorage.setItem('user', JSON.stringify(person));
+                });
             }
 
             $scope.signOut = function() {

@@ -94,7 +94,7 @@ app.post('/api/register', function (req, res) {
 
 app.post('/api/updateUser', function (req, res) {
 	console.log('[Server.js]Post request to update user');
-	home.updateUser(req.query, res);
+	home.updateUser(req.body, res);
 });
 
 app.post('/api/admin/product', upload.single('file'), function (req, res){

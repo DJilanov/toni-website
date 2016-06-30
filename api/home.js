@@ -19,18 +19,14 @@
     var userCollectionCopy = {};
     // current res we update
     var resCopy = {};
-    // register users controller
-    var registerUser = require('./registerUser');
-    // update users controller
-    var updateUser = require('./updateUsers');
-    // update users
-    // TODO: IMPLEMENT UPDATE OF PROFILE
-    // var updateUser = require('./updateUser');
+    // users controller
+    var registerUser      = require('./registerUser');
+    var userUpdate        = require('./updateUser');
 
     function loginUser(element, res) {
         // check is that email already used
         mongoose.connection.db.collection('users', function(err, collection) {
-            console.log('[Home] updateProduct err: ' + err);
+            console.log('[Home] loginUser err: ' + err);
             collection.find({ "email": element.email }).toArray(function(err, docs) {
                 if (docs[0] != undefined) {
                     if (element.password === docs[0].password) {
@@ -65,7 +61,7 @@
                         'error': true
                     });
                 } else {
-                    registerUser.register(collection, element, updateUsersCollection);
+                    registerUser.register(collection, element, registerUsersCollection);
                     userCollectionCopy = collection;
                     resCopy = res;
                 }
@@ -73,17 +69,17 @@
         });
     }
 
-    function updateUser(element, res) {
+    function updateUser(user, res) {
         mongoose.connection.db.collection('users', function(err, collection) {
-            console.log('[Home] registerNewUser err: ' + err);
-            collection.find({ "email": element.email }).toArray(function(err, docs) {
+            console.log('[Home] updateUser err: ' + err);
+            collection.find({ "token": user.token }).toArray(function(err, docs) {
                 if (docs[0] == undefined) {
                     res.send({
                         'updated': false,
                         'error': true
                     });
                 } else {
-                    updateUsers.update(collection, element, updateUsersCollection);
+                    userUpdate.update(collection, user, updateUsersCollection);
                     userCollectionCopy = collection;
                     resCopy = res;
                 }
@@ -111,6 +107,10 @@
         updateUsers(err, doc);
     }
 
+    function registerUsersCollection(err, doc) {
+        registerUsers(err, doc);
+    }
+
     function getCategoryDatabase() {
         return categoryDatabase;
     }
@@ -129,6 +129,17 @@
 
     function setConfig(loadedConfig) {
         config = loadedConfig;
+        // add the config to the users
+        registerUser.setConfig(loadedConfig);
+    }
+
+    function registerUsers(err, doc) {
+        userCollectionCopy.find().toArray(function(err, docs) {
+            usersDatabase = docs;
+            console.log('Update users database');
+        });
+        // check the doc or err for the user we created. Needs better logic
+        resSend(err, doc.ops[0]);
     }
 
     function updateUsers(err, doc) {
@@ -137,7 +148,7 @@
             console.log('Update users database');
         });
         // check the doc or err for the user we created. Needs better logic
-        resSend(err, doc.ops[0]);
+        resSend(err, doc);
     }
 
     function updateProducts(collection) {

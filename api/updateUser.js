@@ -10,14 +10,14 @@
         }
 
         // here we update products into the database
-        function updateUsers(collection, element, callback) {
+        function update(collection, element, callback) {
             sendAndReturn(collection, element, callback);
 
         }
         // here we send the element to the database and we return info
         function sendAndReturn(collection, element, callback) {
             var querry = {
-                "_id": ObjectId(element._id)
+                "token": element.token
             };
             if (typeof element.orders !== 'string') {
                 element.messages = JSON.stringify(element.messages);
@@ -25,13 +25,10 @@
             }
             var secondaryQuerry = {
                 $set: {
-                    'username': element.username,
-                    'password': element.password,
-                    'email': element.email,
+                    'names': element.names,
+                    'phone': element.phone,
                     'other': element.other,
                     'address': element.address,
-                    'orders': element.orders,
-                    'messages': element.messages
                 }
             };
             console.log('\n[UpdateUsers] Updating user:' + JSON.stringify(element));
@@ -39,7 +36,7 @@
         }
 
     module.exports = {
-        updateUsers: updateUsers,
+        update: update,
         setConfig: setConfig
     };
 }());

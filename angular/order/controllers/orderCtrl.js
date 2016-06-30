@@ -22,6 +22,15 @@ angular.module('Order')
             $scope.totalPrice = 0;
             // form object
             $scope.form = {};
+            if (localStorage.getItem('user').length > 0) {
+                var user = JSON.parse(localStorage.getItem('user'));
+                if (user.email !== undefined) {
+                    $scope.form.name = user.names;
+                    $scope.form.email = user.email;
+                    $scope.form.phone = user.phone;
+                    $scope.form.name = user.address;
+                };
+            }
             // used if there is no selected product and have to check witch is with this ID
             if((localStorage.getItem('cart'))&&(localStorage.getItem('cart').length > 3)) {
                 $scope.products = JSON.parse(localStorage.getItem('cart'));

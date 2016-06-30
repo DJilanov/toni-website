@@ -7,6 +7,17 @@ angular.module('Contacts')
             // we set the page title
             $rootScope.pageTitle = $scope.text.contactPageTitle;
             $scope.form = {};
+            // we prefill the contact form for the registered users
+            if (localStorage.getItem('user').length > 0) {
+                var user = JSON.parse(localStorage.getItem('user'));
+                if (user.email !== undefined) {
+                    $scope.form.name = user.names;
+                    $scope.form.email = user.email;
+                    $scope.form.phone = user.phone;
+                    $scope.form.name = user.address;
+                };
+            }
+
             $scope.gRecaptchaResponse = '';
             (function() {
                 // Create a map object and specify the DOM element for display.

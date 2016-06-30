@@ -174,6 +174,7 @@ angular.module('Home').factory('sharingSvc', ['$http', '$location', '$rootScope'
                 }).then(function(response) {
                     if (!response.data.error) {
                         user = response.data.response;
+                        user.password = null;
                         localStorage.setItem('user', JSON.stringify(user));
                         $rootScope.$broadcast('login');
                         // move the page to the home
@@ -184,8 +185,28 @@ angular.module('Home').factory('sharingSvc', ['$http', '$location', '$rootScope'
                 });
         }
 
-        function saveUser(user) {
-            alert('Todo');
+        function saveUser(user, callback) {
+            var data = {
+                names: user.names,
+                phone: user.phone,
+                other: user.other,
+                token: user.token,
+                address: user.address
+            };
+            // TODO: CONTROLL IT WITH THE USER TOKEN. DONT ALLOW SOMEONE TO MODIFY SOMETHING
+            $http.post(config.api + '/updateUser', data)
+                .success(function(data, status, headers, config) {
+                    response = data;
+                }).error(function(data, status, headers, config) {
+                    alert(text.errorFetchFromServer);
+                }).then(function(response) {
+                    if (!response.data.error) {
+                        alert(text.profileOnSave);
+                        callback();
+                    } else {
+                        alert(text.errorFetchFromServer);
+                    }
+                });
         }
 
         function setBackgroundIfAvalible(config) {
