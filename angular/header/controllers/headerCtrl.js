@@ -20,7 +20,7 @@ angular.module('Header')
             $scope.isActive = function(viewLocation) {
                 return viewLocation === $location.path();
             };
-            if(localStorage.getItem('user').length > 0) {
+            if(localStorage.getItem('user')) {
                 $scope.user = JSON.parse(localStorage.getItem('user'));
             }
             $scope.selected = $scope.texts.headerSearchFor;
