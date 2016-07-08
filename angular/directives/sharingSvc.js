@@ -100,7 +100,7 @@ angular.module('Home').factory('sharingSvc', ['$http', '$location', '$rootScope'
         function sendContactForm(form) {
             grecaptcha.reset();
             form.new = 'true';
-            $http.post(config.api + '/home/message', form)
+            $http.post(config.api + '/message', form)
                 .success(function(data, status, headers, config) {
                     response = data;
                 }).error(function(data, status, headers, config) {
@@ -118,7 +118,7 @@ angular.module('Home').factory('sharingSvc', ['$http', '$location', '$rootScope'
         function sendOrderForm(form) {
             grecaptcha.reset();
             form.new = 'true';
-            $http.post(config.api + '/home/order', form)
+            $http.post(config.api + '/order', form)
                 .success(function(data, status, headers, config) {
                     response = data;
                 }).error(function(data, status, headers, config) {

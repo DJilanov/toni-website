@@ -151,6 +151,22 @@
         resSend(err, doc);
     }
 
+    function updateMessages(collection) {
+        collection.find().toArray(function(err, docs) {
+            messageDatabase = docs;
+            // TODO: Save all of the personal message to the person they are send from
+            console.log('Update messages database');
+        });
+    }
+
+    function updateOrders(collection) {
+        collection.find().toArray(function(err, docs) {
+            ordersDatabase = docs;
+            // TODO: Save all of the personal orders to the person they are send from
+            console.log('Update orders database');
+        });
+    }
+
     function updateProducts(collection) {
         collection.find().toArray(function(err, docs) {
             productsDatabase = docs;
@@ -162,20 +178,6 @@
         collection.find().toArray(function(err, docs) {
             categoryDatabase = docs;
             console.log('Update categories database');
-        });
-    }
-
-    function updateMessages(collection) {
-        collection.find().toArray(function(err, docs) {
-            messageDatabase = docs;
-            console.log('Update messages database');
-        });
-    }
-
-    function updateOrders(collection) {
-        collection.find().toArray(function(err, docs) {
-            ordersDatabase = docs;
-            console.log('Update orders database');
         });
     }
 

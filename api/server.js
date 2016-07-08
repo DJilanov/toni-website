@@ -92,6 +92,18 @@ app.post('/api/register', function (req, res) {
 	home.registerNewUser(req.body, res);
 });
 
+app.post('/api/order', function (req, res){
+	console.log('[Server.js]Post request to orders');
+	admin.updateOrder(req.body, res);
+	res.json(req.query);
+});
+
+app.post('/api/message', function (req, res){
+	console.log('[Server.js]Post request to messages');
+	admin.updateMessage(req.body, res);
+	res.json(req.query);
+});
+
 app.post('/api/updateUser', function (req, res) {
 	console.log('[Server.js]Post request to update user');
 	home.updateUser(req.body, res);
@@ -127,21 +139,9 @@ app.post('/api/admin/mainConfig', upload.single('file'), function (req, res){
 	res.json(req.query);
 });
 
-app.post('/api/home/message', function (req, res){
-	console.log('[Server.js]Post request to messages');
-	admin.updateMessage(req.body, res);
-	res.json(req.query);
-});
-
 app.post('/api/admin/message', function (req, res){
 	console.log('[Server.js]Post request to messages');
 	admin.updateMessage(req.query, res);
-	res.json(req.query);
-});
-
-app.post('/api/home/order', function (req, res){
-	console.log('[Server.js]Post request to orders');
-	admin.updateOrder(req.body, res);
 	res.json(req.query);
 });
 
