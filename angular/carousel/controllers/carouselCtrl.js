@@ -4,7 +4,6 @@ angular.module('Carousel')
     .controller('CarouselCtrl', ['$scope', 'sharingSvc', '$location',
         function($scope, sharingSvc, $location) {
             $scope.config = config;
-            $scope.myInterval = 3000;
             // we generate dummy object
             $scope.slides = [{
                 id: "0",

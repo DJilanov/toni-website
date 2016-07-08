@@ -10,7 +10,7 @@ module.exports = function (grunt) {
         concat: {
             'test-assets': {
                 src: [
-                    'third-party/bootstrap-3.1.1-dist/css/bootstrap.min.css',
+                    'third-party/bootstrap/css/bootstrap.min.css',
                     'third-party/font-awesome-4.0.3/css/font-awesome.min.css',
                     'css/*.css'
                 ],
@@ -40,7 +40,7 @@ module.exports = function (grunt) {
                         'js/angular.min.js',
                         'js/*.js',
                         'language/*.js',
-                        'third-party/bootstrap-3.1.1-dist/js/bootstrap.min.js',
+                        'third-party/bootstrap/js/bootstrap.min.js',
                         'js/angular-resource/angular-resource.min.js',
                         'js/angular-route/angular-route.min.js',
                         'third-party/angular-animate/angular-animate.min.js',
@@ -120,7 +120,7 @@ module.exports = function (grunt) {
                     {
                         expand: true,
                         flatten: false,
-                        cwd: './third-party/bootstrap-3.1.1-dist/fonts/',
+                        cwd: './third-party/bootstrap/fonts/',
                         src: '*.*',
                         dest: 'build/fonts/'
                     },
