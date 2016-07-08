@@ -1,6 +1,6 @@
 <div ng-controller="CarouselCtrl" id="slides_control">
     <div>
-        <uib-carousel active="0" interval="2000" no-wrap="noWrapSlides">
+        <uib-carousel active="0" interval="2000" no-wrap="noWrapSlides" class="fade">
             <uib-slide ng-repeat="slide in slides track by slide._id" ng-click="onProductClick(slide)" index="$index">
                 <img ng-src="{{'./img/' + config.bigImage + '' + slide._id + '.png' + '?' + time}}" style="margin:auto;" alt="slide">
                 <div class="carousel-caption">

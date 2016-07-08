@@ -707,40 +707,41 @@ h3.page-product-heading {
 #profile label {
     margin-left: 1px;
 }
-
-
+/* carousel size */
+.carousel-inner {
+    width: 80%;
+    margin-left: 10%;
+}
 /* carousel animation */
 
-.carousel.fading .carousel-inner > .item {
-    /* Override the properties for the default sliding carousel */
-    display: block;
-    position: absolute;
-    left: 0 !important;
-    /* Hide slides by default */
-    opacity: 0;
-    /* Set transition to opactity */
-    -moz-transition: .6s ease-in-out opacity;
-    -webkit-transition: .6s ease-in-out opacity;
-    -o-transition: .6s ease-in-out opacity;
-    transition: .6s ease-in-out opacity;
+.carousel.fade {
+  opacity: 1;
 }
-
-
-/* Active slides are visible on transition end */
-
-.carousel.fading .carousel-inner > .active,
-
-/* Next slide is visible during transition */
-
-.carousel.fading .carousel-inner > .next.left {
-    opacity: 1;
+.carousel.fade .item {
+  -moz-transition: opacity ease-in-out .4s;
+  -o-transition: opacity ease-in-out .4s;
+  -webkit-transition: opacity ease-in-out .4s;
+  transition: opacity ease-in-out .4s;
+  left: 0 !important;
+  opacity: 0;
+  top:0;
+  position:absolute;
+  width: 100%;
+  display:block !important;
+  z-index:1;
 }
-
-.carousel.fading .carousel-inner > .next,
-.carousel.fading .carousel-inner > .active.left {
-    opacity: 0;
+.carousel.fade .item:first-child {
+  top:auto;
+  position:relative;
 }
-
+.carousel.fade .item.active {
+  opacity: 1;
+  -moz-transition: opacity ease-in-out .4s;
+  -o-transition: opacity ease-in-out .4s;
+  -webkit-transition: opacity ease-in-out .4s;
+  transition: opacity ease-in-out .4s;
+  z-index:2;
+}
 
 /* global variables */
 
